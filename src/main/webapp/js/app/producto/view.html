@@ -1,0 +1,57 @@
+<!--<header ng-include="'js/app/header.html'"></header>-->
+<header-component></header-component>
+
+<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
+
+    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">View Producto:<small>  {{ajaxData.desc}} </small></h1>
+        <i class="fas fa-archive fa-3x"></i>
+    </div>
+
+    <div class="mx-auto" style="margin-top: 80px; padding: 20px; width: 50%; background-color: WHITESMOKE; border-radius: 7px">
+        
+        <div class="form-group">
+            <div class="row">
+                <div class="mx-auto">
+                    <img ng-src="http://localhost:8081/imagenes/{{ajaxData.foto}}" style="width: 128px; height: 128px;">
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-hover">
+            <tr>
+                <th style="padding-left: 30px;">Id:</th>
+                <td>{{ajaxData.id}}</td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">Codigo:</th>
+                <td>{{ajaxData.codigo}}</td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">Descripción:</th>
+                <td>{{ajaxData.desc}}</td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">Existencias:</th>
+                <td>{{ajaxData.existencias}}</td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">Precio:</th>
+                <td>{{ajaxData.precio}}</td>
+            </tr>     
+            <tr>
+                <th style="padding-left: 30px;">Tipo Producto:</th>
+                <td><a href="{{'/tailorShop/tipoproducto/view/' + ajaxData.obj_tipoProducto.id}}" class="enlaceColor">{{ajaxData.obj_tipoProducto.desc}}</a></td>
+            </tr>
+        </table>
+
+
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-secondary ml-0" onClick="javascript:history.go(-1);">Volver</button>
+        </div>
+    </div>
+
+</main>
+
+<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
+<!--<footer-component></footer-component>-->

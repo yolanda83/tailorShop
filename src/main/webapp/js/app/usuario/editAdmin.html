@@ -1,0 +1,116 @@
+<!--<header ng-include="'js/app/header.html'"></header>-->
+<header-component></header-component>
+
+
+<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
+
+
+    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Edit Usuario:<small>  {{ajaxData.login}} </small></h1>
+        <i class="fas fa-user-edit fa-3x"></i>
+    </div>
+
+    <div class="col-6 mx-auto">
+        <form name="userForm" class="p-5 mx-auto" ng-show="!edit"> 
+
+            <div class="form-group"> 
+                <div class="form-group">
+                    <label for="dni" class="col-form-label">DNI:</label>
+                    <input id="dni" ng-model="dni" class="form-control" ng-class="{'is-invalid': userForm.dni.$invalid && !userForm.dni.$pristine}"
+                           name="dni" type="text" ng-required="true" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/" 
+                           placeholder="Introduce un DNI..."/>
+                    <div ng-show="userForm.dni.$error.pattern" class="alert alert-danger" role="alert">
+                        Formato DNI no valido
+                    </div>
+                    <div ng-show="!userForm.dni.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
+                        DNI obligatorio
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group"> 
+                <label for="nombre" class="col-form-label">Nombre:</label>
+                <input id="nombre" ng-model="nombre" class="form-control" ng-class="{'is-invalid': userForm.nombre.$invalid && !userForm.nombre.$pristine}"
+                       name="nombre" type="text" ng-required="true" placeholder="Introduce un nombre..." />
+                <div ng-show="!userForm.nombre.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
+                    Nombre obligatorio
+                </div>
+            </div>
+
+            <div class="form-group"> 
+                <label for="ape1" class="col-form-label">Primer apellido:</label>
+                <input id="ape1" ng-model="ape1" class="form-control" ng-class="{'is-invalid': userForm.ape1.$invalid && !userForm.ape1.$pristine}"
+                       name="ape1" type="text" ng-required="true" placeholder="Introduce un apellido..." />
+                <div ng-show="!userForm.ape1.$valid && userForm.ape1.$dirty && !userForm.ape1.$pristine" class="alert alert-danger" role="alert">
+                    Apellido obligatorio
+                </div>
+            </div>
+
+            <div class="form-group"> 
+                <label for="ape2" class="col-form-label">Segundo apellido:</label>
+                <input ng-model="ape2" class="form-control" ng-class="{'is-invalid': userForm.ape2.$invalid && !userForm.ape2.$pristine}"
+                       name="ape2" type="text" ng-required="true" placeholder="Introduce un apellido..." />
+                <div ng-show="!userForm.ape2.$valid && userForm.ape2.$dirty && !userForm.ape2.$pristine" class="alert alert-danger" role="alert">
+                    Apellido obligatorio
+                </div>
+            </div>
+
+            <div class="form-group"> 
+                <label for="loginAdmin" class="col-form-label">Nombre Usuario:</label>
+                <input id="loginAdmin" type="text" class="form-control"  ng-class="{'is-invalid': userForm.loginAdmin.$invalid && !userForm.loginAdmin.$pristine}"
+                       name="loginAdmin" ng-model="loginAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce nombre usuario..."/>
+
+                <div ng-show="userForm.loginAdmin.$error.minlength" class="alert alert-danger" role="alert">
+                    La longitud del login es demasiado corto
+                </div>           
+                <div ng-show="!userForm.loginAdmin.$valid && userForm.loginAdmin.$dirty && !userForm.loginAdmin.$pristine" class="alert alert-danger" role="alert">
+                    Nombre usuario obligatorio
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Tipo Usuario</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control mr-0" id="obj_tipoUsuario.desc" name="obj_tipoUsuario.desc" ng-model="obj_tipoUsuario.desc"
+                           ng-click="modal()" disabled/>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-outline-secondary ml-0" data-toggle="modal" data-target="#cadd-location-modal">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between flex-wrap">
+                <button ng-click="guardar()" class="btn btn-info mt-2 ml-0">Guardar</button>
+                <button class="btn btn-secondary mt-2" onClick="javascript:history.go(-1);">Volver</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="row" ng-show="edit">
+        <div class="col-12">
+            <div class="card mx-auto" style="margin-top: 100px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
+                <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;">El Usuario ha sido editado correctamente.</h4>
+                    <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
+                        <button type="button" class="btn btn-info" onclick="window.history.back()">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
+<!--<footer-component></footer-component>-->
+
+
+<!--Componenete modal-->
+<cadd-modal-var class="modal fade ng-isolate-scope" id="cadd-location-modal" tabla="'tipousuario'" data="obj_tipoUsuario" aria-hidden="true"
+                style="display: none;"></cadd-modal-var>
+
+
+

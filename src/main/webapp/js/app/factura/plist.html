@@ -1,0 +1,145 @@
+<!--<header ng-include="'js/app/header.html'"></header>-->
+<header-component></header-component>
+
+
+<div class="container-fluid">
+    <div class="row">      
+        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 ng-show="hayId == false" class="h2"><i class="fas fa-file-invoice"></i> Factura:<small> En la BBDD hay {{ajaxDataFacturaNumber}} facturas</small></h1>
+                <h1 ng-show="hayId == true" class="h2">Facturas: <small>Usuario {{user}}</small></h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group btn-group-toggle mr-3" data-toggle="buttons">
+                        <a ng-show="admin" href="/tailorShop/factura/new/" class="btn btn-outline-info" role="button" >Nueva factura</a>
+                        <button type="button" class="btn btn-outline-info" ng-click="resetOrder()">Reset ordenación</button>
+                    </div>
+                </div>
+            </div>    
+
+            <!--Registros por página-->
+            <div>
+                <nav aria-label="RegistrosPorPagina">
+                    <ul class="pagination" style="float: right;">
+                        <!--                        <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page}}">10</a></li>
+                                                <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page}}">50</a></li>
+                                                <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page}}">100</a></li>-->
+                        <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page + '/' + id + '/' + user}}">10</a></li>
+                        <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page + '/' + id + '/' + user}}">50</a></li>
+                        <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page + '/' + id + '/' + user}}">100</a></li>
+                    </ul>
+                </nav>              
+            </div>
+
+
+            <!--tabla de contenidos-->
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <tr>
+                        <th>
+                            ID
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <button type="button" class="btn btn-light" ng-click="ordena('id', 'asc')">
+                                    <i class="fas fa-angle-up"></i>
+                                </button>
+                                <button type="button" class="btn btn-light" ng-click="ordena('id', 'desc')">
+                                    <i class="fas fa-angle-down"></i>
+                                </button>
+                            </div>
+                        </th>
+                        <th>
+                            Fecha
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <button type="button" class="btn btn-light" ng-click="ordena('fecha', 'asc')">
+                                    <i class="fas fa-angle-up"></i>
+                                </button>
+                                <button type="button" class="btn btn-light" ng-click="ordena('fecha', 'desc')">
+                                    <i class="fas fa-angle-down"></i>
+                                </button>
+                            </div>
+                        </th>
+                        <th>
+                            IVA
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <button type="button" class="btn btn-light" ng-click="ordena('iva', 'asc')">
+                                    <i class="fas fa-angle-up"></i>
+                                </button>
+                                <button type="button" class="btn btn-light" ng-click="ordena('iva', 'desc')">
+                                    <i class="fas fa-angle-down"></i>
+                                </button>
+                            </div>
+                        </th>
+                        <th ng-show="hayId == false">
+                            Usuario
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <button type="button" class="btn btn-light" ng-click="ordena('id_usuario', 'asc')">
+                                    <i class="fas fa-angle-up"></i>
+                                </button>
+                                <button type="button" class="btn btn-light" ng-click="ordena('id_usuario', 'desc')">
+                                    <i class="fas fa-angle-down"></i>
+                                </button>
+                            </div>
+                        </th>
+                        <th ng-show="admin">
+                            Número de líneas
+                            <!--                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                            <button type="button" class="btn btn-light" ng-click="ordena('numLineas', 'asc')">
+                                                                <i class="fas fa-angle-up"></i>
+                                                            </button>
+                                                            <button type="button" class="btn btn-light" ng-click="ordena('numLineas', 'desc')">
+                                                                <i class="fas fa-angle-down"></i>
+                                                            </button>
+                                                        </div>-->
+                        </th>
+                        <th style="text-align: center;">
+                            Acciones                            
+                        </th>
+                    </tr>
+                    <tr ng-repeat="fila in ajaxDataFactura">
+                        <td>{{fila.id}}</td>
+                        <td>{{fila.fecha}}</td>
+                        <td>{{fila.iva}}</td>
+                        <td ng-show="hayId == false"><a href="{{'/tailorShop/factura/plist/10/1/' + fila.obj_usuario.id + '/' + fila.obj_usuario.login}}" class="enlaceColor">{{fila.obj_usuario.login}}</a></td>
+                        <td ng-show="admin"><a href="{{'/tailorShop/linea/plist/10/1/' + fila.id + '/' + fila.obj_usuario.id}}" class="enlaceColor">{{fila.numLineas}}</a></td>
+                        <td>
+                            <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
+                                <a ng-show="admin" href="{{'/tailorShop/factura/view/' + fila.id}}" class="btn btn-light fas fa-eye" role="button"></a>
+                                <a ng-show="!admin" href="{{'/tailorShop/linea/plist/10/1/' + fila.id + '/' + fila.obj_usuario.id}}" class="btn btn-light fas fa-eye" role="button"></a>
+                                <a ng-show="admin" href="{{'/tailorShop/factura/edit/' + fila.id}}" class="btn btn-light fas fa-edit" role="button"></a>
+                                <a ng-show="admin" href="{{'/tailorShop/factura/remove/' + fila.id}}" class="btn btn-light fas fa-trash" role="button"></a>
+                                <a role="button" class="btn btn-light fa fa-file-pdf" ng-click="descargarPDF(fila.id)"></a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+
+            <!--Páginación vecindario-->     
+            <nav aria-label="paginacion">
+                <ul class="pagination justify-content-center">                                                 
+                    <li class="page-item" ng-class="{'disabled': (page <= 1)}">
+                        <a class="page-link" href="factura/plist/{{rpp}}/1/{{order}}"><span>&laquo;</span></a>
+                    </li>
+                    <li class="page-item" ng-class="{'disabled': (page <= 1)}">
+                        <a class="page-link" href="factura/plist/{{rpp}}/{{page - 1}}/{{order}}"><span>&lsaquo;</span></a>
+                    </li>
+
+                    <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
+                        <a class="page-link" href="factura/plist/{{rpp}}/{{p}}/{{order}}">{{p}}</a>
+                    </li>
+                    <li class="page-item"  ng-class="{'disabled':(page == totalPages)}">
+                        <a class="page-link" href="factura/plist/{{rpp}}/{{page--1}}/{{order}}"><span>&rsaquo;</span></a>
+                    </li>
+                    <li class="page-item" ng-class="{'disabled':(page == totalPages)}">
+                        <a class="page-link" href="factura/plist/{{rpp}}/{{totalPages}}/{{order}}"><span>&raquo;</span></a>
+                    </li>                  
+                </ul>
+            </nav>
+
+        </main>
+    </div>
+</div>
+
+<!--<footer-component></footer-component>-->
+<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->

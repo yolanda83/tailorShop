@@ -1,0 +1,61 @@
+<!--<header ng-include="'js/app/header.html'"></header>-->
+<header-component></header-component>
+
+
+<main role="main" class="container">
+
+    <form name="userForm" class="mx-auto p-5" style="margin-top: 100px; margin-bottom: 100px; background-color: GhostWhite; width: 70%; border-radius: 7px"> 
+
+        <h3 class="pb-3">Login Usuario:</h3>
+
+        <div class="form-group">
+
+            <label for="login" class="col-form-label">Nombre Usario:</label>
+            <input id="login" type="text" class="form-control"  ng-class="{' is-invalid': userForm.login.$invalid && !userForm.login.$pristine}"
+                   name="login" ng-model="login" ng-required="true" placeholder="Introduce nombre usuario..."/>
+
+<!--            <div ng-show="userForm.login.$error.minlength" class="alert alert-danger" role="alert">
+                La longitud del login es demasiado corto
+            </div>           -->
+            <div ng-show="!userForm.login.$valid && userForm.login.$dirty && !userForm.login.$pristine" class="alert alert-danger" role="alert">
+                Login obligatorio
+            </div>
+
+<!--            <small id="emailHelp" class="log form-text text-muted">We'll never share your personal information with anyone else.</small>-->
+        </div>
+
+        <div class="form-group">
+            <label for="pass">Password:</label>
+            <input id="pass" type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"
+                   name="pass" ng-model="pass" ng-required="true" placeholder="Introduce una contraseña..."/>
+
+<!--            <div ng-show="userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
+                La longitud de la constraseña es demasiado corta
+            </div>-->
+            <div ng-show="!userForm.pass.$valid && userForm.pass.$dirty && !userForm.pass.$pristine" class="alert alert-danger" role="alert">
+                Contraseña obligatoria
+            </div>
+        </div>
+
+
+        <button ng-click="log()" class="btn btn-info ml-0">Login</button>
+
+        
+        <div class="row" ng-show="error == true">
+            <div class="col-12">
+                <div class="card mx-auto" style="background-color: GhostWhite; width: 70%; border: none; border-radius: 7px">
+                    <div class="card-body">
+                        <!--<h5 class="card-title" style="text-align: center;">El Usuario ha sido editado correctamente.</h5>-->
+                        <h3 class="card-title" style="text-align: center;">Datos erróneos.</h3>     
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+      
+    </form>
+
+</main>
+
+<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
+<!--<footer-component></footer-component>-->
