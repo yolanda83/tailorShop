@@ -1,6 +1,47 @@
 <!-- Fixed navbar -->
 <!--navbar-expand-xl/lg/md/sm-->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<div class="row blueNav">
+    <div class="col-md-3 my-auto text-center">
+        <a href=""><img class="p-0 logo" src="images/logo-01_animated.svg" alt="logo"></a>
+    </div>
+    <div class="col-md-6 my-auto text-center">
+        <a class="pl-0" href="#about">Sobre la tienda</a>
+        <a href="#news">Newsletter</a>
+        <a href="#contact">Contacto</a>
+    </div>
+    <div class="col-md-3 my-auto text-center">
+        <div id="ballMenuContainer">
+
+            <div id="menuBall2" class="menuBall">
+                <a href="#" class="ball redball d-flex justify-content-center align-items-center">
+                    <div class="menuText ">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div id="menuBall3" class="menuBall">
+                <a href="#" class="ball greenball d-flex justify-content-center align-items-center">
+                    <div class="menuText">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div id="menuBall4" class="menuBall">
+                <a href="#" class="ball blueball d-flex justify-content-center align-items-center">
+                    <div class="menuText">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Quitado el fixed top ralentizaba la web-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand trol" href="home">Tailor shop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

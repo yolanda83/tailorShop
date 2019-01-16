@@ -1,3 +1,113 @@
+.logo {
+    width: 300px;
+}
+
+/* botones buscar perfil y carrito */
+
+#ballMenuContainer {
+    position: absolute;
+    right: 25px;
+    top: 10px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.5) rotate(0deg);
+    }
+    100% {
+        transform: scale(1.5) rotate(360deg);
+    }
+}
+
+@keyframes bump {
+    0% {
+        top: 0;
+    }
+    5% {
+        top: 3px;
+    }
+    10% {
+        top: 0;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+.menuBall {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 20px 10px;
+}
+
+.ball {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px dashed #fff;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.ball:hover {
+    animation: pulse 1s linear 1 normal;
+}
+
+.redball {
+    background-color: #d90e23;
+    box-shadow: 0 0 0 3px #d90e23, 2px 1px 6px 4px rgba(10, 10, 0, .5);
+    background-image: -webkit-linear-gradient(0deg, rgba(0, 0, 0, .25) 50%, transparent 10%), -webkit-linear-gradient(rgba(0, 0, 0, .25) 50%, transparent 50%);
+    background-size: 10px 10px;
+}
+
+.blueball {
+    background-color: #7968a8;
+    box-shadow: 0 0 0 3px #7968a8, 2px 1px 6px 4px rgba(10, 10, 0, .5);
+    background-image: -webkit-linear-gradient(90deg, transparent 50%, rgba(99, 138, 190, 1) 50%);
+    background-size: 8px 8px;
+}
+
+.greenball {
+    box-shadow: 0 0 0 3px #65b37a, 2px 1px 6px 4px rgba(10, 10, 0, .5);
+    background: -webkit-radial-gradient(#e8b15e 4px, transparent 6px);
+    background-size: 20px 20px;
+    background-image: -webkit-radial-gradient(#e8b15e 15%, transparent 16%), -webkit-radial-gradient(#e8b15e 15%, transparent 16%);
+    background-color: #65b37a;
+    background-size: 30px 30px;
+    background-position: 0 0, 20px 20px;
+}
+
+.menuText {
+    color: #ffffff;
+    /* position: relative;
+    top: 35%;
+    vertical-align: middle;
+    text-align: center; */
+}
+
+#menuBall2 {
+    animation: bump 6s linear .5s infinite normal;
+}
+
+#menuBall3 {
+    animation: bump 6s linear 1s infinite normal;
+}
+
+#menuBall4 {
+    animation: bump 6s linear 1.5s infinite normal;
+}
+
+
+
+
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
