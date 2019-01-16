@@ -1,71 +1,52 @@
 <!-- Fixed navbar -->
 <!--navbar-expand-xl/lg/md/sm-->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand trol" href="home">Trolleyess</a>
+    <a class="navbar-brand trol" href="home">Tailor shop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto" ng-show="c.logeado">
-            <!--            <li class="nav-item" ng-class="{'active': isActive('/')}">
-                            <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
-                        </li>-->
 
 
             <li ng-show="c.isAdmin" class="nav-item" ng-class="{
-                    'active': c.isActive('/usuario/plist')
-                        || c.isActive('/usuario/view/') || c.isActive('/usuario/edit/')
-                        || c.isActive('/usuario/remove/') || c.isActive('/usuario/new/')}">
+                    active: c.isActive('/usuario')}">
                 <a class="nav-link" href="usuario/plist"><i class="fas fa-user"></i> Usuario</a>
             </li>
             <li ng-show="c.isAdmin" class="nav-item" ng-class="{
-                    'active': c.isActive('/tipousuario/plist')
-                        || c.isActive('/tipousuario/view/') || c.isActive('/tipousuario/edit/')
-                        || c.isActive('/tipousuario/remove/') || c.isActive('/tipousuario/new/')}">
+                    active: c.isActive('/tipousuario')}">
                 <a class="nav-link" href="tipousuario/plist"><i class="fas fa-users"></i> Tipousuario</a>
             </li>
             <li ng-show="c.isAdmin" class="nav-item" ng-class="{
-                    'active': c.isActive('/producto/plist')
-                        || c.isActive('/producto/view/') || c.isActive('/producto/edit/')
-                        || c.isActive('/producto/remove/') || c.isActive('/producto/new/')}">
+                    active: c.isActive('/producto/plist')}">
                 <a class="nav-link" href="producto/plist"><i class="fas fa-archive"></i> Producto</a>
             </li>
             <li class="nav-item" ng-class="{
-                    'active': c.isActive('/producto/plist')
-                        || c.isActive('/producto/view/') || c.isActive('/producto/edit/')
-                        || c.isActive('/producto/remove/') || c.isActive('/producto/new/')}">
+                    active: c.isActive('/producto')}">
                 <a class="nav-link" href="producto/plistUsuario"><i class="fas fa-archive"></i> Productos</a>
             </li>
             <li ng-show="c.isAdmin" class="nav-item" ng-class="{
-                    'active': c.isActive('/tipoproducto/plist')
-                        || c.isActive('/tipoproducto/view/') || c.isActive('/tipoproducto/edit/')
-                        || c.isActive('/tipoproducto/remove/') || c.isActive('/tipoproducto/new/')}">
+                    active: c.isActive('/tipoproducto')}">
                 <a class="nav-link" href="tipoproducto/plist"><i class="fas fa-boxes"></i> Tipoproducto</a>
             </li>
             <li ng-show="c.isAdmin" class="nav-item" ng-class="{
-                    'active': c.isActive('/factura/plist')
-                        || c.isActive('/factura/view/') || c.isActive('/factura/edit/')
-                        || c.isActive('/factura/remove/') || c.isActive('/factura/new/')}">
+                    active: c.isActive('/factura')}">
                 <a class="nav-link" href="factura/plist"><i class="fas fa-file-invoice"></i> Factura</a>
             </li>
             <li ng-show="!c.isAdmin" class="nav-item" ng-class="{
-                    'active': c.isActive('/factura/plist')
-                        || c.isActive('/factura/view/') || c.isActive('/factura/edit/')
-                        || c.isActive('/factura/remove/') || c.isActive('/factura/new/')}">
+                    active: c.isActive('/factura')}">
                 <a class="nav-link" href="{{'factura/plist/10/1/' + c.userId + '/' + c.usuario}}"><i class="fas fa-file-invoice"></i> Facturas</a>
             </li>
 
-            <!--$routeProvider.when('/factura/plist/:rpp?/:page?/:id?/:user?/:order?', {templateUrl: 'js/app/factura/plist.html',-->
 
         </ul>
-        <!--<div style="color: white; margin-right: 20px;" ng-show="logeado">Bienvenid@ <a href="{{'/trolleyes-client/public_html/usuario/view/' + userId}}"  class="enlaceColor">{{usuario}}</a></div>-->
         <div style="color: white; margin-right: 20px;" ng-show="c.logeado">
             <a class="enlaceColor" href="carrito/plist/{{c.userId}}"><i class="enlaceColor fas fa-cart-arrow-down"></i>  
                 <sup class="redondel" ng-show="c.carrito > 0">{{c.carrito}}</sup></a></div>
-        <div style="color: white; margin-right: 20px;" ng-show="c.logeado">Bienvenid@: </div>
+        <div style="color: white; margin-right: 20px;" ng-show="c.logeado">Bienvenido: </div>
 
 
-        <!--Botón login-->
+        <!--Botï¿½n login-->
         <div class="btn-group ml-auto" ng-show="!c.logeado" style="margin-right: 20px;">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Login
@@ -91,7 +72,7 @@
                                 name="pass" ng-model="pass" ng-required="true" placeholder="Password" />
 
                         <div ng-show="!userForm.pass.$valid && userForm.pass.$dirty && !userForm.pass.$pristine" class="alert alert-danger" role="alert">
-                            Contraseña obligatoria
+                            Contrasenya obligatoria
                         </div>
                     </div>
 
@@ -111,7 +92,7 @@
                         <!--<div class="card mx-auto" style="background-color: GhostWhite; width: 70%; border: none; border-radius: 7px">-->
                         <div class="card-body pt-3 pb-0">
                             <!--<h5 class="card-title" style="text-align: center;">El Usuario ha sido editado correctamente.</h5>-->
-                            <h5 class="card-title mb-0" style="text-align: center;">Datos erróneos.</h5>     
+                            <h5 class="card-title mb-0" style="text-align: center;">Datos erroneos.</h5>     
                         </div>
                         <!--</div>-->
                         <!--</div>-->
@@ -127,7 +108,7 @@
         </div>
 
 
-        <!--Botón logout-->
+        <!--Botï¿½n logout-->
         <div class="nav-item"  ng-show="c.logeado">
             <div class="dropdown" >
                 <button class="btn btn-secondary dropdown-toggle ml-0" type="button" id="dropdownMenuButton" data-toggle="dropdown"
