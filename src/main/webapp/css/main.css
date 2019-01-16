@@ -1,0 +1,248 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    /*position: relative;*/
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height 
+       margin-bottom: 60px;
+       margin: 0;*/
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.redondel {
+    color: white;
+    vertical-align: center;
+    width: 26px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    background-color: #17a2b8!important;
+    text-decoration: none; 
+}
+
+.footer {
+    opacity: 1;
+    width: 100%;
+    /*Set the fixed height of the footer here*/ 
+    height: 50px;
+    /*Vertically center the text there*/
+    line-height: 50px;   
+    background-color: #b0b0b0;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+/*.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+   Set the fixed height of the footer here 
+  height: 60px;
+  Vertically center the text there 
+  line-height: 60px;  
+  background-color: #f5f5f5;
+}*/
+
+
+/*  #footer {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    height: 60px;
+    background-color: #f5f5f5;
+    .footer-block {
+      margin: 20px 0;
+    }
+  }*/
+
+.trol {
+    font-family: 'Pacifico', cursive;
+    font-size: 150%;
+}
+
+button {
+    margin-left: 20px;
+}
+
+input {
+    margin-right: 20px;  
+}
+
+td, th {
+    padding: 5px;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+/*body > .container {
+    padding: 60px 0;
+}*/
+
+/*.footer > .container {
+  padding-right: 0px;
+  padding-left: 0px;
+}*/
+
+code {
+    font-size: 80%;
+}
+
+
+/* Pagination
+-------------------------------------------------- */
+
+.pagination > li > a
+{
+    background-color: white;
+    color: gray;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: gray;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #17a2b8!important;
+    border: solid 1px #17a2b8!important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: darkgray!important;
+    border: solid 1px darkgray!important;
+}
+
+
+small {
+    font-size: 20px;
+}
+
+/*btn-group a {
+    background-color: transparent
+}*/
+
+.enlaceColor {
+    color: #17a2b8!important;
+    text-decoration: none; 
+}
+
+
+a.enlaceColor {
+    color: #17a2b8!important;
+    text-decoration: none; 
+}
+
+
+/* Custom Hover.css
+-------------------------------------------------- */
+
+/* Border Fade */
+.hvr-border-fade {
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+    box-shadow: inset 0 0 0 1px #e1e1e1, 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-border-fade:active,.hvr-border-fade:focus,.hvr-border-fade:hover {
+    box-shadow:inset 0 0 0 2px #2098D1,0 0 1px rgba(0,0,0,0)
+}
+
+
+/* Página principal
+-------------------------------------------------- */
+
+/*body {
+        background: #445;
+        color: #FFF;
+}*/
+
+#main {
+    /*background: linear-gradient(to bottom, rgba(0,0,0,0.40) 100%, transparent), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/336999/shinokubo_test.jpg);*/
+    /*background: linear-gradient(to bottom, rgba(0,0,0,0.40) 100%, transparent), url('https://images.pexels.com/photos/390392/pexels-photo-390392.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');*/
+    background: linear-gradient(to bottom, rgba(0,0,0,0.40) 100%, transparent), url('https://image.freepik.com/foto-gratis/tablero-medio-ingredientes-cocina_23-2147749529.jpg');
+
+    background-size: cover, cover;
+    background-position: center, center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#logout {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.40) 100%, transparent), url('https://image.freepik.com/foto-gratis/tablero-medio-ingredientes-cocina_23-2147749529.jpg');
+    background-size: cover, cover;
+    background-position: center, center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logout h1:before, h1:after {
+    height: 0px !important;
+}
+
+.tituloLanding {
+    /*font-family: 'VT323', monospace;*/
+    /*font-family: 'ZCOOL XiaoWei', serif;*/
+    /*font-family: 'Anton', sans-serif;*/
+    /*font-family: 'Lobster', cursive;*/
+    font-family: 'Pacifico', cursive;
+    color: white;
+    font-size: 5rem;
+    display: inline-block;
+    padding: 1rem;
+    font-weight: 400;
+    position: relative;
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.5s ease, opacity 1s ease;
+}
+
+.is-loading .tituloLanding {
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+h1:before,
+h1:after {
+    height: 2px;
+    width: 100%;
+    content: "";
+    /*background: white;*/
+    display: block;
+    position: absolute;
+    transition: width 0.4s ease;
+    transition-delay: 0.8s;
+}
+
+h1:before {
+    top: 0;
+    left: 0;
+}
+
+h1:after {
+    bottom: 0;
+    right: 0;
+}
+
+.is-loading h1:before,
+.is-loading h1:after {
+    width: 0;
+}

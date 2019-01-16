@@ -1,0 +1,102 @@
+<!--<header ng-include="'js/app/header.html'"></header>-->
+<header-component></header-component>
+
+
+<div class="container-fluid">
+    <div class="row">      
+        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2"><i class="fas fa-users"></i> Tipos de usuario:<small> En la BBDD hay {{ajaxDataTipoUsuariosNumber}} tipos de usuarios</small></h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group btn-group-toggle mr-3" data-toggle="buttons">
+                        <a href="/tailorShop/tipousuario/new/" class="btn btn-outline-info" role="button" >Nuevo Tipo Usuario</a>
+                        <button type="button" class="btn btn-outline-info" ng-click="resetOrder()">Reset ordenación</button>
+                    </div>
+                </div>
+            </div>    
+
+            <!--Registros por página-->
+            <div>
+                <nav aria-label="RegistrosPorPagina">
+                    <ul class="pagination" style="float: right;">
+                        <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page}}">10</a></li>
+                        <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page}}">50</a></li>
+                        <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page}}">100</a></li>
+                    </ul>
+                </nav>              
+            </div>
+
+
+            <!--Tabla de contenidos-->
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <tr>
+                        <th>
+                            ID
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <button type="button" class="btn btn-light" ng-click="ordena('id', 'asc')">
+                                    <i class="fas fa-angle-up"></i>
+                                </button>
+                                <button type="button" class="btn btn-light" ng-click="ordena('id', 'desc')">
+                                    <i class="fas fa-angle-down"></i>
+                                </button>
+                            </div>
+                        </th>
+                        <th>
+                            Descripción
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <button type="button" class="btn btn-light" ng-click="ordena('tipousuario.desc', 'asc')">
+                                    <i class="fas fa-angle-up"></i>
+                                </button>
+                                <button type="button" class="btn btn-light" ng-click="ordena('tipousuario.desc', 'desc')">
+                                    <i class="fas fa-angle-down"></i>
+                                </button>
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            Acciones                            
+                        </th>
+                    </tr>
+                    <tr ng-repeat="fila in ajaxDataTipoUsuarios">
+                        <td>{{fila.id}}</td>
+                        <td>{{fila.desc}}</td>
+                        <td>
+                            <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
+                                <a href="{{'/tailorShop/tipousuario/view/' + fila.id}}" class="btn btn-light fas fa-eye" role="button"></a>
+                                <a href="{{'/tailorShop/tipousuario/edit/' + fila.id}}" class="btn btn-light fas fa-edit" role="button"></a>
+                                <a href="{{'/tailorShop/tipousuario/remove/' + fila.id}}" class="btn btn-light fas fa-trash" role="button"></a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+
+            <!--Páginación vecindario-->     
+            <nav aria-label="paginacion">
+                <ul class="pagination justify-content-center">                                                 
+                    <li class="page-item" ng-class="{'disabled': (page <= 1)}">
+                        <a class="page-link" href="tipousuario/plist/{{rpp}}/1/{{order}}"><span>&laquo;</span></a>
+                    </li>
+                    <li class="page-item" ng-class="{'disabled': (page <= 1)}">
+                        <a class="page-link" href="tipousuario/plist/{{rpp}}/{{page - 1}}/{{order}}"><span>&lsaquo;</span></a>
+                    </li>
+
+                    <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
+                        <a class="page-link" href="tipousuario/plist/{{rpp}}/{{p}}/{{order}}">{{p}}</a>
+                    </li>
+                    <li class="page-item"  ng-class="{'disabled':(page == totalPages)}">
+                        <a class="page-link" href="tipousuario/plist/{{rpp}}/{{page--1}}/{{order}}"><span>&rsaquo;</span></a>
+                    </li>
+                    <li class="page-item" ng-class="{'disabled':(page == totalPages)}">
+                        <a class="page-link" href="tipousuario/plist/{{rpp}}/{{totalPages}}/{{order}}"><span>&raquo;</span></a>
+                    </li>                  
+                </ul>
+            </nav>
+
+        </main>
+    </div>
+</div>
+<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
+<!--<footer-component></footer-component>-->

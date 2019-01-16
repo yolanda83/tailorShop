@@ -1,0 +1,46 @@
+<!--<header ng-include="'js/app/header.html'"></header>-->
+<header-component></header-component>
+
+<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
+
+    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">View Factura: <small> Usuario {{ajaxData.obj_usuario.login}} </small></h1>
+        <i class="fas fa-file-invoice fa-3x"></i>
+    </div>
+
+    <div class="mx-auto pb-3 mb-5" style="margin-top: 50px; padding: 20px; width: 50%; background-color: WHITESMOKE; border-radius: 7px">
+
+
+        <table class="table table-hover">
+            <tr>
+                <th style="padding-left: 30px;">Id:</th>
+                <td>{{ajaxData.id}}</td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">Fecha:</th>
+                <td>{{ajaxData.fecha}}</td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">IVA:</th>
+                <td>{{ajaxData.iva}}</td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">Usuario:</th>
+                <td>{{ajaxData.obj_usuario.login}}</td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">Nº líneas:</th>
+                <td><a href="{{'/tailorShop/linea/plist/10/1/' + ajaxData.id + '/' + ajaxData.obj_usuario.id}}" class="enlaceColor">{{ajaxData.numLineas}}</a></td>
+            </tr>
+        </table>
+
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-secondary ml-0" onClick="javascript:history.go(-1);">Volver</button>
+        </div>
+    </div>
+
+
+</main>
+
+<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
+<!--<footer-component></footer-component>-->

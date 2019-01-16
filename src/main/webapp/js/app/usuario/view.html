@@ -1,0 +1,56 @@
+<!--<header ng-include="'js/app/header.html'"></header>-->
+<header-component></header-component>
+
+
+<!--<main role="main" class="container">-->
+<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
+
+
+    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">View Usuario:<small>  {{ajaxData.login}} </small></h1>
+        <i class="fas fa-user fa-3x"></i>
+    </div>
+
+    <div class="mx-auto pb-5" style="margin-top: 50px; padding: 20px; width: 50%; background-color: WHITESMOKE; border-radius: 7px">
+
+        <table class="table table-hover">
+<!--            <tr>
+                <th style="padding-left: 30px;">Id:</th>
+                <td>{{ajaxData.id}}</td>
+            </tr>-->
+            <tr>
+                <th style="padding-left: 30px;">DNI:</th>
+                <td>{{ajaxData.dni}}</td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">Nombre:</th>
+                <td>{{ajaxData.nombre}}</td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">Primer apellido:</th>
+                <td>{{ajaxData.ape1}}</td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">Segundo apellido:</th>
+                <td>{{ajaxData.ape2}}</td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">Nombre usuario:</th>
+                <td>{{ajaxData.login}}</td>
+            </tr>
+            <tr ng-show="admin">
+                <th style="padding-left: 30px;">Tipo de usuario:</th>
+                <td><a href="{{'/tailorShop/tipousuario/view/' + ajaxData.obj_tipoUsuario.id}}" class="enlaceColor">{{ajaxData.obj_tipoUsuario.desc}}</a></td>
+            </tr>
+        </table>
+
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-secondary ml-0" onClick="javascript:history.go(-1);">Volver</button>
+        </div>
+    </div>
+
+
+</main>
+
+<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
+<!--<footer-component></footer-component>-->

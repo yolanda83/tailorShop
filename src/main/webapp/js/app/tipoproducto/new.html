@@ -1,0 +1,49 @@
+<!--<header ng-include="'js/app/header.html'"></header>-->
+<header-component></header-component>
+
+
+<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
+    
+
+    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">New Tipo Producto</h1>
+    </div>
+
+    <form name="userForm" class="p-5" ng-show="!new"
+          style="margin-top: 80px; margin-bottom: 100px; background-color: WHITESMOKE; width: 70%; border-radius: 7px"> 
+        <h3 class="pb-3">Nuevo Tipo Producto</h3>
+
+        <div class="form-group"> 
+            <label for="desc" class="col-form-label">Descripción:</label>
+            <input id="desc" ng-model="desc" class="form-control" ng-class="{'is-invalid': userForm.desc.$invalid && !userForm.desc.$pristine}"
+                   name="desc" type="text" ng-required="true" placeholder="Introduce una descripción..." />
+            <div ng-show="!userForm.desc.$valid && userForm.desc.$dirty && !userForm.desc.$pristine" class="alert alert-danger" role="alert">
+                Descripción obligatoria
+            </div>
+        </div>
+
+        <div>
+            <button ng-click="guardar()" class="btn btn-info mt-2 ml-0">Guardar</button>
+            <button class="btn btn-info mt-2" onClick="javascript:history.go( - 1);">Volver</button>
+        </div>
+    </form>
+
+
+    <div class="row" ng-show="new">
+        <div class="col-12">
+            <div class="card mx-auto" style="margin-top: 100px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
+                <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;">{{resultado}}</h4>
+                    <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
+                        <button type="button" class="btn btn-info" onclick="window.history.back()">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
+<!--<footer-component></footer-component>-->

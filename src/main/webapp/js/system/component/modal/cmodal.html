@@ -1,0 +1,139 @@
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tipos</h5>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+
+                        <!--Registros por página-->
+                        <div class="col-6 mx-auto d-flex justify-content-center">
+                            <nav aria-label="RegistrosPorPagina">
+                                <ul class="pagination" style="float: right;">
+                                    <li ng-class="{'active':(c.rpp == 10)}" class="page-item"><a class="page-link" ng-click="c.update_registro('10')">10</a></li>
+                                    <li ng-class="{'active':(c.rpp == 50)}" class="page-item"><a class="page-link" ng-click="c.update_registro('50')">50</a></li>
+                                    <li ng-class="{'active':(c.rpp == 100)}" class="page-item"><a class="page-link" ng-click="c.update_registro('100')">100</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-striped table-sm">
+                                <tr>
+                                <div class="row">
+                                    <div class="col-12">
+                                    </div>
+                                </div>
+                                <th>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p>
+                                                ID
+                                            </p>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <button type="button" class="btn btn-light" ng-click="c.ordena('id', 'asc')">
+                                                    <i class="fas fa-angle-up"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-light" ng-click="c.ordena('id', 'desc')">
+                                                    <i class="fas fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p>
+                                                Descripción
+                                            </p>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <button type="button" class="btn btn-light" ng-click="c.ordena('tipousuario.desc', 'asc')">
+                                                    <i class="fas fa-angle-up"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-light" ng-click="c.ordena('tipousuario.desc', 'desc')">
+                                                    <i class="fas fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th>
+                                    Seleccionar
+                                </th>
+                                <tr ng-repeat="fila in c.modal">
+                                    <td>{{fila.id}}</td>
+                                    <td>{{fila.desc}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info" ng-click="c.selected(fila.id, fila.desc)" data-dismiss="modal">
+                                            <i class="fas fa-check-circle"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!--Paginación vecindario-->
+                    <div class="col-6 mx-auto d-flex justify-content-center">
+                        <nav aria-label="pagination pagination-sm">
+                            <ul class="pagination pagination-sm">
+
+                                <li class="page-item" ng-class="{'disabled': (c.page <= 1)}">  
+                                    <a class="page-link" href="" ng-click="c.pagination_destino(1)"><span>&laquo;</span></a>
+                                </li>
+
+                                <li class="page-item" ng-class="{'disabled': (c.page <= 1)}">                  
+                                    <a class="page-link" href="" ng-click="c.pagination_destino(c.page - 1)"><span>&lsaquo;</span></a>
+                                </li>
+
+                                <li class="page-item" ng-class="{'active':(p == c.page), 'disabled': p === '...'}" ng-repeat="p in c.list2">
+                                    <a class="page-link" href="" ng-click="c.pagination_destino(p)">{{p}}</a>
+                                </li>
+
+                                <li class="page-item"  ng-class="{'disabled':(c.page == c.totalPages)}">
+                                    <a class="page-link"  href="" ng-click="c.pagination_destino(c.page--1)"><span>&rsaquo;</span></a>
+                                </li>
+
+                                <li class="page-item" ng-class="{'disabled':(c.page == c.totalPages)}">
+                                    <a class="page-link" ng-click="c.pagination_destino(c.totalPages)" href=""><span>&raquo;</span></a>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+                        <!--             Registros por página con select         
+                                                <div class="col-6">
+                                                    <div class="btn-group" style="width:400px;">
+                                                        <p class="mt-2" style="width:200px;">Selecciona RPP: </p>
+                                                        <select class="form-control" ng-change="c.update_registro(rpp)" ng-model="rpp" style="width: 150px">
+                                                            <option value="5">5</option>
+                                                            <option value="10">10</option>
+                                                            <option value="20">20</option>
+                                                            <option value="50">50</option>
+                                                        </select>
+                                                    </div>
+                                                </div>-->

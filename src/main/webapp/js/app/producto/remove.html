@@ -1,0 +1,80 @@
+<!--<header ng-include="'js/app/header.html'"></header>-->
+<header-component></header-component>
+
+<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
+
+
+    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Remove Producto:<small>  {{ajaxData.desc}} </small></h1>
+        <i class="fas fa-archive fa-3x"></i>
+    </div>
+
+    <div class="col-5 mx-auto">
+        <div class="mx-auto mt-4 mb-5 pb-1" style="margin-top: 80px; padding: 20px; background-color: WHITESMOKE; border-radius: 7px">
+            <div ng-show="!deleted">
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="mx-auto">
+                            <img ng-src="http://localhost:8081/imagenes/{{ajaxData.foto}}" style="width: 128px; height: 128px;">
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table table-hover">
+                    <tr>
+                        <th style="padding-left: 30px;">Id:</th>
+                        <td>{{ajaxData.id}}</td>
+                    </tr>
+                    <tr>
+                        <th style="padding-left: 30px;">Codigo:</th>
+                        <td>{{ajaxData.codigo}}</td>
+                    </tr>
+                    <tr>
+                        <th style="padding-left: 30px;">Descripción:</th>
+                        <td>{{ajaxData.desc}}</td>
+                    </tr>
+                    <tr>
+                        <th style="padding-left: 30px;">Existencias:</th>
+                        <td>{{ajaxData.existencias}}</td>
+                    </tr>
+                    <tr>
+                        <th style="padding-left: 30px;">Precio:</th>
+                        <td>{{ajaxData.precio}}</td>
+                    </tr>     
+                    <tr>
+                        <th style="padding-left: 30px;">Tipo Producto:</th>
+                        <td>{{ajaxData.obj_tipoProducto.desc}}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="row" ng-show="!deleted">
+                <div class="col-12">
+                    <div class="card mx-auto" style="background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center;">¿Desea eliminar el Producto?</h5>
+                            <div class="d-flex justify-content-center align-items-center pt-3 pb-2" role="alert">
+                                <button type="button" class="btn btn-info ml-0 mr-5" ng-click="eliminar()">Aceptar</button>
+                                <button type="button" class="btn btn-secondary ml-0" onclick="window.history.back()">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-show="deleted">
+                <div class="col-12">
+                    <div class="d-flex justify-content-center flex-wrap align-items-center p-3 pb-2 mb-3" role="alert">
+                        <h4>Producto eliminado con éxito.</h4> 
+                        <button type="button" class="btn btn-secondary mt-3 pt-2" onclick="window.history.back()">Volver</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
+<!--<footer-component></footer-component>-->
