@@ -1,13 +1,13 @@
 <!-- Fixed navbar -->
 <!--navbar-expand-xl/lg/md/sm-->
-<div class="row blueNav">
+<div class="row no-gutters">
     <div class="col-md-3 my-auto text-center">
         <a href=""><img class="p-0 logo" src="images/logo-01_animated.svg" alt="logo"></a>
     </div>
-    <div class="col-md-6 my-auto text-center">
-        <a class="pl-0" href="#about">Sobre la tienda</a>
-        <a href="#news">Newsletter</a>
-        <a href="#contact">Contacto</a>
+    <div class="linksNav col-md-6 my-auto">
+        <a class="pl-0 hoverNav text-uppercase" href="#about">Sobre la tienda</a>
+        <a class="hoverNav text-uppercase" href="#news">Newsletter</a>
+        <a class="hoverNav text-uppercase" href="#contact">Contacto</a>
     </div>
     <div class="col-md-3 my-auto text-center">
         <div id="ballMenuContainer">
@@ -39,6 +39,422 @@
         </div>
     </div>
 </div>
+
+<!-- Dropdown menu -->
+<nav class="Navbar navbar navbar-expand-lg navbar-dark my-4" ng-click="cliqui()>
+    <!--<a class="navbar-brand" href=""><img src="imagenes/logo.png" alt="Logo" id="logo"></a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><i class="fas fa-bars desplegableIcon"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown enlace textoNav">
+                <a class="nav-link pb-0 hoverMenu textoNav" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    TELAS
+                </a>
+                <div class="dropdown-menu pt-5 mt-1 bordeDropdown" aria-labelledby="navbarDropdown">
+                    <div class="col-md-12 border-bottom mt-0 mb-4 separador"></div>
+                    <div class="container">
+                        <div class="row">
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <span>Título</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <span>Título</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <a href="">
+                                    <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item dropdown enlace">
+                <a class="nav-link pb-0 hoverMenu" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    PATRONES
+                </a>
+                <div class="dropdown-menu pt-5 mt-1 bordeDropdown" aria-labelledby="navbarDropdown">
+                    <div class="col-md-12 border-bottom mt-0 mb-4 separador"></div>
+                    <div class="container d-flex justify-content-center">
+                        <div class="row dropItem">
+                            <!--/.col-md--> 
+                            <div class="col-md">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item tituloItem">
+                                        <span>Joyería</span><br/>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Pulseras</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Pendientes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Collares</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Gargantillas</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md--> 
+                            <div class="col-md">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item tituloItem">
+                                        <span>Bolsos</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Primavera-Verano</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">clásicos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Bandoleras</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Bolsos de mano</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Bolsos medianos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Bolsos grandes</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md--->  
+                            <div class="col-md">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item tituloItem">
+                                        <span>Accesorios</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Billeteros y monederos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Bufandas y chales</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Llaveros</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Gafas de sol</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Paraguas</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Oficina</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md--->  
+                            <div class="col-md">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item tituloItem">
+                                        <span>Atelier</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Joyería</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Relojes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Bolsos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Accesorios</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Téxtil</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md--->  
+                            <div class="col-md">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item tituloItem">
+                                        <span>Outlet</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Joyería</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Relojes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Bolsos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Accesorios</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Téxtil</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md imagen-->  
+                            <div class="col-md">
+                                <a href="">
+                                    <!--<img src="imagenes/drop.png" alt="" class="imagenMenu">-->
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item dropdown enlace">
+                <a class="nav-link pb-0 hoverMenu" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    ACCESORIOS
+                </a>
+                <div class="dropdown-menu pt-5 mt-1 bordeDropdown" aria-labelledby="navbarDropdown">
+                    <div class="col-md-12 border-bottom mt-0 mb-4 separador"></div>
+                    <div class="container">
+                        <div class="row">
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <span class="tituloNav">Título</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <span>Título</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <a href="">
+                                    <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item dropdown enlace">
+                <a class="nav-link pb-0 hoverMenu" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    KITS
+                </a>
+                <div class="dropdown-menu pt-5 mt-1 bordeDropdown" aria-labelledby="navbarDropdown">
+                    <div class="col-md-12 border-bottom mt-0 mb-4 separador"></div>
+                    <div class="container">
+                        <div class="row">
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <span>Título</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <span>Título</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <a href="">
+                                    <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item dropdown enlace">
+                <a class="nav-link pb-0 hoverMenu" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    LIBROS Y REVISTAS
+                </a>
+                <div class="dropdown-menu pt-5 mt-1 bordeDropdown" aria-labelledby="navbarDropdown">
+                    <div class="col-md-12 border-bottom mt-0 mb-4 separador"></div>
+                    <div class="container">
+                        <div class="row">
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <span>Título</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <span>Título</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <a href="">
+                                    <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item dropdown enlace">
+                <a class="nav-link pb-0 hoverMenu" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    OUTLET
+                </a>
+                <div class="dropdown-menu pt-5 mt-1 bordeDropdown" aria-labelledby="navbarDropdown">
+                    <div class="col-md-12 border-bottom mt-0 mb-4 separador"></div>
+                    <div class="container">
+                        <div class="row">
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <span>Título</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <span>Título</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="">Link item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-md-4-->  
+                            <div class="col-md-4">
+                                <a href="">
+                                    <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 
 <!--Quitado el fixed top ralentizaba la web-->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -87,7 +503,7 @@
         <div style="color: white; margin-right: 20px;" ng-show="c.logeado">Bienvenido: </div>
 
 
-        <!--Botï¿½n login-->
+        <!--Boton login-->
         <div class="btn-group ml-auto" ng-show="!c.logeado" style="margin-right: 20px;">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Login
@@ -117,15 +533,6 @@
                         </div>
                     </div>
 
-
-                    <!--                    <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                            <label class="form-check-label" for="dropdownCheck">
-                                                Remember me
-                                            </label>
-                                        </div>-->
-
-
                     <button ng-click="log()" class="btn btn-info ml-0">Login</button>
 
                     <div class="row" ng-show="error == true">
@@ -149,7 +556,7 @@
         </div>
 
 
-        <!--Botï¿½n logout-->
+        <!--Boton logout-->
         <div class="nav-item"  ng-show="c.logeado">
             <div class="dropdown" >
                 <button class="btn btn-secondary dropdown-toggle ml-0" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -178,10 +585,6 @@
             </div>
         </div>
 
-
-
-        <!--<a href="/trolleyes-client/public_html/usuario/login/" ng-show="!c.logeado" class="btn btn-info ml-auto" role="button">Login</a>-->
-        <!--<a href="/trolleyes-client/public_html/usuario/logout/" ng-show="c.logeado" class="btn btn-warning" role="button">Logout</a>-->
 
     </div>
 </nav>

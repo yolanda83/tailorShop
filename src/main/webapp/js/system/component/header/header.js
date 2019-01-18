@@ -93,4 +93,29 @@ function js(toolService, sessionService, $scope, $http, $location, $mdDialog) {
     };
 
 
+
+
+
 }
+
+        // Navbar Dropdown
+       
+        $scope.cliqui = $(window).resize(function () {
+            if ($(window).width() >= 980) {
+                // Cuando pasas por encima de un elemento, se muestra un menú dropdown
+                $(".navbar .dropdown-toggle").hover(function () {
+                    $(this)
+                            .parent()
+                            .toggleClass("show");
+                    $(this)
+                            .parent()
+                            .find(".dropdown-menu")
+                            .toggleClass("show");
+                });
+
+                // Esconde el menú cuando el ratón ya no hace hover sobre el elemento
+                $(".navbar .dropdown-menu").mouseleave(function () {
+                    $(this).removeClass("show");
+                });
+            }
+        });

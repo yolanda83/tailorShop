@@ -1,41 +1,24 @@
+/*Header*/
+
+/*Primer Nav*/
 .logo {
-    width: 300px;
+    width: 200px;
 }
 
-/* botones buscar perfil y carrito */
-
-#ballMenuContainer {
-    position: absolute;
-    right: 25px;
-    top: 10px;
+.linksNav a {
+    padding: 10px;
+    font-size: 13px;
+    color: rgb(49, 49, 49);
+    font-weight: 450;
+    letter-spacing: 1.3px;
+    text-decoration: none !important;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1) rotate(0deg);
-    }
-    50% {
-        transform: scale(1.5) rotate(0deg);
-    }
-    100% {
-        transform: scale(1.5) rotate(360deg);
-    }
+.hoverNav:hover {
+    border-bottom: 1px solid gray !important;
 }
 
-@keyframes bump {
-    0% {
-        top: 0;
-    }
-    5% {
-        top: 3px;
-    }
-    10% {
-        top: 0;
-    }
-    100% {
-        top: 0;
-    }
-}
+/* botones buscar, perfil y carrito */
 
 .menuBall {
     display: inline-block;
@@ -57,6 +40,18 @@
 
 .ball:hover {
     animation: pulse 1s linear 1 normal;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(50deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
 }
 
 .redball {
@@ -85,10 +80,6 @@
 
 .menuText {
     color: #ffffff;
-    /* position: relative;
-    top: 35%;
-    vertical-align: middle;
-    text-align: center; */
 }
 
 #menuBall2 {
@@ -101,6 +92,155 @@
 
 #menuBall4 {
     animation: bump 6s linear 1.5s infinite normal;
+}
+
+@keyframes bump {
+    0% {
+        top: 0;
+    }
+    5% {
+        top: 3px;
+    }
+    10% {
+        top: 0;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+/*dropDown menu*/
+
+.navbar-dark .navbar-nav .nav-link {
+   font-size: 14px;
+   color: rgb(49, 49, 49);
+   padding-bottom: 2px;
+}
+
+.bordeDropdown {
+    border-radius: 0px !important;
+    border: none !important;
+    box-shadow: rgba(0, 0, 0, 0.32) -4px 14px 8px -7px !important;
+    padding-bottom: 50px;
+    margin-bottom: 10px;
+}
+
+
+.separador {
+    border-top: 1px solid gray !important;
+}
+
+.dropItem .col-md {
+    padding: 0px!important;
+}
+
+.dropItem .col-md li {
+    padding: 5px 0px;
+}
+
+.hoverMenu {
+    font-size: 14px;
+    padding-bottom: 2px;
+}
+
+.hoverMenu:hover {
+    /*border-bottom: 1px solid gray !important;*/
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: black!important;
+}
+
+.nav li {
+    font-family: 'Noto Serif', serif;
+}
+
+.nav li span {
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 7px;
+}
+
+.dropdown .tituloItem {
+    margin-bottom: 20px!important;
+}
+
+.nav li a {
+    padding: 0px;
+    color: gray !important;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.imagenMenu {
+    width: 100% !important;
+}
+
+.navbar .dropdown-menu div[class*="col"] {
+    margin-bottom: 1rem;
+}
+
+.navbar .dropdown-menu {
+    border: none;
+    color: black!important;
+}
+
+/* Fin Dropdown */
+
+/*Fin header*/
+
+/*Seccion novedades telas*/
+
+.tituloSeccion {
+    font-size: 30px;
+    font-family: 'Noto Serif', serif;
+    margin-top: 50px;
+    margin-top: 20px;
+}
+
+.subtituloSeccion {
+    font-size: 50px;
+    font-family: 'Noto Serif', serif;
+    padding-top: 0px !important;
+    margin-top: 0px!important;
+}
+
+.tela {
+    /*flex-grow: 0;*/
+    width: 250px;
+    margin: 10px;
+    padding: 5px;
+    /* border: 1px solid #ccc; */
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    background-color: white;
+}
+
+.tela img {
+    padding: 15px;
+    max-width: 100%;
+}
+
+.tela .text {
+    padding: 0 20px 20px;
+}
+
+.tela .text>h3 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.tela .text>button {
+    background: gray;
+    border: 0;
+    color: white;
+    padding: 10px;
+    width: 100%;
+}
+
+.tela .text>button:hover {
+    background: darkgray;
+    border: 0;
+    color: white;
 }
 
 
@@ -272,27 +412,9 @@ a.enlaceColor {
 }
 
 
-/* Página principal
+/* Pagina principal
 -------------------------------------------------- */
 
-/*body {
-        background: #445;
-        color: #FFF;
-}*/
-
-#main {
-    /*background: linear-gradient(to bottom, rgba(0,0,0,0.40) 100%, transparent), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/336999/shinokubo_test.jpg);*/
-    /*background: linear-gradient(to bottom, rgba(0,0,0,0.40) 100%, transparent), url('https://images.pexels.com/photos/390392/pexels-photo-390392.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');*/
-    background: linear-gradient(to bottom, rgba(0,0,0,0.40) 100%, transparent), url('https://image.freepik.com/foto-gratis/tablero-medio-ingredientes-cocina_23-2147749529.jpg');
-
-    background-size: cover, cover;
-    background-position: center, center;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 #logout {
     background: linear-gradient(to bottom, rgba(0,0,0,0.40) 100%, transparent), url('https://image.freepik.com/foto-gratis/tablero-medio-ingredientes-cocina_23-2147749529.jpg');
     background-size: cover, cover;
@@ -308,51 +430,4 @@ a.enlaceColor {
     height: 0px !important;
 }
 
-.tituloLanding {
-    /*font-family: 'VT323', monospace;*/
-    /*font-family: 'ZCOOL XiaoWei', serif;*/
-    /*font-family: 'Anton', sans-serif;*/
-    /*font-family: 'Lobster', cursive;*/
-    font-family: 'Pacifico', cursive;
-    color: white;
-    font-size: 5rem;
-    display: inline-block;
-    padding: 1rem;
-    font-weight: 400;
-    position: relative;
-    opacity: 1;
-    transform: scale(1);
-    transition: transform 0.5s ease, opacity 1s ease;
-}
 
-.is-loading .tituloLanding {
-    transform: scale(0.9);
-    opacity: 0;
-}
-
-h1:before,
-h1:after {
-    height: 2px;
-    width: 100%;
-    content: "";
-    /*background: white;*/
-    display: block;
-    position: absolute;
-    transition: width 0.4s ease;
-    transition-delay: 0.8s;
-}
-
-h1:before {
-    top: 0;
-    left: 0;
-}
-
-h1:after {
-    bottom: 0;
-    right: 0;
-}
-
-.is-loading h1:before,
-.is-loading h1:after {
-    width: 0;
-}
