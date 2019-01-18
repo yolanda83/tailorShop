@@ -234,6 +234,7 @@
     border: 0;
     color: white;
     padding: 10px;
+    margin-left: 0px;
     width: 100%;
 }
 
@@ -245,6 +246,442 @@
 
 
 
+
+/*Footer*/
+.textoFooter {
+    font-size: 17px;
+    font-family: 'Noto Serif', serif;
+}
+
+.terminosFooter>a {
+    font-size: 13px;
+    color: gray;
+}
+
+.terminosFooter>a:hover {
+    font-size: 13px;
+    color: rgb(49, 49, 49);
+}
+
+.textoTailor {
+    font-size: 13px;
+    color: gray;
+    font-family: 'Noto Serif', serif;
+    font-weight: bold;
+}
+
+/* redondel boton Insta*/
+
+.hover {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    background-color: PURPLE;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+}
+
+/* redondel boton Face */
+
+.faceball {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    background-color: #2e487a;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+}
+
+/* redondel boton Twitter */
+
+.twitball {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    background-color: #00aced;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+}
+
+/* Parte superior de la I partida */
+
+.hover:before, .hover:after {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    transition: 0.25s linear;
+    z-index: 1;
+    background-image: linear-gradient(to top right, #F35834, #EC2B49, #DB0271, #AB0B9E, #6C1CCF, #383DED);
+}
+
+/* Parte superior de la F partida */
+
+.faceball:before, .faceball:after {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    transition: 0.25s linear;
+    z-index: 1;
+    background-color: #2e487a;
+}
+
+/* Parte superior de la T partida */
+
+.twitball:before, .twitball:after {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    transition: 0.25s linear;
+    z-index: 1;
+    background-color: #00aced;
+}
+
+/* Mitad izquierda del hover insta */
+
+.hover:before {
+    content: '';
+    left: 0;
+    justify-content: flex-end;
+    background-image: linear-gradient(to top right, #FBD67A, #F5923D, #F35834, #EC2B49, #DB0271);
+}
+
+/* Mitad izquierda del hover face*/
+
+.faceball:before {
+    content: '';
+    left: 0;
+    justify-content: flex-end;
+    background-color: #2e487a;
+}
+
+/* Mitad izquierda del hover twitter*/
+
+.twitball:before {
+    content: '';
+    left: 0;
+    justify-content: flex-end;
+    background-color: #00aced;
+}
+
+/* Mitad derecha del hover insta*/
+
+.hover:after {
+    content: '';
+    bottom: 0;
+    justify-content: flex-start;
+}
+
+/* Mitad derecha del hover  facebook*/
+
+.faceball:after {
+    content: '';
+    bottom: 0;
+    justify-content: flex-start;
+}
+
+/* Mitad derecha del hover  twitter*/
+
+.twitball:after {
+    content: '';
+    bottom: 0;
+    justify-content: flex-start;
+}
+
+/* Fondo insta*/
+
+.hover:hover {
+    background-image: linear-gradient(to top right, #FBD67A, #F5923D, #F35834, #EC2B49, #DB0271, #AB0B9E, #6C1CCF, #383DED);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+/* Fondo face */
+
+.faceball:hover {
+    background-color: #2e487a;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+/* Fondo twitter */
+
+.twitball:hover {
+    background-color: #00aced;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+/* Para ocultar la letra I*/
+
+.hover:hover span {
+    opacity: 0;
+    z-index: -3;
+}
+
+/* Para ocultar la letra F*/
+
+.faceball:hover span {
+    opacity: 0;
+    z-index: -3;
+}
+
+/* Para ocultar la letra T*/
+
+.twitball:hover span {
+    opacity: 0;
+    z-index: -3;
+}
+
+/* Para ocultar la mitad lado izquierdo insta */
+
+.hover:hover:before {
+    opacity: 0.5;
+    transform: translateY(-100%);
+}
+
+/* Para ocultar la mitad lado izquierdo face*/
+
+.faceball:hover:before {
+    opacity: 0.5;
+    transform: translateY(-100%);
+}
+
+/* Para ocultar la mitad lado izquierdo twitter*/
+
+.twitball:hover:before {
+    opacity: 0.5;
+    transform: translateY(-100%);
+}
+
+/* Para ocultar la mitad lado derecho insta*/
+
+.hover:hover:after {
+    opacity: 0.5;
+    transform: translateY(100%);
+}
+
+/* Para ocultar la mitad lado derecho face*/
+
+.faceball:hover:after {
+    opacity: 0.5;
+    transform: translateY(100%);
+}
+
+/* Para ocultar la mitad lado derecho twitter*/
+
+.twitball:hover:after {
+    opacity: 0.5;
+    transform: translateY(100%);
+}
+
+/* Letra y logo, no funciona con svg's insta*/
+
+.hover span {
+    position: absolute;
+    top: 2px;
+    left: -2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: whitesmoke;
+    font-family: 'Fira Mono', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    opacity: 1;
+    transition: opacity 0.25s;
+    z-index: 2;
+    text-shadow: 3px 3px rgba(70, 98, 127, 0.7);
+    transform: scale(1);
+}
+
+/* Letra y logo, no funciona con svg's face*/
+
+.faceball span {
+    position: absolute;
+    top: -1px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: whitesmoke;
+    font-family: 'Fira Mono', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    opacity: 1;
+    transition: opacity 0.25s;
+    z-index: 2;
+    text-shadow: 3px 3px rgba(70, 98, 127, 0.7);
+    transform: scale(1);
+}
+
+/* Letra y logo, no funciona con svg's twitter*/
+
+.twitball span {
+    position: absolute;
+    top: -1px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: whitesmoke;
+    font-family: 'Fira Mono', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    opacity: 1;
+    transition: opacity 0.25s;
+    z-index: 2;
+    text-shadow: 3px 3px rgba(70, 98, 127, 0.7);
+    transform: scale(1);
+}
+
+/* Logo insta*/
+
+.hover .social-link {
+    position: relative;
+    left: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    color: whitesmoke;
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+/* Logo face*/
+
+.faceball .social-link {
+    position: relative;
+    left: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    color: whitesmoke;
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+/* Logo twitter*/
+
+.twitball .social-link {
+    position: relative;
+    left: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    color: whitesmoke;
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+/* sombra Logo insta*/
+
+.hover .social-link i {
+    text-shadow: 1px 1px rgba(70, 98, 127, 0.7);
+    transform: scale(1);
+}
+
+/* sombra Logo face*/
+
+.faceball .social-link i {
+    text-shadow: 1px 1px rgba(70, 98, 127, 0.7);
+    transform: scale(1);
+}
+
+/* sombra Logo twitter*/
+
+.twitball .social-link i {
+    text-shadow: 1px 1px rgba(70, 98, 127, 0.7);
+    transform: scale(1);
+}
+
+/* Animacion del logo insta*/
+
+.hover .social-link:hover i {
+    animation: pulse 1s linear;
+}
+
+/* Animacion del logo face*/
+
+.faceball .social-link:hover i {
+    animation: pulse 1s linear;
+}
+
+/* Animacion del logo twitter*/
+
+.twitball .social-link:hover i {
+    animation: pulse 1s linear;
+}
+
+@keyframes pulse {
+    40% {
+        transform: scale(1.3);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.menuBallFooter {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 20px 10px;
+}
+
+.face {
+    width: 30px;
+}
+
+.twit {
+    width: 26px;
+}
+
+.ins {
+    width: 90px;
+}
 
 
 
