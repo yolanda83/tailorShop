@@ -2,8 +2,10 @@ tailorShop.run(['$rootScope', 'sessionService', '$location', '$http', 'countcarr
     function ($rootScope, oSessionService, $location, $http, countcarritoService) {
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
 
-            var nextUrl = next.$$route.originalPath;
-
+            if (next.$$route != null) {
+                var nextUrl = next.$$route.originalPath;
+            }
+            
             $http({
                 method: 'GET',
                 url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=check'

@@ -109,83 +109,7 @@
     }
 }
 
-/*dropDown menu*/
 
-.navbar-dark .navbar-nav .nav-link {
-   font-size: 14px;
-   color: rgb(49, 49, 49);
-   padding-bottom: 2px;
-}
-
-.bordeDropdown {
-    border-radius: 0px !important;
-    border: none !important;
-    box-shadow: rgba(0, 0, 0, 0.32) -4px 14px 8px -7px !important;
-    padding-bottom: 50px;
-    margin-bottom: 10px;
-}
-
-
-.separador {
-    border-top: 1px solid gray !important;
-}
-
-.dropItem .col-md {
-    padding: 0px!important;
-}
-
-.dropItem .col-md li {
-    padding: 5px 0px;
-}
-
-.hoverMenu {
-    font-size: 14px;
-    padding-bottom: 2px;
-}
-
-.hoverMenu:hover {
-    /*border-bottom: 1px solid gray !important;*/
-}
-
-.navbar-dark .navbar-nav .nav-link {
-    color: black!important;
-}
-
-.nav li {
-    font-family: 'Noto Serif', serif;
-}
-
-.nav li span {
-    font-size: 16px;
-    font-weight: bold;
-    padding-left: 7px;
-}
-
-.dropdown .tituloItem {
-    margin-bottom: 20px!important;
-}
-
-.nav li a {
-    padding: 0px;
-    color: gray !important;
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.imagenMenu {
-    width: 100% !important;
-}
-
-.navbar .dropdown-menu div[class*="col"] {
-    margin-bottom: 1rem;
-}
-
-.navbar .dropdown-menu {
-    border: none;
-    color: black!important;
-}
-
-/* Fin Dropdown */
 
 /*Fin header*/
 
@@ -193,6 +117,7 @@
 
 .tituloSeccion {
     font-size: 30px;
+    letter-spacing: 6px;
     font-family: 'Noto Serif', serif;
     margin-top: 50px;
     margin-top: 20px;
@@ -203,6 +128,7 @@
     font-family: 'Noto Serif', serif;
     padding-top: 0px !important;
     margin-top: 0px!important;
+    /*vertical-align: baseline !important;*/ 
 }
 
 .tela {
@@ -248,9 +174,62 @@
 
 
 /*Footer*/
+
+
+.footer {
+    background: TAN;
+    padding: 30px;
+}
+
+.foot a {
+    /*display: inline;*/
+    color: black;
+}
+
+.foot a:hover {
+    color: gray;
+}
+
+.foot {
+    margin-bottom: 20px;
+}
+
 .textoFooter {
     font-size: 17px;
     font-family: 'Noto Serif', serif;
+}
+
+#email {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
+}
+
+.formEmail {
+    width: 70% !important;
+    border-radius: 0px !important;
+}
+
+.buttonEmail {
+    background: gray;
+    border: 0;
+    color: white;
+    padding: 10px;
+    margin-left: 0px;
+    text-align: center;
+    /*width: 100%;*/
+}
+
+.buttonEmail:hover {
+    background: darkgray;
+    border: 0;
+    color: white;
+}
+
+.formEmail::-webkit-input-placeholder {
+    text-align: center;
 }
 
 .terminosFooter>a {

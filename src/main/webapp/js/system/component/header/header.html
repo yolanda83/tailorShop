@@ -2,7 +2,7 @@
 <!--navbar-expand-xl/lg/md/sm-->
 <div class="row no-gutters">
     <div class="col-md-3 my-auto text-center">
-        <a href=""><img class="p-0 logo" src="images/logo-01_animated.svg" alt="logo"></a>
+        <a href="home/"><img class="p-0 logo" src="images/logo-01_animated.svg" alt="logo"></a>
     </div>
     <div class="linksNav col-md-6 my-auto">
         <a class="pl-0 hoverNav text-uppercase" href="#about">Sobre la tienda</a>
@@ -21,7 +21,7 @@
             </div>
 
             <div id="menuBall3" class="menuBall">
-                <a href="#" class="ball greenball d-flex justify-content-center align-items-center">
+                <a href="usuario/view/{{c.userId}}" class="ball greenball d-flex justify-content-center align-items-center">
                     <div class="menuText">
                         <i class="fas fa-user"></i>
                     </div>
@@ -29,9 +29,10 @@
             </div>
 
             <div id="menuBall4" class="menuBall">
-                <a href="#" class="ball blueball d-flex justify-content-center align-items-center">
+                <a href="carrito/plist/{{c.userId}}" class="ball blueball d-flex justify-content-center align-items-center">
                     <div class="menuText">
                         <i class="fas fa-shopping-cart"></i>
+                        <sup ng-show="c.carrito > 0">{{c.carrito}}</sup>
                     </div>
                 </a>
             </div>
@@ -40,471 +41,127 @@
     </div>
 </div>
 
-<!-- Dropdown menu -->
-<nav class="Navbar navbar navbar-expand-lg navbar-dark my-4" id="clik" ng-mouseover="cliqui()">
-    <!--<a class="navbar-brand" href=""><img src="imagenes/logo.png" alt="Logo" id="logo"></a>-->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"><i class="fas fa-bars desplegableIcon"></i></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto">
-            <li class="nav-item dropdown enlace textoNav">
-                <a class="nav-link pb-0 hoverMenu textoNav" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    TELAS
-                </a>
-                <div class="dropdown-menu pt-5 mt-1 bordeDropdown" aria-labelledby="navbarDropdown">
-                    <div class="col-md-12 border-bottom mt-0 mb-4 separador"></div>
-                    <div class="container">
-                        <div class="row">
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <span>Titulo</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <span>Titulo</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <a href="">
-                                    <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item dropdown enlace">
-                <a class="nav-link pb-0 hoverMenu" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    PATRONES
-                </a>
-                <div class="dropdown-menu pt-5 mt-1 bordeDropdown" aria-labelledby="navbarDropdown">
-                    <div class="col-md-12 border-bottom mt-0 mb-4 separador"></div>
-                    <div class="container d-flex justify-content-center">
-                        <div class="row dropItem">
-                            <!--/.col-md--> 
-                            <div class="col-md">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item tituloItem">
-                                        <span>Joyeria</span><br/>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Pulseras</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Pendientes</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Collares</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Gargantillas</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md--> 
-                            <div class="col-md">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item tituloItem">
-                                        <span>Bolsos</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Primavera-Verano</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">clasicos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Bandoleras</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Bolsos de mano</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Bolsos medianos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Bolsos grandes</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md--->  
-                            <div class="col-md">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item tituloItem">
-                                        <span>Accesorios</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Billeteros y monederos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Bufandas y chales</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Llaveros</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Gafas de sol</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Paraguas</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Oficina</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md--->  
-                            <div class="col-md">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item tituloItem">
-                                        <span>Atelier</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Joyeria</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Relojes</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Bolsos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Accesorios</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Textil</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md--->  
-                            <div class="col-md">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item tituloItem">
-                                        <span>Outlet</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Joyeria</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Relojes</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Bolsos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Accesorios</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Textil</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md imagen-->  
-                            <div class="col-md">
-                                <a href="">
-                                    <!--<img src="imagenes/drop.png" alt="" class="imagenMenu">-->
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item dropdown enlace">
-                <a class="nav-link pb-0 hoverMenu" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    ACCESORIOS
-                </a>
-                <div class="dropdown-menu pt-5 mt-1 bordeDropdown" aria-labelledby="navbarDropdown">
-                    <div class="col-md-12 border-bottom mt-0 mb-4 separador"></div>
-                    <div class="container">
-                        <div class="row">
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <span class="tituloNav">Titulo</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <span>Titulo</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <a href="">
-                                    <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item dropdown enlace">
-                <a class="nav-link pb-0 hoverMenu" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    KITS
-                </a>
-                <div class="dropdown-menu pt-5 mt-1 bordeDropdown" aria-labelledby="navbarDropdown">
-                    <div class="col-md-12 border-bottom mt-0 mb-4 separador"></div>
-                    <div class="container">
-                        <div class="row">
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <span>Titulo</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <span>Titulo</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <a href="">
-                                    <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item dropdown enlace">
-                <a class="nav-link pb-0 hoverMenu" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    LIBROS Y REVISTAS
-                </a>
-                <div class="dropdown-menu pt-5 mt-1 bordeDropdown" aria-labelledby="navbarDropdown">
-                    <div class="col-md-12 border-bottom mt-0 mb-4 separador"></div>
-                    <div class="container">
-                        <div class="row">
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <span>Titulo</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <span>Titulo</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <a href="">
-                                    <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item dropdown enlace">
-                <a class="nav-link pb-0 hoverMenu" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    OUTLET
-                </a>
-                <div class="dropdown-menu pt-5 mt-1 bordeDropdown" aria-labelledby="navbarDropdown">
-                    <div class="col-md-12 border-bottom mt-0 mb-4 separador"></div>
-                    <div class="container">
-                        <div class="row">
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <span>Titulo</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <span>Titulo</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Link item</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--/.col-md-4-->  
-                            <div class="col-md-4">
-                                <a href="">
-                                    <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-</nav>
+<!-- <div style="color: white; margin-right: 20px;" ng-show="c.logeado">
+            <a class="enlaceColor" href="carrito/plist/{{c.userId}}"><i class="enlaceColor fas fa-cart-arrow-down"></i>  
+                <sup class="redondel" ng-show="c.carrito > 0">{{c.carrito}}</sup>
+            </a>
+ </div>-->
+
+
+
 
 
 <!--Quitado el fixed top ralentizaba la web-->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand trol" href="home">Tailor shop</a>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark pl-0">
+    <div class="col-md-3 my-auto">
+
+        <!--Seccion Administracion-->
+        <!--<div class="nav-item"  ng-show="c.logeado">-->
+        <div class="nav-item"  ng-show="c.isAdmin">
+            <!--<div class="dropdown" ng-show="c.isAdmin">-->
+            <div class="dropdown" ng-show="c.isAdmin">
+                <button class="btn btn-secondary dropdown-toggle ml-0" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="text-transform: capitalize;">
+                    Administracion
+                </button>
+                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
+
+                    <!--                    <a class="dropdown-item" href="{{'factura/plist/10/1/' + c.userId + '/' + c.usuario}}">
+                                            <i class="fas fa-file-invoice enlaceColor"></i> 
+                                            Facturas
+                                        </a>
+                    
+                                        <a class="dropdown-item" href="usuario/edit/{{c.userId}}">
+                                            <i class="fas fa-user-edit enlaceColor"></i>
+                                            Editar perfil
+                                        </a>
+                                        <a class="dropdown-item" href="usuario/changepass">
+                                            <i class="fas fa-key enlaceColor"></i>
+                                            Cambiar password
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="usuario/logout">
+                                            <i class="fas fa-sign-out-alt enlaceColor"></i>
+                                            Logout
+                                        </a>-->
+<!--                    <li ng-show="c.isAdmin" class="nav-item" ng-class="{active: c.isActive('/usuario')}">-->
+                        <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/usuario')}"
+                            class="dropdown-item" href="usuario/plist"><i class="fas fa-user enlaceColor"></i> Usuario</a>
+                    <!--</li>-->
+                    <!--<li ng-show="c.isAdmin" class="nav-item" ng-class="{active: c.isActive('/tipousuario')}">-->
+                        <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/tipousuario')}"
+                            class="dropdown-item" href="tipousuario/plist"><i class="fas fa-users enlaceColor"></i> Tipousuario</a>
+                    <!--</li>-->
+                    <!--<li ng-show="c.isAdmin" class="nav-item" ng-class="{active: c.isActive('/producto/plist')}">-->
+                        <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/producto/plist')}"
+                            class="dropdown-item" href="producto/plist"><i class="fas fa-archive enlaceColor"></i> Producto</a>
+                    <!--</li>-->
+                    <!--            <li class="nav-item" ng-class="{
+                                        active: c.isActive('/producto')}">
+                                    <a class="nav-link" href="producto/plistUsuario"><i class="fas fa-archive"></i> Productos</a>
+                                </li>-->
+                    <!--<li ng-show="c.isAdmin" class="nav-item" ng-class="{active: c.isActive('/tipoproducto')}">-->
+                        <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/tipoproducto')}"
+                            class="dropdown-item" href="tipoproducto/plist"><i class="fas fa-boxes enlaceColor"></i> Tipoproducto</a>
+                    <!--</li>-->
+                    <!--<li ng-show="c.isAdmin" class="nav-item" ng-class="{active: c.isActive('/factura')}">-->
+                        <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/factura')}"
+                            class="dropdown-item" href="factura/plist"><i class="fas fa-file-invoice enlaceColor"></i> Factura</a>
+                    <!--</li>-->
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!--    <a class="navbar-brand trol" href="home">Tailor shop</a>-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto" ng-show="c.logeado">
+        <!--<ul class="navbar-nav mr-auto" ng-show="c.logeado">-->
+        <ul class="navbar-nav mr-auto">
 
-
-            <li ng-show="c.isAdmin" class="nav-item" ng-class="{
-                    active: c.isActive('/usuario')}">
-                <a class="nav-link" href="usuario/plist"><i class="fas fa-user"></i> Usuario</a>
-            </li>
-            <li ng-show="c.isAdmin" class="nav-item" ng-class="{
-                    active: c.isActive('/tipousuario')}">
-                <a class="nav-link" href="tipousuario/plist"><i class="fas fa-users"></i> Tipousuario</a>
-            </li>
-            <li ng-show="c.isAdmin" class="nav-item" ng-class="{
-                    active: c.isActive('/producto/plist')}">
-                <a class="nav-link" href="producto/plist"><i class="fas fa-archive"></i> Producto</a>
+            <!--User-->
+            <li class="nav-item" ng-class="{
+                    active: c.isActive('/producto')}">
+                <a class="nav-link" href="producto/plistUsuario">TELAS</a>
             </li>
             <li class="nav-item" ng-class="{
                     active: c.isActive('/producto')}">
-                <a class="nav-link" href="producto/plistUsuario"><i class="fas fa-archive"></i> Productos</a>
+                <a class="nav-link" href="producto/plistUsuario">PATRONES</a>
             </li>
-            <li ng-show="c.isAdmin" class="nav-item" ng-class="{
-                    active: c.isActive('/tipoproducto')}">
-                <a class="nav-link" href="tipoproducto/plist"><i class="fas fa-boxes"></i> Tipoproducto</a>
+            <li class="nav-item" ng-class="{
+                    active: c.isActive('/producto')}">
+                <a class="nav-link" href="producto/plistUsuario">ACCESORIOS</a>
             </li>
-            <li ng-show="c.isAdmin" class="nav-item" ng-class="{
-                    active: c.isActive('/factura')}">
-                <a class="nav-link" href="factura/plist"><i class="fas fa-file-invoice"></i> Factura</a>
+            <li class="nav-item" ng-class="{
+                    active: c.isActive('/producto')}">
+                <a class="nav-link" href="producto/plistUsuario">KITS</a>
             </li>
-            <li ng-show="!c.isAdmin" class="nav-item" ng-class="{
-                    active: c.isActive('/factura')}">
-                <a class="nav-link" href="{{'factura/plist/10/1/' + c.userId + '/' + c.usuario}}"><i class="fas fa-file-invoice"></i> Facturas</a>
+            <li class="nav-item" ng-class="{
+                    active: c.isActive('/producto')}">
+                <a class="nav-link" href="producto/plistUsuario">LIBROS Y REVISTAS</a>
             </li>
-
+            <li class="nav-item" ng-class="{
+                    active: c.isActive('/producto')}">
+                <a class="nav-link" href="producto/plistUsuario">OUTLET</a>
+            </li>
 
         </ul>
-        <div style="color: white; margin-right: 20px;" ng-show="c.logeado">
-            <a class="enlaceColor" href="carrito/plist/{{c.userId}}"><i class="enlaceColor fas fa-cart-arrow-down"></i>  
-                <sup class="redondel" ng-show="c.carrito > 0">{{c.carrito}}</sup></a></div>
-        <div style="color: white; margin-right: 20px;" ng-show="c.logeado">Bienvenido: </div>
+
+
+        <div style="color: white; margin-right: 20px;" ng-show="c.logeado">Bienvenid@: </div>
 
 
         <!--Boton login-->
-        <div class="btn-group ml-auto" ng-show="!c.logeado" style="margin-right: 20px;">
+        <div class="btn-group ml-auto" ng-show="!c.logeado">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Login
             </button>
@@ -564,10 +221,15 @@
                     {{c.usuario}}
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="usuario/view/{{c.userId}}">
-                        <i class="fas fa-user-circle enlaceColor"></i>
-                        Perfil
+                    <!--                    <a class="dropdown-item" href="usuario/view/{{c.userId}}">
+                                            <i class="fas fa-user-circle enlaceColor"></i>
+                                            Perfil
+                                        </a>-->
+                    <a class="dropdown-item" href="{{'factura/plist/10/1/' + c.userId + '/' + c.usuario}}">
+                        <i class="fas fa-file-invoice enlaceColor"></i> 
+                        Facturas
                     </a>
+
                     <a class="dropdown-item" href="usuario/edit/{{c.userId}}">
                         <i class="fas fa-user-edit enlaceColor"></i>
                         Editar perfil

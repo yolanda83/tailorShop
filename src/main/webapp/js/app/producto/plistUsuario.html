@@ -9,9 +9,8 @@
                 <h1 class="h2"><i class="fas fa-archive"></i> Productos</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group btn-group-toggle mr-3" data-toggle="buttons">               
-                        <!--<button type="button" class="btn btn-outline-info" ng-click="resetOrder()">Reset ordenación</button>-->
 
-                        <!--Registros por página-->
+                        <!--Registros por pagina-->
                         <div>
                             <nav aria-label="RegistrosPorPagina">
                                 <ul class="pagination" style="float: right;">
@@ -37,21 +36,21 @@
 
                         <div class="card">
                             <!--<img src="https://github.com/neel6762/Free-Code-Camp-Prdocuct-Landing-Page-/blob/master/src/img/choclatecard.jpg?raw=true" alt="choclate" class="card-img-top">-->
-                            <img ng-src="http://localhost:8081/imagenes/{{producto.producto.foto}}" alt="choclate" class="card-img-top" style="width: 250px;" >
+                            <img ng-src="http://localhost:8081/imagenes/{{producto.producto.foto}}" alt="foto" class="card-img-top" style="width: 250px;" >
                             <div class="card-body mx-auto">
                                 <h3 class="h5 card-title">{{producto.producto.desc}}</h3>
                                 <p class="card-text">Precio: {{producto.producto.precio}} €</p>
 
                                 <div ng-show="producto.producto.existencias > 0">
                                     <button type="button" class="ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="save(producto, this)">
-                                        <i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                                        <i class="fas fa-shopping-cart"></i> Anyadir al carrito</button>
 
                                 </div>
 
                                 <div class="row" ng-show="producto.producto.existencias <= 0">
                                     <div class="col-12">
                                         <div class="alert alert-danger mb-0" style="border-radius: 5px" role="alert">
-                                            ¡Sin existencias!
+                                            �Sin existencias!
                                         </div>
                                     </div>
                                 </div>
@@ -59,85 +58,12 @@
                             </div>
                         </div>
 
-
-                        <!--                    <div class="card-body">
-                                                <div class="row imagenproducto">
-                                                    <div class="col-12 mx-auto" style=" text-align: center;">
-                                                        <i style="font-size: 128px;" class="icon ion-logo-tux"></i>
-                                                        <image ng-src="http://localhost:8081/imagenes/{{producto.producto.foto}}" style="width: 128px; height: 128px;" />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-12 pb-4">
-                                                        <p class="card-text text-center font-weight-bold" style="text-transform: capitalize; font-size: 25px;">
-                                                            {{producto.producto.desc}}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                                        <div class="row">
-                                                                            <div class="col-8 ">
-                                                                                <p style="font-size: 20px;">
-                                                                                    Existencias:
-                                                                                </p>
-                                                                            </div>
-                                                                            <div class="col-4 text-right">
-                                                                                {{producto.producto.existencias}}
-                                                                            </div>
-                                                                        </div>
-                                                <div class="row">
-                        
-                                                    <div class="col-6 ">
-                                                        <p style="font-size: 20px;">
-                                                            Precio:
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-6 text-right">
-                                                        {{producto.producto.precio}} €
-                                                    </div>
-                        
-                        
-                                                                                <div class="col-12 pb-4 text-center product-price">
-                                                                                    {{producto.producto.precio}} €
-                                                                                </div>
-                                                </div>
-                                                <div class="row" ng-show="producto.producto.existencias <= 0">
-                                                    <div class="col-12">
-                                                        <div class="alert alert-danger" style="border-radius: 25px" role="alert">
-                                                            ¡Nos hemos quedado sin existencias!
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                                        <div class="row" ng-show="producto.producto.existencias > 0">
-                                                                            <div class="col-12">
-                                                                                <div class="input-group mb-3">
-                                                                                    <input type="number" max="{{producto.producto.existencias}}" min="0" class="form-control" style="width:50px; border-radius: 25px 0 0 25px" placeholder="0" ng-model="producto.cantidad" value="producto.cantidad">
-                                                                                    <div class="invalid-feedback">
-                                                                                        Cantidad inválida.
-                                                                                    </div>
-                                                                                    <div class="input-group-prepend"  id="button-addon3">
-                                                                                        <button class="btn btn-outline-success" type="button" ng-click="add(producto)"><i class="fas fa-plus-square"></i></button>
-                                                                                        <button class="btn btn-outline-danger" style="border-radius: 0 25px 25px 0" type="button" ng-click="reduce(producto)"><i class="fas fa-minus-circle"></i></button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                <div class="row" ng-show="producto.producto.existencias > 0">
-                                                    <div class="col-12 d-flex justify-content-center align-items-center hvr-icon-wobble-horizontal  p-3">
-                                                        <button type="button" class="btn btn-outline-info add-to-cart{{$index}}" ng-click="save(producto, this)">
-                                                            <i class="fas fa-shopping-cart"></i>
-                                                            <i class="fas fa-arrow-left hvr-icon"></i> Añadir al carrito
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>-->
                     </div>
                 </div>
-            </div>
 
 
 
-
-            <!--Páginación vecindario-->     
+            <!--Paginacion vecindario-->     
             <nav aria-label="paginacion">
                 <ul class="pagination justify-content-center p-5">
                     <li class="page-item" ng-class="{'disabled': (page <= 1)}">

@@ -45,7 +45,7 @@
                                 </div>
                             </th>
                             <th>
-                                Código
+                                Codigo
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <button type="button" class="btn btn-light" ng-click="ordena('codigo', 'asc')">
                                         <i class="fas fa-angle-up"></i>
@@ -56,7 +56,7 @@
                                 </div>
                             </th>
                             <th>
-                                Descripción
+                                Descripcion
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <button type="button" class="btn btn-light" ng-click="ordena('producto.desc', 'asc')">
                                         <i class="fas fa-angle-up"></i>
@@ -108,7 +108,7 @@
                             <td>{{fila.codigo}}</td>
                             <td>{{fila.desc}}</td>
                             <td>{{fila.existencias}}</td>
-                            <td>{{fila.precio}}€</td>
+                            <td>{{fila.precio}}�</td>
                             <!--<td>{{fila.id_tipoProducto}}</td>-->
                             <td><a href="{{'/tailorShop/tipoproducto/view/' + fila.obj_tipoProducto.id}}" class="enlaceColor">{{fila.obj_tipoProducto.desc}}</a></td>
                             <td>
@@ -124,7 +124,7 @@
                 </div>
             <!--</div>-->
 
-            <!--Páginación vecindario-->     
+            <!--Paginacion vecindario-->     
             <nav aria-label="paginacion">
                 <ul class="pagination justify-content-center">
                     <li class="page-item" ng-class="{'disabled': (page <= 1)}">
