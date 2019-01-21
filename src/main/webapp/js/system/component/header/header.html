@@ -5,9 +5,9 @@
         <a href="home/"><img class="p-0 logo" src="images/logo-01_animated.svg" alt="logo"></a>
     </div>
     <div class="linksNav col-md-6 my-auto">
-        <a class="pl-0 hoverNav text-uppercase" href="#about">Sobre la tienda</a>
-        <a class="hoverNav text-uppercase" href="#news">Newsletter</a>
-        <a class="hoverNav text-uppercase" href="#contact">Contacto</a>
+        <a class="pl-0 hoverNav text-uppercase" href="aboutus">Sobre la tienda</a>
+        <a class="hoverNav text-uppercase" href="newsletter">Newsletter</a>
+        <a class="hoverNav text-uppercase" href="contacto">Contacto</a>
     </div>
     <div class="col-md-3 my-auto text-center">
         <div id="ballMenuContainer">
@@ -239,7 +239,7 @@
                         Cambiar password
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="usuario/logout">
+                    <a class="dropdown-item" ng-click="logout()">
                         <i class="fas fa-sign-out-alt enlaceColor"></i>
                         Logout
                     </a>

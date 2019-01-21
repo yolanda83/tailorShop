@@ -1,4 +1,6 @@
-'use strict'
+/* global moduleUsuario */
+
+'use strict';
 
 moduleUsuario.controller('usuarioLogoutController', ['$scope', '$http', 'toolService', '$location', 'sessionService',
     function ($scope, $http, toolService, $location, oSessionService) {
@@ -14,7 +16,7 @@ moduleUsuario.controller('usuarioLogoutController', ['$scope', '$http', 'toolSer
 //            oSessionService.setUserName($scope.usuario);
 //            oSessionService.setId($scope.userId);
 //            $scope.logeado = false;
-              oSessionService.logOut();
+              oSessionService.setSessionInactive();
         }), function (response) {
             $scope.ajaxData = response.data.message || 'Request failed';
             $scope.status = response.status;
@@ -27,7 +29,7 @@ moduleUsuario.controller('usuarioLogoutController', ['$scope', '$http', 'toolSer
 
             $location.path('/home');
 
-        }
+        };
 
 
 

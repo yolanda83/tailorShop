@@ -1,3 +1,5 @@
+/* global moduleComponent */
+
 moduleComponent.component('headerComponent', {
     //restrict: 'A',
     templateUrl: 'js/system/component/header/header.html',
@@ -24,19 +26,13 @@ function js(toolService, sessionService, $scope, $http, $location, $mdDialog) {
 
 
     sessionService.registerObserverCallback(function () {
-        self.usuario = sessionService.getUserName();
-    })
-    sessionService.registerObserverCallback(function () {
-        self.isAdmin = sessionService.isAdmin();
-    })
-    sessionService.registerObserverCallback(function () {
-        self.carrito = sessionService.getCountCarrito();
-    })
-    sessionService.registerObserverCallback(function () {
         self.logeado = sessionService.isSessionActive();
-    })
-
-
+        self.usuario = sessionService.getUserName();
+        self.userId = sessionService.getId();
+//        self.isActive = toolService.isActive;
+        self.isAdmin = sessionService.isAdmin();
+        self.carrito = sessionService.getCountCarrito();
+    });
 
     $scope.log = function () {
         $scope.error = false;
@@ -49,19 +45,18 @@ function js(toolService, sessionService, $scope, $http, $location, $mdDialog) {
             header: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
-            url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=login&user=' + login + '&pass=' + pass,
+            url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=login&user=' + login + '&pass=' + pass
         }).then(function (response) {
             $scope.status = response.data.status;
-            if ($scope.status == 200) {
+            if ($scope.status === 200) {
                 $scope.logeado = true;
                 sessionService.setUserName(response.data.message.login);
                 sessionService.setId(response.data.message.id);
                 self.usuario = sessionService.getUserName();
                 self.userId = sessionService.getId();
                 sessionService.setSessionActive();
-
                 //Seteamos si es ADMIN o USUARIO
-                if (response.data.message.obj_tipoUsuario.id == 1) { //ADMIN
+                if (response.data.message.obj_tipoUsuario.id === 1) { //ADMIN
                     sessionService.setAdmin();
                 } else {
                     sessionService.setUser();
@@ -77,9 +72,32 @@ function js(toolService, sessionService, $scope, $http, $location, $mdDialog) {
         }), function (response) {
             $scope.ajaxDataUsuario = response.data.message || 'Request failed';
             $scope.status = response.status;
-        }
-    }
+        };
+    };
 
+    $scope.logout = function () {
+        $scope.error = false;
+        $http({
+            method: "GET",
+            url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=logout'
+        }).then(function (response) {
+            $scope.status = response.status;
+            sessionService.setSessionInactive();
+            sessionService.setUser();
+            $scope.login = "";
+            $scope.pass = "";
+            $scope.userForm.login.$pristine = true;
+            $scope.userForm.pass.$pristine = true;
+            $location.path('/home');
+        }), function (response) {
+            $scope.ajaxData = response.data.message || 'Request failed';
+            $scope.status = response.status;
+        };
+    };
+
+    $scope.volver = function () {
+        $location.path('/home');
+    };
 
     $scope.showAlert = function (titulo, description) {
         $mdDialog.show(
