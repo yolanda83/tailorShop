@@ -9,6 +9,8 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
         $scope.ob = "producto";
         $scope.op = "plistUsuario";
         $scope.totalPages = 1;
+        $scope.tipo = $routeParams.tipo;
+        $scope.titulo = "";
 
 
 //        //Chequeo sesión
@@ -57,8 +59,35 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
 
         $http({
             method: 'GET',
-            url: `http://localhost:8081/tailorShop/json?ob=${toolService.objects.producto}&op=getpage&rpp=` + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor
+            url: `http://localhost:8081/tailorShop/json?ob=${toolService.objects.producto}&op=getpage&rpp=` + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor +
+                    '&tipo=' + $scope.tipo
         }).then(function (response) {
+
+            switch ($scope.tipo) {
+                case "1":
+                    $scope.titulo = "Telas";
+                    break;
+                case "2":
+                    $scope.titulo = "Patrones";
+                    break;
+                case "3":
+                    $scope.titulo = "Accesorios";
+                    break;
+                case "4":
+                    $scope.titulo = "Kits";
+                    break;
+                case "5":
+                    $scope.titulo = "Libros y Revistas";
+                    break;
+                case "6":
+                    $scope.titulo = "Outlet";
+                    break;
+                default:
+                    $scope.titulo = "Productos";
+            }
+
+
+
             $scope.status = response.status;
             var productos = [];
             response.data.message.forEach(element => {

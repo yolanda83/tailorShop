@@ -6,8 +6,8 @@ moduleAbout.controller('aboutController', ['$scope', '$location', 'toolService',
     function ($scope, $location, toolService) {
 
         $scope.ruta = $location.path();
-
-        $scope.logeado = false;
+//
+//        $scope.logeado = false;
         $scope.isActive = toolService.isActive;
 
 

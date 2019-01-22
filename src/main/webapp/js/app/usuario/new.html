@@ -113,137 +113,278 @@ Componenete modal
 <!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
 
-<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
+<div class="row no-gutters">
+    <div class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 10px;">
 
-    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">New Usuario</h1>
-    </div>
+        <div class="login-wrap">
+            <form name="userForm">
+                <div class="login-html">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                    <div class="login-form">
 
-    <form name="userForm" class="p-5 mx-auto" ng-show="!new"
-          style="margin-top: 80px; margin-bottom: 100px; background-color: WHITESMOKE; width: 70%; border-radius: 7px"> 
+                        <div class="sign-in-htm">
 
-        <div class="form-group"> 
-            <div class="form-group">
-                <label for="dni" class="col-form-label">DNI:</label>
-                <input id="dni" ng-model="dni" class="form-control" ng-class="{'is-invalid': userForm.dni.$invalid && !userForm.dni.$pristine}"
-                       name="dni" type="text" ng-required="true" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/" 
-                       placeholder="Introduce un DNI..."/>
-                <div ng-show="userForm.dni.$error.pattern" class="alert alert-danger" role="alert">
-                    Formato DNI no valido
-                </div>
-                <div ng-show="!userForm.dni.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
-                    DNI obligatorio
-                </div>
-            </div>
-        </div>
+                            <div class="group">
+                                <label for="login1" class="label">Username</label>
+                                <input id="login1" ng-model="login1"  ng-class="{'is-invalid': userForm.login1.$invalid && !userForm.login1.$pristine}"
+                                       name="login1" type="text" class="input" ng-required="true" placeholder="Introduce un username..." />
+                                <div ng-show="!userForm.login1.$valid && userForm.login1.$dirty && !userForm.login1.$pristine" class="alert alert-danger" role="alert">
+                                    Username obligatorio
+                                </div>
+                            </div>
 
-        <div class="form-group"> 
-            <label for="nombre" class="col-form-label">Nombre:</label>
-            <input id="nombre" ng-model="nombre" class="form-control" ng-class="{'is-invalid': userForm.nombre.$invalid && !userForm.nombre.$pristine}"
-                   name="nombre" type="text" ng-required="true" placeholder="Introduce un nombre..." />
-            <div ng-show="!userForm.nombre.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
-                Nombre obligatorio
-            </div>
-        </div>
+                            <div class="group">
+                                <label for="passAdmin" class="label">Password</label>
+                                <input id="passAdmin" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"
+                                       name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce un password..."/>
 
-        <div class="form-group"> 
-            <label for="ape1" class="col-form-label">Primer apellido:</label>
-            <input id="ape1" ng-model="ape1" class="form-control" ng-class="{'is-invalid': userForm.ape1.$invalid && !userForm.ape1.$pristine}"
-                   name="ape1" type="text" ng-required="true" placeholder="Introduce un apellido..." />
-            <div ng-show="!userForm.ape1.$valid && userForm.ape1.$dirty && !userForm.ape1.$pristine" class="alert alert-danger" role="alert">
-                Apellido obligatorio
-            </div>
-        </div>
+                                <div ng-show="userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
+                                    La longitud del password es demasiado corta, introduce 6 caracteres minimo
+                                </div>
+                                <div ng-show="!userForm.pass.$valid && userForm.pass.$dirty && !userForm.pass.$pristine" class="alert alert-danger" role="alert">
+                                    Password obligatorio
+                                </div>
+                            </div>
 
-        <div class="form-group"> 
-            <label for="ape2" class="col-form-label">Segundo apellido:</label>
-            <input ng-model="ape2" class="form-control" ng-class="{'is-invalid': userForm.ape2.$invalid && !userForm.ape2.$pristine}"
-                   name="ape2" type="text" ng-required="true" placeholder="Introduce un apellido..." />
-            <div ng-show="!userForm.ape2.$valid && userForm.ape2.$dirty && !userForm.ape2.$pristine" class="alert alert-danger" role="alert">
-                Apellido obligatorio
-            </div>
-        </div>
+                            <div class="group">
+                                <input id="check" type="checkbox" class="check" checked>
+                                <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                            </div>
 
+                            <!--Boton sign in-->
+                            <div class="group">
+                                <input type="submit" class="button" value="Sign In">
+                            </div>
 
-        <div class="form-group">
-            <label for="passAdmin">Password:</label>
-            <input id="passAdmin" type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"
-                   name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce una contraseña..."/>
+                            <div class="hr"></div>
+                            <div class="foot-lnk">
+                                <a href="#forgot">Forgot Password?</a>
+                            </div>
 
-            <!--            <div ng-show="userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
-                            La longitud de la constraseña es demasiado corta, introduce 6 carácteres mínimo
-                        </div>-->
-            <div ng-show="!userForm.pass.$valid && userForm.pass.$dirty && !userForm.pass.$pristine" class="alert alert-danger" role="alert">
-                Contraseña obligatoria
-            </div>
-        </div>
+                        </div>
+
+                        <div class="sign-up-htm">
+
+                            <div class="group"> 
+                                <label for="nombre" class="label">Nombre</label>
+                                <input id="nombre" ng-model="nombre" class="input" ng-class="{'is-invalid': userForm.nombre.$invalid && !userForm.nombre.$pristine}"
+                                       name="nombre" type="text" ng-required="true" placeholder="Introduce un nombre..." />
+                                <div ng-show="!userForm.nombre.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
+                                    Nombre obligatorio
+                                </div>
+                            </div>
 
 
-        <!--        <div class="form-group"> 
-                    <label for="loginAdmin" class="col-form-label">Nombre Usuario:</label>
-                    <input id="loginAdmmin" type="text" class="form-control"  ng-class="{'is-invalid': userForm.loginAdmmin.$invalid && !userForm.loginAdmmin.$pristine}"
-                           name="loginAdmin" ng-model="loginAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce nombre usuario..."/>
-        
-                    <div ng-show="userForm.loginAdmmin.$error.minlength" class="alert alert-danger" role="alert">
-                        La longitud del login es demasiado corto
-                    </div>           
-                    <div ng-show="!userForm.loginAdmmin.$valid && userForm.loginAdmmin.$dirty && !userForm.loginAdmmin.$pristine" class="alert alert-danger" role="alert">
-                        Nombre usuario obligatorio
-                    </div>
-                </div>-->
+                            <div class="group"> 
+                                <label for="ape1" class="label">Primer apellido</label>
+                                <input id="ape1" ng-model="ape1" class="input" ng-class="{'is-invalid': userForm.ape1.$invalid && !userForm.ape1.$pristine}"
+                                       name="ape1" type="text" ng-required="true" placeholder="Introduce un apellido..." />
+                                <div ng-show="!userForm.ape1.$valid && userForm.ape1.$dirty && !userForm.ape1.$pristine" class="alert alert-danger" role="alert">
+                                    Apellido obligatorio
+                                </div>
+                            </div>
 
-        <div class="form-group"> 
-            <label for="loginUser" class="col-form-label">Nombre Usuario:</label>
-            <input id="loginUser" type="text" class="form-control"  ng-class="{'is-invalid': userForm.loginUser.$invalid && !userForm.loginUser.$pristine}"
-                   name="loginUser" ng-model="loginUser" ng-required="true" ng-minlength="5" placeholder="Introduce nombre usuario..."/>
+                            <div class="group"> 
+                                <label for="ape2" class="label">Segundo apellido:</label>
+                                <input ng-model="ape2" class="input" ng-class="{'is-invalid': userForm.ape2.$invalid && !userForm.ape2.$pristine}"
+                                       name="ape2" type="text" ng-required="true" placeholder="Introduce un apellido..." />
+                                <div ng-show="!userForm.ape2.$valid && userForm.ape2.$dirty && !userForm.ape2.$pristine" class="alert alert-danger" role="alert">
+                                    Apellido obligatorio
+                                </div>
+                            </div>
 
-            <div ng-show="userForm.loginUser.$error.minlength" class="alert alert-danger" role="alert">
-                La longitud del login es demasiado corto
-            </div>           
-            <div ng-show="!userForm.loginUser.$valid && userForm.loginUser.$dirty && !userForm.loginUser.$pristine" class="alert alert-danger" role="alert">
-                Nombre usuario obligatorio
-            </div>
-        </div>
+                            <!--                        <div class="group">
+                                                        <label class="label">Tipo Usuario</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="obj_tipoUsuario.desc" name="obj_tipoUsuario.desc" ng-model="obj_tipoUsuario.desc"
+                                                                   ng-click="modal()" disabled/>
+                                                            <div class="input-group-append">
+                                                                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cadd-location-modal">
+                                                                    <i class="fas fa-search"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>-->
 
-        <!--        <div class="form-group">
-                    <label>Tipo Usuario</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="obj_tipoUsuario.desc" name="obj_tipoUsuario.desc" ng-model="obj_tipoUsuario.desc"
-                               ng-click="modal()" disabled/>
-                        <div class="input-group-append">
-                            <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cadd-location-modal">
-                                <i class="fas fa-search"></i>
-                            </button>
+
+
+                            <div class="group">
+                                <label for="pass1" class="label">Password</label>
+                                <input id="pass1" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.pass1.$invalid && !userForm.pass1.$pristine}"
+                                       name="pass1" ng-model="pass1" ng-required="true" ng-minlength="5" placeholder="Introduce un password..."/>
+                                <div ng-show="userForm.pass1.$error.minlength" class="alert alert-danger" role="alert">
+                                    La longitud del password es demasiado corta, introduce 6 caracteres minimo
+                                </div>
+                                <div ng-show="!userForm.pass1.$valid && userForm.pass1.$dirty && !userForm.pass1.$pristine" class="alert alert-danger" role="alert">
+                                    Password obligatorio
+                                </div>
+                            </div>
+
+                            <div class="group">
+                                <label for="pass2" class="label">Repite el password</label>
+                                <input id="pass2" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.pass2.$invalid && !userForm.pass2.$pristine}"
+                                       name="pass2" ng-model="pass2" ng-required="true" ng-minlength="5" placeholder="Introduce un password..."/>
+                                <div ng-show="userForm.pass2.$error.minlength" class="alert alert-danger" role="alert">
+                                    La longitud del password es demasiado corta, introduce 6 caracteres minimo
+                                </div>
+                                <div ng-show="!userForm.pass2.$valid && userForm.pass2.$dirty && !userForm.pass2.$pristine" class="alert alert-danger" role="alert">
+                                    Password obligatorio
+                                </div>
+                            </div>
+                     
+                            <div class="group">
+                                <label for="email2" class="label">Email Address</label>
+                                <input id="email2" type="email" class="input">
+                            </div>
+                            
+                            <!--Boton sign up-->
+                            <div class="group">
+                                <input type="submit" class="button" value="Sign Up">
+                            </div>
+                            
+                            <div class="hr"></div>
+                            <div class="foot-lnk">
+                                <label for="tab-1"><a href="">Already Member?</a></label>
+                            </div>
+                            
                         </div>
                     </div>
-                </div>-->
+                </div>
+            </form>
 
-        <div>
-            <button ng-click="guardar()" class="btn btn-info mt-2 ml-0">Guardar</button>
-            <button class="btn btn-info mt-2" onClick="javascript:history.go( - 1);">Volver</button>
         </div>
-    </form>
 
-
-    <div class="row" ng-show="new">
-        <div class="col-12">
-            <div class="card mx-auto" style="margin-top: 100px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
-                <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;">{{resultado}}</h4>
-                    <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
-                        <button type="button" class="btn btn-info" onclick="window.history.back()">Volver</button>
+        <!--    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">New Usuario</h1>
+            </div>
+        
+            <form name="userForm" class="p-5 mx-auto" ng-show="!new"
+                  style="margin-top: 80px; margin-bottom: 100px; background-color: WHITESMOKE; width: 70%; border-radius: 7px"> 
+        
+                <div class="form-group"> 
+                    <div class="form-group">
+                        <label for="dni" class="col-form-label">DNI:</label>
+                        <input id="dni" ng-model="dni" class="form-control" ng-class="{'is-invalid': userForm.dni.$invalid && !userForm.dni.$pristine}"
+                               name="dni" type="text" ng-required="true" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/" 
+                               placeholder="Introduce un DNI..."/>
+                        <div ng-show="userForm.dni.$error.pattern" class="alert alert-danger" role="alert">
+                            Formato DNI no valido
+                        </div>
+                        <div ng-show="!userForm.dni.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
+                            DNI obligatorio
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+        
+                <div class="form-group"> 
+                    <label for="nombre" class="col-form-label">Nombre:</label>
+                    <input id="nombre" ng-model="nombre" class="form-control" ng-class="{'is-invalid': userForm.nombre.$invalid && !userForm.nombre.$pristine}"
+                           name="nombre" type="text" ng-required="true" placeholder="Introduce un nombre..." />
+                    <div ng-show="!userForm.nombre.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
+                        Nombre obligatorio
+                    </div>
+                </div>
+        
+                <div class="form-group"> 
+                    <label for="ape1" class="col-form-label">Primer apellido:</label>
+                    <input id="ape1" ng-model="ape1" class="form-control" ng-class="{'is-invalid': userForm.ape1.$invalid && !userForm.ape1.$pristine}"
+                           name="ape1" type="text" ng-required="true" placeholder="Introduce un apellido..." />
+                    <div ng-show="!userForm.ape1.$valid && userForm.ape1.$dirty && !userForm.ape1.$pristine" class="alert alert-danger" role="alert">
+                        Apellido obligatorio
+                    </div>
+                </div>
+        
+                <div class="form-group"> 
+                    <label for="ape2" class="col-form-label">Segundo apellido:</label>
+                    <input ng-model="ape2" class="form-control" ng-class="{'is-invalid': userForm.ape2.$invalid && !userForm.ape2.$pristine}"
+                           name="ape2" type="text" ng-required="true" placeholder="Introduce un apellido..." />
+                    <div ng-show="!userForm.ape2.$valid && userForm.ape2.$dirty && !userForm.ape2.$pristine" class="alert alert-danger" role="alert">
+                        Apellido obligatorio
+                    </div>
+                </div>
+        
+        
+                <div class="form-group">
+                    <label for="passAdmin">Password:</label>
+                    <input id="passAdmin" type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"
+                           name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce una contraseña..."/>
+        
+                                <div ng-show="userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
+                                    La longitud de la constraseña es demasiado corta, introduce 6 carácteres mínimo
+                                </div>
+                    <div ng-show="!userForm.pass.$valid && userForm.pass.$dirty && !userForm.pass.$pristine" class="alert alert-danger" role="alert">
+                        Contraseña obligatoria
+                    </div>
+                </div>
+        
+        
+                        <div class="form-group"> 
+                            <label for="loginAdmin" class="col-form-label">Nombre Usuario:</label>
+                            <input id="loginAdmmin" type="text" class="form-control"  ng-class="{'is-invalid': userForm.loginAdmmin.$invalid && !userForm.loginAdmmin.$pristine}"
+                                   name="loginAdmin" ng-model="loginAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce nombre usuario..."/>
+                
+                            <div ng-show="userForm.loginAdmmin.$error.minlength" class="alert alert-danger" role="alert">
+                                La longitud del login es demasiado corto
+                            </div>           
+                            <div ng-show="!userForm.loginAdmmin.$valid && userForm.loginAdmmin.$dirty && !userForm.loginAdmmin.$pristine" class="alert alert-danger" role="alert">
+                                Nombre usuario obligatorio
+                            </div>
+                        </div>
+        
+                <div class="form-group"> 
+                    <label for="loginUser" class="col-form-label">Nombre Usuario:</label>
+                    <input id="loginUser" type="text" class="form-control"  ng-class="{'is-invalid': userForm.loginUser.$invalid && !userForm.loginUser.$pristine}"
+                           name="loginUser" ng-model="loginUser" ng-required="true" ng-minlength="5" placeholder="Introduce nombre usuario..."/>
+        
+                    <div ng-show="userForm.loginUser.$error.minlength" class="alert alert-danger" role="alert">
+                        La longitud del login es demasiado corto
+                    </div>           
+                    <div ng-show="!userForm.loginUser.$valid && userForm.loginUser.$dirty && !userForm.loginUser.$pristine" class="alert alert-danger" role="alert">
+                        Nombre usuario obligatorio
+                    </div>
+                </div>
+        
+                        <div class="form-group">
+                            <label>Tipo Usuario</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="obj_tipoUsuario.desc" name="obj_tipoUsuario.desc" ng-model="obj_tipoUsuario.desc"
+                                       ng-click="modal()" disabled/>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cadd-location-modal">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+        
+                <div>
+                    <button ng-click="guardar()" class="btn btn-info mt-2 ml-0">Guardar</button>
+                    <button class="btn btn-info mt-2" onClick="javascript:history.go( - 1);">Volver</button>
+                </div>
+            </form>
+        
+        
+            <div class="row" ng-show="new">
+                <div class="col-12">
+                    <div class="card mx-auto" style="margin-top: 100px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
+                        <div class="card-body">
+                            <h4 class="card-title" style="text-align: center;">{{resultado}}</h4>
+                            <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
+                                <button type="button" class="btn btn-info" onclick="window.history.back()">Volver</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+
     </div>
-
-
-</main>
+</div>
 
 <!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
 <!--<footer-component></footer-component>-->
 
 <!--Componenete modal-->
-<cadd-modal-var class="modal fade ng-isolate-scope" id="cadd-location-modal" tabla="'tipousuario'" data="obj_tipoUsuario" aria-hidden="true"
-                style="display: none;"></cadd-modal-var>
+<!--<cadd-modal-var class="modal fade ng-isolate-scope" id="cadd-location-modal" tabla="'tipousuario'" data="obj_tipoUsuario" aria-hidden="true"
+                style="display: none;"></cadd-modal-var>-->

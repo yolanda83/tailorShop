@@ -248,13 +248,19 @@ public class ProductoService {
         ConnectionInterface oConnectionPool = null;
         Connection oConnection;
         try {
+            Integer tipo = 0;
             Integer iRpp = Integer.parseInt(oRequest.getParameter("rpp"));
             Integer iPage = Integer.parseInt(oRequest.getParameter("page"));
             HashMap<String, String> hmOrder = ParameterCook.getOrderParams(oRequest.getParameter("order"));
+
+            if (oRequest.getParameter("tipo") != null) {
+                tipo = Integer.parseInt(oRequest.getParameter("tipo"));
+            }
+
             oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
             oConnection = oConnectionPool.newConnection();
             ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
-            ArrayList<ProductoBean> alProductoBean = oProductoDao.getpage(iRpp, iPage, hmOrder, 1);
+            ArrayList<ProductoBean> alProductoBean = oProductoDao.getpage(iRpp, iPage, hmOrder, 1, tipo);
             Gson oGson = (new GsonBuilder()).excludeFieldsWithoutExposeAnnotation().create();
             oReplyBean = new ReplyBean(200, oGson.toJson(alProductoBean));
         } catch (Exception ex) {

@@ -5,7 +5,7 @@ tailorShop.run(['$rootScope', 'sessionService', '$location', '$http', 'countcarr
             if (next.$$route != null) {
                 var nextUrl = next.$$route.originalPath;
             }
-            
+
             $http({
                 method: 'GET',
                 url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=check'
@@ -16,9 +16,11 @@ tailorShop.run(['$rootScope', 'sessionService', '$location', '$http', 'countcarr
                     oSessionService.setId(response.data.message.id);
                 } else {
                     oSessionService.setSessionInactive();
-                    if (nextUrl !== '/home' && nextUrl !== '/usuario/new/' && nextUrl != '/usuario/new') {
-                        $location.path("/home");
-                    }
+                    oSessionService.setUserName();
+                    oSessionService.setId();
+//                    if (nextUrl !== '/home' && nextUrl !== '/usuario/new/' && nextUrl != '/usuario/new') {
+//                        $location.path("/home");
+//                    }
                 }
             }, function (response) {
                 oSessionService.setSessionInactive();

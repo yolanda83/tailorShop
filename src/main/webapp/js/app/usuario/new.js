@@ -4,14 +4,6 @@ moduleUsuario.controller('usuarioNewController', ['$scope', '$http', 'toolServic
     function ($scope, $http, toolService, $routeParams, oSessionService) {
 
         $scope.numRegistros = 0;
-
-//        //Chequeo sesión
-//        if (oSessionService.getUserName() !== "") {
-//            $scope.usuario = oSessionService.getUserName();
-//            $scope.logeado = true;
-//            $scope.userId = oSessionService.getId();
-//        }
-
         $scope.isActive = toolService.isActive;
 
 

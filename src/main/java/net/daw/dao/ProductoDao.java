@@ -158,8 +158,15 @@ public class ProductoDao {
         return iResult;
     }
     
-        public ArrayList<ProductoBean> getpage(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand) throws Exception {
+        public ArrayList<ProductoBean> getpage(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand, int tipo) throws Exception {
         String strSQL = "SELECT * FROM " + ob;
+        
+        
+        if(tipo != 0) {
+            strSQL += " WHERE id_tipoproducto = ?";
+        }
+        
+        
         strSQL += SqlBuilder.buildSqlOrder(hmOrder);
         ArrayList<ProductoBean> alProductoBean;
         if (iRpp > 0 && iRpp < 100000 && iPage > 0 && iPage < 100000000) {
@@ -168,6 +175,9 @@ public class ProductoDao {
             PreparedStatement oPreparedStatement = null;
             try {
                 oPreparedStatement = oConnection.prepareStatement(strSQL);
+                if (tipo != 0) {
+                    oPreparedStatement.setInt(1, tipo);
+                }
                 oResultSet = oPreparedStatement.executeQuery();
                 alProductoBean = new ArrayList<ProductoBean>();
                 while (oResultSet.next()) {
