@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.daw.dao;
 
 import java.sql.Connection;
@@ -17,8 +12,9 @@ import net.daw.helper.SqlBuilder;
 
 /**
  *
- * @author a044531896d
+ * @author Yolanda
  */
+
 public class LineaDao {
 
     Connection oConnection;

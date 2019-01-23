@@ -2,8 +2,12 @@ package net.daw.bean;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-
 import com.google.gson.annotations.Expose;
+
+/**
+ *
+ * @author Yolanda
+ */
 
 public class TipousuarioBean {
 	@Expose

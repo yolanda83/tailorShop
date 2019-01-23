@@ -10,8 +10,9 @@ import net.daw.bean.ProductoBean;
 
 /**
  *
- * @author Ramón
+ * @author Yolanda
  */
+
 public class RellenarService {
 
     public ArrayList<ProductoBean> RellenarProducto(int numero) {

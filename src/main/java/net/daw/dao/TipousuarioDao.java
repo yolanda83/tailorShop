@@ -6,9 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import net.daw.bean.TipousuarioBean;
 import net.daw.helper.SqlBuilder;
+
+/**
+ *
+ * @author Yolanda
+ */
 
 public class TipousuarioDao {
 

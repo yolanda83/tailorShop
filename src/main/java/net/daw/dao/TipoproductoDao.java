@@ -9,6 +9,11 @@ import java.util.HashMap;
 import net.daw.bean.TipoproductoBean;
 import net.daw.helper.SqlBuilder;
 
+/**
+ *
+ * @author Yolanda
+ */
+
 public class TipoproductoDao {
 
     Connection oConnection;

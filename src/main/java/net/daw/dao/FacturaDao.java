@@ -23,8 +23,9 @@ import java.util.Date;
 
 /**
  *
- * @author Jesus
+ * @author Yolanda
  */
+
 public class FacturaDao {
 
     Connection oConnection;

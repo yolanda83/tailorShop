@@ -22,7 +22,7 @@ import net.daw.helper.ParameterCook;
 
 /**
  *
- * @author a044531896d
+ * @author Yolanda
  */
 public class TipoproductoService {
 

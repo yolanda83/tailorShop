@@ -13,8 +13,9 @@ import net.daw.dao.ProductoDao;
 
 /**
  *
- * @author a044531896d
+ * @author Yolanda
  */
+
 public class LineaBean {
 
     private int id, cantidad, id_producto, id_factura;

@@ -12,8 +12,9 @@ import net.daw.dao.TipoproductoDao;
 
 /**
  *
- * @author a044531896d
+ * @author Yolanda
  */
+
 public class ProductoBean {
 
     @Expose

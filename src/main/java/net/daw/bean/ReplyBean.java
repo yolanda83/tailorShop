@@ -1,5 +1,10 @@
 package net.daw.bean;
 
+/**
+ *
+ * @author Yolanda
+ */
+
 public class ReplyBean {
 	
 	private int status;

@@ -18,8 +18,9 @@ import net.daw.helper.EncodingHelper;
 
 /**
  *
- * @author Jesus
+ * @author Yolanda
  */
+
 public class FacturaBean {
 
     private int id;
