@@ -4,7 +4,7 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
     'sessionService', '$routeParams',
     function ($scope, $http, $location, toolService, oSessionService, $routeParams) {
 
-//Código que se ejecuta al arrancar la página
+//Codigo que se ejecuta al arrancar la pagina
         $scope.ruta = $location.path();
         $scope.ob = "linea";
         $scope.op = "plist";
@@ -37,14 +37,14 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
             }
         }
 
-        //llámada a servidor con $http, trae el usuario completo sobre el cual estamos viendo sus lineas
+        //llamada a servidor con $http, trae el usuario completo sobre el cual estamos viendo sus lineas
         $http({
             method: 'GET',
             //withCredentials: true,
             url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=get&id=' + $scope.user
         }).then(function (response) {
             $scope.status = response.status;
-            $scope.ajaxDataUsuario = response.data.message; //Aquí vienen todos los datos del cliente en formato json
+            $scope.ajaxDataUsuario = response.data.message; //Aqui vienen todos los datos del cliente en formato json
         }, function (response) {
             $scope.ajaxDataLinea = response.data.message || 'Request failed';
             $scope.status = response.status;
@@ -89,7 +89,7 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
         });
 
 
-//A PARTIR DE AQU�? SON FUNCIONES QUE SE EJECUTAN CUANDO SE PULSA EL BOTÓN ADECUADO EN EL HTML
+//A PARTIR DE AQUI? SON FUNCIONES QUE SE EJECUTAN CUANDO SE PULSA EL BOTÓN ADECUADO EN EL HTML
         $scope.resetOrder = function () {
             if ($scope.id == null) {
                 $location.url('linea/plist/' + $scope.rpp + '/' + $scope.page);

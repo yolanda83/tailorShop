@@ -167,42 +167,28 @@
             </button>
             <div class="dropdown-menu dropdown-menu-right">
                 <form name="userForm" class="px-4 py-3">
-
-
                     <div class="form-group">
                         <label for="login">Usuario:</label>
                         <input id="login" type="text" class="form-control" ng-class="{' is-invalid': userForm.login.$invalid && !userForm.login.$pristine}"
                                name="login" ng-model="login" ng-required="true" placeholder="Nombre_usuario" />
-
                         <div ng-show="!userForm.login.$valid && userForm.login.$dirty && !userForm.login.$pristine" class="alert alert-danger" role="alert">
                             Login obligatorio
                         </div>
                     </div>
-
-
                     <div class="form-group">
                         <label for="pass">Password:</label>
                         <input  id="pass" type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}" 
                                 name="pass" ng-model="pass" ng-required="true" placeholder="Password" />
-
                         <div ng-show="!userForm.pass.$valid && userForm.pass.$dirty && !userForm.pass.$pristine" class="alert alert-danger" role="alert">
                             Contrasenya obligatoria
                         </div>
                     </div>
-
                     <button ng-click="log()" class="btn btn-info ml-0">Login</button>
-
                     <div class="row" ng-show="error == true">
-                        <!--<div class="col-12">-->
-                        <!--<div class="card mx-auto" style="background-color: GhostWhite; width: 70%; border: none; border-radius: 7px">-->
                         <div class="card-body pt-3 pb-0">
-                            <!--<h5 class="card-title" style="text-align: center;">El Usuario ha sido editado correctamente.</h5>-->
                             <h5 class="card-title mb-0" style="text-align: center;">Datos erroneos.</h5>     
                         </div>
-                        <!--</div>-->
-                        <!--</div>-->
                     </div>
-
                 </form>
 
                 <div class="dropdown-divider"></div>

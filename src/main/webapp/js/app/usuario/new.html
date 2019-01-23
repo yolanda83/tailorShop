@@ -117,12 +117,12 @@ Componenete modal
     <div class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 10px;">
 
         <div class="login-wrap">
-            <form name="userForm">
-                <div class="login-html">
-                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-                    <div class="login-form">
-
+            <!--<form name="userForm">-->
+            <div class="login-html">
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                <div class="login-form">
+                    <form name="userForm">
                         <div class="sign-in-htm">
 
                             <div class="group">
@@ -136,13 +136,13 @@ Componenete modal
 
                             <div class="group">
                                 <label for="passAdmin" class="label">Password</label>
-                                <input id="passAdmin" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"
+                                <input id="passAdmin" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.passAdmin.$invalid && !userForm.passAdmin.$pristine}"
                                        name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce un password..."/>
 
-                                <div ng-show="userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
+                                <div ng-show="userForm.passAdmin.$error.minlength" class="alert alert-danger" role="alert">
                                     La longitud del password es demasiado corta, introduce 6 caracteres minimo
                                 </div>
-                                <div ng-show="!userForm.pass.$valid && userForm.pass.$dirty && !userForm.pass.$pristine" class="alert alert-danger" role="alert">
+                                <div ng-show="!userForm.passAdmin.$valid && userForm.passAdmin.$dirty && !userForm.passAdmin.$pristine" class="alert alert-danger" role="alert">
                                     Password obligatorio
                                 </div>
                             </div>
@@ -152,9 +152,9 @@ Componenete modal
                                 <label for="check"><span class="icon"></span> Keep me Signed in</label>
                             </div>
 
-                            <!--Boton sign in-->
+                            <!-----------------------Boton sign in------------------------->
                             <div class="group">
-                                <input type="submit" class="button" value="Sign In">
+                                <input type="submit" class="button" value="Sign In" ng-click="log()">
                             </div>
 
                             <div class="hr"></div>
@@ -163,7 +163,8 @@ Componenete modal
                             </div>
 
                         </div>
-
+                    </form>
+                    <form name="userForm">
                         <div class="sign-up-htm">
 
                             <div class="group"> 
@@ -232,25 +233,25 @@ Componenete modal
                                     Password obligatorio
                                 </div>
                             </div>
-                     
+
                             <div class="group">
                                 <label for="email2" class="label">Email Address</label>
                                 <input id="email2" type="email" class="input">
                             </div>
-                            
+
                             <!--Boton sign up-->
                             <div class="group">
                                 <input type="submit" class="button" value="Sign Up">
                             </div>
-                            
+
                             <div class="hr"></div>
                             <div class="foot-lnk">
                                 <label for="tab-1"><a href="">Already Member?</a></label>
                             </div>
-                            
+
                         </div>
-                    </div>
                 </div>
+            </div>
             </form>
 
         </div>

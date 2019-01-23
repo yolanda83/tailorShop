@@ -36,10 +36,8 @@ function js(toolService, sessionService, $scope, $http, $location, $mdDialog) {
 
     $scope.log = function () {
         $scope.error = false;
-
         var login = $scope.login;
         var pass = forge_sha256($scope.pass);
-
         $http({
             method: 'GET',
             header: {
@@ -61,7 +59,6 @@ function js(toolService, sessionService, $scope, $http, $location, $mdDialog) {
                 } else {
                     sessionService.setUser();
                 }
-
                 $location.path('/home');
             } else {
                 $scope.error = true;
