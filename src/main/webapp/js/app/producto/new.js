@@ -9,13 +9,6 @@ moduleProducto.controller('productoNewController', ['$scope', '$http', 'toolServ
             desc: null
         }
 
-//        //Chequeo sesión
-//        if (oSessionService.getUserName() !== "") {
-//            $scope.usuario = oSessionService.getUserName();
-//            $scope.logeado = true;
-//            $scope.userId = oSessionService.getId();
-//        }
-
         $scope.isActive = toolService.isActive;
 
 
@@ -35,7 +28,8 @@ moduleProducto.controller('productoNewController', ['$scope', '$http', 'toolServ
                 existencias: $scope.existencias,
                 precio: $scope.precio,
                 foto: $scope.foto,
-                id_tipoProducto: $scope.obj_tipoProducto.id
+                id_tipoProducto: $scope.obj_tipoProducto.id,
+                novedad: $scope.novedad
             }
 
             

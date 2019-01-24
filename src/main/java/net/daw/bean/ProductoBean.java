@@ -33,6 +33,8 @@ public class ProductoBean {
     private int id_tipoProducto;
     @Expose(deserialize = false)
     private TipoproductoBean obj_tipoProducto;
+    @Expose
+    private boolean novedad;
 
     
     
@@ -99,7 +101,16 @@ public class ProductoBean {
     public void setId_tipoProducto(int id_tipoProducto) {
         this.id_tipoProducto = id_tipoProducto;
     }
+
+    public boolean isNovedad() {
+        return novedad;
+    }
+
+    public void setNovedad(boolean novedad) {
+        this.novedad = novedad;
+    }
     
+        
     	public ProductoBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {
                 this.setId(oResultSet.getInt("id"));
                 this.setCodigo(oResultSet.getString("codigo"));
@@ -108,6 +119,7 @@ public class ProductoBean {
                 this.setPrecio(oResultSet.getFloat("precio"));
                 this.setFoto(oResultSet.getString("foto"));
                 this.setId_tipoProducto(oResultSet.getInt("id_tipoProducto"));
+                this.setNovedad(oResultSet.getBoolean("novedad"));
 		if (expand > 0) {
 			TipoproductoDao otipoproductoDao = new TipoproductoDao(oConnection, "tipoproducto");
 			this.setObj_tipoProducto(otipoproductoDao.get(oResultSet.getInt("id_tipoProducto"), expand - 1));

@@ -2,7 +2,7 @@
 
 moduleProducto.controller('productoViewController', ['$scope', '$http', 'toolService', '$routeParams', 'sessionService', '$anchorScroll',
     function ($scope, $http, toolService, $routeParams, oSessionService, $anchorScroll) {
-        
+
         $anchorScroll();
         $scope.id = $routeParams.id;
 
@@ -12,7 +12,7 @@ moduleProducto.controller('productoViewController', ['$scope', '$http', 'toolSer
 //            $scope.logeado = true;
 //            $scope.userId = oSessionService.getId();
 //        }
-        
+
         $http({
             method: 'GET',
             //withCredentials: true,
@@ -20,6 +20,13 @@ moduleProducto.controller('productoViewController', ['$scope', '$http', 'toolSer
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxData = response.data.message;
+
+            if ($scope.ajaxData.novedad == true) {
+                $scope.novedad = 'Sí';
+            } else {
+                $scope.novedad = 'No';
+            }
+
         }, function (response) {
             $scope.ajaxData = response.data.message || 'Request failed';
             $scope.status = response.status;

@@ -7,7 +7,7 @@ moduleContacto.controller('contactoController', ['$scope', '$location', 'toolSer
 
         $scope.ruta = $location.path();
 
-        $scope.logeado = false;
+//        $scope.logeado = false;
         $scope.isActive = toolService.isActive;
 
 

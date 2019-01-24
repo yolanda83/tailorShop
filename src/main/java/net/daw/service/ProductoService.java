@@ -273,6 +273,27 @@ public class ProductoService {
 
     }
 
+    public ReplyBean getnovedad() throws Exception {
+        ReplyBean oReplyBean;
+        ConnectionInterface oConnectionPool = null;
+        Connection oConnection;
+        try {
+            oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
+            oConnection = oConnectionPool.newConnection();
+            ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
+            ArrayList<ProductoBean> alProductoBean = oProductoDao.getnovedad(1);
+            Gson oGson = (new GsonBuilder()).excludeFieldsWithoutExposeAnnotation().create();
+            oReplyBean = new ReplyBean(200, oGson.toJson(alProductoBean));
+        } catch (Exception ex) {
+            throw new Exception("ERROR: Service level: get page: " + ob + " object", ex);
+        } finally {
+            oConnectionPool.disposeConnection();
+        }
+
+        return oReplyBean;
+
+    }
+
     public ReplyBean loaddata() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("load")) {

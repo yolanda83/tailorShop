@@ -19,7 +19,7 @@ var tailorShop = angular.module('MyApp', [
     'carritoControllers',
     'aboutControllers',
     'contactoControllers',
-    'newsletterControllers'
+    'cursosControllers'
 ]).config(function ($mdDateLocaleProvider) {
     // Example of a Spanish localization.
     $mdDateLocaleProvider.months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
@@ -59,5 +59,5 @@ var moduleComponent = angular.module ('component',[]);
 var moduleCarrito = angular.module ('carritoControllers',[]);
 var moduleAbout = angular.module ('aboutControllers',[]);
 var moduleContacto = angular.module ('contactoControllers',[]);
-var moduleNewsletter = angular.module ('newsletterControllers',[]);
+var modulecursos = angular.module ('cursosControllers',[]);
 

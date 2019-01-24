@@ -57,8 +57,10 @@
 }
 
 .redball {
-    background-color: #d90e23;
-    box-shadow: 0 0 0 3px #d90e23, 2px 1px 6px 4px rgba(10, 10, 0, .5);
+    /*background-color: #d90e23;*/
+    background-color: #E23164;
+    /*box-shadow: 0 0 0 3px #d90e23, 2px 1px 6px 4px rgba(10, 10, 0, .5);*/
+    box-shadow: 0 0 0 3px #E23164, 2px 1px 6px 4px rgba(10, 10, 0, .5);
     background-image: -webkit-linear-gradient(0deg, rgba(0, 0, 0, .25) 50%, transparent 10%), -webkit-linear-gradient(rgba(0, 0, 0, .25) 50%, transparent 50%);
     background-size: 10px 10px;
 }
@@ -71,11 +73,12 @@
 }
 
 .greenball {
-    box-shadow: 0 0 0 3px #65b37a, 2px 1px 6px 4px rgba(10, 10, 0, .5);
+    /*box-shadow: 0 0 0 3px #65b37a, 2px 1px 6px 4px rgba(10, 10, 0, .5);*/
+    box-shadow: 0 0 0 3px #8ABC4D, 2px 1px 6px 4px rgba(10, 10, 0, .5);
     background: -webkit-radial-gradient(#e8b15e 4px, transparent 6px);
     background-size: 20px 20px;
     background-image: -webkit-radial-gradient(#e8b15e 15%, transparent 16%), -webkit-radial-gradient(#e8b15e 15%, transparent 16%);
-    background-color: #65b37a;
+    background-color: #8ABC4D;
     background-size: 30px 30px;
     background-position: 0 0, 20px 20px;
 }
@@ -178,10 +181,10 @@
 /*SIGN IN ---SIGN UP*/ 
 
 /*body{
-	margin:0;
-	color:#6a6f8c;
-	background:#c8c8c8;
-	font:600 16px/18px 'Open Sans',sans-serif;
+        margin:0;
+        color:#6a6f8c;
+        background:#c8c8c8;
+        font:600 16px/18px 'Open Sans',sans-serif;
 }*/
 
 *,:after,:before{box-sizing:border-box}
@@ -191,144 +194,144 @@ a{color:inherit;text-decoration:none}
 
 
 .login-wrap{
-	width:100%;
-	margin:auto;
-	max-width:525px;
-	min-height:670px;
-	position:relative;
-	background:url(https://i.pinimg.com/564x/11/84/9c/11849caeb53059e9e57036ca0be41243.jpg) no-repeat center;
-	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+    width:100%;
+    margin:auto;
+    max-width:525px;
+    min-height:670px;
+    position:relative;
+    background:url(https://i.pinimg.com/564x/11/84/9c/11849caeb53059e9e57036ca0be41243.jpg) no-repeat center;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 .login-html{
-	width:100%;
-	height:100%;
-	position:absolute;
-	padding:90px 70px 50px 70px;
-	background:rgba(49,49,49,.9);
+    width:100%;
+    height:100%;
+    position:absolute;
+    padding:90px 70px 50px 70px;
+    background:rgba(49,49,49,.9);
 }
 .login-html .sign-in-htm,
 .login-html .sign-up-htm{
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	position:absolute;
-	transform:rotateY(180deg);
-	backface-visibility:hidden;
-	transition:all .4s linear;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position:absolute;
+    transform:rotateY(180deg);
+    backface-visibility:hidden;
+    transition:all .4s linear;
 }
 .login-html .sign-in,
 .login-html .sign-up,
 .login-form .group .check{
-	display:none;
+    display:none;
 }
 .login-html .tab,
 .login-form .group .label,
 .login-form .group .button{
-	text-transform:uppercase;
+    text-transform:uppercase;
 }
 .login-html .tab{
-	font-size:22px;
-	margin-right:15px;
-	padding-bottom:5px;
-	margin:0 15px 10px 0;
-	display:inline-block;
-	border-bottom:2px solid transparent;
+    font-size:22px;
+    margin-right:15px;
+    padding-bottom:5px;
+    margin:0 15px 10px 0;
+    display:inline-block;
+    border-bottom:2px solid transparent;
 }
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab{
-	color:#fff;
-	border-color: #a87c4f;
+    color:#fff;
+    border-color: #a87c4f;
 }
 .login-form{
-	min-height:345px;
-	position:relative;
-	perspective:1000px;
-	transform-style:preserve-3d;
+    min-height:345px;
+    position:relative;
+    perspective:1000px;
+    transform-style:preserve-3d;
 }
 .login-form .group{
-	margin-bottom:15px;
+    margin-bottom:15px;
 }
 .login-form .group .label,
 .login-form .group .input,
 .login-form .group .button{
-	width:100%;
-	color:#fff;
-	display:block;
+    width:100%;
+    color:#fff;
+    display:block;
 }
 .login-form .group .input,
 .login-form .group .button{
-	border:none;
-	padding:15px 20px;
-	border-radius:20px;
-        outline: none;
-	background:rgba(255,255,255,.1);
+    border:none;
+    padding:15px 20px;
+    border-radius:20px;
+    outline: none;
+    background:rgba(255,255,255,.1);
 }
 /*.login-form .group input[data-type="password"]{
-	text-security:circle;
-	-webkit-text-security:circle;
+        text-security:circle;
+        -webkit-text-security:circle;
 }*/
 .login-form .group .label{
-	color:#aaa;
-	font-size:12px;
+    color:#aaa;
+    font-size:12px;
 }
 .login-form .group .button{
-	background:#a87c4f;
+    background:#a87c4f;
 }
 .login-form .group label .icon{
-	width:15px;
-	height:15px;
-	border-radius:2px;
-	position:relative;
-	display:inline-block;
-	background:rgba(255,255,255,.1);
+    width:15px;
+    height:15px;
+    border-radius:2px;
+    position:relative;
+    display:inline-block;
+    background:rgba(255,255,255,.1);
 }
 .login-form .group label .icon:before,
 .login-form .group label .icon:after{
-	content:'';
-	width:10px;
-	height:2px;
-	background:#fff;
-	position:absolute;
-	transition:all .2s ease-in-out 0s;
+    content:'';
+    width:10px;
+    height:2px;
+    background:#fff;
+    position:absolute;
+    transition:all .2s ease-in-out 0s;
 }
 .login-form .group label .icon:before{
-	left:3px;
-	width:5px;
-	bottom:6px;
-	transform:scale(0) rotate(0);
+    left:3px;
+    width:5px;
+    bottom:6px;
+    transform:scale(0) rotate(0);
 }
 .login-form .group label .icon:after{
-	top:6px;
-	right:0;
-	transform:scale(0) rotate(0);
+    top:6px;
+    right:0;
+    transform:scale(0) rotate(0);
 }
 .login-form .group .check:checked + label{
-	color:#fff;
+    color:#fff;
 }
 .login-form .group .check:checked + label .icon{
-	background:#a87c4f;
+    background:#a87c4f;
 }
 .login-form .group .check:checked + label .icon:before{
-	transform:scale(1) rotate(45deg);
+    transform:scale(1) rotate(45deg);
 }
 .login-form .group .check:checked + label .icon:after{
-	transform:scale(1) rotate(-45deg);
+    transform:scale(1) rotate(-45deg);
 }
 .login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
-	transform:rotate(0);
+    transform:rotate(0);
 }
 .login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
-	transform:rotate(0);
+    transform:rotate(0);
 }
 
 .hr{
-	height:2px;
-	margin:60px 0 50px 0;
-	background:rgba(255,255,255,.2);
+    height:2px;
+    margin:60px 0 50px 0;
+    background:rgba(255,255,255,.2);
 }
 .foot-lnk{
-	text-align:center;
+    text-align:center;
 }
 
 
@@ -834,8 +837,8 @@ body {
        margin-bottom: 60px;
        margin: 0;*/
     /*height: 100%;*/
-/*    display: grid;
-    grid-template-rows: auto auto auto;*/
+    /*    display: grid;
+        grid-template-rows: auto auto auto;*/
 }
 
 .redondel {
@@ -925,6 +928,7 @@ code {
 {
     background-color: white;
     color: gray;
+    padding: 0.5rem 0.9rem;
 }
 
 .pagination > li > a:focus,
@@ -940,8 +944,8 @@ code {
 .pagination > .active > a
 {
     color: white;
-    background-color: #17a2b8!important;
-    border: solid 1px #17a2b8!important;
+    background-color: #8ABC4D!important;
+    border: solid 1px #8ABC4D!important;
 }
 
 .pagination > .active > a:hover
@@ -949,6 +953,63 @@ code {
     background-color: darkgray!important;
     border: solid 1px darkgray!important;
 }
+
+.pagination li a {
+    border: solid 1px #d7d7d7;
+    border-radius: 0.2rem;
+    color: #7d7d7d;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem 0.9rem;
+    margin: 3px;
+
+}
+
+/*paginationVecindario*/
+.paginationVecindario > li > a
+{
+    background-color: white;
+    color: gray;
+    padding: 0.5rem 0.9rem;
+}
+
+.paginationVecindario > li > a:focus,
+.paginationVecindario > li > a:hover,
+.paginationVecindario > li > span:focus,
+.paginationVecindario > li > span:hover
+{
+    color: gray;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.paginationVecindario > .active > a
+{
+    color: white;
+    background-color: #17a2b8!important;
+    border: solid 1px #17a2b8!important;
+}
+
+.paginationVecindario > .active > a:hover
+{
+    background-color: darkgray!important;
+    border: solid 1px darkgray!important;
+}
+
+/*.paginationVecindario li a {
+  border: solid 1px #d7d7d7;
+  border-radius: 0.2rem;
+  color: #7d7d7d;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  padding: 0.5rem 0.9rem;
+  margin: 3px;
+}*/
+
 
 
 small {
@@ -960,17 +1021,31 @@ small {
 }*/
 
 .enlaceColor {
-    color: #a87c4f!important;
+    color: #8ABC4D!important;
     text-decoration: none; 
 }
 
 
 a.enlaceColor {
-    color: #a87c4f!important;
+    color: #8ABC4D!important;
     text-decoration: none; 
 }
 
+a.enlacefa {
+    color: #212529!important;
+}
 
+/*#botoni {
+    position: relative;
+}
+
+#botoni2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: 50%;
+}*/
 /* Custom Hover.css
 -------------------------------------------------- */
 
@@ -1006,3 +1081,65 @@ a.enlaceColor {
 }*/
 
 
+
+/*-------Horario--------*/
+
+.horario {
+    background-image: url("../images/horario1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 50px;
+    /*opacity: 0.5;*/
+    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
+
+}
+
+.horario table {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+/*Contacto*/
+
+/*--------------Admin------------*/
+
+/*Para hacer invisible el color de fondo del boton*/
+.btn-light {
+    color: black;
+    background-color: rgba(70, 98, 127, 0) !important; 
+    border-color: rgba(70, 98, 127, 0) !important; 
+}
+
+
+.botonAdmin {
+    background: gray;
+    border: 0;
+    color: white;
+    padding: 10px;
+    margin-left: 0px;
+    /*width: 100%;*/
+    border-radius: 0px;
+}
+
+.botonAdmin:hover {
+    background: darkgray;
+    border: 0;
+    color: white;
+    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
+    /*box-shadow: 6px 7px 21px -2px rgba(0,0,0,0.42);*/
+}
+
+.view {
+    margin-top: 50px; 
+    padding: 20px; 
+    width: 50%; 
+    background-color: WHITESMOKE;
+    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
+}
+
+.fotoPerfil img{
+    border-radius: 50%;
+    width: 128px; 
+    height: 128px;
+    margin: 15px;
+}

@@ -9,10 +9,10 @@
     </div>
 
     <div class="mx-auto" style="margin-top: 80px; padding: 20px; width: 50%; background-color: WHITESMOKE; border-radius: 7px">
-        
+
         <div class="form-group">
             <div class="row">
-                <div class="mx-auto">
+                <div class="mx-auto fotoPerfil">
                     <img ng-src="http://localhost:8081/imagenes/{{ajaxData.foto}}" style="width: 128px; height: 128px;">
                 </div>
             </div>
@@ -42,6 +42,10 @@
             <tr>
                 <th style="padding-left: 30px;">Tipo Producto:</th>
                 <td><a href="{{'/tailorShop/tipoproducto/view/' + ajaxData.obj_tipoProducto.id}}" class="enlaceColor">{{ajaxData.obj_tipoProducto.desc}}</a></td>
+            </tr>
+            <tr>
+                <th style="padding-left: 30px;">Novedad:</th>
+                <td>{{novedad}}</td>
             </tr>
         </table>
 

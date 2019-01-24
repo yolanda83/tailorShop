@@ -8,7 +8,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
         $scope.ob = "linea";
         $scope.op = "plist";
         $scope.totalPages = 1;
-        $scope.id = $routeParams.id;
+//        $scope.id = $routeParams.id;
         $scope.warning = null;
         $scope.carritoVacio = false;
 
@@ -38,7 +38,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
         }
 
 
-        
+
         $http({
             method: 'GET',
             url: `http://localhost:8081/tailorShop/json?ob=carrito&op=show`
@@ -49,7 +49,8 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
                 var auxCant = 0;
                 var auxPrecio = 0;
                 var totalInicial = 0;
-                if (response.data.message.length != null) {
+                var respuesta = response.data.message;
+                if (response.data.message.length != null && respuesta != "Unauthorized") {
                     for (var i = 0; i < response.data.message.length; i++) {
                         auxCant = response.data.message[i].cantidad;
                         auxPrecio = response.data.message[i].obj_producto.precio;
@@ -77,20 +78,18 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
             }
         }
 
-
-
-//TRAER DATOS USUARIO
-        $http({
-            method: 'GET',
-            //withCredentials: true,
-            url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=get&id=' + $scope.id
-        }).then(function (response) {
-            $scope.status = response.status;
-            $scope.ajaxDataUsuario = response.data.message;
-        }, function (response) {
-            $scope.ajaxDataUsuario = response.data.message || 'Request failed';
-            $scope.status = response.status;
-        });
+////TRAER DATOS USUARIO
+//        $http({
+//            method: 'GET',
+//            //withCredentials: true,
+//            url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=get&id=' + $scope.id
+//        }).then(function (response) {
+//            $scope.status = response.status;
+//            $scope.ajaxDataUsuario = response.data.message;
+//        }, function (response) {
+//            $scope.ajaxDataUsuario = response.data.message || 'Request failed';
+//            $scope.status = response.status;
+//        });
 
 //MOSTRAR CARRITO
         $http({
@@ -99,7 +98,12 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
             url: 'http://localhost:8081/tailorShop/json?ob=carrito&op=show'
         }).then(function (response) {
             $scope.status = response.status;
-            $scope.ajaxDataCarrito = response.data.message;
+
+            if (response.data.message == "Unauthorized") {
+                $scope.ajaxDataCarrito = "";
+            } else {
+                $scope.ajaxDataCarrito = response.data.message;
+            }
         }, function (response) {
             $scope.ajaxDataCarrito = response.data.message || 'Request failed';
             $scope.status = response.status;
@@ -161,7 +165,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
                 countcarritoService.updateCarrito();
                 if (response.data.status === 200) { //borrar el último producto que queda en el carrito
                     $scope.warning = response.data.message;
-                } else{
+                } else {
                     $scope.warning = response.data.message;
                 }
 

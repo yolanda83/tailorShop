@@ -98,7 +98,8 @@ var everyone = function ($q, $location, $http, sessionService) {
 tailorShop.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/home', {templateUrl: 'js/app/common/home.html', controller: 'homeController', resolve: {auth: everyone}});
 //CARRITO
-        $routeProvider.when('/carrito/plist/:id?', {templateUrl: 'js/app/carrito/plist.html', controller: 'carritoPlistController', resolve: {auth: everyone}});
+//        $routeProvider.when('/carrito/plist/:id?', {templateUrl: 'js/app/carrito/plist.html', controller: 'carritoPlistController', resolve: {auth: everyone}});
+        $routeProvider.when('/carrito/plist', {templateUrl: 'js/app/carrito/plist.html', controller: 'carritoPlistController', resolve: {auth: everyone}});
 //FACTURA
         $routeProvider.when('/factura/plist', {templateUrl: 'js/app/factura/plist.html', controller: 'facturaPlistController'});
         $routeProvider.when('/factura/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/factura/plist.html', controller: 'facturaPlistController', resolve: {auth: autenticacionAdministrador}});
@@ -148,7 +149,7 @@ tailorShop.config(['$routeProvider', function ($routeProvider) {
 //PANTALLAS PARA USUARIO
         $routeProvider.when('/aboutus', {templateUrl: 'js/app/about/aboutus.html', controller: 'aboutController', resolve: {auth: everyone}});
         $routeProvider.when('/contacto', {templateUrl: 'js/app/contacto/contacto.html', controller: 'contactoController', resolve: {auth: everyone}});
-        $routeProvider.when('/newsletter', {templateUrl: 'js/app/newsletter/newsletter.html', controller: 'newsletterController', resolve: {auth: everyone}});
+        $routeProvider.when('/cursos', {templateUrl: 'js/app/cursos/cursos.html', controller: 'cursosController', resolve: {auth: everyone}});
         $routeProvider.when('/producto/plistUsuario/:rpp?/:page?/:order?/:tipo', {templateUrl: 'js/app/producto/plistUsuario.html', controller: 'productoPlistUsuarioController'});
 
 

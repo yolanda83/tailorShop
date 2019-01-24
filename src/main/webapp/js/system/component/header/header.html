@@ -1,15 +1,15 @@
 <!-- Fixed navbar -->
 <!--navbar-expand-xl/lg/md/sm-->
 <div class="row no-gutters">
-    <div class="col-md-3 my-auto text-center">
+    <div class="col-md-2 my-auto text-center">
         <a href="home/"><img class="p-0 logo" src="images/logo-01_animated.svg" alt="logo"></a>
     </div>
-    <div class="linksNav col-md-6 my-auto">
+    <div class="linksNav col-md-8 my-auto">
         <a class="pl-0 hoverNav text-uppercase" href="aboutus">Sobre la tienda</a>
-        <a class="hoverNav text-uppercase" href="newsletter">Newsletter</a>
+        <a class="hoverNav text-uppercase" href="cursos">cursos</a>
         <a class="hoverNav text-uppercase" href="contacto">Contacto</a>
     </div>
-    <div class="col-md-3 my-auto text-center">
+    <div class="col-md-2 my-auto text-center">
         <div id="ballMenuContainer">
 
             <div id="menuBall2" class="menuBall">
@@ -29,7 +29,7 @@
             </div>
 
             <div id="menuBall4" class="menuBall">
-                <a href="carrito/plist/{{c.userId}}" class="ball blueball d-flex justify-content-center align-items-center">
+                <a href="carrito/plist" class="ball blueball d-flex justify-content-center align-items-center">
                     <div class="menuText">
                         <i class="fas fa-shopping-cart"></i>
                         <sup ng-show="c.carrito > 0">{{c.carrito}}</sup>
@@ -53,7 +53,7 @@
 
 <!--Quitado el fixed top ralentizaba la web-->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark pl-0">
-    <div class="col-md-3 my-auto">
+    <div class="col-md-2 my-auto">
 
         <!--Seccion Administracion-->
         <!--<div class="nav-item"  ng-show="c.logeado">-->
@@ -66,48 +66,65 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
 
-                    <!--                    <a class="dropdown-item" href="{{'factura/plist/10/1/' + c.userId + '/' + c.usuario}}">
-                                            <i class="fas fa-file-invoice enlaceColor"></i> 
-                                            Facturas
-                                        </a>
-                    
-                                        <a class="dropdown-item" href="usuario/edit/{{c.userId}}">
-                                            <i class="fas fa-user-edit enlaceColor"></i>
-                                            Editar perfil
-                                        </a>
-                                        <a class="dropdown-item" href="usuario/changepass">
-                                            <i class="fas fa-key enlaceColor"></i>
-                                            Cambiar password
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="usuario/logout">
-                                            <i class="fas fa-sign-out-alt enlaceColor"></i>
-                                            Logout
-                                        </a>-->
-<!--                    <li ng-show="c.isAdmin" class="nav-item" ng-class="{active: c.isActive('/usuario')}">-->
-                        <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/usuario')}"
-                            class="dropdown-item" href="usuario/plist"><i class="fas fa-user enlaceColor"></i> Usuario</a>
-                    <!--</li>-->
-                    <!--<li ng-show="c.isAdmin" class="nav-item" ng-class="{active: c.isActive('/tipousuario')}">-->
-                        <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/tipousuario')}"
-                            class="dropdown-item" href="tipousuario/plist"><i class="fas fa-users enlaceColor"></i> Tipousuario</a>
-                    <!--</li>-->
-                    <!--<li ng-show="c.isAdmin" class="nav-item" ng-class="{active: c.isActive('/producto/plist')}">-->
-                        <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/producto/plist')}"
-                            class="dropdown-item" href="producto/plist"><i class="fas fa-archive enlaceColor"></i> Producto</a>
-                    <!--</li>-->
-                    <!--            <li class="nav-item" ng-class="{
-                                        active: c.isActive('/producto')}">
-                                    <a class="nav-link" href="producto/plistUsuario"><i class="fas fa-archive"></i> Productos</a>
-                                </li>-->
-                    <!--<li ng-show="c.isAdmin" class="nav-item" ng-class="{active: c.isActive('/tipoproducto')}">-->
-                        <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/tipoproducto')}"
-                            class="dropdown-item" href="tipoproducto/plist"><i class="fas fa-boxes enlaceColor"></i> Tipoproducto</a>
-                    <!--</li>-->
-                    <!--<li ng-show="c.isAdmin" class="nav-item" ng-class="{active: c.isActive('/factura')}">-->
-                        <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/factura')}"
-                            class="dropdown-item" href="factura/plist"><i class="fas fa-file-invoice enlaceColor"></i> Factura</a>
-                    <!--</li>-->
+                    <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/usuario')}"
+                       class="dropdown-item" href="usuario/plist">
+                        <div class="row no-gutters">
+                            <div class="col-md-3">
+                                <i class="fas fa-user enlaceColor"></i>
+                            </div> 
+                            <div class="col-md-9">
+                                Usuario
+                            </div>
+                        </div> 
+                    </a>
+
+                    <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/tipousuario')}"
+                       class="dropdown-item" href="tipousuario/plist">
+                        <div class="row no-gutters">
+                            <div class="col-md-3">
+                                <i class="fas fa-users enlaceColor"></i> 
+                            </div>
+                            <div class="col-md-9">
+                                Tipousuario
+                            </div>
+                        </div> 
+                    </a>
+
+                    <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/producto/plist')}"
+                       class="dropdown-item" href="producto/plist">
+                        <div class="row no-gutters">
+                            <div class="col-md-3">
+                                <i class="fas fa-archive enlaceColor"></i> 
+                            </div>
+                            <div class="col-md-9">
+                                Producto
+                            </div>
+                        </div> 
+                    </a>
+
+                    <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/tipoproducto')}"
+                       class="dropdown-item" href="tipoproducto/plist">
+                        <div class="row no-gutters">
+                            <div class="col-md-3">
+                                <i class="fas fa-boxes enlaceColor"></i> 
+                            </div>
+                            <div class="col-md-9">
+                                Tipoproducto
+                            </div>
+                        </div> 
+                    </a>
+
+                    <a ng-show="c.isAdmin" ng-class="{active: c.isActive('/factura')}"
+                       class="dropdown-item" href="factura/plist">
+                        <div class="row no-gutters">
+                            <div class="col-md-3">
+                                <i class="fas fa-file-invoice enlaceColor"></i> 
+                            </div>
+                            <div class="col-md-9">
+                                Factura
+                            </div>
+                        </div> 
+                    </a>
 
                 </div>
             </div>
@@ -207,27 +224,61 @@
                     {{c.usuario}}
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <!--                    <a class="dropdown-item" href="usuario/view/{{c.userId}}">
-                                            <i class="fas fa-user-circle enlaceColor"></i>
-                                            Perfil
-                                        </a>-->
-                    <a class="dropdown-item" href="{{'factura/plist/10/1/' + c.userId + '/' + c.usuario}}">
-                        <i class="fas fa-file-invoice enlaceColor"></i> 
-                        Facturas
+                    <a class="dropdown-item pr-5" href="{{}}">
+                        <div class="row no-gutters">
+                            <div class="col-md-3">
+                                <i class="fas fa-heart enlaceColor"></i> 
+                            </div>
+                            <div class="col-md-9">
+                                Lista de deseos
+                            </div>
+                        </div>
                     </a>
 
-                    <a class="dropdown-item" href="usuario/edit/{{c.userId}}">
-                        <i class="fas fa-user-edit enlaceColor"></i>
-                        Editar perfil
+
+                    <a class="dropdown-item pr-5" href="{{'factura/plist/10/1/' + c.userId + '/' + c.usuario}}">
+                        <div class="row no-gutters">
+                            <div class="col-md-3">
+                                <i class="fas fa-file-invoice enlaceColor"></i> 
+                            </div>
+                            <div class="col-md-9">
+                                Facturas
+                            </div>
+                        </div>
                     </a>
-                    <a class="dropdown-item" href="usuario/changepass">
-                        <i class="fas fa-key enlaceColor"></i>
-                        Cambiar password
+
+                    <a class="dropdown-item pr-5" href="usuario/edit/{{c.userId}}">
+                        <div class="row no-gutters">
+                            <div class="col-md-3">
+                                <i class="fas fa-user-edit enlaceColor"></i>
+                            </div>
+                            <div class="col-md-9">
+                                Editar perfil
+                            </div>
+                        </div>
                     </a>
+
+                    <a class="dropdown-item pr-5" href="usuario/changepass">
+                        <div class="row no-gutters">
+                            <div class="col-md-3">
+                                <i class="fas fa-key enlaceColor"></i>
+                            </div>
+                            <div class="col-md-9">
+                                Cambiar password
+                            </div>
+                        </div>
+                    </a>
+
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" ng-click="logout()">
-                        <i class="fas fa-sign-out-alt enlaceColor"></i>
-                        Logout
+                    <a class="dropdown-item pr-5" ng-click="logout()">
+                        <div class="row no-gutters">
+                            <div class="col-md-3">
+                                <i class="fas fa-sign-out-alt enlaceColor"></i>
+                            </div>
+                            <div class="col-md-9">
+                                Logout
+                            </div>
+                        </div>
                     </a>
                 </div>
             </div>

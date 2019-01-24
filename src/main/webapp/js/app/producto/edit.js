@@ -26,6 +26,7 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
             $scope.precio = response.data.message.precio;
             $scope.foto = response.data.message.foto;
             $scope.obj_tipoProducto_desc = response.data.message.obj_tipoProducto.desc;
+            $scope.novedad = response.data.message.novedad;
 //            $scope.obj_tipoUsuario_id = response.data.message.obj_tipoUsuario.id;
             $scope.obj_tipoProducto = {
                 id: response.data.message.obj_tipoProducto.id,
@@ -62,7 +63,8 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
                 existencias: $scope.existencias,
                 precio: $scope.precio,
                 foto: foto,
-                id_tipoProducto: $scope.obj_tipoProducto.id
+                id_tipoProducto: $scope.obj_tipoProducto.id,
+                novedad: $scope.novedad
             }
 
             $http({

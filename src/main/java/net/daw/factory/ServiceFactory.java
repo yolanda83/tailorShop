@@ -193,6 +193,9 @@ public class ServiceFactory {
                     case "getpage":
                         oReplyBean = oProductoService.getpage();
                         break;
+                    case "getnovedad":
+                        oReplyBean = oProductoService.getnovedad();
+                        break;
                     case "loaddata":
                         oReplyBean = oProductoService.loaddata();
                         break;
