@@ -2,64 +2,66 @@
 <header-component></header-component>
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row no-gutters">
+        <div class="col-md-2"></div>
 
-        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
+        <div class="col-md-8" style="margin-top: 50px;">
             <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2"><i class="fas fa-archive"></i> {{titulo}}</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group btn-group-toggle mr-3" data-toggle="buttons">               
 
-                        <!--Registros por pagina-->
-                        <div>
-                            <nav aria-label="RegistrosPorPagina">
-                                <ul class="pagination" style="float: right;">
-                                    <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page}}">10</a></li>
-                                    <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page}}">50</a></li>
-                                    <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page}}">100</a></li>
-                                </ul>
-                            </nav>
-                        </div>
+            </div>
 
+            <div class="btn-toolbar mb-2 d-flex justify-content-end">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">               
 
+                    <!--Registros por pagina-->
+                    <div>
+                        <nav aria-label="RegistrosPorPagina">
+                            <ul class="pagination" style="float: right;">
+                                <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page}}">10</a></li>
+                                <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page}}">50</a></li>
+                                <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page}}">100</a></li>
+                            </ul>
+                        </nav>
                     </div>
+
+
                 </div>
             </div>
 
 
             <!--Tabla de contenidos-->   
-            <div class="row">
-                
+            <div class="row d-flex justify-content-between">
 
-                    <!--<div class="hvr-border-fade hvr-float-shadow product" style="width: 15rem; height: 22rem; margin: 5px; border-width: 0px; border-radius: 12px;" ng-repeat="producto in productos">-->
-                    <div class="m-2 p-2" ng-repeat="producto in productos">
+                <!--<div class="hvr-border-fade hvr-float-shadow product" style="width: 15rem; height: 22rem; margin: 5px; border-width: 0px; border-radius: 12px;" ng-repeat="producto in productos">-->
+                <div class="m-2 p-2" ng-repeat="producto in productos">
 
-                        <div class="card">
-                            <!--<img src="https://github.com/neel6762/Free-Code-Camp-Prdocuct-Landing-Page-/blob/master/src/img/choclatecard.jpg?raw=true" alt="choclate" class="card-img-top">-->
-                            <img ng-src="http://localhost:8081/imagenes/{{producto.producto.foto}}" alt="foto" class="card-img-top" style="width: 250px;" >
-                            <div class="card-body mx-auto">
-                                <h3 class="h5 card-title">{{producto.producto.desc}}</h3>
-                                <p class="card-text">Precio: {{producto.producto.precio}} €</p>
+                    <div class="card">
+                        <!--<img src="https://github.com/neel6762/Free-Code-Camp-Prdocuct-Landing-Page-/blob/master/src/img/choclatecard.jpg?raw=true" alt="choclate" class="card-img-top">-->
+                        <img ng-src="http://localhost:8081/imagenes/{{producto.producto.foto}}" alt="foto" class="card-img-top" style="width: 250px;" >
+                        <div class="card-body mx-auto">
+                            <h3 class="h5 card-title">{{producto.producto.desc}}</h3>
+                            <p class="card-text">Precio: {{producto.producto.precio}} €</p>
 
-                                <div ng-show="producto.producto.existencias > 0">
-                                    <button type="button" class="ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="save(producto, this)">
-                                        <i class="fas fa-shopping-cart"></i> Add cart</button>
-
-                                </div>
-
-                                <div class="row" ng-show="producto.producto.existencias <= 0">
-                                    <div class="col-12">
-                                        <div class="alert alert-danger mb-0" style="border-radius: 5px" role="alert">
-                                            Sin existencias!
-                                        </div>
-                                    </div>
-                                </div>
+                            <div ng-show="producto.producto.existencias > 0">
+                                <button type="button" class="ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="save(producto, this)">
+                                    <i class="fas fa-shopping-cart"></i> Add cart</button>
 
                             </div>
-                        </div>
 
+                            <div class="row" ng-show="producto.producto.existencias <= 0">
+                                <div class="col-12">
+                                    <div class="alert alert-danger mb-0" style="border-radius: 5px" role="alert">
+                                        Sin existencias!
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+
                 </div>
+            </div>
 
 
 
@@ -85,7 +87,9 @@
                 </ul>
             </nav>
 
-        </main>
+        </div>
+
+        <div class="col-md-2"></div>
     </div>
 </div>
 <!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->

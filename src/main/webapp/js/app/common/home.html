@@ -38,7 +38,34 @@
     </div>
 </div>
 
+
+<!--Tabla de Novedades-->   
+
 <div class="row no-gutters">
+    <div class="col-md-10 d-flex justify-content-center flex-wrap align-items-center m-2 p-2 mx-auto">
+        <div class="card tela" ng-repeat="producto in ajaxDataTotalNov">
+            <!--<img src="https://github.com/neel6762/Free-Code-Camp-Prdocuct-Landing-Page-/blob/master/src/img/choclatecard.jpg?raw=true" alt="choclate" class="card-img-top">-->
+            <img ng-src="http://localhost:8081/imagenes/{{producto.foto}}" alt="novedad" class="card-img-top" style="width: 250px;" >
+            <div class="card-body mx-auto">
+                <h3 class="card-title">{{producto.desc}}</h3>
+                <p class="card-text">Precio: {{producto.precio}} €</p>
+                <div ng-show="producto.existencias > 0">
+                    <button type="button" class="px-4 botonAdmin ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="save(producto, this)">
+                        <i class="fas fa-shopping-cart"></i>  Add cart</button>
+                </div>
+                <div class="row" ng-show="producto.existencias <= 0">
+                    <div class="col-12">
+                        <div class="alert alert-danger mb-0" style="border-radius: 5px" role="alert">
+                            Sin existencias!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="row no-gutters">
     <section class="d-flex justify-content-center mx-auto">
 
         <article class="tela fila1">
@@ -77,9 +104,9 @@
             </div>
         </article>
     </section>
-</div>
+</div>-->
 
-<div class="row no-gutters">
+<!--<div class="row no-gutters">
     <section class="telas d-flex justify-content-center mx-auto">
 
         <article class="tela fila2">
@@ -117,38 +144,10 @@
         </article>
 
     </section>
-</div>
-
-<!--Tabla de contenidos-->   
-<div class="row">
+</div>-->
 
 
-    <!--<div class="hvr-border-fade hvr-float-shadow product" style="width: 15rem; height: 22rem; margin: 5px; border-width: 0px; border-radius: 12px;" ng-repeat="producto in productos">-->
-    <div class="m-2 p-2" ng-repeat="producto in ajaxDataTotalNov">
 
-        <div class="card">
-            <!--<img src="https://github.com/neel6762/Free-Code-Camp-Prdocuct-Landing-Page-/blob/master/src/img/choclatecard.jpg?raw=true" alt="choclate" class="card-img-top">-->
-            <img ng-src="http://localhost:8081/imagenes/{{producto.foto}}" alt="foto" class="card-img-top" style="width: 250px;" >
-            <div class="card-body mx-auto">
-                <h3 class="h5 card-title">{{producto.desc}}</h3>
-                <p class="card-text">Precio: {{producto.precio}} €</p>
 
-                <div ng-show="producto.existencias > 0">
-                    <button type="button" class="ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="save(producto, this)">
-                        <i class="fas fa-shopping-cart"></i> Add cart</button>
-
-                </div>
-
-                <div class="row" ng-show="producto.existencias <= 0">
-                    <div class="col-12">
-                        <div class="alert alert-danger mb-0" style="border-radius: 5px" role="alert">
-                            Sin existencias!
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</div>
+<!--Consulta para insertar datos
+INSERT INTO `producto` (`id`, `desc`, `existencias`, `precio`, `codigo`, `foto`, `id_tipoproducto`, `novedad`) VALUES (NULL, 'Tela02', '5', '9.95', '123', 'foto.jpg', '1', '1'), (NULL, 'Tela03', '3', '8.95', '1234', 'foto.jpg', '1', '1');-->
