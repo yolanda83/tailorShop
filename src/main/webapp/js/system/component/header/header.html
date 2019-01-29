@@ -4,13 +4,13 @@
     <div class="col-md-2 my-auto text-center">
         <a href="home/"><img class="p-0 logo" src="images/logo-01_animated.svg" alt="logo"></a>
     </div>
-    <div class="linksNav col-md-8 my-auto">
+    <div class="linksNav col-md-7 my-auto">
         <a class="pl-0 hoverNav text-uppercase" href="aboutus">Sobre la tienda</a>
         <a class="hoverNav text-uppercase" href="cursos">cursos</a>
         <a class="hoverNav text-uppercase" href="contacto">Contacto</a>
     </div>
-    <div class="col-md-2 my-auto text-center">
-        <div id="ballMenuContainer">
+    <div class="col-md-3 my-auto text-center">
+        <div id="ballMenuContainer" class="">
 
             <div id="menuBall2" class="menuBall">
                 <a href="#" class="ball redball d-flex justify-content-center align-items-center">
@@ -187,7 +187,7 @@
                     <div class="form-group">
                         <label for="login">Usuario:</label>
                         <input id="login" type="text" class="form-control" ng-class="{' is-invalid': userForm.login.$invalid && !userForm.login.$pristine}"
-                               name="login" ng-model="login" ng-required="true" placeholder="Nombre_usuario" />
+                               name="login" ng-model="login" ng-required="true" />
                         <div ng-show="!userForm.login.$valid && userForm.login.$dirty && !userForm.login.$pristine" class="alert alert-danger" role="alert">
                             Login obligatorio
                         </div>
@@ -195,7 +195,7 @@
                     <div class="form-group">
                         <label for="pass">Password:</label>
                         <input  id="pass" type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}" 
-                                name="pass" ng-model="pass" ng-required="true" placeholder="Password" />
+                                name="pass" ng-model="pass" ng-required="true" />
                         <div ng-show="!userForm.pass.$valid && userForm.pass.$dirty && !userForm.pass.$pristine" class="alert alert-danger" role="alert">
                             Contrasenya obligatoria
                         </div>
@@ -210,7 +210,7 @@
 
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-item">Hazte una cuenta :) 
-                    <a href="/tailorShop/usuario/new/" class="btn btn-warning" role="button">Sign in</a>
+                    <a href="/tailorShop/usuario/new/" class="btn botonAdmin ml-2" role="button">Sign in</a>
                 </div>
             </div>
         </div>
@@ -273,7 +273,7 @@
                     <a class="dropdown-item pr-5" ng-click="logout()">
                         <div class="row no-gutters">
                             <div class="col-md-3">
-                                <i class="fas fa-sign-out-alt enlaceColor"></i>
+                                <i class="fas fa-sign-out-alt enlaceLogout"></i>
                             </div>
                             <div class="col-md-9">
                                 Logout

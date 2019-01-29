@@ -8,15 +8,6 @@ moduleUsuario.controller('usuarioEditController', ['$scope', '$http', 'toolServi
         $scope.id = $routeParams.id;
 
 
-//        //Chequeo sesión
-//        if (oSessionService.getUserName() !== "") {
-//            $scope.usuario = oSessionService.getUserName();
-//            $scope.logeado = true;
-//            $scope.userId = oSessionService.getId();
-//        }
-
-
-
         $http({
             method: "GET",
             url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=get&id=' + $scope.id
@@ -30,6 +21,7 @@ moduleUsuario.controller('usuarioEditController', ['$scope', '$http', 'toolServi
                 $scope.ape2 = response.data.message.ape2;
                 $scope.loginUser = response.data.message.login;
                 $scope.pass = forge_sha256(response.data.message.pass);
+                $scope.foto = response.data.message.foto;
                 $scope.obj_tipoUsuario_desc = response.data.message.obj_tipoUsuario.desc;
 //            $scope.obj_tipoUsuario_id = response.data.message.obj_tipoUsuario.id;
                 $scope.obj_tipoUsuario = {

@@ -1,3 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
+
+body {
+    font-family: "varela round", sans-serif;
+}
 /*Header*/
 
 /*outline:none  para eliminar borde en links*/
@@ -133,8 +138,7 @@
 .tituloSeccion {
     font-size: 30px;
     letter-spacing: 4px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-weight: 400;
+    font-family: "varela round", sans-serif;    font-weight: 400;
     line-height: 1.5;
     color: #212529;
     margin-top: 50px;
@@ -142,8 +146,7 @@
 
 .subtituloSeccion {
     font-size: 50px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    padding-top: 0px !important;
+    font-family: "varela round", sans-serif;    padding-top: 0px !important;
     margin-top: 0px!important;
     font-weight: 400;
     line-height: 1.5;
@@ -208,13 +211,18 @@
     border: none;
 }
 
-.btn-warning {
+.btn-info:hover {
+    background-color: green;
+    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
+}
+
+/*.btn-warning {
     background-color: darkgray;
     border-radius: 0px;
     padding: 10px 30px;
     border: none;
     margin-left: 10px;
-}
+}*/
 
 
 
@@ -397,14 +405,14 @@ a{color:inherit;text-decoration:none}
 
 .textoFooter {
     font-size: 17px;
-    font-family: 'Noto Serif', serif;
+    font-family: "varela round", sans-serif;
 }
 
 #email {
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #8ABC4D;
     padding-bottom: 15px;
 }
 
@@ -1073,6 +1081,11 @@ a.enlaceColor {
     text-decoration: none; 
 }
 
+.enlaceLogout {
+    color: #E23164!important;
+    text-decoration: none; 
+}
+
 a.enlacefa {
     color: #212529!important;
 }
@@ -1172,20 +1185,77 @@ a.enlacefa {
 
 .view {
     margin-top: 50px; 
-    padding: 20px; 
-    width: 50%; 
+    /*padding: 20px;*/ 
+    /*width: 50%;*/ 
     background-color: WHITESMOKE;
     box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
 }
 
+.tituloView {
+    background-color: gray;
+    font-family: "varela round", sans-serif;
+    color: white;
+}
+
+.profileName {
+    /*color: #658585;*/
+    /*color: gray;*/
+    font-size: 1.53em;
+    font-family: "Coda", sans-serif;
+    font-weight: bold;
+}
+
+.profileLogin {
+    color: #E23164!important;
+    font-size: .87em;
+    font-family: "varela round", sans-serif;
+}
+
+.profileDatos {
+    color: gray;
+    font-size: .87em;
+    font-family: "varela round", sans-serif;
+}
+
 .edit {
-    margin-top: 50px; 
     margin-bottom: 100px;
     padding: 20px; 
-    width: 70%; 
+    /*width: 70%;*/ 
     background-color: WHITESMOKE;
     box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);  
 }
+input {
+    font-family: "varela round", sans-serif; 
+}
+
+/*Boton añadir archivo*/
+.fileContainer {
+    overflow: hidden;
+    position: relative;
+    background: gray;
+    color: white;
+    border-radius: 0px;
+    /*float: left;*/
+    padding: 5px;
+    text-align: center;
+    width: 160px;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+    cursor: pointer;
+}
+
 
 .fotoPerfil img{
     border-radius: 50%;

@@ -154,7 +154,7 @@ public class ProductoService {
             ArrayList<ProductoBean> alProductoBean = new ArrayList<ProductoBean>();
 
             try {
-                alProductoBean = obtenerDatos();
+//                alProductoBean = obtenerDatos();
 
                 //String strJsonFromClient = oRequest.getParameter("json");
                 Gson oGson = new Gson();
@@ -182,39 +182,6 @@ public class ProductoService {
         return oReplyBean;
     }
 
-    public ArrayList<ProductoBean> obtenerDatos() {
-        ArrayList<ProductoBean> alProducto = new ArrayList<ProductoBean>();
-        Random randomDesc = new Random();
-        Random randomTipoProducto = new Random();
-        Random randomCodigo = new Random();
-        ProductoBean oProductoBean;
-
-        String[] desc = {"Leche sin lactosa", "Kobe", "Entrecot", "Flan casero", "Salmon ahumado",
-            "Yogurt pina", "Lubina", "Cordero", "Arroz con leche", "Flan",
-            "Natillas", "Dorada", "Pechuga pavo", "Conejo", "Mantequilla", "Bacalao", "Leche entera",
-            "Filete de buey", "Hamburguesa pollo", "Queso fresco"};
-        Integer[] tipoProducto = {1, 2, 3, 4};
-        String[] codigo = {"3K9GVf", "7MCm7L", "A4ny6n", "ASKP2y", "NzXW2z", "PoFiCh", "SMzVCG", "YPnoRa",
-            "adEDSf", "iSejg3", "jFyTtN", "jWTBAq", "kBX8wX", "kYQVb2", "pRQjFo", "rhCnTF", "ruHK5q", "s8yuKi",
-            "vWsPAh", "yB4cRh"};
-
-        for (int i = 0; i < 5; i++) {
-            oProductoBean = new ProductoBean();
-            int randDesc = randomDesc.nextInt(20);
-            int randTipoProducto = randomTipoProducto.nextInt(4);
-            int randCodigo = randomCodigo.nextInt(20);
-            int existencias = ThreadLocalRandom.current().nextInt(0, 3000 + 1);
-            double precio = ThreadLocalRandom.current().nextDouble(1, 1000 + 1);
-
-            oProductoBean.setDesc(desc[randDesc]);
-            oProductoBean.setId_tipoProducto(tipoProducto[randTipoProducto]);
-            oProductoBean.setCodigo(codigo[randCodigo]);
-            oProductoBean.setExistencias(existencias);
-            oProductoBean.setPrecio((float) precio);
-            alProducto.add(oProductoBean);
-        }
-        return alProducto;
-    }
 
     public ReplyBean update() throws Exception {
         int iRes = 0;

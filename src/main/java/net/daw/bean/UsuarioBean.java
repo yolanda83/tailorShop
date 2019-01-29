@@ -28,6 +28,8 @@ public class UsuarioBean {
     private String login;
     @Expose(serialize = false)
     private String pass;
+    @Expose
+    private String foto;
     @Expose(serialize = false)
     private int id_tipoUsuario;
     @Expose(deserialize = false)
@@ -115,6 +117,15 @@ public class UsuarioBean {
         this.id_tipoUsuario = id_tipoUsuario;
     }
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+    
+
     public UsuarioBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {
         this.setId(oResultSet.getInt("id"));
         this.setDni(oResultSet.getString("dni"));
@@ -123,6 +134,7 @@ public class UsuarioBean {
         this.setApe2(oResultSet.getString("ape2"));
         this.setLogin(oResultSet.getString("login"));
         this.setPass(oResultSet.getString("pass"));
+        this.setFoto(oResultSet.getString("foto"));
         FacturaDao oFacturaDao = new FacturaDao(oConnection, "factura");
         this.setNumFacturas(oFacturaDao.getcountspecific(this.getId()));
         if (expand > 0) {
