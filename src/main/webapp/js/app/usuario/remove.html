@@ -1,76 +1,161 @@
 <!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
 
+<!--<div class="container-fluid p-0">
+    <div class="row no-gutters">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="margin-top: 50px;">
 
-<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
 
-    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Remove Usuario:<small>  {{ajaxData.login}} </small></h1>
-        <i class="fas fa-user-times fa-3x"></i>
-    </div>
+            <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">View Usuario:<small>  {{ajaxData.login}} </small></h1>
+                <i class="fas fa-user-times fa-3x"></i>
+            </div>
 
-    <div class="mx-auto" style="margin-top: 80px; padding: 20px; width: 50%; background-color: WHITESMOKE; border-radius: 7px">
-        <div ng-show="!deleted">
+            <div class="mx-auto pb-5 view">
 
-            <table class="table table-hover">       
-                <tr>
-                    <th style="padding-left: 30px;">Id:</th>
-                    <td>{{ajaxData.id}}</td>
-                </tr>
-                <tr>
-                    <th style="padding-left: 30px;">DNI:</th>
-                    <td>{{ajaxData.dni}}</td>
-                </tr>
-                <tr>
-                    <th style="padding-left: 30px;">Nombre:</th>
-                    <td>{{ajaxData.nombre}}</td>
-                </tr>
-                <tr>
-                    <th style="padding-left: 30px;">Primer apellido:</th>
-                    <td>{{ajaxData.ape1}}</td>
-                </tr>
-                <tr>
-                    <th style="padding-left: 30px;">Segundo apellido:</th>
-                    <td>{{ajaxData.ape2}}</td>
-                </tr>
-                <tr>
-                    <th style="padding-left: 30px;">Nombre usuario:</th>
-                    <td>{{ajaxData.login}}</td>
-                </tr>
-                <tr>
-                    <th style="padding-left: 30px;">Tipo de usuario:</th>
-                    <td>{{ajaxData.obj_tipoUsuario.desc}}</td>
-                </tr>
-            </table>
+                <table class="table table-hover">
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="mx-auto fotoPerfil">
+                                <img ng-src="http://localhost:8081/imagenes/{{ajaxData.foto}}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <tr>
+                        <th style="padding-left: 30px;">Id:</th>
+                        <td>{{ajaxData.id}}</td>
+                    </tr>
+                    <tr>
+                        <th style="padding-left: 30px;">DNI:</th>
+                        <td>{{ajaxData.dni}}</td>
+                    </tr>
+                    <tr>
+                        <th style="padding-left: 30px;">Nombre:</th>
+                        <td>{{ajaxData.nombre}}</td>
+                    </tr>
+                    <tr>
+                        <th style="padding-left: 30px;">Primer apellido:</th>
+                        <td>{{ajaxData.ape1}}</td>
+                    </tr>
+                    <tr>
+                        <th style="padding-left: 30px;">Segundo apellido:</th>
+                        <td>{{ajaxData.ape2}}</td>
+                    </tr>
+                    <tr>
+                        <th style="padding-left: 30px;">Nombre usuario:</th>
+                        <td>{{ajaxData.login}}</td>
+                    </tr>
+
+                    <tr ng-show="admin">
+                        <th style="padding-left: 30px;">Tipo de usuario:</th>
+                        <td>{{ajaxData.obj_tipoUsuario.desc}}</td>
+                    </tr>
+
+                                        <tr ng-show="admin">
+                                            <th style="padding-left: 30px;">Tipo de usuario:</th>
+                                            <td><a href="{{'/tailorShop/tipousuario/view/' + ajaxData.obj_tipoUsuario.id}}" class="enlaceColor">{{ajaxData.obj_tipoUsuario.desc}}</a></td>
+                                        </tr>
+                </table>
+
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-secondary ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>
+                </div>
+            </div>
+
+
         </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>-->
 
-        <div class="row" ng-show="!deleted">
-            <div class="col-12">
-                <div class="card mx-auto" style="background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center;">¿Desea eliminar el usuario?</h5>
-                        <div class="d-flex justify-content-center align-items-center pt-3 pb-2" role="alert">
-                            <button type="button" class="btn btn-info ml-0 mr-5" ng-click="eliminar()">Aceptar</button>
-                            <button type="button" class="btn btn-secondary ml-0" onclick="window.history.back()">Cancelar</button>
+
+
+<div class="container-fluid p-0">
+    <div class="row no-gutters">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="margin-top: 50px;">
+
+            <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Remove Usuario:<small>  {{ajaxData.login}} </small></h1>
+                <i class="fas fa-user-times fa-3x"></i>
+            </div>
+
+            <div class="mx-auto view">
+                <div ng-show="!deleted">
+
+                    <table class="table table-hover">   
+                        
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="mx-auto fotoPerfil">
+                                    <img ng-src="http://localhost:8081/imagenes/{{ajaxData.foto}}">
+                                </div>
+                            </div>
+                        </div>
+                        <tr>
+                            <th style="padding-left: 30px;">Id:</th>
+                            <td>{{ajaxData.id}}</td>
+                        </tr>
+                        <tr>
+                            <th style="padding-left: 30px;">DNI:</th>
+                            <td>{{ajaxData.dni}}</td>
+                        </tr>
+                        <tr>
+                            <th style="padding-left: 30px;">Nombre:</th>
+                            <td>{{ajaxData.nombre}}</td>
+                        </tr>
+                        <tr>
+                            <th style="padding-left: 30px;">Primer apellido:</th>
+                            <td>{{ajaxData.ape1}}</td>
+                        </tr>
+                        <tr>
+                            <th style="padding-left: 30px;">Segundo apellido:</th>
+                            <td>{{ajaxData.ape2}}</td>
+                        </tr>
+                        <tr>
+                            <th style="padding-left: 30px;">Nombre usuario:</th>
+                            <td>{{ajaxData.login}}</td>
+                        </tr>
+                        <tr>
+                            <th style="padding-left: 30px;">Tipo de usuario:</th>
+                            <td>{{ajaxData.obj_tipoUsuario.desc}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="row" ng-show="!deleted">
+                    <div class="col-12">
+                        <div class="card mx-auto">
+                            <div class="card-body">
+                                <h5 class="card-title" style="text-align: center;">Desea eliminar el usuario?</h5>
+                                <div class="d-flex justify-content-center align-items-center pt-3 pb-2" role="alert">
+                                    <button type="button" class="btn btn-info ml-0 mr-5" ng-click="eliminar()">Aceptar</button>
+                                    <button type="button" class="btn botonAdmin ml-0" onclick="window.history.back()">Cancelar</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row" ng-show="deleted">
-            <div class="col-12">
-                <div class="vertical-centered-text mx-auto p-3 pb-2 mb-3" role="alert">
-                    <h4>Usuario eliminado con éxito.</h4>
-                    <div>
-                        <button type="button" class="btn btn-info mt-3 pt-2 ml-0" onclick="window.history.back()">Volver</button>
+                <div class="row" ng-show="deleted">
+                    <div class="col-12">
+                        <div class="vertical-centered-text mx-auto p-3 pb-2 mb-3" role="alert">
+                            <h4>Usuario eliminado con éxito.</h4>
+                            <div>
+                                <button type="button" class="btn btn-info mt-3 pt-2 ml-0" onclick="window.history.back()">Volver</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
-
+        <div class="col-md-2"></div>
     </div>
-
-</main>
+</div>
 
 <!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
 <!--<footer-component></footer-component>-->

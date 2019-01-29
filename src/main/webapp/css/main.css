@@ -2,6 +2,9 @@
 
 /*outline:none  para eliminar borde en links*/
 
+.ng-scope {
+    background: #fafafa;
+}
 .filtro:hover {
     content: '';
     filter: blur(2px);
@@ -129,17 +132,23 @@
 
 .tituloSeccion {
     font-size: 30px;
-    letter-spacing: 6px;
-    font-family: 'Noto Serif', serif;
+    letter-spacing: 4px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
     margin-top: 50px;
-    margin-top: 20px;
 }
 
 .subtituloSeccion {
     font-size: 50px;
-    font-family: 'Noto Serif', serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     padding-top: 0px !important;
     margin-top: 0px!important;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    margin-top: -50px;
     /*vertical-align: baseline !important;*/ 
 }
 
@@ -190,8 +199,24 @@
 
 
 
-
 /*SIGN IN ---SIGN UP*/ 
+
+.btn-info {
+    background-color: #8ABC4D;
+    border-radius: 0px;
+    padding: 10px 30px;
+    border: none;
+}
+
+.btn-warning {
+    background-color: darkgray;
+    border-radius: 0px;
+    padding: 10px 30px;
+    border: none;
+    margin-left: 10px;
+}
+
+
 
 /*body{
         margin:0;
@@ -212,14 +237,15 @@ a{color:inherit;text-decoration:none}
     max-width:525px;
     min-height:670px;
     position:relative;
-    background:url(https://i.pinimg.com/564x/11/84/9c/11849caeb53059e9e57036ca0be41243.jpg) no-repeat center;
+    /*background:url(https://i.pinimg.com/564x/11/84/9c/11849caeb53059e9e57036ca0be41243.jpg) no-repeat center;*/
     box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 .login-html{
     width:100%;
     height:100%;
     position:absolute;
-    padding:90px 70px 50px 70px;
+    padding: 30px 40px;
+    /*padding:90px 70px 50px 70px;*/
     background:rgba(49,49,49,.9);
 }
 .login-html .sign-in-htm,
@@ -275,7 +301,7 @@ a{color:inherit;text-decoration:none}
 .login-form .group .input,
 .login-form .group .button{
     border:none;
-    padding:15px 20px;
+    padding:10px 10px;
     border-radius:20px;
     outline: none;
     background:rgba(255,255,255,.1);
@@ -420,8 +446,11 @@ a{color:inherit;text-decoration:none}
 .textoTailor {
     font-size: 13px;
     color: gray;
-    font-family: 'Noto Serif', serif;
+    letter-spacing: 0.5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 /* redondel boton Insta*/
@@ -1112,8 +1141,6 @@ a.enlacefa {
 }
 
 
-/*Contacto*/
-
 /*--------------Admin------------*/
 
 /*Para hacer invisible el color de fondo del boton*/
@@ -1125,13 +1152,14 @@ a.enlacefa {
 
 
 .botonAdmin {
-    background: gray;
+    background: gray !important;
     border: 0;
     color: white;
     padding: 10px;
     margin-left: 0px;
     /*width: 100%;*/
     border-radius: 0px;
+    padding: 10px 30px;
 }
 
 .botonAdmin:hover {
@@ -1150,9 +1178,34 @@ a.enlacefa {
     box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
 }
 
+.edit {
+    margin-top: 50px; 
+    margin-bottom: 100px;
+    padding: 20px; 
+    width: 70%; 
+    background-color: WHITESMOKE;
+    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);  
+}
+
 .fotoPerfil img{
     border-radius: 50%;
     width: 128px; 
     height: 128px;
     margin: 15px;
+}
+
+.footBackground {
+    background: #fafafa;
+}
+
+/*****************************************
+----- CONDICIONALES DE MEDIA QUERIES -----
+******************************************/
+
+@media screen and (max-width: 1250px) { 
+
+    th .dni {
+        margin: 20px;
+    }
+
 }
