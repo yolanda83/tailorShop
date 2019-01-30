@@ -1,15 +1,153 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
 
+/**************** GENERICO ****************/
+
 body {
     font-family: "varela round", sans-serif;
 }
-/*Header*/
-
-/*outline:none  para eliminar borde en links*/
 
 .ng-scope {
     background: #fafafa;
 }
+
+
+/**** BOTONES NORMALES ****/ 
+.btn-info {
+    background-color: #8ABC4D;
+    border-radius: 0px;
+    padding: 10px 30px;
+    border: none;
+}
+
+.btn-info:hover {
+    background-color: green;
+    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
+}
+
+
+/**** BOTONES ADMIN ****/ 
+/*Para hacer invisible el color de fondo de los botones de accion*/
+.btn-light {
+    color: black;
+    background-color: rgba(70, 98, 127, 0) !important; 
+    border-color: rgba(70, 98, 127, 0) !important; 
+}
+
+.botonAdmin {
+    background: gray !important;
+    border: 0;
+    color: white;
+    padding: 10px;
+    margin-left: 0px;
+    /*width: 100%;*/
+    border-radius: 0px;
+    padding: 10px 30px;
+}
+
+.botonAdmin:hover {
+    background: darkgray;
+    border: 0;
+    color: white;
+    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
+    /*box-shadow: 6px 7px 21px -2px rgba(0,0,0,0.42);*/
+}
+
+/**** BOTON ADD ARCHIVO ****/
+.fileContainer {
+    overflow: hidden;
+    position: relative;
+    background: gray;
+    color: white;
+    border-radius: 0px;
+    /*float: left;*/
+    padding: 5px;
+    text-align: center;
+    width: 160px;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+    cursor: pointer;
+}
+
+
+/**** COLOR ENLACES ****/
+.enlaceColor {
+    color: #8ABC4D!important;
+    text-decoration: none; 
+}
+
+
+a.enlaceColor {
+    color: #8ABC4D!important;
+    text-decoration: none; 
+}
+
+.enlaceLogout {
+    color: #E23164!important;
+    text-decoration: none; 
+}
+
+a.enlacefa {
+    color: #212529!important;
+}
+
+
+
+/**** PAGINACION VECINDARIO + RPP ****/
+.pagination > li > a {
+    background-color: white;
+    color: gray;
+    padding: 0.5rem 0.9rem;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+    color: gray;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a {
+    color: white;
+    background-color: #8ABC4D!important;
+    border: solid 1px #8ABC4D!important;
+}
+
+.pagination > .active > a:hover {
+    background-color: darkgray!important;
+    border: solid 1px darkgray!important;
+}
+
+.pagination li a {
+    border: solid 1px #d7d7d7;
+    border-radius: 0.2rem;
+    color: #7d7d7d;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem 0.9rem;
+    margin: 3px;
+}
+
+
+
+
+/**************** HEADER ****************/
+
 .filtro:hover {
     content: '';
     filter: blur(2px);
@@ -17,7 +155,7 @@ body {
     transition: all 1000ms;
 }
 
-/*Primer Nav*/
+/******** PRIMER NAV *******/
 .logo {
     width: 150px;
 }
@@ -35,8 +173,9 @@ body {
     border-bottom: 1px solid gray !important;
 }
 
-/* botones buscar, perfil y carrito */
 
+
+/******* BOTONES BUSCAR, PERFIL Y CARRITO *******/
 .menuBall {
     display: inline-block;
     position: relative;
@@ -98,6 +237,7 @@ body {
     background-position: 0 0, 20px 20px;
 }
 
+/*COLOR DE LOS ICONOS*/
 .menuText {
     color: #ffffff;
 }
@@ -129,11 +269,12 @@ body {
     }
 }
 
+/**************** FIN HEADER ****************/
 
 
-/*Fin header*/
 
-/*Seccion novedades telas*/
+
+/**************** NOVEDADES TELAS ****************/
 
 .tituloSeccion {
     font-size: 30px;
@@ -144,17 +285,6 @@ body {
     margin-top: 50px;
 }
 
-.subtituloSeccion {
-    font-size: 50px;
-    font-family: "varela round", sans-serif;    padding-top: 0px !important;
-    margin-top: 0px!important;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    margin-top: -50px;
-    /*vertical-align: baseline !important;*/ 
-}
-
 .tela {
     /*flex-grow: 0;*/
     width: 250px;
@@ -163,7 +293,6 @@ body {
     box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
     background-color: white;
     border-radius: 0px;
-
 }
 
 .tela .card-body {
@@ -176,62 +305,10 @@ body {
     max-width: 100%;
 }
 
-.tela .text {
-    padding: 0 20px 20px;
-}
-
-.tela .text>h3 {
-    text-align: center;
-    padding-top: 10px;
-}
-
-.tela .text>button {
-    background: gray;
-    border: 0;
-    color: white;
-    padding: 10px;
-    margin-left: 0px;
-    width: 100%;
-}
-
-.tela .text>button:hover {
-    background: darkgray;
-    border: 0;
-    color: white;
-}
 
 
 
-/*SIGN IN ---SIGN UP*/ 
-
-.btn-info {
-    background-color: #8ABC4D;
-    border-radius: 0px;
-    padding: 10px 30px;
-    border: none;
-}
-
-.btn-info:hover {
-    background-color: green;
-    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
-}
-
-/*.btn-warning {
-    background-color: darkgray;
-    border-radius: 0px;
-    padding: 10px 30px;
-    border: none;
-    margin-left: 10px;
-}*/
-
-
-
-/*body{
-        margin:0;
-        color:#6a6f8c;
-        background:#c8c8c8;
-        font:600 16px/18px 'Open Sans',sans-serif;
-}*/
+/************ SIGN IN / SIGN UP (FORMULARIO) ************/
 
 *,:after,:before{box-sizing:border-box}
 .clearfix:after,.clearfix:before{content:'';display:table}
@@ -314,10 +391,7 @@ a{color:inherit;text-decoration:none}
     outline: none;
     background:rgba(255,255,255,.1);
 }
-/*.login-form .group input[data-type="password"]{
-        text-security:circle;
-        -webkit-text-security:circle;
-}*/
+
 .login-form .group .label{
     color:#aaa;
     font-size:12px;
@@ -382,31 +456,9 @@ a{color:inherit;text-decoration:none}
 }
 
 
-/*Footer*/
 
 
-.footer {
-    background: TAN;
-    padding: 30px;
-}
-
-.foot a {
-    /*display: inline;*/
-    color: black;
-}
-
-.foot a:hover {
-    color: gray;
-}
-
-.foot {
-    margin-bottom: 20px;
-}
-
-.textoFooter {
-    font-size: 17px;
-    font-family: "varela round", sans-serif;
-}
+/************ CONTACTA (EMAIL) ************/
 
 #email {
     border-top: none;
@@ -441,15 +493,28 @@ a{color:inherit;text-decoration:none}
     text-align: center;
 }
 
-.terminosFooter>a {
-    font-size: 13px;
-    color: gray;
+
+
+
+/************ HORARIO ************/
+
+.horario {
+    background-image: url("../images/horario1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 50px;
+    /*opacity: 0.5;*/
+    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
+
 }
 
-.terminosFooter>a:hover {
-    font-size: 13px;
-    color: rgb(49, 49, 49);
+.horario table {
+    background-color: rgba(255, 255, 255, 0.9);
 }
+
+
+
+/************ FOOTER ************/
 
 .textoTailor {
     font-size: 13px;
@@ -461,8 +526,60 @@ a{color:inherit;text-decoration:none}
     margin-bottom: 20px;
 }
 
-/* redondel boton Insta*/
+.footBackground {
+    background: #fafafa;
+}
 
+.footer {
+    opacity: 1;
+    width: 100%;
+    /*Set the fixed height of the footer here*/ 
+    height: 50px;
+    /*Vertically center the text there*/
+    line-height: 50px;   
+    background-color: #b0b0b0;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.footer {
+    background: TAN;
+    padding: 30px;
+}
+
+.foot a {
+    /*display: inline;*/
+    color: black;
+}
+
+.foot a:hover {
+    color: gray;
+}
+
+.foot {
+    margin-bottom: 20px;
+}
+
+.textoFooter {
+    font-size: 17px;
+    font-family: "varela round", sans-serif;
+}
+
+.terminosFooter>a {
+    font-size: 13px;
+    color: gray;
+}
+
+.terminosFooter>a:hover {
+    font-size: 13px;
+    color: rgb(49, 49, 49);
+}
+
+
+
+
+/************ BOTONES REDES SOCIALES (INSTAGRAM,FACEBOOK Y TWITTER) ************/
+/* redondel boton Insta*/
 .hover {
     position: relative;
     display: flex;
@@ -478,7 +595,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* redondel boton Face */
-
 .faceball {
     position: relative;
     display: flex;
@@ -494,7 +610,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* redondel boton Twitter */
-
 .twitball {
     position: relative;
     display: flex;
@@ -510,7 +625,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Parte superior de la I partida */
-
 .hover:before, .hover:after {
     position: absolute;
     right: 0;
@@ -524,7 +638,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Parte superior de la F partida */
-
 .faceball:before, .faceball:after {
     position: absolute;
     right: 0;
@@ -538,7 +651,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Parte superior de la T partida */
-
 .twitball:before, .twitball:after {
     position: absolute;
     right: 0;
@@ -552,7 +664,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Mitad izquierda del hover insta */
-
 .hover:before {
     content: '';
     left: 0;
@@ -561,7 +672,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Mitad izquierda del hover face*/
-
 .faceball:before {
     content: '';
     left: 0;
@@ -570,7 +680,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Mitad izquierda del hover twitter*/
-
 .twitball:before {
     content: '';
     left: 0;
@@ -579,7 +688,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Mitad derecha del hover insta*/
-
 .hover:after {
     content: '';
     bottom: 0;
@@ -587,7 +695,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Mitad derecha del hover  facebook*/
-
 .faceball:after {
     content: '';
     bottom: 0;
@@ -595,7 +702,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Mitad derecha del hover  twitter*/
-
 .twitball:after {
     content: '';
     bottom: 0;
@@ -603,91 +709,78 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Fondo insta*/
-
 .hover:hover {
     background-image: linear-gradient(to top right, #FBD67A, #F5923D, #F35834, #EC2B49, #DB0271, #AB0B9E, #6C1CCF, #383DED);
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 /* Fondo face */
-
 .faceball:hover {
     background-color: #2e487a;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 /* Fondo twitter */
-
 .twitball:hover {
     background-color: #00aced;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 /* Para ocultar la letra I*/
-
 .hover:hover span {
     opacity: 0;
     z-index: -3;
 }
 
 /* Para ocultar la letra F*/
-
 .faceball:hover span {
     opacity: 0;
     z-index: -3;
 }
 
 /* Para ocultar la letra T*/
-
 .twitball:hover span {
     opacity: 0;
     z-index: -3;
 }
 
 /* Para ocultar la mitad lado izquierdo insta */
-
 .hover:hover:before {
     opacity: 0.5;
     transform: translateY(-100%);
 }
 
 /* Para ocultar la mitad lado izquierdo face*/
-
 .faceball:hover:before {
     opacity: 0.5;
     transform: translateY(-100%);
 }
 
 /* Para ocultar la mitad lado izquierdo twitter*/
-
 .twitball:hover:before {
     opacity: 0.5;
     transform: translateY(-100%);
 }
 
 /* Para ocultar la mitad lado derecho insta*/
-
 .hover:hover:after {
     opacity: 0.5;
     transform: translateY(100%);
 }
 
 /* Para ocultar la mitad lado derecho face*/
-
 .faceball:hover:after {
     opacity: 0.5;
     transform: translateY(100%);
 }
 
 /* Para ocultar la mitad lado derecho twitter*/
-
 .twitball:hover:after {
     opacity: 0.5;
     transform: translateY(100%);
 }
 
 /* Letra y logo, no funciona con svg's insta*/
-
 .hover span {
     position: absolute;
     top: 2px;
@@ -709,7 +802,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Letra y logo, no funciona con svg's face*/
-
 .faceball span {
     position: absolute;
     top: -1px;
@@ -731,7 +823,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Letra y logo, no funciona con svg's twitter*/
-
 .twitball span {
     position: absolute;
     top: -1px;
@@ -753,7 +844,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Logo insta*/
-
 .hover .social-link {
     position: relative;
     left: 19px;
@@ -769,7 +859,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Logo face*/
-
 .faceball .social-link {
     position: relative;
     left: 19px;
@@ -785,7 +874,6 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Logo twitter*/
-
 .twitball .social-link {
     position: relative;
     left: 19px;
@@ -801,40 +889,34 @@ a{color:inherit;text-decoration:none}
 }
 
 /* sombra Logo insta*/
-
 .hover .social-link i {
     text-shadow: 1px 1px rgba(70, 98, 127, 0.7);
     transform: scale(1);
 }
 
 /* sombra Logo face*/
-
 .faceball .social-link i {
     text-shadow: 1px 1px rgba(70, 98, 127, 0.7);
     transform: scale(1);
 }
 
 /* sombra Logo twitter*/
-
 .twitball .social-link i {
     text-shadow: 1px 1px rgba(70, 98, 127, 0.7);
     transform: scale(1);
 }
 
 /* Animacion del logo insta*/
-
 .hover .social-link:hover i {
     animation: pulse 1s linear;
 }
 
 /* Animacion del logo face*/
-
 .faceball .social-link:hover i {
     animation: pulse 1s linear;
 }
 
 /* Animacion del logo twitter*/
-
 .twitball .social-link:hover i {
     animation: pulse 1s linear;
 }
@@ -873,322 +955,32 @@ a{color:inherit;text-decoration:none}
 .ins {
     width: 90px;
 }
+/************ FIN BOTONES REDES SOCIALES (INSTAGRAM,FACEBOOK Y TWITTER) ************/
 
 
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    /*position: relative;*/
-    /*min-height: 100%;*/
-}
-body {
-    /* Margin bottom by footer height 
-       margin-bottom: 60px;
-       margin: 0;*/
-    /*height: 100%;*/
-    /*    display: grid;
-        grid-template-rows: auto auto auto;*/
-}
 
-.redondel {
-    color: white;
-    vertical-align: center;
-    width: 26px;
-    padding: 2px 5px;
+/**************** ADMIN ****************/
+
+
+/**************** FOTO PERFIL ****************/
+
+.fotoPerfil img{
     border-radius: 50%;
-    background-color: #17a2b8!important;
-    text-decoration: none; 
+    width: 128px; 
+    height: 128px;
+    margin: 15px;
 }
 
-.footer {
-    opacity: 1;
-    width: 100%;
-    /*Set the fixed height of the footer here*/ 
-    height: 50px;
-    /*Vertically center the text there*/
-    line-height: 50px;   
-    background-color: #b0b0b0;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-
-/*.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-   Set the fixed height of the footer here 
-  height: 60px;
-  Vertically center the text there 
-  line-height: 60px;  
-  background-color: #f5f5f5;
-}*/
-
-
-/*  #footer {
-    bottom: 0;
-    width: 100%;
-    position: absolute;
-    height: 60px;
-    background-color: #f5f5f5;
-    .footer-block {
-      margin: 20px 0;
-    }
-  }*/
-
-.trol {
-    font-family: 'Pacifico', cursive;
-    font-size: 150%;
-}
-
-button {
-    margin-left: 20px;
-}
-
-input {
-    margin-right: 20px;  
-}
-
-td, th {
-    padding: 5px;
-}
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-/*body > .container {
-    padding: 60px 0;
-}*/
-
-/*.footer > .container {
-  padding-right: 0px;
-  padding-left: 0px;
-}*/
-
-code {
-    font-size: 80%;
-}
-
-
-/* Pagination
--------------------------------------------------- */
-
-.pagination > li > a
-{
-    background-color: white;
-    color: gray;
-    padding: 0.5rem 0.9rem;
-}
-
-.pagination > li > a:focus,
-.pagination > li > a:hover,
-.pagination > li > span:focus,
-.pagination > li > span:hover
-{
-    color: gray;
-    background-color: #eee;
-    border-color: #ddd;
-}
-
-.pagination > .active > a
-{
-    color: white;
-    background-color: #8ABC4D!important;
-    border: solid 1px #8ABC4D!important;
-}
-
-.pagination > .active > a:hover
-{
-    background-color: darkgray!important;
-    border: solid 1px darkgray!important;
-}
-
-.pagination li a {
-    border: solid 1px #d7d7d7;
-    border-radius: 0.2rem;
-    color: #7d7d7d;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: inline-block;
-    text-align: center;
-    padding: 0.5rem 0.9rem;
-    margin: 3px;
-
-}
-
-/*paginationVecindario*/
-.paginationVecindario > li > a
-{
-    background-color: white;
-    color: gray;
-    padding: 0.5rem 0.9rem;
-}
-
-.paginationVecindario > li > a:focus,
-.paginationVecindario > li > a:hover,
-.paginationVecindario > li > span:focus,
-.paginationVecindario > li > span:hover
-{
-    color: gray;
-    background-color: #eee;
-    border-color: #ddd;
-}
-
-.paginationVecindario > .active > a
-{
-    color: white;
-    background-color: #17a2b8!important;
-    border: solid 1px #17a2b8!important;
-}
-
-.paginationVecindario > .active > a:hover
-{
-    background-color: darkgray!important;
-    border: solid 1px darkgray!important;
-}
-
-/*.paginationVecindario li a {
-  border: solid 1px #d7d7d7;
-  border-radius: 0.2rem;
-  color: #7d7d7d;
-  text-decoration: none;
-  text-transform: uppercase;
-  display: inline-block;
-  text-align: center;
-  padding: 0.5rem 0.9rem;
-  margin: 3px;
-}*/
-
-
-
-small {
-    font-size: 20px;
-}
-
-/*btn-group a {
-    background-color: transparent
-}*/
-
-.enlaceColor {
-    color: #8ABC4D!important;
-    text-decoration: none; 
-}
-
-
-a.enlaceColor {
-    color: #8ABC4D!important;
-    text-decoration: none; 
-}
-
-.enlaceLogout {
-    color: #E23164!important;
-    text-decoration: none; 
-}
-
-a.enlacefa {
-    color: #212529!important;
-}
-
-/*#botoni {
-    position: relative;
-}
-
-#botoni2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 50%;
-    width: 50%;
-}*/
-/* Custom Hover.css
--------------------------------------------------- */
-
-/* Border Fade */
-.hvr-border-fade {
-    -webkit-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-    -webkit-transition-property: box-shadow;
-    transition-property: box-shadow;
-    box-shadow: inset 0 0 0 1px #e1e1e1, 0 0 1px rgba(0, 0, 0, 0);
-}
-.hvr-border-fade:active,.hvr-border-fade:focus,.hvr-border-fade:hover {
-    box-shadow:inset 0 0 0 2px #2098D1,0 0 1px rgba(0,0,0,0)
-}
-
-
-/* Pagina principal
--------------------------------------------------- */
-/*
-#logout {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.40) 100%, transparent), url('https://image.freepik.com/foto-gratis/tablero-medio-ingredientes-cocina_23-2147749529.jpg');
-    background-size: cover, cover;
-    background-position: center, center;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#logout h1:before, h1:after {
-    height: 0px !important;
-}*/
-
-
-
-/*-------Horario--------*/
-
-.horario {
-    background-image: url("../images/horario1.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    padding: 50px;
-    /*opacity: 0.5;*/
-    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
-
-}
-
-.horario table {
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
-
-/*--------------Admin------------*/
-
-/*Para hacer invisible el color de fondo del boton*/
-.btn-light {
-    color: black;
-    background-color: rgba(70, 98, 127, 0) !important; 
-    border-color: rgba(70, 98, 127, 0) !important; 
-}
-
-
-.botonAdmin {
-    background: gray !important;
-    border: 0;
-    color: white;
-    padding: 10px;
-    margin-left: 0px;
-    /*width: 100%;*/
-    border-radius: 0px;
-    padding: 10px 30px;
-}
-
-.botonAdmin:hover {
-    background: darkgray;
-    border: 0;
-    color: white;
-    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
-    /*box-shadow: 6px 7px 21px -2px rgba(0,0,0,0.42);*/
-}
+/**************** VIEW ****************/
 
 .view {
     margin-top: 50px; 
     /*padding: 20px;*/ 
     /*width: 50%;*/ 
     background-color: WHITESMOKE;
-    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
+    /*box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);*/
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
 }
 
 .tituloView {
@@ -1217,56 +1009,21 @@ a.enlacefa {
     font-family: "varela round", sans-serif;
 }
 
+/**************** EDIT ****************/
+
 .edit {
     margin-bottom: 100px;
     padding: 20px; 
     /*width: 70%;*/ 
     background-color: WHITESMOKE;
-    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);  
+    /*box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);*/ 
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
 }
 input {
     font-family: "varela round", sans-serif; 
 }
 
-/*Boton añadir archivo*/
-.fileContainer {
-    overflow: hidden;
-    position: relative;
-    background: gray;
-    color: white;
-    border-radius: 0px;
-    /*float: left;*/
-    padding: 5px;
-    text-align: center;
-    width: 160px;
-}
 
-.fileContainer [type=file] {
-    cursor: inherit;
-    display: block;
-    font-size: 999px;
-    filter: alpha(opacity=0);
-    min-height: 100%;
-    min-width: 100%;
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    text-align: right;
-    top: 0;
-    cursor: pointer;
-}
-
-
-.fotoPerfil img{
-    border-radius: 50%;
-    width: 128px; 
-    height: 128px;
-    margin: 15px;
-}
-
-.footBackground {
-    background: #fafafa;
-}
 
 /*****************************************
 ----- CONDICIONALES DE MEDIA QUERIES -----
@@ -1279,3 +1036,235 @@ input {
     }
 
 }
+
+
+
+
+
+/*outline:none  para eliminar borde en links*/
+
+
+
+/*.subtituloSeccion {
+    font-size: 50px;
+    font-family: "varela round", sans-serif;    padding-top: 0px !important;
+    margin-top: 0px!important;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    margin-top: -50px;
+    vertical-align: baseline !important; 
+}*/
+
+
+/*.tela .text {
+    padding: 0 20px 20px;
+}*/
+
+/*.tela .text>h3 {
+    text-align: center;
+    padding-top: 10px;
+}*/
+
+/*.tela .text>button {
+    background: gray;
+    border: 0;
+    color: white;
+    padding: 10px;
+    margin-left: 0px;
+    width: 100%;
+}
+
+.tela .text>button:hover {
+    background: darkgray;
+    border: 0;
+    color: white;
+}*/
+
+
+
+
+/*.redondel {
+    color: white;
+    vertical-align: center;
+    width: 26px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    background-color: #17a2b8!important;
+    text-decoration: none; 
+}*/
+
+
+
+
+
+/*button {
+    margin-left: 20px;
+}
+
+input {
+    margin-right: 20px;  
+}
+
+td, th {
+    padding: 5px;
+}
+
+
+
+code {
+    font-size: 80%;
+}*/
+
+
+/*small {
+    font-size: 20px;
+}*/
+
+
+/*.trol {
+    font-family: 'Pacifico', cursive;
+    font-size: 150%;
+}*/
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    /*position: relative;*/
+    /*min-height: 100%;*/
+}
+body {
+    /* Margin bottom by footer height 
+       margin-bottom: 60px;
+       margin: 0;*/
+    /*height: 100%;*/
+    /*    display: grid;
+        grid-template-rows: auto auto auto;*/
+}
+
+/*.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+   Set the fixed height of the footer here 
+  height: 60px;
+  Vertically center the text there 
+  line-height: 60px;  
+  background-color: #f5f5f5;
+}*/
+
+
+/*  #footer {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    height: 60px;
+    background-color: #f5f5f5;
+    .footer-block {
+      margin: 20px 0;
+    }
+  }*/
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+/*body > .container {
+    padding: 60px 0;
+}*/
+
+/*.footer > .container {
+  padding-right: 0px;
+  padding-left: 0px;
+}*/
+
+
+/* Pagina principal
+-------------------------------------------------- */
+/*
+#logout {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.40) 100%, transparent), url('https://image.freepik.com/foto-gratis/tablero-medio-ingredientes-cocina_23-2147749529.jpg');
+    background-size: cover, cover;
+    background-position: center, center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logout h1:before, h1:after {
+    height: 0px !important;
+}*/
+
+
+/*#botoni {
+    position: relative;
+}
+
+#botoni2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: 50%;
+}*/
+/* Custom Hover.css
+-------------------------------------------------- */
+
+/* Border Fade */
+/*.hvr-border-fade {
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+    box-shadow: inset 0 0 0 1px #e1e1e1, 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-border-fade:active,.hvr-border-fade:focus,.hvr-border-fade:hover {
+    box-shadow:inset 0 0 0 2px #2098D1,0 0 1px rgba(0,0,0,0)
+}*/
+
+
+/************ PAGINACION VECINDARIO ************/
+
+/*.paginationVecindario > li > a
+{
+    background-color: white;
+    color: gray;
+    padding: 0.5rem 0.9rem;
+}
+
+.paginationVecindario > li > a:focus,
+.paginationVecindario > li > a:hover,
+.paginationVecindario > li > span:focus,
+.paginationVecindario > li > span:hover
+{
+    color: gray;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.paginationVecindario > .active > a
+{
+    color: white;
+    background-color: #17a2b8!important;
+    border: solid 1px #17a2b8!important;
+}
+
+.paginationVecindario > .active > a:hover
+{
+    background-color: darkgray!important;
+    border: solid 1px darkgray!important;
+}*/
+
+/*.paginationVecindario li a {
+  border: solid 1px #d7d7d7;
+  border-radius: 0.2rem;
+  color: #7d7d7d;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  padding: 0.5rem 0.9rem;
+  margin: 3px;
+}*/
