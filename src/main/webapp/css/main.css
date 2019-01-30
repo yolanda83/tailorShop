@@ -963,7 +963,7 @@ a{color:inherit;text-decoration:none}
 /**************** ADMIN ****************/
 
 
-/**************** FOTO PERFIL ****************/
+/****** FOTO PERFIL ******/
 
 .fotoPerfil img{
     border-radius: 50%;
@@ -971,6 +971,49 @@ a{color:inherit;text-decoration:none}
     height: 128px;
     margin: 15px;
 }
+
+/****** FOTO PERFIL EDIT ******/
+
+.profile-picture {
+    border-radius: 50%;
+    margin-right: 20px;
+    width: 128px; 
+    height: 128px;
+    float: right;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(75, 78, 109, 0.3);
+}
+/*.profile-picture img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    object-fit: cover;
+}*/
+.profile-picture:after {
+    z-index: 2;
+    background-color: #363B6D;
+    width: 100%;
+    opacity: 0.8;
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    height: 50px;
+    color: white;
+    content: "Cambiar";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .4s;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.profile-picture:hover:after {
+    opacity: 1;
+    height: 100%;
+}
+
 
 /**************** VIEW ****************/
 
