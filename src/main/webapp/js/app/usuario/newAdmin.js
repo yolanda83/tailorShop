@@ -5,17 +5,19 @@ moduleUsuario.controller('usuarioNewAdminController', ['$scope', '$http', 'toolS
 
         $scope.numRegistros = 0;
 
-//        //Chequeo sesión
-//        if (oSessionService.getUserName() !== "") {
-//            $scope.usuario = oSessionService.getUserName();
-//            $scope.logeado = true;
-//            $scope.userId = oSessionService.getId();
-//        }
 
         $scope.isActive = toolService.isActive;
 
 
         $scope.guardar = function () {
+            
+             if ($scope.myFile == undefined) {
+                $scope.foto = "fotoUser.png";
+            } else {
+                $scope.foto = guid() + $scope.myFile.name;
+                $scope.fileNameChanged();
+            }
+
 
             var json = {
                 dni: $scope.dni,
@@ -24,6 +26,7 @@ moduleUsuario.controller('usuarioNewAdminController', ['$scope', '$http', 'toolS
                 ape2: $scope.ape2,
                 login: $scope.loginAdmin,
                 pass: forge_sha256($scope.passAdmin),
+                foto: $scope.foto,
                 id_tipoUsuario: $scope.obj_tipoUsuario.id
             }
             $http({
@@ -44,4 +47,50 @@ moduleUsuario.controller('usuarioNewAdminController', ['$scope', '$http', 'toolS
         }
 
 
+        $scope.fileNameChanged = function () {
+            //Solucion mas cercana
+            //https://stackoverflow.com/questions/37039852/send-formdata-with-other-field-in-angular
+            var file = $scope.myFile;
+            file = new File([file], $scope.foto, {type: file.type});
+            //Api FormData 
+            //https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/FormData
+            var oFormData = new FormData();
+            oFormData.append('file', file);
+            $http({
+                headers: {'Content-Type': undefined},
+                method: 'POST',
+                data: oFormData,
+                url: `http://localhost:8081/tailorShop/json?ob=producto&op=addimage`
+            }).then(function (response) {
+                console.log(response);
+            }, function (response) {
+                console.log(response)
+            });
+        }
+
+
+        function guid() {
+            return "ss-s-s-s-sss".replace(/s/g, s4);
+        }
+
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                    .toString(16)
+                    .substring(1);
+        }
+
+    }]).directive('fileModel', ['$parse', function ($parse) {
+        return {
+            restrict: 'A',
+            link: function (scope, element, attrs) {
+                var model = $parse(attrs.fileModel);
+                var modelSetter = model.assign;
+
+                element.bind('change', function () {
+                    scope.$apply(function () {
+                        modelSetter(scope, element[0].files[0]);
+                    });
+                });
+            }
+        }
     }]);

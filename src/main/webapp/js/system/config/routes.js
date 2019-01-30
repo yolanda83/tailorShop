@@ -30,36 +30,6 @@ var autenticacionAdministrador = function ($q, $location, $http, sessionService)
     return deferred.promise;
 };
 
-// AUTENTICACIÓN USUARIO SE HA COMENTADO PORQUE SE HA RESUELTO EN SERVIDOR, PORQUE AQUÍ NO SOY CAPAZ DE PODER RECOGER EL ID DEL USUARIO/FACTURAS/ETC... SIN HACER OTRA LLAMADA A SERVIDOR
-//var autenticacionUsuario = function ($q, $location, $http, sessionService) { 
-//    var deferred = $q.defer();
-//
-//    $http({
-//        method: 'GET',
-//        url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=check'
-//    }).then(function (response) {
-//        if (response.data.status === 200) {
-//
-//            if (response.data.message.obj_tipoUsuario.id === 1) { // 1 = ADMINISTRADOR
-//                sessionService.setAdmin();
-////                sessionService.setUserName(response.data.message.login);
-////                sessionService.setId(response.data.message.id);
-//                deferred.resolve(response.data.message);
-//            } else if (response.data.message.obj_tipoUsuario.id === 2) { // 2 = CLIENTE
-//                sessionService.setUser();
-//            } else {
-//                $location.path('/home');
-//            }
-//        } else {
-//            $location.path('/home');
-//        }
-//    }, function (response) {
-//        $location.path('/home');
-//    });
-//
-//    return deferred.promise;
-//};
-
 
 var everyone = function ($q, $location, $http, sessionService) {
     var deferred = $q.defer();
@@ -156,3 +126,47 @@ tailorShop.config(['$routeProvider', function ($routeProvider) {
 //DEFAULT
         $routeProvider.otherwise({redirectTo: '/home'});
     }]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// AUTENTICACIoN USUARIO SE HA COMENTADO PORQUE SE HA RESUELTO EN SERVIDOR, PORQUE AQUi NO SOY CAPAZ DE PODER RECOGER EL ID DEL USUARIO/FACTURAS/ETC... SIN HACER OTRA LLAMADA A SERVIDOR
+//var autenticacionUsuario = function ($q, $location, $http, sessionService) { 
+//    var deferred = $q.defer();
+//
+//    $http({
+//        method: 'GET',
+//        url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=check'
+//    }).then(function (response) {
+//        if (response.data.status === 200) {
+//
+//            if (response.data.message.obj_tipoUsuario.id === 1) { // 1 = ADMINISTRADOR
+//                sessionService.setAdmin();
+////                sessionService.setUserName(response.data.message.login);
+////                sessionService.setId(response.data.message.id);
+//                deferred.resolve(response.data.message);
+//            } else if (response.data.message.obj_tipoUsuario.id === 2) { // 2 = CLIENTE
+//                sessionService.setUser();
+//            } else {
+//                $location.path('/home');
+//            }
+//        } else {
+//            $location.path('/home');
+//        }
+//    }, function (response) {
+//        $location.path('/home');
+//    });
+//
+//    return deferred.promise;
+//};

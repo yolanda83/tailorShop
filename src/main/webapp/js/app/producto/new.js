@@ -31,9 +31,6 @@ moduleProducto.controller('productoNewController', ['$scope', '$http', 'toolServ
                 id_tipoProducto: $scope.obj_tipoProducto.id,
                 novedad: $scope.novedad
             }
-
-            
-
             $http({
                 method: 'GET',
                 header: {
