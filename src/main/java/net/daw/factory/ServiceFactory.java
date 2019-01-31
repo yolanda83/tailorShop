@@ -190,11 +190,26 @@ public class ServiceFactory {
                     case "getcount":
                         oReplyBean = oProductoService.getcount();
                         break;
+                    case "getcounttipo":
+                        oReplyBean = oProductoService.getcounttipo();
+                        break;
+                    case "getcountbusqueda":
+                        oReplyBean = oProductoService.getcountbusqueda();
+                        break;
+                    case "getcountfav":
+                        oReplyBean = oProductoService.getcountfav();
+                        break;
                     case "getpage":
                         oReplyBean = oProductoService.getpage();
                         break;
                     case "getnovedad":
                         oReplyBean = oProductoService.getnovedad();
+                        break;
+                    case "getbusqueda":
+                        oReplyBean = oProductoService.getbusqueda();
+                        break;
+                    case "getfavoritos":
+                        oReplyBean = oProductoService.getfavoritos();
                         break;
                     case "loaddata":
                         oReplyBean = oProductoService.loaddata();

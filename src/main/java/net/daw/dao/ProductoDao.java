@@ -95,6 +95,89 @@ public class ProductoDao {
         return res;
     }
 
+    public int getcounttipo(int tipo) throws Exception {
+        String strSQL = "SELECT COUNT(id) FROM " + ob;
+        strSQL += " WHERE id_tipoproducto = ?";
+        int res = 0;
+        ResultSet oResultSet = null;
+        PreparedStatement oPreparedStatement = null;
+        try {
+            oPreparedStatement = oConnection.prepareStatement(strSQL);
+            if (tipo != 0) {
+                oPreparedStatement.setInt(1, tipo);
+            }
+            oResultSet = oPreparedStatement.executeQuery();
+            if (oResultSet.next()) {
+                res = oResultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new Exception("Error en Dao get de " + ob, e);
+        } finally {
+            if (oResultSet != null) {
+                oResultSet.close();
+            }
+            if (oPreparedStatement != null) {
+                oPreparedStatement.close();
+            }
+        }
+        return res;
+    }
+
+    public int getcountfav(int id) throws Exception {
+        String strSQL = "SELECT COUNT(id) FROM favorito";
+        strSQL += " WHERE id_usuario = ?";
+        int res = 0;
+        ResultSet oResultSet = null;
+        PreparedStatement oPreparedStatement = null;
+        try {
+            oPreparedStatement = oConnection.prepareStatement(strSQL);
+            if (id != 0) {
+                oPreparedStatement.setInt(1, id);
+            }
+            oResultSet = oPreparedStatement.executeQuery();
+            if (oResultSet.next()) {
+                res = oResultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new Exception("Error en Dao get de " + ob, e);
+        } finally {
+            if (oResultSet != null) {
+                oResultSet.close();
+            }
+            if (oPreparedStatement != null) {
+                oPreparedStatement.close();
+            }
+        }
+        return res;
+    }
+
+    public int getcountbusqueda(String busqueda) throws Exception {
+        String strSQL = "SELECT COUNT(id) FROM " + ob;
+        strSQL += " WHERE `desc` LIKE ?";
+        int res = 0;
+        ResultSet oResultSet = null;
+        PreparedStatement oPreparedStatement = null;
+        try {
+            oPreparedStatement = oConnection.prepareStatement(strSQL);
+            String busc = "%" + busqueda + "%";
+            oPreparedStatement.setString(1, busc);
+            oResultSet = oPreparedStatement.executeQuery();
+            if (oResultSet.next()) {
+                res = oResultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new Exception("Error en Dao get de " + ob, e);
+        } finally {
+            if (oResultSet != null) {
+                oResultSet.close();
+            }
+            if (oPreparedStatement != null) {
+                oPreparedStatement.close();
+            }
+        }
+        return res;
+    }
+
     public ProductoBean create(ProductoBean oProductoBean) throws Exception {
         String strSQL = "INSERT INTO " + ob + " (`id`, `codigo`, `desc`, `existencias`, `precio`, `foto`, `id_tipoProducto`, `novedad`) VALUES (NULL, ?,?,?,?,?,?,?); ";
         ResultSet oResultSet = null;
@@ -174,6 +257,139 @@ public class ProductoDao {
                 if (tipo != 0) {
                     oPreparedStatement.setInt(1, tipo);
                 }
+                oResultSet = oPreparedStatement.executeQuery();
+                alProductoBean = new ArrayList<ProductoBean>();
+                while (oResultSet.next()) {
+                    ProductoBean oProductoBean = new ProductoBean();
+
+                    oProductoBean.fill(oResultSet, oConnection, expand);
+
+                    alProductoBean.add(oProductoBean);
+                }
+            } catch (SQLException e) {
+                throw new Exception("Error en Dao getpage de " + ob, e);
+            } finally {
+                if (oResultSet != null) {
+                    oResultSet.close();
+                }
+                if (oPreparedStatement != null) {
+                    oPreparedStatement.close();
+                }
+            }
+        } else {
+            throw new Exception("Error en Dao getpage de " + ob);
+        }
+        return alProductoBean;
+    }
+
+    public ArrayList<ProductoBean> getfavoritos(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand, int id) throws Exception {
+
+        String strSQL = "SELECT id_producto FROM favorito";
+
+        if (id != 0) {
+            strSQL += " WHERE id_usuario = ?";
+        }
+
+//        strSQL += SqlBuilder.buildSqlOrder(hmOrder);
+//        if (iRpp > 0 && iRpp < 100000 && iPage > 0 && iPage < 100000000) {
+//            strSQL += " LIMIT " + (iPage - 1) * iRpp + ", " + iRpp;
+        ResultSet oResultSet = null;
+        PreparedStatement oPreparedStatement = null;
+        ArrayList<ProductoBean> alProductoBean;
+        try {
+            StringBuilder sbId = new StringBuilder();
+            oPreparedStatement = oConnection.prepareStatement(strSQL);
+            if (id != 0) {
+                oPreparedStatement.setInt(1, id);
+            }
+            oResultSet = oPreparedStatement.executeQuery();
+
+            int rows = 0;
+
+            if (oResultSet.last()) {
+                rows = oResultSet.getRow();
+                // Move to beginning
+                oResultSet.beforeFirst();
+            }
+
+            sbId.append("(");
+            int contador = 0;
+            while (oResultSet.next()) {
+
+                contador++;
+
+                if (contador != rows) {
+                    sbId.append(oResultSet.getInt("id_producto"));
+                    sbId.append(", ");
+                } else {
+                    sbId.append(oResultSet.getInt("id_producto"));
+                }
+
+            }
+
+            sbId.append(")");
+
+            String strSQL2 = "SELECT * FROM " + ob;
+            strSQL2 += " WHERE id IN " + sbId;
+
+            strSQL2 += SqlBuilder.buildSqlOrder(hmOrder);
+            if (iRpp > 0 && iRpp < 100000 && iPage > 0 && iPage < 100000000) {
+                strSQL2 += " LIMIT " + (iPage - 1) * iRpp + ", " + iRpp;
+
+                ResultSet oResultSet2 = null;
+                PreparedStatement oPreparedStatement2 = null;
+
+                oPreparedStatement2 = oConnection.prepareStatement(strSQL2);
+                oResultSet2 = oPreparedStatement2.executeQuery();
+
+                alProductoBean = new ArrayList<ProductoBean>();
+
+                while (oResultSet2.next()) {
+
+                    ProductoBean oProductoBean = new ProductoBean();
+
+                    oProductoBean.fill(oResultSet2, oConnection, expand);
+
+                    alProductoBean.add(oProductoBean);
+
+                }
+
+            } else {
+                throw new Exception("Error en Dao getpage de " + ob);
+            }
+        } catch (SQLException e) {
+            throw new Exception("Error en Dao getpage de " + ob, e);
+        } finally {
+            if (oResultSet != null) {
+                oResultSet.close();
+            }
+            if (oPreparedStatement != null) {
+                oPreparedStatement.close();
+            }
+        }
+//        } else {
+//            throw new Exception("Error en Dao getpage de " + ob);
+//        }
+        return alProductoBean;
+    }
+
+    public ArrayList<ProductoBean> getbusqueda(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand, String busqueda) throws Exception {
+        String strSQL = "SELECT * FROM " + ob;
+        strSQL += " WHERE `desc` LIKE ?";
+
+        strSQL += SqlBuilder.buildSqlOrder(hmOrder);
+        ArrayList<ProductoBean> alProductoBean;
+
+        if (iRpp > 0 && iRpp < 100000 && iPage > 0 && iPage < 100000000) {
+            strSQL += " LIMIT " + (iPage - 1) * iRpp + ", " + iRpp;
+            ResultSet oResultSet = null;
+            PreparedStatement oPreparedStatement = null;
+            try {
+                oPreparedStatement = oConnection.prepareStatement(strSQL);
+
+                String busc = "%" + busqueda + "%";
+                oPreparedStatement.setString(1, busc);
+
                 oResultSet = oPreparedStatement.executeQuery();
                 alProductoBean = new ArrayList<ProductoBean>();
                 while (oResultSet.next()) {

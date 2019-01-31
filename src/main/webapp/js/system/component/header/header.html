@@ -11,9 +11,11 @@
     </div>
     <div class="col-md-3 my-auto text-center">
         <div id="ballMenuContainer" class="">
+            
+            <input type="text" ng-model="busqueda"/>
 
             <div id="menuBall2" class="menuBall">
-                <a href="#" class="ball redball d-flex justify-content-center align-items-center">
+                <a href="producto/plistUsuarioBusqueda/{{busqueda}}" class="ball redball d-flex justify-content-center align-items-center">
                     <div class="menuText ">
                         <i class="fas fa-search"></i>
                     </div>
@@ -224,7 +226,7 @@
                     {{c.usuario}}
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item pr-5" href="{{}}">
+                    <a class="dropdown-item pr-5" href="{{'producto/plistUsuarioFav/10/1/' + c.userId + '/' + c.usuario}}">
                         <div class="row no-gutters">
                             <div class="col-md-3">
                                 <i class="fas fa-heart enlaceColor"></i> 

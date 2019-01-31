@@ -120,6 +120,80 @@ public class ProductoService {
 
     }
 
+    public ReplyBean getcounttipo() throws Exception {
+        ReplyBean oReplyBean;
+        ConnectionInterface oConnectionPool = null;
+        Connection oConnection;
+        try {
+            Integer tipo = 0;
+            if (oRequest.getParameter("tipo") != null) {
+                tipo = Integer.parseInt(oRequest.getParameter("tipo"));
+            }
+
+            oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
+            oConnection = oConnectionPool.newConnection();
+            ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
+            int registros = oProductoDao.getcounttipo(tipo);
+            Gson oGson = new Gson();
+            oReplyBean = new ReplyBean(200, oGson.toJson(registros));
+        } catch (Exception ex) {
+            throw new Exception("ERROR: Service level: getcount method: " + ob + " object", ex);
+        } finally {
+            oConnectionPool.disposeConnection();
+        }
+
+        return oReplyBean;
+
+    }
+
+    public ReplyBean getcountfav() throws Exception {
+        ReplyBean oReplyBean;
+        ConnectionInterface oConnectionPool = null;
+        Connection oConnection;
+        try {
+            Integer id = 0;
+            if (oRequest.getParameter("id") != null) {
+                id = Integer.parseInt(oRequest.getParameter("id"));
+            }
+
+            oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
+            oConnection = oConnectionPool.newConnection();
+            ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
+            int registros = oProductoDao.getcountfav(id);
+            Gson oGson = new Gson();
+            oReplyBean = new ReplyBean(200, oGson.toJson(registros));
+        } catch (Exception ex) {
+            throw new Exception("ERROR: Service level: getcount method: " + ob + " object", ex);
+        } finally {
+            oConnectionPool.disposeConnection();
+        }
+
+        return oReplyBean;
+
+    }
+
+    public ReplyBean getcountbusqueda() throws Exception {
+        ReplyBean oReplyBean;
+        ConnectionInterface oConnectionPool = null;
+        Connection oConnection;
+        try {
+            String busqueda = oRequest.getParameter("busqueda");
+            oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
+            oConnection = oConnectionPool.newConnection();
+            ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
+            int registros = oProductoDao.getcountbusqueda(busqueda);
+            Gson oGson = new Gson();
+            oReplyBean = new ReplyBean(200, oGson.toJson(registros));
+        } catch (Exception ex) {
+            throw new Exception("ERROR: Service level: getcount method: " + ob + " object", ex);
+        } finally {
+            oConnectionPool.disposeConnection();
+        }
+
+        return oReplyBean;
+
+    }
+
     public ReplyBean create() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("create")) {
@@ -182,7 +256,6 @@ public class ProductoService {
         return oReplyBean;
     }
 
-
     public ReplyBean update() throws Exception {
         int iRes = 0;
         ReplyBean oReplyBean;
@@ -228,6 +301,62 @@ public class ProductoService {
             oConnection = oConnectionPool.newConnection();
             ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
             ArrayList<ProductoBean> alProductoBean = oProductoDao.getpage(iRpp, iPage, hmOrder, 1, tipo);
+            Gson oGson = (new GsonBuilder()).excludeFieldsWithoutExposeAnnotation().create();
+            oReplyBean = new ReplyBean(200, oGson.toJson(alProductoBean));
+        } catch (Exception ex) {
+            throw new Exception("ERROR: Service level: get page: " + ob + " object", ex);
+        } finally {
+            oConnectionPool.disposeConnection();
+        }
+
+        return oReplyBean;
+
+    }
+
+    public ReplyBean getfavoritos() throws Exception {
+        ReplyBean oReplyBean;
+        ConnectionInterface oConnectionPool = null;
+        Connection oConnection;
+        try {
+            Integer id = 0;
+            Integer iRpp = Integer.parseInt(oRequest.getParameter("rpp"));
+            Integer iPage = Integer.parseInt(oRequest.getParameter("page"));
+            HashMap<String, String> hmOrder = ParameterCook.getOrderParams(oRequest.getParameter("order"));
+
+            if (oRequest.getParameter("id") != null) {
+                id = Integer.parseInt(oRequest.getParameter("id"));
+            }
+
+            oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
+            oConnection = oConnectionPool.newConnection();
+            ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
+            ArrayList<ProductoBean> alProductoBean = oProductoDao.getfavoritos(iRpp, iPage, hmOrder, 1, id);
+            Gson oGson = (new GsonBuilder()).excludeFieldsWithoutExposeAnnotation().create();
+            oReplyBean = new ReplyBean(200, oGson.toJson(alProductoBean));
+        } catch (Exception ex) {
+            throw new Exception("ERROR: Service level: get page: " + ob + " object", ex);
+        } finally {
+            oConnectionPool.disposeConnection();
+        }
+
+        return oReplyBean;
+
+    }
+
+    public ReplyBean getbusqueda() throws Exception {
+        ReplyBean oReplyBean;
+        ConnectionInterface oConnectionPool = null;
+        Connection oConnection;
+        try {
+            Integer iRpp = Integer.parseInt(oRequest.getParameter("rpp"));
+            Integer iPage = Integer.parseInt(oRequest.getParameter("page"));
+            HashMap<String, String> hmOrder = ParameterCook.getOrderParams(oRequest.getParameter("order"));
+            String busqueda = oRequest.getParameter("busqueda");
+
+            oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
+            oConnection = oConnectionPool.newConnection();
+            ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
+            ArrayList<ProductoBean> alProductoBean = oProductoDao.getbusqueda(iRpp, iPage, hmOrder, 1, busqueda);
             Gson oGson = (new GsonBuilder()).excludeFieldsWithoutExposeAnnotation().create();
             oReplyBean = new ReplyBean(200, oGson.toJson(alProductoBean));
         } catch (Exception ex) {

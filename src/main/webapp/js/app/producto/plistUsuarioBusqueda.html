@@ -18,9 +18,9 @@
                     <div>
                         <nav aria-label="RegistrosPorPagina">
                             <ul class="pagination" style="float: right;">
-                                <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page + '/' + tipo}}">10</a></li>
-                                <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page + '/' + tipo}}">50</a></li>
-                                <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page + '/' + tipo}}">100</a></li>
+                                <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page + '/' + busqueda}}">10</a></li>
+                                <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page + '/' + busqueda}}">50</a></li>
+                                <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page + '/' + busqueda}}">100</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -69,20 +69,20 @@
             <nav aria-label="paginacion">
                 <ul class="pagination justify-content-center p-5">
                     <li class="page-item" ng-class="{'disabled': (page <= 1)}">
-                        <a class="page-link" href="producto/plistUsuario/{{rpp}}/1/{{order}}{{tipo}}"><span>&laquo;</span></a>
+                        <a class="page-link" href="{{ob}}/{{op}}/{{rpp}}/1/{{order}}{{busqueda}}"><span>&laquo;</span></a>
                     </li>
                     <li class="page-item" ng-class="{'disabled': (page <= 1)}">
-                        <a class="page-link" href="producto/plistUsuario/{{rpp}}/{{page - 1}}/{{order}}{{tipo}}"><span>&lsaquo;</span></a>
+                        <a class="page-link" href="{{ob}}/{{op}}/{{rpp}}/{{page - 1}}/{{order}}{{busqueda}}"><span>&lsaquo;</span></a>
                     </li>
 
                     <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
-                        <a class="page-link" href="producto/plistUsuario/{{rpp}}/{{p}}/{{order}}{{tipo}}">{{p}}</a>
+                        <a class="page-link" href="{{ob}}/{{op}}/{{rpp}}/{{p}}/{{order}}{{busqueda}}">{{p}}</a>
                     </li>
                     <li class="page-item"  ng-class="{'disabled':(page == totalPages)}">
-                        <a class="page-link" href="producto/plistUsuario/{{rpp}}/{{page--1}}/{{order}}{{tipo}}"><span>&rsaquo;</span></a>
+                        <a class="page-link" href="{{ob}}/{{op}}/{{rpp}}/{{page--1}}/{{order}}{{busqueda}}"><span>&rsaquo;</span></a>
                     </li>
                     <li class="page-item" ng-class="{'disabled':(page == totalPages)}">
-                        <a class="page-link" href="producto/plistUsuario/{{rpp}}/{{totalPages}}/{{order}}{{tipo}}"><span>&raquo;</span></a>
+                        <a class="page-link" href="{{ob}}/{{op}}/{{rpp}}/{{totalPages}}/{{order}}{{busqueda}}"><span>&raquo;</span></a>
                     </li>                 
                 </ul>
             </nav>

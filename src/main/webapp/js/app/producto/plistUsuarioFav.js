@@ -1,16 +1,17 @@
 'use strict'
 
-moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', '$location', 'toolService',
+moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http', '$location', 'toolService',
     'sessionService', '$routeParams', "$mdDialog", "countcarritoService", '$anchorScroll',
     function ($scope, $http, $location, toolService, oSessionService, $routeParams, $mdDialog, countcarritoService, $anchorScroll) {
 
         $anchorScroll();
         $scope.ruta = $location.path();
         $scope.ob = "producto";
-        $scope.op = "plistUsuario";
+        $scope.op = "plistUsuarioFav";
         $scope.totalPages = 1;
-        $scope.tipo = $routeParams.tipo;
-        $scope.titulo = "";
+        $scope.id = $routeParams.id;
+        $scope.usuario = $routeParams.usuario;
+        $scope.titulo = "Lista de Deseos de " + $scope.usuario;
 
         if (!$routeParams.order) {
             $scope.orderURLServidor = "";
@@ -51,34 +52,9 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
 
         $http({
             method: 'GET',
-            url: `http://localhost:8081/tailorShop/json?ob=${toolService.objects.producto}&op=getpage&rpp=` + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor +
-                    '&tipo=' + $scope.tipo
+            url: `http://localhost:8081/tailorShop/json?ob=${toolService.objects.producto}&op=getfavoritos&rpp=` + $scope.rpp + '&page=' + $scope.page 
+                    + $scope.orderURLServidor + '&id=' + $scope.id
         }).then(function (response) {
-
-            switch ($scope.tipo) {
-                case "1":
-                    $scope.titulo = "Telas";
-                    break;
-                case "2":
-                    $scope.titulo = "Patrones";
-                    break;
-                case "3":
-                    $scope.titulo = "Accesorios";
-                    break;
-                case "4":
-                    $scope.titulo = "Kits";
-                    break;
-                case "5":
-                    $scope.titulo = "Libros y Revistas";
-                    break;
-                case "6":
-                    $scope.titulo = "Outlet";
-                    break;
-                default:
-                    $scope.titulo = "Productos";
-            }
-
-
 
             $scope.status = response.status;
             var productos = [];
@@ -175,7 +151,7 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
         //getcount
         $http({
             method: 'GET',
-            url: 'http://localhost:8081/tailorShop/json?ob=producto&op=getcounttipo&tipo=' + $scope.tipo
+            url: 'http://localhost:8081/tailorShop/json?ob=producto&op=getcountfav&id=' + $scope.id
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxDataProductosNumber = response.data.message;

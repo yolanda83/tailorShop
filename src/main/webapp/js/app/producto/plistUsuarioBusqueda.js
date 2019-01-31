@@ -1,16 +1,16 @@
 'use strict'
 
-moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', '$location', 'toolService',
+moduleProducto.controller('productoPlistUsuarioBusquedaController', ['$scope', '$http', '$location', 'toolService',
     'sessionService', '$routeParams', "$mdDialog", "countcarritoService", '$anchorScroll',
     function ($scope, $http, $location, toolService, oSessionService, $routeParams, $mdDialog, countcarritoService, $anchorScroll) {
 
         $anchorScroll();
         $scope.ruta = $location.path();
         $scope.ob = "producto";
-        $scope.op = "plistUsuario";
+        $scope.op = "plistUsuarioBusqueda";
         $scope.totalPages = 1;
-        $scope.tipo = $routeParams.tipo;
-        $scope.titulo = "";
+        $scope.busqueda = $routeParams.busqueda;
+        $scope.titulo = "Resultados para " + "'" + $scope.busqueda + "'";
 
         if (!$routeParams.order) {
             $scope.orderURLServidor = "";
@@ -36,49 +36,12 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
             }
         }
 
-        //Getpage trae todos los registros de productos de la BBDD
-//        $http({
-//            method: 'GET',
-//            //withCredentials: true,
-//            url: 'http://localhost:8081/tailorShop/json?ob=producto&op=getpage&rpp=' + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor
-//        }).then(function (response) {
-//            $scope.status = response.status;
-//            $scope.ajaxDataProductos = response.data.message;
-//        }, function (response) {
-//            $scope.ajaxDataProductos = response.data.message || 'Request failed';
-//            $scope.status = response.status;
-//        });
-
+        //Getpage trae todos los registros de productos de la BBDD, filtrados por criterio de búsqueda
         $http({
             method: 'GET',
-            url: `http://localhost:8081/tailorShop/json?ob=${toolService.objects.producto}&op=getpage&rpp=` + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor +
-                    '&tipo=' + $scope.tipo
+            url: `http://localhost:8081/tailorShop/json?ob=${toolService.objects.producto}&op=getbusqueda&rpp=` + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor +
+                    '&busqueda=' + $scope.busqueda
         }).then(function (response) {
-
-            switch ($scope.tipo) {
-                case "1":
-                    $scope.titulo = "Telas";
-                    break;
-                case "2":
-                    $scope.titulo = "Patrones";
-                    break;
-                case "3":
-                    $scope.titulo = "Accesorios";
-                    break;
-                case "4":
-                    $scope.titulo = "Kits";
-                    break;
-                case "5":
-                    $scope.titulo = "Libros y Revistas";
-                    break;
-                case "6":
-                    $scope.titulo = "Outlet";
-                    break;
-                default:
-                    $scope.titulo = "Productos";
-            }
-
-
 
             $scope.status = response.status;
             var productos = [];
@@ -94,7 +57,6 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
             $scope.status = response.status;
             $scope.ajaxDataUsuarios = response.data.message || 'Request failed';
         });
-
         $scope.advancedSearch = function () {
             if ($scope.advanced == false) {
                 $scope.advanced = true;
@@ -175,7 +137,7 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
         //getcount
         $http({
             method: 'GET',
-            url: 'http://localhost:8081/tailorShop/json?ob=producto&op=getcounttipo&tipo=' + $scope.tipo
+            url: 'http://localhost:8081/tailorShop/json?ob=producto&op=getcountbusqueda&busqueda=' + $scope.busqueda
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxDataProductosNumber = response.data.message;
@@ -189,8 +151,6 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
             $scope.ajaxDataProductosNumber = response.data.message || 'Request failed';
             $scope.status = response.status;
         });
-
-
         //paginacion neighbourhood
         function pagination2() {
             $scope.list2 = [];
@@ -213,13 +173,11 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
 
 
         $scope.update = function () {
-            $location.url('producto/plistUsuario/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente + $scope.tipo);
+            $location.url('producto/plistUsuarioBusqueda/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente + $scope.busqueda);
         }
 
 
         $scope.isActive = toolService.isActive;
-
-
         //Este mensaje se puede mejorar, buscar info en la api oficial de angular material
         //https://material.angularjs.org/latest/api/service/$mdDialog
         //https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.css
@@ -233,6 +191,5 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
                     .ok('OK!')
                     );
         };
-
     }
 ]);
