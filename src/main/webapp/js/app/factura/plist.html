@@ -2,93 +2,91 @@
 <header-component></header-component>
 
 
-<div class="container-fluid">
-    <div class="row">      
-        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 ng-show="hayId == false" class="h2"><i class="fas fa-file-invoice"></i> Factura:<small> En la BBDD hay {{ajaxDataFacturaNumber}} facturas</small></h1>
-                <h1 ng-show="hayId == true" class="h2">Facturas: <small>Usuario {{user}}</small></h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group btn-group-toggle mr-3" data-toggle="buttons">
-                        <a ng-show="admin" href="/tailorShop/factura/new/" class="btn btn-outline-info" role="button" >Nueva factura</a>
-                        <button type="button" class="btn btn-outline-info" ng-click="resetOrder()">Reset ordenación</button>
-                    </div>
-                </div>
+<div class="container-fluid p-0">
+    <div class="row no-gutters">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8" style="margin-top: 50px;">
+            <div class="pt-3 pb-2 mb-3 border-bottom">
+                <h1 ng-show="hayId == false" class="h2"><i class="fas fa-file-invoice"></i> Facturas</h1>
+                <h1 ng-show="hayId == true" class="h2">Facturas: <small>Usuario {{user}}</small></h1>             
             </div>    
 
-            <!--Registros por página-->
-            <div>
-                <nav aria-label="RegistrosPorPagina">
-                    <ul class="pagination" style="float: right;">
-                        <!--                        <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page}}">10</a></li>
-                                                <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page}}">50</a></li>
-                                                <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page}}">100</a></li>-->
-                        <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page + '/' + id + '/' + user}}">10</a></li>
-                        <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page + '/' + id + '/' + user}}">50</a></li>
-                        <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page + '/' + id + '/' + user}}">100</a></li>
-                    </ul>
-                </nav>              
+            <div class="row no-gutters pb-4">
+
+                <div class="col-md-6">
+                    <a ng-show="admin" href="/tailorShop/factura/new/" class="btn btn-outline-info botonAdmin mr-3 px-4" role="button" >Nueva factura</a>
+                    <button type="button" class="btn btn-outline-info botonAdmin px-4" ng-click="resetOrder()">Reset order</button>
+                </div>
+                         
+
+                <!--Registros por pagina-->
+                <div class="col-md-6">
+                    <nav aria-label="RegistrosPorPagina">
+                        <ul class="pagination" style="float: right;">
+                            <!--                        <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page}}">10</a></li>
+                                                    <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page}}">50</a></li>
+                                                    <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page}}">100</a></li>-->
+                            <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page + '/' + id + '/' + user}}">10</a></li>
+                            <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page + '/' + id + '/' + user}}">50</a></li>
+                            <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page + '/' + id + '/' + user}}">100</a></li>
+                        </ul>
+                    </nav>              
+                </div>
+
             </div>
 
 
             <!--tabla de contenidos-->
-            <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <tr>
-                        <th>
+           <div class="table-responsive">
+                <table class="table table-hover text-center">
+                    <tr class="table-active">
+                        <th class="text-center">
                             ID
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <button type="button" class="btn btn-light" ng-click="ordena('id', 'asc')">
-                                    <i class="fas fa-angle-up"></i>
+                                <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('id', 'asc')">
+                                    <i class="dropdown-toggle"></i>
                                 </button>
-                                <button type="button" class="btn btn-light" ng-click="ordena('id', 'desc')">
-                                    <i class="fas fa-angle-down"></i>
+                                <button type="button" class="btn btn-light p-1" ng-click="ordena('id', 'desc')">
+                                    <i class="dropdown-toggle"></i>
                                 </button>
                             </div>
                         </th>
                         <th>
                             Fecha
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <button type="button" class="btn btn-light" ng-click="ordena('fecha', 'asc')">
-                                    <i class="fas fa-angle-up"></i>
+                                <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('fecha', 'asc')">
+                                    <i class="dropdown-toggle"></i>
                                 </button>
-                                <button type="button" class="btn btn-light" ng-click="ordena('fecha', 'desc')">
-                                    <i class="fas fa-angle-down"></i>
+                                <button type="button" class="btn btn-light p-1" ng-click="ordena('fecha', 'desc')">
+                                    <i class="dropdown-toggle"></i>
                                 </button>
                             </div>
                         </th>
                         <th>
                             IVA
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <button type="button" class="btn btn-light" ng-click="ordena('iva', 'asc')">
-                                    <i class="fas fa-angle-up"></i>
+                                <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('iva', 'asc')">
+                                    <i class="dropdown-toggle"></i>
                                 </button>
-                                <button type="button" class="btn btn-light" ng-click="ordena('iva', 'desc')">
-                                    <i class="fas fa-angle-down"></i>
+                                <button type="button" class="btn btn-light p-1" ng-click="ordena('iva', 'desc')">
+                                    <i class="dropdown-toggle"></i>
                                 </button>
                             </div>
                         </th>
                         <th ng-show="hayId == false">
                             Usuario
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <button type="button" class="btn btn-light" ng-click="ordena('id_usuario', 'asc')">
-                                    <i class="fas fa-angle-up"></i>
+                                <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('id_usuario', 'asc')">
+                                    <i class="dropdown-toggle"></i>
                                 </button>
-                                <button type="button" class="btn btn-light" ng-click="ordena('id_usuario', 'desc')">
-                                    <i class="fas fa-angle-down"></i>
+                                <button type="button" class="btn btn-light p-1" ng-click="ordena('id_usuario', 'desc')">
+                                    <i class="dropdown-toggle"></i>
                                 </button>
                             </div>
                         </th>
                         <th ng-show="admin">
-                            Número de líneas
-                            <!--                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                            <button type="button" class="btn btn-light" ng-click="ordena('numLineas', 'asc')">
-                                                                <i class="fas fa-angle-up"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-light" ng-click="ordena('numLineas', 'desc')">
-                                                                <i class="fas fa-angle-down"></i>
-                                                            </button>
-                                                        </div>-->
+                            Num. de lineas            
                         </th>
                         <th style="text-align: center;">
                             Acciones                            
@@ -115,7 +113,7 @@
             </div>
 
 
-            <!--Páginación vecindario-->     
+            <!--Paginacion vecindario-->     
             <nav aria-label="paginacion">
                 <ul class="pagination justify-content-center">                                                 
                     <li class="page-item" ng-class="{'disabled': (page <= 1)}">
@@ -137,7 +135,8 @@
                 </ul>
             </nav>
 
-        </main>
+        </div>
+        <div class="col-md-2"></div>
     </div>
 </div>
 
