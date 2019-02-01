@@ -52,23 +52,27 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
 
         $http({
             method: 'GET',
-            url: `http://localhost:8081/tailorShop/json?ob=${toolService.objects.producto}&op=getfavoritos&rpp=` + $scope.rpp + '&page=' + $scope.page 
+            url: `http://localhost:8081/tailorShop/json?ob=${toolService.objects.producto}&op=getfavoritos&rpp=` + $scope.rpp + '&page=' + $scope.page
                     + $scope.orderURLServidor + '&id=' + $scope.id
         }).then(function (response) {
-
-            $scope.status = response.status;
-            var productos = [];
-            response.data.message.forEach(element => {
-                var producto = {
-                    producto: element,
-                    cantidad: 0
-                }
-                productos.push(producto);
-            });
-            $scope.productos = productos;
+            if (response.data.status == 200) {
+                $scope.status = response.status;
+                var productos = [];
+                response.data.message.forEach(element => {
+                    var producto = {
+                        producto: element,
+                        cantidad: 0
+                    }
+                    productos.push(producto);
+                });
+                $scope.productos = productos;
+            } else {
+                $location.path("/home");
+            }
         }, function (response) {
-            $scope.status = response.status;
-            $scope.ajaxDataUsuarios = response.data.message || 'Request failed';
+            $location.path("/home");
+//            $scope.status = response.status;
+//            $scope.ajaxDataUsuarios = response.data.message || 'Request failed';
         });
 
         $scope.advancedSearch = function () {
@@ -189,7 +193,7 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
 
 
         $scope.update = function () {
-            $location.url('producto/plistUsuario/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente + $scope.tipo);
+            $location.url('producto/plistUsuarioFav/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente + $scope.id);
         }
 
 

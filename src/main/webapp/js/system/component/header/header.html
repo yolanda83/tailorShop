@@ -11,16 +11,30 @@
     </div>
     <div class="col-md-3 my-auto text-center">
         <div id="ballMenuContainer" class="">
-            
-            <input type="text" ng-model="busqueda"/>
 
-            <div id="menuBall2" class="menuBall">
-                <a href="producto/plistUsuarioBusqueda/{{busqueda}}" class="ball redball d-flex justify-content-center align-items-center">
-                    <div class="menuText ">
-                        <i class="fas fa-search"></i>
-                    </div>
-                </a>
+            <!-- busqueda hover -->
+            <div class='containerBusqueda d-flex justify-content-center align-items-center' tabindex='1'>
+                <div id="menuBall2" class="search-container menuBall" tabindex='1'>
+                    <!-- <div class='search-container' tabindex='1'>-->
+                    <input placeholder='search' type='text' class="inputBusqueda" ng-model="busqueda">
+                    <a href="producto/plistUsuarioBusqueda/{{busqueda}}" class="button ball redball">
+                        <div class="menuText">
+                            <!--<a class='button'>-->
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </a>
+                </div>
             </div>
+
+            <!--            <input type="text" ng-model="busqueda"/>
+            
+                        <div id="menuBall2" class="menuBall">
+                            <a href="producto/plistUsuarioBusqueda/{{busqueda}}" class="ball redball d-flex justify-content-center align-items-center">
+                                <div class="menuText ">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </a>
+                        </div>-->
 
             <div id="menuBall3" class="menuBall">
                 <a href="usuario/view/{{c.userId}}" class="ball greenball d-flex justify-content-center align-items-center">
