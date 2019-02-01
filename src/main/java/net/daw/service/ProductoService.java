@@ -7,8 +7,6 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 import javax.servlet.http.HttpServletRequest;
 import net.daw.bean.ReplyBean;
 import net.daw.bean.ProductoBean;
@@ -36,7 +34,7 @@ public class ProductoService {
 
     protected Boolean checkPermission(String strMethodName) {
 
-        UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user"); //AQUÍ OBTENEMOS EL USUARIO QUE ESTÁ LOGUEADO
+        UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user"); //AQUI OBTENEMOS EL USUARIO QUE ESTE LOGUEADO
 
         switch (strMethodName) {
             case "remove":
