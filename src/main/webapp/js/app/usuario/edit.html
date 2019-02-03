@@ -27,13 +27,15 @@
                     <div class="col-md-4 pl-3">
                         <div class="row">
                             <div class="col-md-12 pt-5 pr-5 mr-5">
-                                <div class="mx-auto pb-2 fotoPerfil profile-picture">
-                                    <img class="mx-auto my-auto" id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
-
+                                <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload">
+<!--                                    <label for="file-input">-->
+                                        <img ng-model="foto" class="mx-auto my-auto" id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
+<!--                                    </label>-->
+                                    <!--<input id="file-input" type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>-->
                                 </div>
-<!--                                <label>
-                                    <input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>
-                                </label> -->
+                                <!--                                 -->
+                                <!--<input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>-->
+                                <!--      </label> -->
                             </div>
                         </div>
                         <!--                        <div class="row">

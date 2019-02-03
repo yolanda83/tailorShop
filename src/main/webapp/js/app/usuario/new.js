@@ -8,6 +8,8 @@ moduleUsuario.controller('usuarioNewController', [
 
         $scope.numRegistros = 0;
         $scope.isActive = toolService.isActive;
+        $scope.radiob = "tab-2";
+        $scope.usuCreado = null;
         var self = this;
 
 
@@ -36,6 +38,7 @@ moduleUsuario.controller('usuarioNewController', [
                     } else {
                         sessionService.setUser();
                     }
+                    $location.path("/home");
                 } else {
                     $scope.error = true;
                     $scope.showAlert('Error', 'Datos erroneos.');
@@ -58,24 +61,16 @@ moduleUsuario.controller('usuarioNewController', [
 //                $scope.showAlert('Error', 'Los passwords no coinciden.');
 //            }
 //
-//            $scope.showAlert = function (titulo, description) {
-//                $mdDialog.show(
-//                        $mdDialog.alert()
-//                        .clickOutsideToClose(false)
-//                        .title(titulo)
-//                        .textContent(description)
-//                        .ariaLabel('Alert Dialog Demo')
-//                        .ok('OK!')
-//                        );
-//            };
+            var foto = 'fotoUser.png';
 
             var json = {
-                dni: $scope.dni,
+//                dni: $scope.dni,
                 nombre: $scope.nombre,
                 ape1: $scope.ape1,
                 ape2: $scope.ape2,
-                login: $scope.loginUser,
-                pass: forge_sha256($scope.pass),
+                foto: foto,
+//                login: $scope.loginUser,
+                pass: forge_sha256($scope.pass2),
                 id_tipoUsuario: 2
             }
             $http({
@@ -88,6 +83,9 @@ moduleUsuario.controller('usuarioNewController', [
             }).then(function (response) {
                 $scope.resultado = "Usuario creado correctamente.";
                 $scope.new = true;
+//                $scope.showAlert('Registro', 'Usuario creado correctamente. Inicia sesion.');
+                $scope.radiob = "tab-1";
+                $scope.usuCreado = "Usuario creado correctamente. Inicia sesión.";
             }), function (response) {
                 $scope.ajaxDataUsuario = response.data.message || 'Request failed';
                 $scope.status = response.status;
@@ -95,5 +93,15 @@ moduleUsuario.controller('usuarioNewController', [
             }
         }
 
+        $scope.showAlert = function (titulo, description) {
+            $mdDialog.show(
+                    $mdDialog.alert()
+                    .clickOutsideToClose(false)
+                    .title(titulo)
+                    .textContent(description)
+                    .ariaLabel('Alert Dialog Demo')
+                    .ok('OK!')
+                    );
+        };
 
     }]);

@@ -7,8 +7,8 @@
         <div class="login-wrap">
             <!--<form name="userForm">-->
             <div class="login-html">
-                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                <input ng-model="radiob" value="tab-1" id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab">Iniciar Sesion</label>
+                <input ng-model="radiob" value="tab-2" id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">Registrate</label>
                 <div class="login-form">
                     <form name="userForm">
                         <div class="sign-in-htm">
@@ -46,9 +46,10 @@
                             </div>
 
                             <div class="hr"></div>
-                            <div class="foot-lnk">
+<!--                            <div class="foot-lnk">
                                 <a href="#forgot">Forgot Password?</a>
-                            </div>
+                            </div>-->
+                           <div class="usucreado" ng-show="!usuCreado != null">{{usuCreado}}</div>
 
                         </div>
                     </form>
@@ -83,21 +84,6 @@
                                 </div>
                             </div>
 
-                            <!--                        <div class="group">
-                                                        <label class="label">Tipo Usuario</label>
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control" id="obj_tipoUsuario.desc" name="obj_tipoUsuario.desc" ng-model="obj_tipoUsuario.desc"
-                                                                   ng-click="modal()" disabled/>
-                                                            <div class="input-group-append">
-                                                                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cadd-location-modal">
-                                                                    <i class="fas fa-search"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>-->
-
-
-
                             <div class="group">
                                 <label for="pass1" class="label">Password</label>
                                 <input id="pass1" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.pass1.$invalid && !userForm.pass1.$pristine}"
@@ -129,7 +115,7 @@
 
                             <!--Boton sign up-->
                             <div class="group">
-                                <input type="submit" class="button" value="Sign Up">
+                                <input ng-click="guardar()" type="submit" class="button" value="Sign Up">
                             </div>
 
 <!--                            <div class="hr"></div>

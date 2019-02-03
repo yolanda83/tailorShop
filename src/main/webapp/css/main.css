@@ -1184,8 +1184,16 @@ input {
 
 }
 
+/*Mover al sitio que corresponda */
+.usucreado {
+    color: white;
+}
 
 
+.image-upload > input
+{
+/*    display: none;*/
+}
 
 
 /*outline:none  para eliminar borde en links*/
