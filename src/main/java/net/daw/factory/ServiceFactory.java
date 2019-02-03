@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import net.daw.bean.ReplyBean;
 import net.daw.service.CarritoService;
 import net.daw.service.FacturaService;
+import net.daw.service.FavoritoService;
 import net.daw.service.LineaService;
 import net.daw.service.ProductoService;
 import net.daw.service.TipoproductoService;
@@ -196,9 +197,6 @@ public class ServiceFactory {
                     case "getcountbusqueda":
                         oReplyBean = oProductoService.getcountbusqueda();
                         break;
-                    case "getcountfav":
-                        oReplyBean = oProductoService.getcountfav();
-                        break;
                     case "getpage":
                         oReplyBean = oProductoService.getpage();
                         break;
@@ -208,14 +206,27 @@ public class ServiceFactory {
                     case "getbusqueda":
                         oReplyBean = oProductoService.getbusqueda();
                         break;
-                    case "getfavoritos":
-                        oReplyBean = oProductoService.getfavoritos();
-                        break;
                     case "loaddata":
                         oReplyBean = oProductoService.loaddata();
                         break;
                     case "addimage":
                         oReplyBean = oProductoService.addimage();
+                        break;
+                    //favoritos
+                    case "getfavoritos":
+                        oReplyBean = oProductoService.getfavoritos();
+                        break;
+                    case "getcountfav":
+                        oReplyBean = oProductoService.getcountfav();
+                        break;
+                    case "addFav":
+                        oReplyBean = oProductoService.addFav();
+                        break;
+                    case "checkFav":
+                        oReplyBean = oProductoService.checkFav();
+                        break;
+                    case "removeFav":
+                        oReplyBean = oProductoService.removeFav();
                         break;
                     default:
                         oReplyBean = new ReplyBean(500, "Operation doesn't exist");
@@ -248,6 +259,26 @@ public class ServiceFactory {
                         break;
                 }
                 break;
+//            case "favorito":
+//                FavoritoService oFavoritoService = new FavoritoService(oRequest);
+//                switch (op) {
+//                    case "create":
+//                        oReplyBean = oFavoritoService.create();
+//                        break;
+//                    case "remove":
+//                        oReplyBean = oFavoritoService.remove();
+//                        break;
+//                    case "getcountfav":
+//                        oReplyBean = oFavoritoService.getcountfav();
+//                        break;
+//                    case "getfavoritos":
+//                        oReplyBean = oFavoritoService.getfavoritos();
+//                        break;
+//                    default:
+//                        oReplyBean = new ReplyBean(500, "Operation doesn't exist");
+//                        break;
+//                }
+//                break;
             default:
                 oReplyBean = new ReplyBean(500, "Object doesn't exist");
                 break;

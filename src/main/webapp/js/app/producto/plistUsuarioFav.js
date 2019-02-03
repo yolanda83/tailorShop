@@ -97,6 +97,17 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
 //            }
         }
 
+        $scope.removeFav = function (producto) {
+            $http({
+                method: 'GET',
+                url: `http://localhost:8081/tailorShop/json?ob=producto&op=removeFav&id=${producto.producto.id}`
+            }).then(function (response) {
+                $scope.showAlert('Favorito', 'Producto eliminado correctamente de la Lista de Deseos :)');
+                actualizarFav();
+            }, function (response) {
+                $scope.showAlert('Error', response.data.message);
+            });
+        }
 
         $scope.add = function (producto) {
             if (producto.cantidad >= producto.producto.existencias) {
@@ -213,6 +224,34 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
                     .ok('OK!')
                     );
         };
+
+
+
+        function actualizarFav() {
+
+            $http({
+                method: 'GET',
+                url: `http://localhost:8081/tailorShop/json?ob=${toolService.objects.producto}&op=getfavoritos&rpp=` + $scope.rpp + '&page=' + $scope.page
+                        + $scope.orderURLServidor + '&id=' + $scope.id
+            }).then(function (response) {
+                if (response.data.status == 200) {
+                    $scope.status = response.status;
+                    var productos = [];
+                    response.data.message.forEach(element => {
+                        var producto = {
+                            producto: element,
+                            cantidad: 0
+                        }
+                        productos.push(producto);
+                    });
+                    $scope.productos = productos;
+                } else {
+                    $location.path("/home");
+                }
+            }, function (response) {
+                $location.path("/home");
+            });
+        }
 
     }
 ]);

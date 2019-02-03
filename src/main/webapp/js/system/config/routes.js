@@ -122,6 +122,7 @@ tailorShop.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/cursos', {templateUrl: 'js/app/cursos/cursos.html', controller: 'cursosController', resolve: {auth: everyone}});
         $routeProvider.when('/producto/plistUsuario/:rpp?/:page?/:order?/:tipo', {templateUrl: 'js/app/producto/plistUsuario.html', controller: 'productoPlistUsuarioController', resolve: {auth: everyone}});
         $routeProvider.when('/producto/plistUsuarioBusqueda/:rpp?/:page?/:order?/:busqueda', {templateUrl: 'js/app/producto/plistUsuarioBusqueda.html', controller: 'productoPlistUsuarioBusquedaController', resolve: {auth: everyone}});
+        
         $routeProvider.when('/producto/plistUsuarioFav/:rpp?/:page?/:order?/:id/:usuario', {templateUrl: 'js/app/producto/plistUsuarioFav.html', controller: 'productoPlistUsuarioFavController', resolve: {auth: everyone}});
 
 

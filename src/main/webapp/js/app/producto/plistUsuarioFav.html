@@ -46,6 +46,8 @@
                             <div ng-show="producto.producto.existencias > 0">
                                 <button type="button" class="ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="save(producto, this)">
                                     <i class="fas fa-shopping-cart"></i> Add cart</button>
+                                <button type="button" class="ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="removeFav(producto, this)">
+                                    <i class="fas fa-trash"></i></button>
 
                             </div>
 

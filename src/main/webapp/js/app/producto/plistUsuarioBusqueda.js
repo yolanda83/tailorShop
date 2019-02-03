@@ -79,6 +79,35 @@ moduleProducto.controller('productoPlistUsuarioBusquedaController', ['$scope', '
 //            }
         }
 
+        $scope.checkFav = function (producto) {
+            $http({
+                method: 'GET',
+                url: `http://localhost:8081/tailorShop/json?ob=producto&op=checkFav&id=${producto.producto.id}`
+            }).then(function (response) {
+                if (response.data.status == 200) {
+                    saveFav(producto);
+                } else if (response.data.status == 500) {
+                    $scope.showAlert('Favorito', 'Este producto ya estaba en tu Lista de Deseos :)');
+                } else {
+                    $scope.showAlert('Favorito', 'Inicia sesion para anyadir favoritos :)');
+                }
+            }, function (response) {
+                $scope.showAlert('Error', response.data.message);
+            });
+
+        }
+
+        function saveFav(producto) {
+            $http({
+                method: 'GET',
+                url: `http://localhost:8081/tailorShop/json?ob=producto&op=addFav&id=${producto.producto.id}`
+            }).then(function (response) {
+                $scope.showAlert('Favorito', 'Producto anyadido correctamente a la Lista de Deseos :)');
+//                countcarritoService.updateCarrito();
+            }, function (response) {
+                $scope.showAlert('Error', response.data.message);
+            });
+        }
 
         $scope.add = function (producto) {
             if (producto.cantidad >= producto.producto.existencias) {
@@ -95,8 +124,6 @@ moduleProducto.controller('productoPlistUsuarioBusquedaController', ['$scope', '
                 producto.cantidad--;
             }
         }
-
-
 
         //AÑADIR 1 PRODUCTO AL CARRITO
         $scope.carrito = function (producto, cantidad) {
