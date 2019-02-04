@@ -9,7 +9,7 @@
             <div class="login-html">
                 <input ng-model="radiob" value="tab-1" id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab">INICIAR SESION</label>
                 <input ng-model="radiob" value="tab-2" id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">REGISTRATE</label>
-                
+
                 <!-----------------------FORM LOGIN------------------------->
                 <div class="login-form">
                     <form name="userForm">
@@ -18,7 +18,7 @@
                             <div class="group">
                                 <label for="login1" class="label">Username</label>
                                 <input id="login1" ng-model="login1"  ng-class="{'is-invalid': userForm.login1.$invalid && !userForm.login1.$pristine}"
-                                       name="login1" type="text" class="input" ng-required="true" placeholder="Introduce un username..." />
+                                       name="login1" type="text" class="input" ng-required="true" placeholder="Username" />
                                 <div ng-show="!userForm.login1.$valid && userForm.login1.$dirty && !userForm.login1.$pristine" class="alert alert-danger" role="alert">
                                     Username obligatorio
                                 </div>
@@ -27,7 +27,7 @@
                             <div class="group">
                                 <label for="passAdmin" class="label">Password</label>
                                 <input id="passAdmin" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.passAdmin.$invalid && !userForm.passAdmin.$pristine}"
-                                       name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce un password..."/>
+                                       name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Password"/>
 
                                 <div ng-show="userForm.passAdmin.$error.minlength" class="alert alert-danger" role="alert">
                                     La longitud del password es demasiado corta, introduce 6 caracteres minimo
@@ -37,10 +37,10 @@
                                 </div>
                             </div>
 
-<!--                            <div class="group">
-                                <input id="check" type="checkbox" class="check" checked>
-                                <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                            </div>-->
+                            <!--                            <div class="group">
+                                                            <input id="check" type="checkbox" class="check" checked>
+                                                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                                                        </div>-->
 
                             <!-----------------------Boton sign in/LOGIN------------------------->
                             <div class="group">
@@ -51,7 +51,7 @@
 
                         </div>
                     </form>
-                    
+
                     <!-----------------------FORM REGISTRAR NUEVO USUARIO------------------------->
                     <form name="userForm">
                         <div class="sign-up-htm">
@@ -61,7 +61,7 @@
                                     <label for="dni" class="label">DNI</label>
                                     <input id="dni" ng-model="dni" class="input" ng-class="{'is-invalid': userForm.dni.$invalid && !userForm.dni.$pristine}"
                                            name="dni" type="text" ng-required="true" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/" 
-                                           placeholder="Introduce un DNI"/>
+                                           placeholder="DNI"/>
                                     <div ng-show="userForm.dni.$error.pattern" class="alert alert-danger" role="alert">
                                         Formato DNI no valido
                                     </div>
@@ -74,7 +74,7 @@
                             <div class="group"> 
                                 <label for="loginUser" class="label">Nombre de Usuario</label>
                                 <input id="loginUser" ng-model="loginUser" class="input"  ng-class="{'is-invalid': userForm.loginUser.$invalid && !userForm.loginUser.$pristine}"
-                                       name="loginUser"  type="text"  ng-required="true" ng-minlength="2" placeholder="Introduce nombre usuario"/>
+                                       name="loginUser"  type="text"  ng-required="true" ng-minlength="2" placeholder="Nombre de usuario"/>
 
                                 <div ng-show="userForm.loginUser.$error.minlength" class="alert alert-danger" role="alert">
                                     La longitud del nombre de usuario es demasiado corto
@@ -88,7 +88,7 @@
                             <div class="group"> 
                                 <label for="nombre" class="label">Nombre</label>
                                 <input id="nombre" ng-model="nombre" class="input" ng-class="{'is-invalid': userForm.nombre.$invalid && !userForm.nombre.$pristine}"
-                                       name="nombre" type="text" ng-required="true" placeholder="Introduce un nombre" />
+                                       name="nombre" type="text" ng-required="true" placeholder="Nombre" />
                                 <div ng-show="!userForm.nombre.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
                                     Nombre obligatorio
                                 </div>
@@ -98,7 +98,7 @@
                             <div class="group"> 
                                 <label for="ape1" class="label">Primer apellido</label>
                                 <input id="ape1" ng-model="ape1" class="input" ng-class="{'is-invalid': userForm.ape1.$invalid && !userForm.ape1.$pristine}"
-                                       name="ape1" type="text" ng-required="true" placeholder="Introduce un apellido" />
+                                       name="ape1" type="text" ng-required="true" placeholder="Apellido" />
                                 <div ng-show="!userForm.ape1.$valid && userForm.ape1.$dirty && !userForm.ape1.$pristine" class="alert alert-danger" role="alert">
                                     Apellido obligatorio
                                 </div>
@@ -107,16 +107,16 @@
                             <div class="group"> 
                                 <label for="ape2" class="label">Segundo apellido</label>
                                 <input ng-model="ape2" class="input" ng-class="{'is-invalid': userForm.ape2.$invalid && !userForm.ape2.$pristine}"
-                                       name="ape2" type="text" ng-required="true" placeholder="Introduce un apellido" />
+                                       name="ape2" type="text" ng-required="true" placeholder="Apellido" />
                                 <div ng-show="!userForm.ape2.$valid && userForm.ape2.$dirty && !userForm.ape2.$pristine" class="alert alert-danger" role="alert">
                                     Apellido obligatorio
                                 </div>
-                            </div>
+                            </div>                         
 
                             <div class="group">
                                 <label for="pass1" class="label">Password</label>
                                 <input id="pass1" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.pass1.$invalid && !userForm.pass1.$pristine}"
-                                       name="pass1" ng-model="pass1" ng-required="true" ng-minlength="5" placeholder="Introduce un password"/>
+                                       name="pass1" ng-model="pass1" ng-required="true" ng-minlength="5" placeholder="Password"/>
                                 <div ng-show="userForm.pass1.$error.minlength" class="alert alert-danger" role="alert">
                                     La longitud del password es demasiado corta, introduce 6 caracteres minimo
                                 </div>
@@ -128,7 +128,7 @@
                             <div class="group">
                                 <label for="pass2" class="label">Repite el password</label>
                                 <input id="pass2" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.pass2.$invalid && !userForm.pass2.$pristine}"
-                                       name="pass2" ng-model="pass2" ng-required="true" ng-minlength="5" placeholder="Introduce un password"/>
+                                       name="pass2" ng-model="pass2" ng-required="true" ng-minlength="5" placeholder="Repite password"/>
                                 <div ng-show="userForm.pass2.$error.minlength" class="alert alert-danger" role="alert">
                                     La longitud del password es demasiado corta, introduce 6 caracteres minimo
                                 </div>
@@ -139,8 +139,20 @@
 
                             <div class="group">
                                 <label for="email2" class="label">Email Address</label>
-                                <input id="email2" type="email" class="input">
+                                <input id="email2" type="email" class="input" placeholder="E-mail"/>
                             </div>
+                            
+                              <md-input-container class="md-block">
+                                <label>Client Email</label>
+                                <input required type="text" name="clientEmail" ng-model="clientEmail"
+                                       minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+                                <div ng-messages="userForm.clientEmail.$error" role="alert">
+                                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                        Your email must be between 10 and 100 characters long and look like an e-mail address.
+                                    </div>
+                                </div>
+                            </md-input-container>
 
                             <!------------------------- Boton sign up/REGISTRARSE --------------------->
                             <div class="group">

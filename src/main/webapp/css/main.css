@@ -1,14 +1,24 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
 
 /**************** GENERICO ****************/
+html {
+    overflow: initial !important;
+    background: #fafafa;
+}
 
 body {
     font-family: "varela round", sans-serif;
 }
 
-.ng-scope {
-    background: #fafafa;
+	
+::placeholder { 
+    color: gray; 
+    opacity: 0.4!important;
 }
+
+/*.ng-scope {
+    background: #fafafa;
+}*/
 
 
 /**** BOTONES NORMALES ****/ 
@@ -200,12 +210,12 @@ a.enlacefa {
 }
 
 .container {
-    display: block;
-    max-width: 900px;
-    margin: auto;
-    padding: 100px;
-    height: 100%;
-    outline: none;
+    /*    display: block;
+        max-width: 900px;
+        margin: auto;*/
+    padding: 10px;
+    /*    height: 100%;
+        outline: none;*/
 }
 
 .search-container {
@@ -247,7 +257,7 @@ a.enlacefa {
     border: 0;
     border-radius: 5px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2) inset;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    /*text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);*/
     -moz-transition: all 0.25s;
     -webkit-transition: all 0.25s;
 }
@@ -265,8 +275,9 @@ a.enlacefa {
     background-image: -webkit-linear-gradient(0deg, rgba(0, 0, 0, .25) 50%, transparent 10%), -webkit-linear-gradient(rgba(0, 0, 0, .25) 50%, transparent 50%);
     background-size: 10px 10px;
     /*border: 2px dashed #fff;*/
-    text-align: center;
+    /*text-align: center;*/
     font-size: 2em;
+    /*padding: 10px;*/
     color: #FDF6E3;
     border-radius: 50%;
     box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.25), 0 1px 1px rgba(0, 0, 0, 0.25);
@@ -282,19 +293,20 @@ a.enlacefa {
 
 .button:hover {
     color: white;
+    text-decoration: none;
 }
 
 /*FIN BOTON BUSQUEDA*/
 
 
 /*BOLITAS HEADER*/
-.menuBall {
+/*.menuBall {
     display: inline-block;
     position: relative;
     width: 50px;
     height: 50px;
     margin: 20px 10px;
-}
+}*/
 
 .ball {
     position: absolute;
@@ -314,7 +326,7 @@ a.enlacefa {
     box-shadow: 0 0 5px #6A5D4F;
 }
 
-.ball:hover {
+.pulse:hover {
     animation: pulse 1s linear 1 normal;
 }
 
@@ -330,14 +342,6 @@ a.enlacefa {
     }
 }
 
-/*.redball {
-    background-color: #d90e23;
-    background-color: #E23164;
-    box-shadow: 0 0 0 3px #d90e23, 2px 1px 6px 4px rgba(10, 10, 0, .5);
-    box-shadow: 0 0 0 3px #E23164, 2px 1px 6px 4px rgba(10, 10, 0, .5);
-    background-image: -webkit-linear-gradient(0deg, rgba(0, 0, 0, .25) 50%, transparent 10%), -webkit-linear-gradient(rgba(0, 0, 0, .25) 50%, transparent 50%);
-    background-size: 10px 10px;
-}*/
 
 .blueball {
     background-color: #7968a8;
@@ -357,10 +361,16 @@ a.enlacefa {
     background-position: 0 0, 20px 20px;
 }
 
-/*COLOR DE LOS ICONOS*/
+/*COLOR Y TAMANYO DE LOS ICONOS*/
 .menuText {
     color: #ffffff;
+    font-size: 25px;
 }
+
+#menuBall3, #menuBall4 {
+    margin: 10px;
+}
+
 
 /*#menuBall2 {
     animation: bump 6s linear .5s infinite normal;

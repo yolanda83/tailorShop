@@ -58,9 +58,9 @@
                         <td class="align-middle text-center">
                             <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
                                 <!--<i class="fas fa-plus-square"></i>-->
-                                <button ng-click="add(fila.obj_producto.id, 1)" class="btn btn-info mt-2 ml-0"><i class="fas fa-plus-square"></i> </button>
-                                <button ng-click="reduce(fila.obj_producto.id, 1)" class="btn btn-info mt-2 ml-0"><i class="fas fa-minus-square"></i> </button>
-                                <button ng-click="borrar(fila.obj_producto.id)" class="btn btn-outline-info mt-2 ml-0"><i class="fas fas fa-trash"></i> </button>
+                                <button ng-click="add(fila.obj_producto.id, 1)" class="btn btn-info p-3 mt-2 ml-0"><i class="fas fa-plus-square"></i> </button>
+                                <button ng-click="reduce(fila.obj_producto.id, 1)" class="btn btn-info p-3 mt-2 ml-0"><i class="fas fa-minus-square"></i> </button>
+                                <button ng-click="borrar(fila.obj_producto.id)" class="btn botonAdmin p-3 mt-2 ml-0"><i class="fas fas fa-trash"></i> </button>
 
                             </div>
                         </td>
@@ -69,8 +69,8 @@
 
                 <div class="pb-5 pt-5" style="text-align: center;">
                     <button ng-click="buy()" class="btn btn-info mt-2 ml-0">Comprar</button>
-                    <button ng-click="empty()" class="btn btn-outline-info mt-2 ml-0">Vaciar Carrito</button>
-                    <button type="button" class="btn btn-secondary mt-2 ml-0" onclick="window.history.back()">Volver</button>
+                    <button ng-click="empty()" class="btn buttonFav mt-2 ml-0">Vaciar Carrito</button>
+                    <button type="button" class="btn botonAdmin mt-2 ml-0" onclick="window.history.back()">Volver</button>
                 </div>
             </div>
 

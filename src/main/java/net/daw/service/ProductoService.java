@@ -447,7 +447,7 @@ public class ProductoService {
         Connection oConnection;
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
         if (oUsuarioBean == null) {
-            oReplyBean = new ReplyBean(401, "Unauthorized"); //No hay sesión iniciada
+            oReplyBean = new ReplyBean(401, "Unauthorized"); //No hay sesion iniciada
         } else {
             try {
                 Integer idProducto = 0;
@@ -461,7 +461,7 @@ public class ProductoService {
                 int result = oFavoritoDao.get(idProducto, idUsuario);
 
                 if (result == 0) {
-                    oReplyBean = new ReplyBean(200, Integer.toString(result)); //Se ha añadido a la lista de favoritos
+                    oReplyBean = new ReplyBean(200, Integer.toString(result)); //Se ha anyadido a la lista de favoritos
                 } else {
                     oReplyBean = new ReplyBean(500, Integer.toString(result)); //Ya lo tenemos en lista de favoritos
                 }
