@@ -24,6 +24,20 @@ body {
     box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
 }
 
+.buttonFav {
+    border-radius: 0px;
+    border-color:gray;
+    padding: 9px 18px;
+    color: gray;
+}
+
+.buttonFav:hover {
+    color: #fff;
+    background-color: gray;
+    border-color: gray;
+    box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
+}
+
 
 /**** BOTONES ADMIN ****/ 
 /*Para hacer invisible el color de fondo de los botones de accion*/
@@ -272,6 +286,8 @@ a.enlacefa {
 
 /*FIN BOTON BUSQUEDA*/
 
+
+/*BOLITAS HEADER*/
 .menuBall {
     display: inline-block;
     position: relative;
@@ -424,10 +440,11 @@ a{color:inherit;text-decoration:none}
     width:100%;
     margin:auto;
     max-width:525px;
-    min-height:670px;
+    min-height:750px;
     position:relative;
     /*background:url(https://i.pinimg.com/564x/11/84/9c/11849caeb53059e9e57036ca0be41243.jpg) no-repeat center;*/
     box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+    line-height: 1!important;
 }
 .login-html{
     width:100%;
@@ -453,15 +470,11 @@ a{color:inherit;text-decoration:none}
 .login-form .group .check{
     display:none;
 }
-.login-html .tab,
-.login-form .group .label,
-.login-form .group .button{
-    text-transform:uppercase;
-}
+
 .login-html .tab{
     font-size:22px;
     margin-right:15px;
-    padding-bottom:5px;
+    padding-bottom:15px;
     margin:0 15px 10px 0;
     display:inline-block;
     border-bottom:2px solid transparent;
@@ -469,7 +482,7 @@ a{color:inherit;text-decoration:none}
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab{
     color:#fff;
-    border-color: #a87c4f;
+    border-color: #8ABC4D;
 }
 .login-form{
     min-height:345px;
@@ -490,8 +503,8 @@ a{color:inherit;text-decoration:none}
 .login-form .group .input,
 .login-form .group .button{
     border:none;
-    padding:10px 10px;
-    border-radius:20px;
+    padding:10px;
+    /*border-radius:20px;*/
     outline: none;
     background:rgba(255,255,255,.1);
 }
@@ -501,7 +514,7 @@ a{color:inherit;text-decoration:none}
     font-size:12px;
 }
 .login-form .group .button{
-    background:#a87c4f;
+    background:#8ABC4D;
 }
 .login-form .group label .icon{
     width:15px;
@@ -1192,7 +1205,7 @@ input {
 
 .image-upload > input
 {
-/*    display: none;*/
+    /*    display: none;*/
 }
 
 

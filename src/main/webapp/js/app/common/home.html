@@ -57,7 +57,7 @@
                 <div ng-show="producto.existencias > 0">
                     <button type="button" class="px-4 botonAdmin ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="save(producto, this)">
                         <i class="fas fa-shopping-cart"></i>  Add cart</button>
-                    <button type="button" class="ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="checkFav(producto, this)">
+                    <button type="button" class="buttonFav ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="checkFav(producto, this)">
                         <i class="fas fa-heart"></i></button>
                 </div>
                 <div class="row" ng-show="producto.existencias <= 0">
