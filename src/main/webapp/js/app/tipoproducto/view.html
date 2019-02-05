@@ -2,34 +2,45 @@
 <header-component></header-component>
 
 
-<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
-    
-    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">View Tipo Producto:<small>  {{ajaxData.desc}} </small></h1>
-        <i class="fas fa-boxes fa-3x"></i>
-    </div>
+<div class="container-fluid p-0">
+    <div class="row no-gutters">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 180px;">
+            <div class="row no-gutters">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-between flex-wrap align-items-center py-3 px-4 border-bottom tituloView">
+                        <h4 class="mb-0">View Tipo de Producto </h4>
+                        <i class="fas fa-boxes fa-2x"></i>                       
+                    </div>
 
-    <div class="mx-auto" style="margin-top: 80px; padding: 20px; width: 50%; background-color: WHITESMOKE; border-radius: 7px">
 
+                    <div class="mx-auto" style="padding: 50px;margin-top:10px;">
 
-        <table class="table table-hover">
-            <tr>
-                <th class="text-center">Id</th>
-                <th class="text-center">Descripción</th>             
-            </tr>
-            <tr>
-                <td class="text-center">{{ajaxData.id}}</td>
-                <td class="text-center">{{ajaxData.desc}}</td>
-            </tr>
-        </table>
+                        <table class="table table-hover">
+                            <tr>
+                                <th class="text-center">Id</th>
+                                <th class="text-center">Descripción</th>             
+                            </tr>
+                            <tr>
+                                <td class="text-center">{{ajaxData.id}}</td>
+                                <td class="text-center">{{ajaxData.desc}}</td>
+                            </tr>
+                        </table>
 
-        <div class="d-flex justify-content-center">
-            <button class="btn btn-secondary" onClick="javascript:history.go(-1);">Volver</button>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn botonAdmin ml-0 mt-4" onClick="javascript:history.go(-1);">Volver</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-2"></div>
+            </div>
         </div>
     </div>
+</div>
 
 
-</main>
 
 <!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
 <!--<footer-component></footer-component>-->
