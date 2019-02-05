@@ -1,109 +1,147 @@
 <!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
 
-<!--<main role="main" class="container">-->
-<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
+<div class="container-fluid p-0">
+    <div class="row no-gutters">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 edit pt-0" style="margin-top: 50px;">
 
-
-    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Edit Producto:<small>  {{ajaxData.login}} </small></h1>
-        <i class="fas fa-archive fa-3x"></i>
-    </div>
-
-    <div class="col-6 mx-auto">
-        <form name="userForm" class="mx-auto p-5 pb-3 mb-5 mt-4" ng-show="!edit"
-              style="margin-top: 100px; background-color: WHITESMOKE; border-radius: 7px;"> 
-            <div class="form-group">
-                <div class="row">
-                    <div class="mx-auto pb-4">
-                        <img id="output" ng-src="http://localhost:8081/imagenes/{{foto}}" style="width: 128px; height: 128px;">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="mx-auto">
-                        <!--ARREGLO EN UNA LINEA DE PREVIEW DE NUEVA FOTO-->
-                        <input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto">                 
-                    </div>
-                </div>
-            </div>
-            <div class="form-group"> 
-                <label for="id" class="col-form-label">Id</label>
-                <input ng-model="id" class="form-control" name="id" type="text" ng-disabled="true" />
-            </div>
-
-
-            <div class="form-group"> 
-                <label for="codigo" class="col-form-label">Codigo</label>
-                <input ng-model="codigo" class="form-control" name="codigo" type="text" ng-required="true" />
-                <div ng-show="!userForm.codigo.$valid" class="alert alert-danger" role="alert">
-                    Codigo obligatorio
-                </div>
-            </div>
-
-            <div class="form-group"> 
-                <label for="desc" class="col-form-label">Descripcion</label>
-                <input ng-model="desc" class="form-control" name="desc" type="text" ng-required="true" />
-                <div ng-show="!userForm.desc.$valid" class="alert alert-danger" role="alert">
-                    Descripcion obligatoria
-                </div>
-            </div>
-
-            <div class="form-group"> 
-                <label for="existencias" class="col-form-label">Existencias</label>
-                <input ng-model="existencias" class="form-control" name="existencias" type="text" ng-required="true" />
-                <div ng-show="!userForm.existencias.$valid" class="alert alert-danger" role="alert">
-                    Existencias obligatorias
-                </div>
-            </div>
-
-            <div class="form-group"> 
-                <label for="precio" class="col-form-label">Precio</label>
-                <input ng-model="precio" class="form-control" name="precio" type="text" ng-required="true" />
-                <div ng-show="!userForm.precio.$valid" class="alert alert-danger" role="alert">
-                    Precio obligatorio
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                <label>Tipo Producto</label>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control mr-0" id="obj_tipoProducto.desc" name="obj_tipoProducto.desc" ng-model="obj_tipoProducto.desc"
-                           ng-click="modal()" disabled/>
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-outline-secondary ml-0" data-toggle="modal" data-target="#cadd-location-modal">
-                            <i class="fas fa-search"></i>
-                        </button>
+            <div class="row no-gutters">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-between flex-wrap align-items-center py-3 px-4 border-bottom tituloView">
+                        <h4 class="mb-0">Editar Producto </h4>
+                        <i class="fas fa-archive fa-2x"></i>
                     </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <input type="checkbox" name="vehicle1" value="" ng-model="novedad">Novedad<br>
-            </div>
+            <form name="userForm" ng-show="!edit"> 
+                <div class="row no-gutters">
 
-            <div class="d-flex justify-content-between flex-wrap">
-                <button ng-click="guardar()" type="button" class="btn btn-info mt-2 ml-0">Guardar</button>
-                <button class="btn btn-secondary mt-2" onClick="javascript:history.go(-1);">Volver</button>
-            </div>
-        </form>
-    </div>
+                    <div class="col-md-4 pl-3">
+                        <div class="row">
+                            <div class="col-md-12 pt-5 pr-5 mr-5">
+                                <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload">
+                                    <!--                                    <label for="file-input">-->
+                                    <img ng-model="foto" class="mx-auto my-auto" id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
+                                    <!--                                    </label>-->
+                                    <!--<input id="file-input" type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>-->
+                                </div>
+                                <!--                                 -->
+                                <!--<input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>-->
+                                <!--      </label> -->
+                            </div>
+                        </div>
+                        <!--                        <div class="row">
+                                                    <div class="col-md-6">
+                                                        ARREGLO EN UNA LINEA DE PREVIEW DE NUEVA FOTO
+                                                        <label class="fileContainer">
+                                                            <i class="fas fa-file-upload"></i>
+                                                            Cambiar foto
+                                                            <input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>
+                                                        </label>
+                                                        <input class="botonInput" type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto">                 
+                                                    </div>
+                                                </div>-->
+                    </div>
+                    <div class="col-md-8 pr-4 pb-4 pt-4">
 
-    <div class="row" ng-show="edit">
-        <div class="col-12">
-            <div class="card mx-auto" style="margin-top: 60px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
-                <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;">{{resultado}}</h4>
-                    <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
-                        <button type="button" class="btn btn-secondary" onclick="window.history.back()">Volver</button>
+<!--                        <div class="form-group">
+                            <div class="row">
+                                <div class="mx-auto pb-4">
+                                    <img id="output" ng-src="http://localhost:8081/imagenes/{{foto}}" style="width: 128px; height: 128px;">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto">
+                                    ARREGLO EN UNA LINEA DE PREVIEW DE NUEVA FOTO
+                                    <input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto">                 
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="form-group"> 
+                            <label for="id" class="col-form-label">Id</label>
+                            <input ng-model="id" class="form-control" name="id" type="text" ng-disabled="true" />
+                        </div>
+
+
+                        <div class="form-group"> 
+                            <label for="codigo" class="col-form-label">Codigo</label>
+                            <input ng-model="codigo" class="form-control" name="codigo" type="text" ng-required="true" />
+                            <div ng-show="!userForm.codigo.$valid" class="alert alert-danger" role="alert">
+                                Codigo obligatorio
+                            </div>
+                        </div>
+
+                        <div class="form-group"> 
+                            <label for="desc" class="col-form-label">Descripcion</label>
+                            <input ng-model="desc" class="form-control" name="desc" type="text" ng-required="true" />
+                            <div ng-show="!userForm.desc.$valid" class="alert alert-danger" role="alert">
+                                Descripcion obligatoria
+                            </div>
+                        </div>
+
+                        <div class="form-group"> 
+                            <label for="existencias" class="col-form-label">Existencias</label>
+                            <input ng-model="existencias" class="form-control" name="existencias" type="text" ng-required="true" />
+                            <div ng-show="!userForm.existencias.$valid" class="alert alert-danger" role="alert">
+                                Existencias obligatorias
+                            </div>
+                        </div>
+
+                        <div class="form-group"> 
+                            <label for="precio" class="col-form-label">Precio</label>
+                            <input ng-model="precio" class="form-control" name="precio" type="text" ng-required="true" />
+                            <div ng-show="!userForm.precio.$valid" class="alert alert-danger" role="alert">
+                                Precio obligatorio
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label>Tipo Producto</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control mr-0" id="obj_tipoProducto.desc" name="obj_tipoProducto.desc" ng-model="obj_tipoProducto.desc"
+                                       ng-click="modal()" disabled/>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-outline-secondary ml-0" data-toggle="modal" data-target="#cadd-location-modal">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="checkbox" name="vehicle1" value="" ng-model="novedad">Novedad<br>
+                        </div>
+
+                        <div class="d-flex justify-content-between flex-wrap">
+                            <button ng-click="guardar()" type="button" class="btn btn-info mt-2 ml-0">Guardar</button>
+                            <button class="btn botonAdmin mt-2" onClick="javascript:history.go(-1);">Volver</button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+            <div class="row" ng-show="edit">
+                <div class="col-12">
+                    <div class="card mx-auto" style="margin-top: 60px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
+                        <div class="card-body">
+                            <h4 class="card-title" style="text-align: center;">{{resultado}}</h4>
+                            <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
+                                <button type="button" class="btn btn-secondary" onclick="window.history.back()">Volver</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-
-</main>
+    <div class="col-md-2"></div>
+</div>
 
 <!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
 <!--<footer-component></footer-component>-->

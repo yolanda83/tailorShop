@@ -104,7 +104,7 @@
                                 <a ng-show="!admin" href="{{'/tailorShop/linea/plist/10/1/' + fila.id + '/' + fila.obj_usuario.id}}" class="btn btn-light fas fa-eye" role="button"></a>
                                 <a ng-show="admin" href="{{'/tailorShop/factura/edit/' + fila.id}}" class="btn btn-light fas fa-edit" role="button"></a>
                                 <a ng-show="admin" href="{{'/tailorShop/factura/remove/' + fila.id}}" class="btn btn-light fas fa-trash" role="button"></a>
-                                <a role="button" class="btn btn-light fa fa-file-pdf" ng-click="descargarPDF(fila.id)"></a>
+                                <a role="button" class="btn btn-light fa fa-file-pdf" ng-click="descargarPDF(fila.id, fila.obj_usuario.id)"></a>
                             </div>
                         </td>
                     </tr>

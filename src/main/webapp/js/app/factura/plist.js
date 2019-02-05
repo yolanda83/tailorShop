@@ -297,7 +297,7 @@ moduleFactura.controller('facturaPlistController', ['$scope', 'toolService', '$h
 //HACER PDF
 //http://dataurl.net/#dataurlmaker
 //https://parall.ax/products/jspdf
-        $scope.descargarPDF = function (id) {
+        $scope.descargarPDF = function (id,userId) {
             var usuario;
             var fecha;
             var lineasTotales;
@@ -318,7 +318,7 @@ moduleFactura.controller('facturaPlistController', ['$scope', 'toolService', '$h
             $http({
                 method: 'GET',
                 url: 'http://localhost:8081/tailorShop/json?ob=linea&op=getpage&rpp=' + $scope.rpp + '&page=' + $scope.page + '&id=' +
-                        id + $scope.orderURLServidor
+                        id + '&userId=' + userId + $scope.orderURLServidor 
             }).then(function (response) {
                 $scope.status = response.status;
                 lineasTotales = response.data.message.length;

@@ -15,32 +15,31 @@
             <!-- busqueda hover -->
 
             <div class="d-flex flex-nowrap">
-                
-                <div class='container order-1' tabindex='1'>
-                    <div class='search-container' tabindex='1'>
+
+                <div class="container order-1" tabindex="1">
+                    <div class="search-container" tabindex="1">
                         <input placeholder='search' type='text' class="input2 inputBusqueda" ng-model="busqueda"/>
-                        <a href="producto/plistUsuarioBusqueda/{{busqueda}}" class='button'>
+                        <a href="producto/plistUsuarioBusqueda/{{busqueda}}" class="button d-flex justify-content-center align-items-center">
                             <i class="fas fa-search"></i>
                         </a>
                     </div>
                 </div>
 
-
-                <div id="menuBall3" class="order-2">
-                    <a href="usuario/view/{{c.userId}}" class="button greenball d-flex justify-content-center align-items-center">
-                        <div class="menuText">
-                            <i class="fas fa-user"></i>
-                        </div>
-                    </a>
+                <div class="order-2">
+                    <div class="botonHeader">
+                        <a href="usuario/view/{{c.userId}}" class="buttonGreen d-flex justify-content-center align-items-center">
+                            <i class="menuTextPerfil fas fa-user"></i>
+                        </a>
+                    </div>
                 </div>
 
-                <div id="menuBall4" class="order-3">
-                    <a href="carrito/plist" class="button blueball d-flex justify-content-center align-items-center">
-                        <div class="menuText">
-                            <i class="fas fa-shopping-cart"></i>
-                            <sup ng-show="c.carrito > 0">{{c.carrito}}</sup>
-                        </div>
-                    </a>
+                <div class="order-3">
+                    <div class="botonHeader">
+                        <a href="carrito/plist" class="buttonBlue d-flex justify-content-center align-items-center">
+                            <i class="menuText fas fa-shopping-cart"></i>
+                            <sup class="redondelText" ng-show="c.carrito > 0">{{c.carrito}}</sup>                       
+                        </a>
+                    </div>
                 </div>
 
             </div>
