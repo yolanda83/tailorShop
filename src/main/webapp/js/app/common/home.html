@@ -53,7 +53,7 @@
             <img ng-src="http://localhost:8081/imagenes/{{producto.foto}}" alt="novedad" class="card-img-top" style="width: 250px;" >
             <div class="card-body mx-auto">
                 <h3 class="card-title">{{producto.desc}}</h3>
-                <p class="card-text">Precio: {{producto.precio}} euros</p>
+                <p class="card-text">Precio: {{producto.precio}} €</p>
                 <div ng-show="producto.existencias > 0">
                     <button type="button" class="px-4 botonAdmin ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="save(producto, this)">
                         <i class="fas fa-shopping-cart"></i>  Add cart</button>

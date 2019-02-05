@@ -50,7 +50,7 @@ moduleCommon.controller('homeController', ['$scope', '$location', 'toolService',
                 } else if (response.data.status == 500) {
                     $scope.showAlert('Favorito', 'Este producto ya estaba en tu Lista de Deseos :)');
                 } else {
-                    $scope.showAlert('Favorito', 'Inicia sesion para anyadir favoritos :)');
+                    $scope.showAlert('Favorito', 'Inicia sesion para añadir favoritos :)');
                 }
             }, function (response) {
                 $scope.showAlert('Error', response.data.message);
@@ -65,7 +65,7 @@ moduleCommon.controller('homeController', ['$scope', '$location', 'toolService',
                 if (response.data.status == 200) {
                     $scope.showAlert('Favorito', 'Producto anyadido correctamente a la Lista de Deseos :)');
                 } else {
-                    $scope.showAlert('Favorito', 'Inicia sesion para anyadir favoritos :)');
+                    $scope.showAlert('Favorito', 'Inicia sesion para añadir favoritos :)');
                 }
             }, function (response) {
                 $scope.showAlert('Error', response.data.message);
