@@ -31,7 +31,7 @@ body {
 }
 
 .btn-info {
-    background-color: #8ABC4D;
+    background-color: #8ABC4D!important;
     border-radius: 0px;
     padding: 10px 30px;
     border: none;

@@ -19,7 +19,8 @@ var tailorShop = angular.module('MyApp', [
     'carritoControllers',
     'aboutControllers',
     'contactoControllers',
-    'cursosControllers'
+    'cursosControllers',
+    'ngMessages'
 ]).config(function ($mdDateLocaleProvider) {
     // Example of a Spanish localization.
     $mdDateLocaleProvider.months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',

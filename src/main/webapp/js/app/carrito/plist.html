@@ -4,37 +4,19 @@
 
 
 <div class="container-fluid">
-    <div class="row">      
-        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <!--                <h1 class="h2"><i class="fas fa-cart-arrow-down"></i> Carrito:<small> Usuario 
-                                        <a href="{{'/tailorShop/usuario/view/' + ajaxDataUsuario.id}}" class="enlaceColor">
-                                            {{ajaxDataUsuario.login}}</a></small></h1>-->
-                <h1 class="h2"><i class="fas fa-cart-arrow-down"></i> Carrito</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <!--                    <div class="btn-group btn-group-toggle mr-3" data-toggle="buttons">        
-                                            <button type="button" class="btn btn-outline-info" ng-click="resetOrder()">Reset ordenación</button>
-                                        </div>-->
-                </div>
-            </div>    
+    <div class="row no-gutters">
+        <div class="col-md-2"></div>
 
-            <!--            Registros por página
-                        <div>
-                            <nav aria-label="RegistrosPorPagina">
-                                <ul class="pagination" style="float: right;">
-                                    <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page}}">10</a></li>
-                                    <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page}}">50</a></li>
-                                    <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page}}">100</a></li>
-                                </ul>
-                            </nav>              
-                        </div>-->
+        <div class="col-md-8" style="margin-top: 50px;">
+            <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2"><i class="fas fa-cart-arrow-down"></i> Carrito</h1>
+            </div>    
 
 
             <!--tabla de contenidos-->
             <div class="table-responsive" ng-show="!compra">
-                <table class="table">
-                    <thead class="thead-light">
-                        <tr>
+                 <table class="table table-hover text-center">
+                   <tr class="table-active">
                             <th class="text-center">
                                 Foto            
                             </th>
@@ -48,14 +30,14 @@
                                 Acciones                            
                             </th>
                         </tr>
-                    </thead>
+                    
                     <tr ng-repeat="fila in ajaxDataCarrito">
                         <td class="align-middle text-center"><image ng-src="http://localhost:8081/imagenes/{{fila.obj_producto.foto}}" style="width: 64px; height: 64px;" /></td>
                         <td class="align-middle text-center">{{fila.obj_producto.desc}}</td>
                         <td class="align-middle text-center">{{fila.cantidad}}</td>
 
                         <!--                        <td>{{fila.obj_factura.id}}</td>-->
-                        <td class="align-middle text-center">
+                        <td class="align-middle text-center p-0">
                             <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
                                 <!--<i class="fas fa-plus-square"></i>-->
                                 <button ng-click="add(fila.obj_producto.id, 1)" class="btn btn-info p-3 mt-2 ml-0"><i class="fas fa-plus-square"></i> </button>
@@ -74,27 +56,6 @@
                 </div>
             </div>
 
-            <!--            Páginación vecindario     
-                        <nav aria-label="paginacion">
-                            <ul class="pagination justify-content-center">                                                 
-                                <li class="page-item" ng-class="{'disabled': (page <= 1)}">
-                                    <a class="page-link" href="linea/plist/{{rpp}}/1/{{order}}"><span>&laquo;</span></a>
-                                </li>
-                                <li class="page-item" ng-class="{'disabled': (page <= 1)}">
-                                    <a class="page-link" href="linea/plist/{{rpp}}/{{page - 1}}/{{order}}"><span>&lsaquo;</span></a>
-                                </li>
-            
-                                <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
-                                    <a class="page-link" href="linea/plist/{{rpp}}/{{p}}/{{order}}">{{p}}</a>
-                                </li>
-                                <li class="page-item"  ng-class="{'disabled':(page == totalPages)}">
-                                    <a class="page-link" href="linea/plist/{{rpp}}/{{page--1}}/{{order}}"><span>&rsaquo;</span></a>
-                                </li>
-                                <li class="page-item" ng-class="{'disabled':(page == totalPages)}">
-                                    <a class="page-link" href="linea/plist/{{rpp}}/{{totalPages}}/{{order}}"><span>&raquo;</span></a>
-                                </li>                  
-                            </ul>
-                        </nav>-->
 
             <div class="row" ng-show="compra">
                 <div class="col-12 text-center">
@@ -125,11 +86,12 @@
                         </div>-->
 
 
+        </div>
 
-
-        </main>
+        <div class="col-md-2"></div>
     </div>
 </div>
+
 
 <!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
 <!--<footer-component></footer-component>-->

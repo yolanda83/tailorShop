@@ -55,6 +55,18 @@
                     <!-----------------------FORM REGISTRAR NUEVO USUARIO------------------------->
                     <form name="userForm">
                         <div class="sign-up-htm">
+                            
+                              <md-input-container class="md-block">
+                                <label>Email</label>
+                                <input required type="text" name="clientEmail" ng-model="clientEmail"
+                                       maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+                                <div ng-messages="userForm.clientEmail.$error" role="alert">
+                                    <div ng-message-exp="['required', 'maxlength', 'pattern']">
+                                        Your email must be between 10 and 100 characters long and look like an e-mail address.
+                                    </div>
+                                </div>
+                            </md-input-container>
 
                             <div class="group"> 
                                 <div class="form-group">
@@ -142,17 +154,7 @@
                                 <input id="email2" type="email" class="input" placeholder="E-mail"/>
                             </div>
                             
-                              <md-input-container class="md-block">
-                                <label>Email</label>
-                                <input required type="text" name="clientEmail" ng-model="clientEmail"
-                                       minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-
-                                <div ng-messages="userForm.clientEmail.$error" role="alert">
-                                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                                        Your email must be between 10 and 100 characters long and look like an e-mail address.
-                                    </div>
-                                </div>
-                            </md-input-container>
+                            
 
                             <!------------------------- Boton sign up/REGISTRARSE --------------------->
                             <div class="group">
