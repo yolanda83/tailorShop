@@ -1,107 +1,132 @@
 <!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
 
-<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
+<div class="container-fluid p-0">
+    <div class="row no-gutters">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 edit pt-0" style="margin-top: 50px;">
 
-
-    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">New Producto</h1>
-    </div>
-
-    <form name="userForm" class="p-5" ng-show="!new"
-          style="margin-top: 80px; margin-bottom: 100px; background-color: WHITESMOKE; width: 70%; border-radius: 7px"> 
-
-        <div class="form-group">
-            <div class="row">
-                <div class="mx-auto pb-5">
-                    <img id="output" ng-src="http://localhost:8081/imagenes/{{foto}}" style="width: 128px; height: 128px;">
-                </div>
-            </div>
-            <div class="row">
-                <div class="mx-auto pb-5">
-                    <!--ARREGLO EN UNA LINEA DE PREVIEW DE NUEVA FOTO-->
-                    <input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto">                 
-                </div>
-            </div>
-        </div>
-
-
-        <div class="form-group"> 
-            <div class="form-group">
-                <label for="codigo" class="col-form-label">Código:</label>
-                <input id="dni" ng-model="codigo" class="form-control" ng-class="{'is-invalid': userForm.codigo.$invalid && !userForm.codigo.$pristine}"
-                       name="codigo" type="text" ng-required="true" placeholder="Introduce un código..."/>
-                <div ng-show="!userForm.codigo.$valid && userForm.codigo.$dirty && !userForm.codigo.$pristine" class="alert alert-danger" role="alert">
-                    Código obligatorio
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group"> 
-            <label for="nombre" class="col-form-label">Descripción:</label>
-            <input id="descripcion" ng-model="descripcion" class="form-control" ng-class="{'is-invalid': userForm.descripcion.$invalid && !userForm.descripcion.$pristine}"
-                   name="descripcion" type="text" ng-required="true" placeholder="Introduce una descripción..." />
-            <div ng-show="!userForm.descripcion.$valid && userForm.descripcion.$dirty && !userForm.descripcion.$pristine" class="alert alert-danger" role="alert">
-                descripción obligatoria
-            </div>
-        </div>
-
-        <div class="form-group"> 
-            <label for="existencias" class="col-form-label">Existencias:</label>
-            <input id="existencias" ng-model="existencias" class="form-control" ng-class="{'is-invalid': userForm.existencias.$invalid && !userForm.existencias.$pristine}"
-                   name="existencias" type="text" ng-required="true" placeholder="Introduce número de existencias..." />
-            <div ng-show="!userForm.existencias.$valid && userForm.existencias.$dirty && !userForm.existencias.$pristine" class="alert alert-danger" role="alert">
-                Número de existencias obligatorio
-            </div>
-        </div>
-
-        <div class="form-group"> 
-            <label for="ape2" class="col-form-label">Precio:</label>
-            <input ng-model="precio" class="form-control" ng-class="{'is-invalid': userForm.precio.$invalid && !userForm.precio.$pristine}"
-                   name="precio" type="text" ng-required="true" placeholder="Introduce un precio..." />
-            <div ng-show="!userForm.precio.$valid && userForm.precio.$dirty && !userForm.precio.$pristine" class="alert alert-danger" role="alert">
-                Precio obligatorio
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Tipo Producto:</label>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" id="obj_tipoProducto.desc" name="obj_tipoProducto.desc" ng-model="obj_tipoProducto.desc"
-                       ng-click="modal()" disabled/>
-                <div class="input-group-append">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cadd-location-modal">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <input type="checkbox" name="vehicle1" value="" ng-model="novedad">Novedad<br>
-        </div>
-        
-        <div>
-            <button ng-click="guardar()" class="btn btn-info mt-2 ml-0">Guardar</button>
-            <button class="btn btn-info mt-2" onClick="javascript:history.go( - 1);">Volver</button>
-        </div>
-    </form>
-
-
-    <div class="row" ng-show="new">
-        <div class="col-12">
-            <div class="card mx-auto" style="margin-top: 100px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
-                <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;">{{resultado}}</h4>
-                    <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
-                        <button type="button" class="btn btn-info" onclick="window.history.back()">Volver</button>
+            <div class="row no-gutters">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-between flex-wrap align-items-center py-3 px-4 border-bottom tituloView">
+                        <h4 class="mb-0">New Producto</h4>
+                        <i class="fas fa-archive fa-2x"></i>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-</main>
+            <form name="userForm" ng-show="!new"> 
+
+                <!--                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="mx-auto pb-5">
+                                                    <img id="output" ng-src="http://localhost:8081/imagenes/{{foto}}" style="width: 128px; height: 128px;">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="mx-auto pb-5">
+                                                    ARREGLO EN UNA LINEA DE PREVIEW DE NUEVA FOTO
+                                                    <input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto">                 
+                                                </div>
+                                            </div>
+                                        </div>-->
+
+                <div class="row no-gutters">
+
+                    <div class="col-md-4 pl-3">
+                        <div class="row">
+                            <div class="col-md-12 mx-auto pt-5">
+                                <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload">
+                                    <img id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pr-4 pb-4 pt-4">
+
+                        <div class="form-group"> 
+                            <div class="form-group">
+                                <label for="codigo" class="col-form-label">Código:</label>
+                                <input id="dni" ng-model="codigo" class="form-control" ng-class="{'is-invalid': userForm.codigo.$invalid && !userForm.codigo.$pristine}"
+                                       name="codigo" type="text" ng-required="true" placeholder="Introduce un código..."/>
+                                <div ng-show="!userForm.codigo.$valid && userForm.codigo.$dirty && !userForm.codigo.$pristine" class="alert alert-danger" role="alert">
+                                    Código obligatorio
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group"> 
+                            <label for="nombre" class="col-form-label">Descripción:</label>
+                            <input id="descripcion" ng-model="descripcion" class="form-control" ng-class="{'is-invalid': userForm.descripcion.$invalid && !userForm.descripcion.$pristine}"
+                                   name="descripcion" type="text" ng-required="true" placeholder="Introduce una descripcion..." />
+                            <div ng-show="!userForm.descripcion.$valid && userForm.descripcion.$dirty && !userForm.descripcion.$pristine" class="alert alert-danger" role="alert">
+                                descripcion obligatoria
+                            </div>
+                        </div>
+
+                        <div class="form-group"> 
+                            <label for="existencias" class="col-form-label">Existencias:</label>
+                            <input id="existencias" ng-model="existencias" class="form-control" ng-class="{'is-invalid': userForm.existencias.$invalid && !userForm.existencias.$pristine}"
+                                   name="existencias" type="text" ng-required="true" placeholder="Introduce número de existencias..." />
+                            <div ng-show="!userForm.existencias.$valid && userForm.existencias.$dirty && !userForm.existencias.$pristine" class="alert alert-danger" role="alert">
+                                Número de existencias obligatorio
+                            </div>
+                        </div>
+
+                        <div class="form-group"> 
+                            <label for="ape2" class="col-form-label">Precio:</label>
+                            <input ng-model="precio" class="form-control" ng-class="{'is-invalid': userForm.precio.$invalid && !userForm.precio.$pristine}"
+                                   name="precio" type="text" ng-required="true" placeholder="Introduce un precio..." />
+                            <div ng-show="!userForm.precio.$valid && userForm.precio.$dirty && !userForm.precio.$pristine" class="alert alert-danger" role="alert">
+                                Precio obligatorio
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tipo Producto:</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="obj_tipoProducto.desc" name="obj_tipoProducto.desc" ng-model="obj_tipoProducto.desc"
+                                       ng-click="modal()" disabled/>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cadd-location-modal">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="checkbox" name="vehicle1" value="" ng-model="novedad">Novedad<br>
+                        </div>
+
+                        <div class="d-flex justify-content-between flex-wrap">
+                            <button ng-click="guardar()" class="btn btn-info mt-2 ml-0">Guardar</button>
+                            <button class="btn botonAdmin mt-2" onClick="javascript:history.go( - 1);">Volver</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+            <div class="row" ng-show="new">
+                <div class="col-12">
+                    <div class="card mx-auto" style="margin-top: 100px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
+                        <div class="card-body">
+                            <h4 class="card-title" style="text-align: center;">{{resultado}}</h4>
+                            <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
+                                <button type="button" class="btn botonAdmin" onclick="window.history.back()">Volver</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
 
 <!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
 <!--<footer-component></footer-component>-->

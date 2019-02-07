@@ -1205,7 +1205,7 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input {
     margin-right: 20px;
     width: 128px; 
     height: 128px;
-    float: right;
+    /*float: right;*/
     cursor: pointer;
     position: relative;
     overflow: hidden;

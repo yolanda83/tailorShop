@@ -356,7 +356,7 @@ moduleFactura.controller('facturaPlistController', ['$scope', 'toolService', '$h
                 doc.setFontSize(15);
                 doc.setFontType('bold');
                 doc.text(17, 90, 'Código');
-                doc.text(55, 90, 'Descripción');
+                doc.text(55, 90, 'descripcion');
                 doc.text(130, 90, 'Cantidad');
                 doc.text(175, 90, 'Precio');
                 doc.setLineWidth(0.5);
@@ -395,7 +395,7 @@ moduleFactura.controller('facturaPlistController', ['$scope', 'toolService', '$h
                         doc.setFontSize(15);
                         doc.setFontType('bold');
                         doc.text(17, 90, 'Codigo');
-                        doc.text(55, 90, 'Descripcion');
+                        doc.text(55, 90, 'descripcion');
                         doc.text(130, 90, 'Cantidad');
                         doc.text(175, 90, 'Precio');
                         doc.setLineWidth(0.5);

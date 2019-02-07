@@ -5,7 +5,7 @@
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="col-12">
+                <div class="col-10 mx-auto text-center">
                     <div class="row">
                        
                         <!--Registros por página-->
@@ -40,7 +40,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                <button type="button" class="btn btn-light" ng-click="c.ordena('id', 'asc')">
+                                                <button type="button" class="btn btn-light dropup" ng-click="c.ordena('id', 'asc')">
                                                     <i class="dropdown-toggle"></i>
                                                 </button>
                                                 <button type="button" class="btn btn-light" ng-click="c.ordena('id', 'desc')">
@@ -54,12 +54,12 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <p>
-                                                Descripción
+                                                descripcion
                                             </p>
                                         </div>
                                         <div class="col-12">
                                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                <button type="button" class="btn btn-light" ng-click="c.ordena('tipousuario.desc', 'asc')">
+                                                <button type="button" class="btn btn-light dropup" ng-click="c.ordena('tipousuario.desc', 'asc')">
                                                     <i class="dropdown-toggle"></i>
                                                 </button>
                                                 <button type="button" class="btn btn-light" ng-click="c.ordena('tipousuario.desc', 'desc')">
@@ -76,7 +76,7 @@
                                     <td>{{fila.id}}</td>
                                     <td>{{fila.desc}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-outline-secondary" ng-click="c.selected(fila.id, fila.desc)" data-dismiss="modal">
+                                        <button type="button" class="btn btn-outline-info enlaceColor" ng-click="c.selected(fila.id, fila.desc)" data-dismiss="modal">
                                             <i class="fas fa-check-circle"></i>
                                         </button>
                                     </td>
@@ -114,7 +114,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn botonAdmin" data-dismiss="modal">Cerrar</button>
         </div>
     </div>
 </div>

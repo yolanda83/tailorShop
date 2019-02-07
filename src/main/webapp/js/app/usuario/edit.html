@@ -26,14 +26,14 @@
 
                     <div class="col-md-4 pl-3">
                         <div class="row">
-                            <div class="col-md-12 pt-5 pr-5 mr-5">
+                            <div class="col-md-12 mx-auto pt-5">
                                 <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload">
-<!--                                    <label for="file-input">-->
-                                        <img ng-model="foto" class="mx-auto my-auto" id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
-<!--                                    </label>-->
+                                    <!--                                    <label for="file-input">-->
+                                    <img ng-model="foto" class="mx-auto my-auto" id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
+                                    <!--                                    </label>-->
                                     <!--<input id="file-input" type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>-->
                                 </div>
-                                <!--                                 -->
+                                <!--      <label>                           -->
                                 <!--<input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>-->
                                 <!--      </label> -->
                             </div>
@@ -50,7 +50,21 @@
                                                     </div>
                                                 </div>-->
                     </div>
-                    <div class="col-md-8 pr-4 pb-4 pt-4">
+                    <div class="col-md-6 pr-4 pb-4 pt-4">
+                        <div class="form-group"> 
+                            <div class="form-group">
+                                <label for="dni" class="col-form-label">DNI:</label>
+                                <input id="dni" ng-model="dni" class="form-control" ng-class="{'is-invalid': userForm.dni.$invalid && !userForm.dni.$pristine}"
+                                       name="dni" type="text" ng-required="true" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/" 
+                                       placeholder="Introduce un DNI..."/>
+                                <div ng-show="userForm.dni.$error.pattern" class="alert alert-danger" role="alert">
+                                    Formato DNI no valido
+                                </div>
+                                <div ng-show="!userForm.dni.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
+                                    DNI obligatorio
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="form-group"> 
                             <label for="nombre" class="col-form-label">Nombre:</label>
@@ -82,11 +96,8 @@
                         <div class="form-group"> 
                             <label for="loginUser" class="col-form-label">Username:</label>
                             <input id="loginUser" type="text" class="form-control"  ng-class="{'is-invalid': userForm.loginUser.$invalid && !userForm.loginUser.$pristine}"
-                                   name="loginUser" ng-model="loginUser" ng-required="true" ng-minlength="5" placeholder="Introduce nombre usuario..."/>
+                                   name="loginUser" ng-model="loginUser" ng-required="true" placeholder="Introduce nombre usuario..."/>
 
-                            <div ng-show="userForm.loginUser.$error.minlength" class="alert alert-danger" role="alert">
-                                La longitud del login es demasiado corto
-                            </div>           
                             <div ng-show="!userForm.loginUser.$valid && userForm.loginUser.$dirty && !userForm.loginUser.$pristine" class="alert alert-danger" role="alert">
                                 Nombre usuario obligatorio
                             </div>
@@ -103,23 +114,7 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="form-group"> 
-                            <div class="form-group">
-                                <label for="dni" class="col-form-label">DNI:</label>
-                                <input id="dni" ng-model="dni" class="form-control" ng-class="{'is-invalid': userForm.dni.$invalid && !userForm.dni.$pristine}"
-                                       name="dni" type="text" ng-required="true" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/" 
-                                       placeholder="Introduce un DNI..."/>
-                                <div ng-show="userForm.dni.$error.pattern" class="alert alert-danger" role="alert">
-                                    Formato DNI no valido
-                                </div>
-                                <div ng-show="!userForm.dni.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
-                                    DNI obligatorio
-                                </div>
-                            </div>
-                        </div>
-
+                        </div>                    
 
                         <div class="d-flex justify-content-between flex-wrap">
                             <button ng-click="guardar()" class="btn btn-info mt-4 ml-0">Guardar</button>
@@ -146,14 +141,15 @@
         </div>
         <div class="col-md-2"></div>
     </div>
+</div>
 
-    <!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
-    <!--<footer-component></footer-component>-->
+<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
+<!--<footer-component></footer-component>-->
 
 
-    <!--Componenete modal-->
-    <cadd-modal-var class="modal fade ng-isolate-scope" id="cadd-location-modal" tabla="'tipousuario'" data="obj_tipoUsuario" aria-hidden="true"
-                    style="display: none;"></cadd-modal-var>
+<!--Componenete modal-->
+<cadd-modal-var class="modal fade ng-isolate-scope" id="cadd-location-modal" tabla="'tipousuario'" data="obj_tipoUsuario" aria-hidden="true"
+                style="display: none;"></cadd-modal-var>
 
 
 
