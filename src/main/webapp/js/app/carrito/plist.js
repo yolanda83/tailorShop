@@ -11,6 +11,11 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
 //        $scope.id = $routeParams.id;
         $scope.warning = null;
         $scope.carritoVacio = false;
+        $scope.carrito = oSessionService.getCountCarrito();
+
+        oSessionService.registerObserverCallback(function () {
+            $scope.carrito = oSessionService.getCountCarrito();
+        });
 
 
         if (!$routeParams.order) {

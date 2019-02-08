@@ -3,89 +3,105 @@
 
 
 
-<div class="container-fluid">
+<!--<div class="container-fluid">
     <div class="row no-gutters">
         <div class="col-md-2"></div>
 
         <div class="col-md-8" style="margin-top: 50px;">
             <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2"><i class="fas fa-cart-arrow-down"></i> Carrito</h1>
-            </div>    
+            </div>    -->
 
-
-            <!--tabla de contenidos-->
-            <div class="table-responsive" ng-show="!compra">
-                 <table class="table table-hover text-center">
-                   <tr class="table-active">
-                            <th class="text-center">
-                                Foto            
-                            </th>
-                            <th class="text-center">
-                                Producto            
-                            </th>
-                            <th class="text-center">
-                                Cantidad
-                            </th>
-                            <th class="text-center">
-                                Acciones                            
-                            </th>
-                        </tr>
-                    
-                    <tr ng-repeat="fila in ajaxDataCarrito">
-                        <td class="align-middle text-center"><image ng-src="http://localhost:8081/imagenes/{{fila.obj_producto.foto}}" style="width: 64px; height: 64px;" /></td>
-                        <td class="align-middle text-center">{{fila.obj_producto.desc}}</td>
-                        <td class="align-middle text-center">{{fila.cantidad}}</td>
-
-                        <!--                        <td>{{fila.obj_factura.id}}</td>-->
-                        <td class="align-middle text-center p-0">
-                            <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
-                                <!--<i class="fas fa-plus-square"></i>-->
-                                <button ng-click="add(fila.obj_producto.id, 1)" class="btn btn-info p-3 mt-2 ml-0"><i class="fas fa-plus-square"></i> </button>
-                                <button ng-click="reduce(fila.obj_producto.id, 1)" class="btn btn-info p-3 mt-2 ml-0"><i class="fas fa-minus-square"></i> </button>
-                                <button ng-click="borrar(fila.obj_producto.id)" class="btn botonAdmin p-3 mt-2 ml-0"><i class="fas fas fa-trash"></i> </button>
-
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-
-                <div class="pb-5 pt-5" style="text-align: center;">
-                    <button ng-click="buy()" class="btn btn-info mt-2 ml-0">Comprar</button>
-                    <button ng-click="empty()" class="btn buttonFav btn-outline-dark mt-2 ml-0">Vaciar Carrito</button>
-                    <button type="button" class="btn botonAdmin mt-2 ml-0" onclick="window.history.back()">Volver</button>
+<div class="row no-gutters">
+    <div role="main" class="col-md-12">
+        <div class="row no-gutters">
+            <div class="col-md-2 fondoCabecera"></div>
+            <div class="col-md-8">
+                <div class="fondoCabecera">
+                    <div class="mb-0">Carro <small>({{carrito}} artículo/s)</small></div>
                 </div>
             </div>
+            <div class="col-md-2 fondoCabecera"></div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+
+                <!--tabla de contenidos-->
+                <div class="" ng-show="!compra">
+                    <div ng-repeat="fila in ajaxDataCarrito">
+                        <div class="row no-gutters border-bottom">
+                            <div class="col-md-6">
+                                <div class="fotoCarrito">
+                                    <image ng-src="http://localhost:8081/imagenes/{{fila.obj_producto.foto}}"/>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div>{{fila.obj_producto.desc}}</div>
 
 
-            <div class="row" ng-show="compra">
-                <div class="col-12 text-center">
-                    <div class="card mx-auto" style="margin-top: 80px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
-                        <div class="card-body">
-                            <h4 class="card-title" style="text-align: center;">{{warning}}</h4>
-                            <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
-                                <button type="button" class="btn btn-secondary ml-0" onclick="window.history.back()">Volver</button>
+                                <!--                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                                    <i class="fas fa-plus-square"></i>
+                                                                    <button ng-click="add(fila.obj_producto.id, 1)" class="btn btn-info p-3 mt-2 ml-0"><i class="fas fa-plus-square"></i> </button>
+                                                                    <button ng-click="reduce(fila.obj_producto.id, 1)" class="btn btn-info p-3 mt-2 ml-0"><i class="fas fa-minus-square"></i> </button>
+                                                                    <button ng-click="borrar(fila.obj_producto.id)" class="btn botonAdmin p-3 mt-2 ml-0"><i class="fas fas fa-trash"></i> </button>
+                                                                </div>-->
+
+                                <section layout="row" layout-align="center center">
+                                    <div>
+                                        <input class="inputCantidad" name="cantidad" ng-model="fila.cantidad" type="text" value="" size="3" disabled />
+                                        <!--{{fila.cantidad}}-->
+                                    </div>
+                                    <md-button ng-click="add(fila.obj_producto.id, 1)" class="groupX middle"><i class="fas fa-plus-square"></i></md-button>
+                                    <md-button ng-click="reduce(fila.obj_producto.id, 1)" class="groupX middle"><i class="fas fa-minus-square"></i></md-button>
+                                    <md-button ng-click="borrar(fila.obj_producto.id)" class="groupX right"><i class="fas fas fa-trash"></i></md-button>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pb-5 pt-5" style="text-align: center;">
+                                <button ng-click="buy()" class="btn btn-info mt-2 ml-0">Comprar</button>
+                                <button ng-click="empty()" class="btn buttonFav btn-outline-dark mt-2 ml-0">Vaciar Carrito</button>
+                                <button type="button" class="btn botonAdmin mt-2 ml-0" onclick="window.history.back()">Volver</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-
-
-            <!--            <div class="row" ng-show="carritoVacio">
-                            <div class="col-12">
-                                <div class="card mx-auto" style="margin-top: 80px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
-                                    No has añadido ningun producto a tu carrito
-                                    <a href="comprar_productos/plist">
-                                        <button type="button" class="btn btn-secondary ml-0">
-                                            ¡Compra ahora!
-                                        </button>
-                                    </a>
+                <div class="row no-gutters" ng-show="compra">
+                    <div class="col-12 text-center">
+                        <div class="card mx-auto" style="margin-top: 80px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
+                            <div class="card-body">
+                                <h4 class="card-title" style="text-align: center;">{{warning}}</h4>
+                                <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
+                                    <button type="button" class="btn btn-secondary ml-0" onclick="window.history.back()">Volver</button>
                                 </div>
                             </div>
-                        </div>-->
+                        </div>
+                    </div>
+                </div>
 
 
+
+                <!--            <div class="row" ng-show="carritoVacio">
+                                <div class="col-12">
+                                    <div class="card mx-auto" style="margin-top: 80px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
+                                        No has añadido ningun producto a tu carrito
+                                        <a href="comprar_productos/plist">
+                                            <button type="button" class="btn btn-secondary ml-0">
+                                                ¡Compra ahora!
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>-->
+
+
+            </div>
         </div>
 
         <div class="col-md-2"></div>
