@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
+@font-face {font-family:'ParryPro';font-style:normal;}
 /*https://programacionwebgalicia.wordpress.com/2012/09/05/encoding-utf-8-netbeans/*/
 /**************** GENERICO ****************/
 html {
@@ -24,7 +25,7 @@ body {
 /**** BOTONES NORMALES ****/ 
 
 .btn-secondary {
-     background-color: gray;
+    background-color: gray;
     /*border-radius: 0px;*/
     /*padding: 10px 30px;*/
     border: none;
@@ -346,7 +347,7 @@ a.enlacefa {
     box-shadow: 0 0 5px #6A5D4F;
 }*/
 
-.pulse:hover {
+/*.pulse:hover {
     animation: pulse 1s linear 1 normal;
 }
 
@@ -360,7 +361,7 @@ a.enlacefa {
     100% {
         transform: scale(1) rotate(0deg);
     }
-}
+}*/
 
 .buttonBlue {
     float: right;
@@ -739,6 +740,14 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input {
 }
 
 
+/************ ABOUT US ************/
+
+.fondoCabecera {
+    padding: 50px 0px;
+    margin-bottom: 50px;
+    background: url("https://d3u3xhd9tobx8a.cloudfront.net/static/global/back_topMOBILE_desat.png");
+    /*font-family: "Lato",sans-serif;*/
+}
 
 /************ FOOTER ************/
 
@@ -1147,7 +1156,7 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input {
     animation: pulse 1s linear;
 }
 
-@keyframes pulse {
+/*@keyframes pulse {
     40% {
         transform: scale(1.3);
     }
@@ -1160,7 +1169,7 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input {
     100% {
         transform: scale(1);
     }
-}
+}*/
 
 .menuBallFooter {
     display: inline-block;
