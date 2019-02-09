@@ -3,72 +3,172 @@
 
 <div class="row no-gutters">
     <div class="col-md-12 px-4" style="margin-top: 10px;">
+        <div class="row no-gutters">
+            <div class="col-md-6">
+                <img class="imgForm" src="images/pru.jpg" alt="foto_fondo">
+            </div>
+            <div class="col-md-6 align-self-start">
+                
+                <!--<img class="imgForm" src="images/pru.jpg" alt="foto_fondo">-->
 
-        <div class="login-wrap">
-            <!--<form name="userForm">-->
-            <div class="login-html">
-                <input ng-model="radiob" value="tab-1" id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab">INICIAR SESION</label>
-                <input ng-model="radiob" value="tab-2" id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">REGISTRATE</label>
+                <div class="login-wrap ">
+                    <!--<form name="userForm">-->
+                    <div class="login-html">
+                        <input ng-model="radiob" value="tab-1" id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab">INICIAR SESION</label>
+                        <input ng-model="radiob" value="tab-2" id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">REGISTRATE</label>
 
-                <!-----------------------FORM LOGIN------------------------->
-                <div class="login-form">
-                    <form name="userForm">
-                        <div class="sign-in-htm">
+                        <!-----------------------FORM LOGIN------------------------->
+                        <div class="login-form">
+                            <form name="userForm">
+                                <div class="sign-in-htm">
 
-                            <div class="group">
-                                <label for="login1" class="label">Username</label>
-                                <input id="login1" ng-model="login1"  ng-class="{'is-invalid': userForm.login1.$invalid && !userForm.login1.$pristine}"
-                                       name="login1" type="text" class="input" ng-required="true" placeholder="Username" />
-                                <div ng-show="!userForm.login1.$valid && userForm.login1.$dirty && !userForm.login1.$pristine" class="alert alert-danger" role="alert">
-                                    Username obligatorio
-                                </div>
-                            </div>
-
-                            <div class="group">
-                                <label for="passAdmin" class="label">Password</label>
-                                <input id="passAdmin" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.passAdmin.$invalid && !userForm.passAdmin.$pristine}"
-                                       name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Password"/>
-
-                                <div ng-show="userForm.passAdmin.$error.minlength" class="alert alert-danger" role="alert">
-                                    La longitud del password es demasiado corta, introduce 6 caracteres minimo
-                                </div>
-                                <div ng-show="!userForm.passAdmin.$valid && userForm.passAdmin.$dirty && !userForm.passAdmin.$pristine" class="alert alert-danger" role="alert">
-                                    Password obligatorio
-                                </div>
-                            </div>
-
-                            <!--                            <div class="group">
-                                                            <input id="check" type="checkbox" class="check" checked>
-                                                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                                                        </div>-->
-
-                            <!-----------------------Boton sign in/LOGIN------------------------->
-                            <div class="group">
-                                <input type="submit" class="btn-info" value="Login" ng-click="log()">
-                            </div>
-
-                            <div class="usucreado" ng-show="!usuCreado != null">{{usuCreado}}</div>
-
-                        </div>
-                    </form>
-
-                    <!-----------------------FORM REGISTRAR NUEVO USUARIO------------------------->
-                    <form name="userForm">
-                        <div class="sign-up-htm">
-                            
-                              <md-input-container class="md-block">
-                                <label>Email</label>
-                                <input required type="text" name="clientEmail" ng-model="clientEmail"
-                                       maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-
-                                <div ng-messages="userForm.clientEmail.$error" role="alert">
-                                    <div ng-message-exp="['required', 'maxlength', 'pattern']">
-                                        Your email must be between 10 and 100 characters long and look like an e-mail address.
+                                    <div class="group">
+                                        <label for="login1" class="label">Username</label>
+                                        <input id="login1" ng-model="login1"  ng-class="{'is-invalid': userForm.login1.$invalid && !userForm.login1.$pristine}"
+                                               name="login1" type="text" class="input" ng-required="true" placeholder="Username" />
+                                        <div ng-show="!userForm.login1.$valid && userForm.login1.$dirty && !userForm.login1.$pristine" class="alert alert-danger" role="alert">
+                                            Username obligatorio
+                                        </div>
                                     </div>
-                                </div>
-                            </md-input-container>
 
-                            <div class="group"> 
+                                    <div class="group">
+                                        <label for="passAdmin" class="label">Password</label>
+                                        <input id="passAdmin" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.passAdmin.$invalid && !userForm.passAdmin.$pristine}"
+                                               name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Password"/>
+
+                                        <div ng-show="userForm.passAdmin.$error.minlength" class="alert alert-danger" role="alert">
+                                            La longitud del password es demasiado corta, introduce 6 caracteres minimo
+                                        </div>
+                                        <div ng-show="!userForm.passAdmin.$valid && userForm.passAdmin.$dirty && !userForm.passAdmin.$pristine" class="alert alert-danger" role="alert">
+                                            Password obligatorio
+                                        </div>
+                                    </div>
+
+                                    <!--                            <div class="group">
+                                                                    <input id="check" type="checkbox" class="check" checked>
+                                                                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                                                                </div>-->
+
+                                    <!-----------------------Boton sign in/LOGIN------------------------->
+                                    <div class="group">
+                                        <input type="submit" class="btn-info" value="Login" ng-click="log()">
+                                    </div>
+
+                                    <div class="usucreado" ng-show="!usuCreado != null">{{usuCreado}}</div>
+
+                                </div>
+                            </form>
+
+                            <!-----------------------FORM REGISTRAR NUEVO USUARIO------------------------->
+                            <form name="userForm">
+                                <div class="sign-up-htm">
+
+                                    <md-input-container class="md-block">
+                                        <label>DNI</label>
+                                        <input required type="text" name="dni" ng-model="dni"
+                                               maxlength="9" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/i" />                                    
+
+                                        <div ng-messages="userForm.dni.$error" role="alert">
+                                            <div ng-message-exp="['required', 'maxlength', 'pattern']">
+                                                DNI incorrecto.
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container class="md-block">
+                                        <label>Username</label>
+                                        <input required name="login" ng-model="login">
+
+                                        <div ng-messages="userForm.login.$error">
+                                            <div ng-message="required">Username obligatorio.</div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container class="md-block">
+                                        <label>Nombre</label>
+                                        <input required name="clientName" ng-model="clientName">
+
+                                        <div ng-messages="userForm.clientName.$error">
+                                            <div ng-message="required">Nombre obligatorio.</div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container class="md-block">
+                                        <label>1r Apellido</label>
+                                        <input required name="ape1" ng-model="ape1">
+
+                                        <div ng-messages="userForm.ape1.$error">
+                                            <div ng-message="required">Apellido obligatorio.</div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container class="md-block">
+                                        <label>2o Apellido</label>
+                                        <input required name="ape2" ng-model="ape2">
+
+                                        <div ng-messages="userForm.ape2.$error">
+                                            <div ng-message="required">Apellido obligatorio.</div>
+                                        </div>
+                                    </md-input-container>
+
+
+                                    <md-input-container class="md-block">
+                                        <label>Email</label>
+                                        <input required type="text" name="clientEmail" ng-model="clientEmail"
+                                               maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+                                        <div ng-messages="userForm.clientEmail.$error" role="alert">
+                                            <div ng-message-exp="['required', 'maxlength', 'pattern']">
+                                                Email incorrecto.
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container class="md-block">
+                                        <label>Password</label>
+                                        <input required type="password" name="pass1" ng-model="pass1"
+                                               minlength="5" />                                    
+
+                                        <div ng-messages="userForm.pass1.$error" role="alert">
+                                            <div ng-message-exp="['required', 'minlength']">
+                                                Password incorrecto.
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container class="md-block">
+                                        <label>Repite Password</label>
+                                        <input required type="password" name="pass2" ng-model="pass1"
+                                               minlength="5" />                                    
+
+                                        <div ng-messages="userForm.pass2.$error" role="alert">
+                                            <div ng-message-exp="['required', 'minlength']">
+                                                Password incorrecto.
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+
+
+                                    <!------------------------- Boton sign up/REGISTRARSE --------------------->
+                                    <div class="group">
+                                        <input ng-click="guardar()" type="submit" class="btn-info" value="Registrarse">
+                                    </div>                   
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<!--                            <div class="group"> 
                                 <div class="form-group">
                                     <label for="dni" class="label">DNI</label>
                                     <input id="dni" ng-model="dni" class="input" ng-class="{'is-invalid': userForm.dni.$invalid && !userForm.dni.$pristine}"
@@ -81,9 +181,21 @@
                                         DNI obligatorio
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
 
-                            <div class="group"> 
+<!--                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Name</label>
+                                <input md-maxlength="30" required name="name" ng-model="user.name" />
+
+                                <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+
+                                <div ng-messages="userForm.name.$error" ng-if="!showHints">
+                                    <div ng-message="required">Name is required.</div>
+                                    <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                                </div>
+                            </md-input-container>-->
+
+<!--                            <div class="group"> 
                                 <label for="loginUser" class="label">Nombre de Usuario</label>
                                 <input id="loginUser" ng-model="loginUser" class="input"  ng-class="{'is-invalid': userForm.loginUser.$invalid && !userForm.loginUser.$pristine}"
                                        name="loginUser"  type="text"  ng-required="true" ng-minlength="2" placeholder="Nombre de usuario"/>
@@ -94,20 +206,20 @@
                                 <div ng-show="!userForm.loginUser.$valid && userForm.loginUser.$dirty && !userForm.loginUser.$pristine" class="alert alert-danger" role="alert">
                                     Nombre usuario obligatorio
                                 </div>
-                            </div>
+                            </div>-->
 
 
-                            <div class="group"> 
+<!--                            <div class="group"> 
                                 <label for="nombre" class="label">Nombre</label>
                                 <input id="nombre" ng-model="nombre" class="input" ng-class="{'is-invalid': userForm.nombre.$invalid && !userForm.nombre.$pristine}"
                                        name="nombre" type="text" ng-required="true" placeholder="Nombre" />
                                 <div ng-show="!userForm.nombre.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
                                     Nombre obligatorio
                                 </div>
-                            </div>
+                            </div>-->
 
 
-                            <div class="group"> 
+<!--                            <div class="group"> 
                                 <label for="ape1" class="label">Primer apellido</label>
                                 <input id="ape1" ng-model="ape1" class="input" ng-class="{'is-invalid': userForm.ape1.$invalid && !userForm.ape1.$pristine}"
                                        name="ape1" type="text" ng-required="true" placeholder="Apellido" />
@@ -123,9 +235,9 @@
                                 <div ng-show="!userForm.ape2.$valid && userForm.ape2.$dirty && !userForm.ape2.$pristine" class="alert alert-danger" role="alert">
                                     Apellido obligatorio
                                 </div>
-                            </div>                         
+                            </div>                         -->
 
-                            <div class="group">
+<!--                            <div class="group">
                                 <label for="pass1" class="label">Password</label>
                                 <input id="pass1" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.pass1.$invalid && !userForm.pass1.$pristine}"
                                        name="pass1" ng-model="pass1" ng-required="true" ng-minlength="5" placeholder="Password"/>
@@ -135,9 +247,9 @@
                                 <div ng-show="!userForm.pass1.$valid && userForm.pass1.$dirty && !userForm.pass1.$pristine" class="alert alert-danger" role="alert">
                                     Password obligatorio
                                 </div>
-                            </div>
+                            </div>-->
 
-                            <div class="group">
+<!--                            <div class="group">
                                 <label for="pass2" class="label">Repite el password</label>
                                 <input id="pass2" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.pass2.$invalid && !userForm.pass2.$pristine}"
                                        name="pass2" ng-model="pass2" ng-required="true" ng-minlength="5" placeholder="Repite password"/>
@@ -152,30 +264,9 @@
                             <div class="group">
                                 <label for="email2" class="label">Email Address</label>
                                 <input id="email2" type="email" class="input" placeholder="E-mail"/>
-                            </div>
-                            
-                            
+                            </div>-->
 
-                            <!------------------------- Boton sign up/REGISTRARSE --------------------->
-                            <div class="group">
-                                <input ng-click="guardar()" type="submit" class="btn-info" value="Registrarse">
-                            </div>
-
-                            <!--                            <div class="hr"></div>
-                                                        <div class="foot-lnk">
-                                                            <label for="tab-1"><a href="">Already Member?</a></label>
-                                                        </div>-->
-
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</div>
-
+<!--------------------------------------------------------------------------->
 
 <!--    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">New Usuario</h1>

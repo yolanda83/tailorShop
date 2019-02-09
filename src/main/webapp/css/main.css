@@ -520,11 +520,12 @@ a{color:inherit;text-decoration:none}
     width:100%;
     margin:auto;
     max-width:525px;
-    min-height:750px;
+    min-height:775px;
     position:relative;
     /*background:url(https://i.pinimg.com/564x/11/84/9c/11849caeb53059e9e57036ca0be41243.jpg) no-repeat center;*/
     box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
     line-height: 1!important;
+    z-index: 1;
 }
 .login-html{
     width:100%;
@@ -533,7 +534,10 @@ a{color:inherit;text-decoration:none}
     padding: 30px 40px;
     /*padding:90px 70px 50px 70px;*/
     background:rgba(49,49,49,.9);
+    /*float: left;*/
 }
+
+/*animación*/
 .login-html .sign-in-htm,
 .login-html .sign-up-htm{
     top:0;
@@ -545,6 +549,8 @@ a{color:inherit;text-decoration:none}
     backface-visibility:hidden;
     transition:all .4s linear;
 }
+
+/*titulo*/
 .login-html .sign-in,
 .login-html .sign-up,
 .login-form .group .check{
@@ -570,40 +576,40 @@ a{color:inherit;text-decoration:none}
     perspective:1000px;
     transform-style:preserve-3d;
 }
-.login-form .group{
+/*.login-form .group{
     margin-bottom:15px;
-}
-.login-form .group .label,
+}*/
+/*.login-form .group .label,
 .login-form .group .input,
 .login-form .group .button{
     width:100%;
     color:#fff;
     display:block;
-}
-.login-form .group .input,
+}*/
+/*.login-form .group .input,
 .login-form .group .button{
     border:none;
     padding:10px;
-    /*border-radius:20px;*/
+    border-radius:20px;
     outline: none;
     background:rgba(255,255,255,.1);
-}
+}*/
 
-.login-form .group .label{
+/*.login-form .group .label{
     color:#aaa;
     font-size:12px;
-}
+}*/
 .login-form .group .button{
     background:#8ABC4D;
 }
-.login-form .group label .icon{
+/*.login-form .group label .icon{
     width:15px;
     height:15px;
     border-radius:2px;
     position:relative;
     display:inline-block;
     background:rgba(255,255,255,.1);
-}
+}*/
 .login-form .group label .icon:before,
 .login-form .group label .icon:after{
     content:'';
@@ -624,12 +630,12 @@ a{color:inherit;text-decoration:none}
     right:0;
     transform:scale(0) rotate(0);
 }
-.login-form .group .check:checked + label{
+/*.login-form .group .check:checked + label{
     color:#fff;
-}
-.login-form .group .check:checked + label .icon{
+}*/
+/*.login-form .group .check:checked + label .icon{
     background:#a87c4f;
-}
+}*/
 .login-form .group .check:checked + label .icon:before{
     transform:scale(1) rotate(45deg);
 }
@@ -643,15 +649,31 @@ a{color:inherit;text-decoration:none}
     transform:rotate(0);
 }
 
-.hr{
+/*.hr{
     height:2px;
     margin:60px 0 50px 0;
     background:rgba(255,255,255,.2);
-}
-.foot-lnk{
+}*/
+/*.foot-lnk{
     text-align:center;
+}*/
+
+
+.imgForm {
+    width: 100%;
+    height: 775px;
+    margin-bottom: 100px;
+    z-index: 2;
 }
 
+.authenticate-user {
+    display: flex;
+    flex-direction: column;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    flex: 1 1;
+    padding: 32px;
+}
 
 /*ANGULAR MATERIAL FORMULARIO*/
 
@@ -662,6 +684,14 @@ a{color:inherit;text-decoration:none}
 .md-block input{
     border-bottom: 1px solid #aaa;
 }
+
+/*.login-form label{
+    color: #aaa;
+}
+
+.sign-up-htm {
+    color: #aaa;
+}*/
 
 /* When the input is not focused */
 md-input-container label {
@@ -683,6 +713,7 @@ md-input-container:not(.md-input-invalid).md-input-has-value label {
     color:  #aaa;
 }
 
+/*Para la linea de abajo en verde*/
 md-input-container:not(.md-input-invalid).md-input-focused .md-input {
     /*color:  #aaa;*/
     border-color: #8ABC4D;

@@ -12,12 +12,17 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
         $scope.compra = true;
 //        $scope.warning = null;
         $scope.carritoVacio = false;
-        $scope.carrito = oSessionService.getCountCarrito();
+        $scope.carrito = parseInt(oSessionService.getCountCarrito());
 
-        oSessionService.registerObserverCallback(function () {
-            $scope.carrito = oSessionService.getCountCarrito();
-        });
 
+        if (isNaN($scope.carrito) || $scope.carrito == 0) {
+            $scope.carrito = 0;
+        } else {
+
+            oSessionService.registerObserverCallback(function () {
+                $scope.carrito = oSessionService.getCountCarrito();
+            });
+        }
 
         if (!$routeParams.order) {
             $scope.orderURLServidor = "";
@@ -108,7 +113,9 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
             $scope.status = response.status;
 
             if (response.data.message == "Unauthorized") {
-                $scope.ajaxDataCarrito = "";
+                $scope.compra = true;
+                $scope.ajaxDataCarrito = 0;
+//                $scope.ajaxDataCarrito = "";
             } else {
                 $scope.ajaxDataCarrito = response.data.message;
             }
@@ -173,9 +180,11 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
                 $scope.ajaxDataCarrito = response.data.message;
                 countcarritoService.updateCarrito();
                 if (response.data.status === 200) { //borrar el último producto que queda en el carrito
-                    $scope.warning = response.data.message;
+//                    $scope.warning = response.data.message;
+                    $scope.compra = true;
                 } else {
-                    $scope.warning = response.data.message;
+//                    $scope.warning = response.data.message;
+//añadir código para recalcular total
                 }
 
             }), function (response) {
