@@ -9,7 +9,8 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
         $scope.op = "plist";
         $scope.totalPages = 1;
 //        $scope.id = $routeParams.id;
-        $scope.warning = null;
+        $scope.compra = true;
+//        $scope.warning = null;
         $scope.carritoVacio = false;
         $scope.carrito = oSessionService.getCountCarrito();
 
@@ -49,6 +50,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
             url: `http://localhost:8081/tailorShop/json?ob=carrito&op=show`
         }).then(function (response) {
             if (response.data.message != null) {
+                $scope.compra = false;
                 $scope.productos = response.data.message;
                 $scope.total = 0;
                 var auxCant = 0;
@@ -66,6 +68,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
                     $scope.carritoVacio = true;
                 }
                 $scope.total = Math.round(totalInicial * 100) / 100;
+                $scope.total = $scope.total.toFixed(2);
             } else {
                 $scope.carritoVacio = true;
             }
@@ -125,6 +128,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
                 },
                 url: 'http://localhost:8081/tailorShop/json?ob=carrito&op=empty',
             }).then(function (response) {
+                $scope.compra = true;
                 countcarritoService.updateCarrito();
                 $scope.ajaxDataCarrito = response.data.message;
                 console.log(response);
@@ -133,7 +137,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
             }
         }
 
-        //AÑADIR CANTIDAD A UN PRODUCTO
+//AÑADIR CANTIDAD A UN PRODUCTO
         $scope.add = function (producto, cantidad) {
 
             $http({
@@ -155,7 +159,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
             }
         }
 
-        //REDUCIR CANTIDAD A UN PRODUCTO
+//REDUCIR CANTIDAD A UN PRODUCTO
         $scope.reduce = function (producto, cantidad) {
 
             $http({
@@ -179,7 +183,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
             };
         };
 
-        //BORRAR UN PRODUCTO
+//BORRAR UN PRODUCTO
         $scope.borrar = function (producto) {
 
             $http({
@@ -205,7 +209,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
             }
         }
 
-        //COMPRAR PRODUCTOS
+//COMPRAR PRODUCTOS
         $scope.buy = function (producto) {
 
             $http({
@@ -219,8 +223,9 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
                 console.log(response);
                 if (response.data.status == 200) {
                     $scope.ajaxDataCarrito = response.data.message;
-                    $scope.warning = "Productos comprados correctamente. Gracias por tu pedido :)";
+                    $scope.showAlert('Correcto', 'Se ha realizado la compra correctamente');
                     $scope.compra = true;
+//                    $scope.warning = "Oh no. ¡Tu carro de la compra está vacío!";                    
                 } else if (response.data.status == 400) {
                     $scope.warning = response.data.message;
                 }
@@ -230,114 +235,19 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
             }
         }
 
-//
-//        $scope.resetOrder = function () {
-//            if ($scope.id == null) {
-//                $location.url('linea/plist/' + $scope.rpp + '/' + $scope.page);
-//            } else {
-//                $location.url('linea/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.id + '/' + $scope.user);
-//            }
-//        }
-
-//
-//        $scope.ordena = function (order, align) {
-//            if ($scope.orderURLServidor == "") {
-//                $scope.orderURLServidor = "&order=" + order + "," + align;
-//                $scope.orderURLCliente = order + "," + align;
-//            } else {
-//                $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
-//                $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
-//            }
-//
-//            if ($scope.id == null) {
-//                $location.url('linea/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente);
-//            } else {
-//                $location.url('linea/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.id + '/' + $scope.user + '/' + $scope.orderURLCliente);
-//            }
-//        }
-
-
-        //getcount
-//        $http({
-//            method: 'GET',
-//            url: 'http://localhost:8081/tailorShop/json?ob=linea&op=getcount'
-//        }).then(function (response) {
-//            $scope.status = response.status;
-//            $scope.ajaxDataLineaNumber = response.data.message;
-//            $scope.totalPages = Math.ceil($scope.ajaxDataLineaNumber / $scope.rpp);
-//            if ($scope.page > $scope.totalPages) {
-//                $scope.page = $scope.totalPages;
-//                $scope.update();
-//            }
-//            pagination2();
-//        }, function (response) {
-//            $scope.ajaxDataLineaNumber = response.data.message || 'Request failed';
-//            $scope.status = response.status;
-//        });
-
-
-//        //paginacion neighbourhood
-//        function pagination2() {
-//            $scope.list2 = [];
-//            $scope.neighborhood = 3;
-//            for (var i = 1; i <= $scope.totalPages; i++) {
-//                if (i === $scope.page) {
-//                    $scope.list2.push(i);
-//                } else if (i <= $scope.page && i >= ($scope.page - $scope.neighborhood)) {
-//                    $scope.list2.push(i);
-//                } else if (i >= $scope.page && i <= ($scope.page - -$scope.neighborhood)) {
-//                    $scope.list2.push(i);
-//                } else if (i === ($scope.page - $scope.neighborhood) - 1) {
-//                    $scope.list2.push("...");
-//                } else if (i === ($scope.page - -$scope.neighborhood) + 1) {
-//                    $scope.list2.push("...");
-//                }
-//            }
-//        }
-
-
-
-        $scope.isActive = toolService.isActive;
-
-//---------------------------------------------------------------------------
-//
-//        $scope.ruta = $location.path();
-//        $scope.id = $routeParams.id;
-//        $scope.user = $routeParams.user;
-
-
-//        $scope.lineaLimpiar = function () {
-//            $scope.ajaxDataLinea = "";
-//        }
-
-//        $scope.crearLinea = function () {
-//            $http({
-//                method: 'GET',
-//                withCredentials: true,
-//                url: 'http://localhost:8081/tailorShop/json?ob=linea&op=create'
-//            }).then(function (response) {
-//                $scope.status = response.status;
-//                $scope.ajaxDataProductos = response.data.message;
-//            }, function (response) {
-//                $scope.ajaxDataProductos = response.data.message || 'Request failed';
-//                $scope.status = response.status;
-//            });
-//        }
-
-//        $http({
-//            method: 'GET',
-//            //withCredentials: true,
-//            url: 'http://localhost:8081/tailorShop/json?ob=linea&op=getcount'
-//        }).then(function (response) {
-//            $scope.status = response.status;
-//            $scope.ajaxDataFacturaNumber = response.data.message;
-//        }, function (response) {
-//            $scope.ajaxDataFacturaNumber = response.data.message || 'Request failed';
-//            $scope.status = response.status;
-//        });
-
-
-
+//Este mensaje se puede mejorar, buscar info en la api oficial de angular material
+        //https://material.angularjs.org/latest/api/service/$mdDialog
+        //https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.css
+        $scope.showAlert = function (titulo, description) {
+            $mdDialog.show(
+                    $mdDialog.alert()
+                    .clickOutsideToClose(false)
+                    .title(titulo)
+                    .textContent(description)
+                    .ariaLabel('Alert Dialog Demo')
+                    .ok('OK!')
+                    );
+        };
 
 
     }

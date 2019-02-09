@@ -38,7 +38,8 @@
                             </div>
 
                             <div class="col-md-6">
-                                <div>{{fila.obj_producto.desc}}</div>
+                                <div class="tituloCarrito">{{fila.obj_producto.desc}}</div>
+                                <div class="textoCarrito">{{fila.obj_producto.precio}}€/unidad</div>
 
 
                                 <!--                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -48,15 +49,23 @@
                                                                     <button ng-click="borrar(fila.obj_producto.id)" class="btn botonAdmin p-3 mt-2 ml-0"><i class="fas fas fa-trash"></i> </button>
                                                                 </div>-->
 
-                                <section layout="row" layout-align="center center">
+                                <section  class="mt-5" layout="row" layout-align="left">
                                     <div>
                                         <input class="inputCantidad" name="cantidad" ng-model="fila.cantidad" type="text" value="" size="3" disabled />
                                         <!--{{fila.cantidad}}-->
                                     </div>
-                                    <md-button ng-click="add(fila.obj_producto.id, 1)" class="groupX middle"><i class="fas fa-plus-square"></i></md-button>
-                                    <md-button ng-click="reduce(fila.obj_producto.id, 1)" class="groupX middle"><i class="fas fa-minus-square"></i></md-button>
-                                    <md-button ng-click="borrar(fila.obj_producto.id)" class="groupX right"><i class="fas fas fa-trash"></i></md-button>
+                                    <md-button aria-label="button" ng-click="add(fila.obj_producto.id, 1)" class="groupX middle"><i class="fas fa-plus-square"></i></md-button>
+                                    <md-button aria-label="button" ng-click="reduce(fila.obj_producto.id, 1)" class="groupX middle"><i class="fas fa-minus-square"></i></md-button>
+                                    <md-button aria-label="button" ng-click="borrar(fila.obj_producto.id)" class="groupX right"><i class="fas fas fa-trash"></i></md-button>
                                 </section>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="subtotal">
+                                <strong>Subtotal: {{total}}€</strong> <small>(I.V.A. incluido) </small>
                             </div>
                         </div>
                     </div>
@@ -64,21 +73,22 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="pb-5 pt-5" style="text-align: center;">
-                                <button ng-click="buy()" class="btn btn-info mt-2 ml-0">Comprar</button>
+                                <button ng-click="buy()" class="btn btn-info mt-2 ml-0">Realizar pedido</button>
                                 <button ng-click="empty()" class="btn buttonFav btn-outline-dark mt-2 ml-0">Vaciar Carrito</button>
-                                <button type="button" class="btn botonAdmin mt-2 ml-0" onclick="window.history.back()">Volver</button>
+<!--                                <button type="button" class="btn botonAdmin mt-2 ml-0" onclick="window.history.back()">Volver</button>-->
+                                  <a href="producto/plistUsuario/1" class="btn botonAdmin mt-2 ml-0" role="button">Seguir comprando</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row no-gutters" ng-show="compra">
+                <div class="row no-gutters pb-5 mb-5" ng-show="compra">
                     <div class="col-12 text-center">
-                        <div class="card mx-auto" style="margin-top: 80px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
+                        <div class="card mx-auto view pb-5 mb-5 p-4">
                             <div class="card-body">
-                                <h4 class="card-title" style="text-align: center;">{{warning}}</h4>
-                                <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
-                                    <button type="button" class="btn btn-secondary ml-0" onclick="window.history.back()">Volver</button>
+                                <h4 class="card-title" style="text-align: center;">Oh no. ¡Tu carro de la compra está vacío!</h4>
+                                <div class="d-flex justify-content-center align-items-center pt-4" role="alert">
+                                    <button type="button" class="btn botonAdmin ml-0" onclick="window.history.back()">Volver</button>
                                 </div>
                             </div>
                         </div>

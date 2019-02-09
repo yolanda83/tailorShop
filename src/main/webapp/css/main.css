@@ -22,7 +22,7 @@ body {
 }*/
 
 small {
-    font-size: 25px;
+    font-size: 60%;
 }
 
 
@@ -724,6 +724,21 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input {
     text-align: center;
 }
 
+.separadorContacto {
+    border: 0;
+    height: 1px;
+    background: #999;
+    background-image: linear-gradient(to right, #f7f7f7, #999, #f7f7f7);
+    margin: 2.2em auto 2em;
+    width: 80%;
+}
+
+.white_box {
+    border: 1px solid #f1f1f1;
+    margin: 20px 20px 20px 0px;
+    padding: 30px;
+    box-sizing: border-box;
+}
 
 
 
@@ -763,16 +778,35 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input {
     margin-bottom: 20px;
 }
 
+.tituloCarrito {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.textoCarrito  {
+    font-size: 20px;
+    margin-top: 20px;
+    color: gray;
+    font-family: 'Yantramanav', sans-serif;
+}
 .inputCantidad {
     padding: 7px!important;
     border-right: none;
     background: white;
 }
 
+.subtotal {
+    padding: 25px;
+    margin-top: 20px;
+    background: #efefef;
+    display: inline-block;
+    float: right;
+}
+
 /*GROUP BOTON ANGULAR JS MATERIAL*/
 .groupX {
     font-size: 16px;
-    margin: 20px 0;
+    margin: 0px 0;
     padding: 3px 15px 3px 15px;
     color: rgb(49, 46, 46);
     background-color: rgba(224, 224, 224, 0.96);
