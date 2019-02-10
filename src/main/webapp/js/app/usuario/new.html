@@ -21,17 +21,38 @@
                         <div class="login-form">
                             <form name="userForm">
                                 <div class="sign-in-htm">
+                                    
+                                    <md-input-container class="md-block">
+                                        <label>Username</label>
+                                        <input required name="login1" ng-model="login1">
 
-                                    <div class="group">
+                                        <div ng-messages="userForm.login1.$error">
+                                            <div ng-message="required">Username obligatorio.</div>
+                                        </div>
+                                    </md-input-container>
+                                    
+                                    <md-input-container class="md-block">
+                                        <label>Repite Password</label>
+                                        <input required type="password" name="passAdmin" ng-model="passAdmin"
+                                               minlength="5" />                                    
+
+                                        <div ng-messages="userForm.passAdmin.$error" role="alert">
+                                            <div ng-message-exp="['required', 'minlength']">
+                                                Password incorrecto.
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+
+<!--                                    <div class="group">
                                         <label for="login1" class="label">Username</label>
                                         <input id="login1" ng-model="login1"  ng-class="{'is-invalid': userForm.login1.$invalid && !userForm.login1.$pristine}"
                                                name="login1" type="text" class="input" ng-required="true" placeholder="Username" />
                                         <div ng-show="!userForm.login1.$valid && userForm.login1.$dirty && !userForm.login1.$pristine" class="alert alert-danger" role="alert">
                                             Username obligatorio
                                         </div>
-                                    </div>
+                                    </div>-->
 
-                                    <div class="group">
+<!--                                    <div class="group">
                                         <label for="passAdmin" class="label">Password</label>
                                         <input id="passAdmin" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.passAdmin.$invalid && !userForm.passAdmin.$pristine}"
                                                name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Password"/>
@@ -42,7 +63,7 @@
                                         <div ng-show="!userForm.passAdmin.$valid && userForm.passAdmin.$dirty && !userForm.passAdmin.$pristine" class="alert alert-danger" role="alert">
                                             Password obligatorio
                                         </div>
-                                    </div>
+                                    </div>-->
 
                                     <!--                            <div class="group">
                                                                     <input id="check" type="checkbox" class="check" checked>

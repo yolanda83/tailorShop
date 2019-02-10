@@ -11,7 +11,7 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
         $scope.totalPages = 1;
         $scope.id = $routeParams.id;
         $scope.usuario = $routeParams.usuario;
-        $scope.titulo = "Lista de Deseos de " + $scope.usuario;
+        $scope.titulo = "Favoritos de " + $scope.usuario;
 
         if (!$routeParams.order) {
             $scope.orderURLServidor = "";

@@ -801,6 +801,27 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input {
     font-size: 45px;
 }
 
+
+.fotoAbout {
+    /*flex-grow: 0;*/
+    width: 200px;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    border-radius: 0px;
+}
+
+/*.fotoAbout .card-body {
+    margin: 0px !important;
+    text-align: center;
+}*/
+
+.fotoAbout img {
+    padding: 10px;
+    max-width: 100%;
+}
+
 /************ CARRITO ************/
 .fotoCarrito {
     width: 250px; 

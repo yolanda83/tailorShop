@@ -1,184 +1,197 @@
 <!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
 
-<div class="container-fluid p-0">
-    <div class="row no-gutters">
-        <div class="col-md-2"></div>
-        
-        <div class="col-md-8" style="margin-top: 50px;">
-            <div class="pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2"><i class="fas fa-user"></i> Usuarios</h1>  
-            </div>
-    
-            <div class="row no-gutters pb-4">
-                
-                <div class="col-md-6">
-                    <a href="/tailorShop/usuario/newAdmin/" class="btn btn-outline-info botonAdmin mr-3 px-4" role="button">Nuevo usuario</a>
-                    <a href="" role="button" class="btn btn-outline-info botonAdmin px-4" ng-click="resetOrder()">Reset order</a>
+<div class="row no-gutters">
+
+    <div role="main" class="col-md-12">
+
+        <div class="row no-gutters">
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+            <div class="col-md-8">
+                <div class="fondoCabecera mb-0">
+                    <div class="mb-0">Usuarios</div>
                 </div>
-
-                <!--Registros por pagina-->
-                <div class="col-md-6">
-                    <nav aria-label="RegistrosPorPagina" class="pag">
-                        <ul class="pagination" style="float: right;">
-                            <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page}}">10</a></li>
-                            <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page}}">50</a></li>
-                            <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page}}">100</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                
             </div>
-
-
-
-            <!--Tabla de contenidos-->
-            <!--<div class="row mx-auto">-->
-            <div class="table-responsive">
-                <table class="table table-hover text-center">
-                    <tr class="table-active">
-                        <th class="text-center">
-                            ID
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <button type="button" class="btn btn-light p-1 dropup " ng-click="ordena('id', 'asc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                                <button type="button" class="btn btn-light p-1" ng-click="ordena('id', 'desc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                            </div>
-                        </th>
-                        <th class="dni">
-                            DNI
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('dni', 'asc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                                <button type="button" class="btn btn-light p-1" ng-click="ordena('dni', 'desc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                            </div>
-                        </th>
-                        <th>
-                            Nombre
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('nombre', 'asc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                                <button type="button" class="btn btn-light p-1" ng-click="ordena('nombre', 'desc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                            </div>
-                        </th>
-                        <th>
-                            1r apellido
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">                                
-                                <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('ape1', 'asc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                                <button type="button" class="btn btn-light p-1" ng-click="ordena('ape1', 'desc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                            </div>
-                        </th>
-                        <th>
-                            2o apellido
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('ape2', 'asc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                                <button type="button" class="btn btn-light p-1" ng-click="ordena('ape2', 'desc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                            </div>
-                        </th>
-                        <th>
-                            Username
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('login', 'asc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                                <button type="button" class="btn btn-light p-1" ng-click="ordena('login', 'desc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                            </div>
-                        </th>
-                        <th>
-                            Tipo usuario
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('id_tipoUsuario', 'asc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                                <button type="button" class="btn btn-light p-1" ng-click="ordena('id_tipoUsuario', 'desc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                            </div>
-                        </th>
-                        <th>
-                            Facturas
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('id', 'asc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                                <button type="button" class="btn btn-light p-1" ng-click="ordena('id', 'desc')">
-                                    <i class="dropdown-toggle"></i>
-                                </button>
-                            </div>
-                        </th>
-                        <th style="text-align: center;">
-                            Acciones                            
-                        </th>
-                    </tr>
-                    <tr ng-repeat="fila in ajaxDataUsuarios">
-                        <td class="text-center">{{fila.id}}</td>
-                        <td>{{fila.dni}}</td>
-                        <td>{{fila.nombre}}</td>
-                        <td>{{fila.ape1}}</td>
-                        <td>{{fila.ape2}}</td>
-                        <td>{{fila.login}}</td>
-                        <!--<td>{{fila.id_tipoUsuario}}</td>-->
-                        <td><a href="{{'/tailorShop/tipousuario/view/' + fila.obj_tipoUsuario.id}}" class="enlaceColor">{{fila.obj_tipoUsuario.desc}}</a></td>
-                        <td class="text-center"><a href="{{'/tailorShop/factura/plist/50/1/' + fila.id + '/' + fila.login}}" class="enlaceColor">{{fila.numFacturas}}</a></td>
-                        <td>
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <a href="{{'/tailorShop/usuario/view/' + fila.id}}" class="btn btn-light fas fa-eye p-1 enlacefa" role="button"></a>
-                                <a href="{{'/tailorShop/usuario/edit/' + fila.id}}" class="btn btn-light fas fa-edit p-1 enlacefa" role="button"></a>
-                                <a href="{{'/tailorShop/usuario/remove/' + fila.id}}" class="btn btn-light fas fa-trash p-1 enlacefa" role="button"></a>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-
-            </div>
-            <!--</div>-->
-
-
-            <!--Paginacion vecindario-->     
-            <nav aria-label="paginacion">
-                <ul class="pagination justify-content-center py-5">
-
-                    <li class="page-item" ng-class="{'disabled': (page <= 1)}">
-                        <a class="page-link" href="usuario/plist/{{rpp}}/1/{{order}}"><span>&laquo;</span></a>
-                    </li>
-                    <li class="page-item" ng-class="{'disabled': (page <= 1)}">
-                        <a class="page-link" href="usuario/plist/{{rpp}}/{{page - 1}}/{{order}}"><span>&lsaquo;</span></a>
-                    </li>
-
-                    <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
-                        <a class="page-link" href="usuario/plist/{{rpp}}/{{p}}/{{order}}">{{p}}</a>
-                    </li>
-                    <li class="page-item"  ng-class="{'disabled':(page == totalPages)}">
-                        <a class="page-link" href="usuario/plist/{{rpp}}/{{page--1}}/{{order}}"><span>&rsaquo;</span></a>
-                    </li>
-                    <li class="page-item" ng-class="{'disabled':(page == totalPages)}">
-                        <a class="page-link" href="usuario/plist/{{rpp}}/{{totalPages}}/{{order}}"><span>&raquo;</span></a>
-                    </li>
-
-                </ul>
-            </nav>
-
+            <div class="col-md-2 fondoCabecera mb-0"></div>
         </div>
-        <div class="col-md-2"></div>
+        <div class="row no-gutters">
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8" style="margin-top: 50px;">
+<!--                <div class="pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2"><i class="fas fa-user"></i> Usuarios</h1>  
+                </div>-->
+
+                <div class="row no-gutters pb-4">
+
+                    <div class="col-md-6">
+                        <a href="/tailorShop/usuario/newAdmin/" class="btn btn-outline-info botonAdmin mr-3 px-4" role="button">Nuevo usuario</a>
+                        <a href="" role="button" class="btn btn-outline-info botonAdmin px-4" ng-click="resetOrder()">Reset order</a>
+                    </div>
+
+                    <!--Registros por pagina-->
+                    <div class="col-md-6">
+                        <nav aria-label="RegistrosPorPagina" class="pag">
+                            <ul class="pagination" style="float: right;">
+                                <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page}}">10</a></li>
+                                <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page}}">50</a></li>
+                                <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page}}">100</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+
+
+
+                <!--Tabla de contenidos-->
+                <!--<div class="row mx-auto">-->
+                <div class="table-responsive">
+                    <table class="table table-hover text-center">
+                        <tr class="table-active">
+                            <th class="text-center">
+                                ID
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <button type="button" class="btn btn-light p-1 dropup " ng-click="ordena('id', 'asc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-light p-1" ng-click="ordena('id', 'desc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                </div>
+                            </th>
+                            <th class="dni">
+                                DNI
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('dni', 'asc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-light p-1" ng-click="ordena('dni', 'desc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                </div>
+                            </th>
+                            <th>
+                                Nombre
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('nombre', 'asc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-light p-1" ng-click="ordena('nombre', 'desc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                </div>
+                            </th>
+                            <th>
+                                1r apellido
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">                                
+                                    <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('ape1', 'asc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-light p-1" ng-click="ordena('ape1', 'desc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                </div>
+                            </th>
+                            <th>
+                                2o apellido
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('ape2', 'asc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-light p-1" ng-click="ordena('ape2', 'desc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                </div>
+                            </th>
+                            <th>
+                                Username
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('login', 'asc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-light p-1" ng-click="ordena('login', 'desc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                </div>
+                            </th>
+                            <th>
+                                Tipo usuario
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('id_tipoUsuario', 'asc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-light p-1" ng-click="ordena('id_tipoUsuario', 'desc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                </div>
+                            </th>
+                            <th>
+                                Facturas
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <button type="button" class="btn btn-light p-1 dropup" ng-click="ordena('id', 'asc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-light p-1" ng-click="ordena('id', 'desc')">
+                                        <i class="dropdown-toggle"></i>
+                                    </button>
+                                </div>
+                            </th>
+                            <th style="text-align: center;">
+                                Acciones                            
+                            </th>
+                        </tr>
+                        <tr ng-repeat="fila in ajaxDataUsuarios">
+                            <td class="text-center">{{fila.id}}</td>
+                            <td>{{fila.dni}}</td>
+                            <td>{{fila.nombre}}</td>
+                            <td>{{fila.ape1}}</td>
+                            <td>{{fila.ape2}}</td>
+                            <td>{{fila.login}}</td>
+                            <!--<td>{{fila.id_tipoUsuario}}</td>-->
+                            <td><a href="{{'/tailorShop/tipousuario/view/' + fila.obj_tipoUsuario.id}}" class="enlaceColor">{{fila.obj_tipoUsuario.desc}}</a></td>
+                            <td class="text-center"><a href="{{'/tailorShop/factura/plist/50/1/' + fila.id + '/' + fila.login}}" class="enlaceColor">{{fila.numFacturas}}</a></td>
+                            <td>
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <a href="{{'/tailorShop/usuario/view/' + fila.id}}" class="btn btn-light fas fa-eye p-1 enlacefa" role="button"></a>
+                                    <a href="{{'/tailorShop/usuario/edit/' + fila.id}}" class="btn btn-light fas fa-edit p-1 enlacefa" role="button"></a>
+                                    <a href="{{'/tailorShop/usuario/remove/' + fila.id}}" class="btn btn-light fas fa-trash p-1 enlacefa" role="button"></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <!--</div>-->
+
+
+                <!--Paginacion vecindario-->     
+                <nav aria-label="paginacion">
+                    <ul class="pagination justify-content-center py-5">
+
+                        <li class="page-item" ng-class="{'disabled': (page <= 1)}">
+                            <a class="page-link" href="usuario/plist/{{rpp}}/1/{{order}}"><span>&laquo;</span></a>
+                        </li>
+                        <li class="page-item" ng-class="{'disabled': (page <= 1)}">
+                            <a class="page-link" href="usuario/plist/{{rpp}}/{{page - 1}}/{{order}}"><span>&lsaquo;</span></a>
+                        </li>
+
+                        <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
+                            <a class="page-link" href="usuario/plist/{{rpp}}/{{p}}/{{order}}">{{p}}</a>
+                        </li>
+                        <li class="page-item"  ng-class="{'disabled':(page == totalPages)}">
+                            <a class="page-link" href="usuario/plist/{{rpp}}/{{page--1}}/{{order}}"><span>&rsaquo;</span></a>
+                        </li>
+                        <li class="page-item" ng-class="{'disabled':(page == totalPages)}">
+                            <a class="page-link" href="usuario/plist/{{rpp}}/{{totalPages}}/{{order}}"><span>&raquo;</span></a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
     </div>
 </div>
 <!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
