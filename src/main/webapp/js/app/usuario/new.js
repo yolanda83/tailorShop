@@ -64,12 +64,12 @@ moduleUsuario.controller('usuarioNewController', [
             var foto = 'fotoUser.png';
 
             var json = {
-//                dni: $scope.dni,
+                dni: $scope.dni,
                 nombre: $scope.nombre,
                 ape1: $scope.ape1,
                 ape2: $scope.ape2,
                 foto: foto,
-//                login: $scope.loginUser,
+                login: $scope.loginUser,
                 pass: forge_sha256($scope.pass2),
                 id_tipoUsuario: 2
             }
@@ -85,7 +85,7 @@ moduleUsuario.controller('usuarioNewController', [
                 $scope.new = true;
 //                $scope.showAlert('Registro', 'Usuario creado correctamente. Inicia sesion.');
                 $scope.radiob = "tab-1";
-                $scope.usuCreado = "Usuario creado correctamente. Inicia sesión.";
+                $scope.usuCreado = "Usuario creado correctamente. Inicia sesion.";
             }), function (response) {
                 $scope.ajaxDataUsuario = response.data.message || 'Request failed';
                 $scope.status = response.status;

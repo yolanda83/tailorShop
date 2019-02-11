@@ -1,59 +1,70 @@
 <!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
 
-<div class="container-fluid p-0">
-    <div class="row no-gutters">
-        <div class="col-md-2"></div>
-        
-        <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 225px;">
-            <div class="row no-gutters">
-                <div class="col-md-12">
-                    <div class="d-flex justify-content-between flex-wrap align-items-center py-3 px-4 border-bottom tituloView">
-                        <h4 class="mb-0">View Usuario </h4>
-                        <i class="fas fa-user fa-2x"></i>
-                    </div>
+<div class="row no-gutters">
+
+    <div role="main" class="col-md-12">
+
+        <div class="row no-gutters">
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+            <div class="col-md-8">
+                <div class="fondoCabecera mb-0">
+                    <div class="mb-0">View usuario</div>
                 </div>
             </div>
-            
-            <div class="row no-gutters mt-0 pb-4">
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="mx-auto fotoPerfil pt-4">
-                            <img ng-src="http://localhost:8081/imagenes/{{ajaxData.foto}}">
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 225px;">
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="py-1 tituloView">                    
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-8">
-                    <div class="mx-auto pt-4">
-                        <p class="profileName text-capitalize">
-                            {{ajaxData.nombre}}                     
-                            {{ajaxData.ape1}} {{ajaxData.ape2}}
-                        </p>
-                        <p class="profileLogin">
-                            Username: {{ajaxData.login}}                                
-                        </p>
-                        <p class="profileDatos" ng-show="admin">
-                            Tipo de usuario:
-                            <a href="{{'/tailorShop/tipousuario/view/' + ajaxData.obj_tipoUsuario.id}}" class="enlaceColor">{{ajaxData.obj_tipoUsuario.desc}}</a>
-                        </p>
-                        <p class="profileDatos">
-                            {{ajaxData.dni}}                            
-                        </p>
-            
-                        <div class="mt-5">
-                             <a href="{{'/tailorShop/usuario/edit/' + ajaxData.id}}" class="btn px-4 mr-3 btn-info" role="button">Editar</a>
-                            <!--<button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>-->
-                            <button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>
+                <div class="row no-gutters mt-0 pb-4">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="mx-auto fotoPerfil pt-4">
+                                <img ng-src="http://localhost:8081/imagenes/{{ajaxData.foto}}">
+                            </div>
                         </div>
                     </div>
 
+                    <div class="col-md-8">
+                        <div class="mx-auto pt-4">
+                            <p class="profileName text-capitalize">
+                                {{ajaxData.nombre}}                     
+                                {{ajaxData.ape1}} {{ajaxData.ape2}}
+                            </p>
+                            <p class="profileLogin">
+                                Username: {{ajaxData.login}}                                
+                            </p>
+                            <p class="profileDatos" ng-show="admin">
+                                Tipo de usuario:
+                                <a href="{{'/tailorShop/tipousuario/view/' + ajaxData.obj_tipoUsuario.id}}" class="enlaceColor">{{ajaxData.obj_tipoUsuario.desc}}</a>
+                            </p>
+                            <p class="profileDatos">
+                                {{ajaxData.dni}}                            
+                            </p>
 
+                            <div class="mt-5">
+                                <a href="{{'/tailorShop/usuario/edit/' + ajaxData.id}}" class="btn px-4 mr-3 btn-info" role="button">Editar</a>
+                                <!--<button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>-->
+                                <button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="col-md-2"></div>
     </div>
-    <div class="col-md-2"></div>
 </div>
 
 <!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->

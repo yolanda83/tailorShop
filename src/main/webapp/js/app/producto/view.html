@@ -1,51 +1,62 @@
 <!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
 
-<div class="container-fluid p-0">
-    <div class="row no-gutters">
-        <div class="col-md-2"></div>
+<div class="row no-gutters">
 
-        <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 100px;">
-            <div class="row no-gutters">
-                <div class="col-md-12">
-                    <div class="d-flex justify-content-between flex-wrap align-items-center py-3 px-4 border-bottom tituloView">
-                        <h4 class="mb-0">View Producto </h4>
-                        <i class="fas fa-archive fa-2x"></i>
-                    </div>
+    <div role="main" class="col-md-12">
+
+        <div class="row no-gutters">
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+            <div class="col-md-8">
+                <div class="fondoCabecera mb-0">
+                    <div class="mb-0">View producto</div>
                 </div>
             </div>
- 
-            <div class="row no-gutters mt-0 pb-4">
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="mx-auto fotoPerfil pt-4">
-                            <img ng-src="http://localhost:8081/imagenes/{{ajaxData.foto}}">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-8">
-                    <div class="mx-auto pt-4">
-                        <p class="profileName text-capitalize">{{ajaxData.desc}}</p>
-                        <p class="profileLogin">
-                            Tipo producto:
-                            <a href="{{'/tailorShop/tipoproducto/view/' + ajaxData.obj_tipoProducto.id}}" class="enlaceColor">{{ajaxData.obj_tipoProducto.desc}}</a>
-                        </p>                        
-                        <!--<p class="profileDatos">Id: {{ajaxData.id}}</p>-->
-                        <p class="profileDatos">Codigo: {{ajaxData.codigo}}</p>
-                        <p class="profileDatos">Existencias: {{ajaxData.existencias}}</p>
-                        <p class="profileDatos">Novedad: {{novedad}}</p>
-                        <p class="profileDatos">Precio: {{ajaxData.precio}} €</p>
-
-                        <div class="mt-5">
-                            <button class="btn btn-outline-info botonAdmin px-4 ml-0" onClick="javascript:history.go(-1);">Volver</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="col-md-2 fondoCabecera mb-0"></div>
         </div>
+        <div class="row no-gutters">
+            <div class="col-md-2"></div>
 
-        <div class="col-md-2"></div>
+            <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 100px;">
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="py-1 tituloView">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row no-gutters mt-0 pb-4">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="mx-auto fotoPerfil pt-4">
+                                <img ng-src="http://localhost:8081/imagenes/{{ajaxData.foto}}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="mx-auto pt-4">
+                            <p class="profileName text-capitalize">{{ajaxData.desc}}</p>
+                            <p class="profileLogin">
+                                Tipo producto:
+                                <a href="{{'/tailorShop/tipoproducto/view/' + ajaxData.obj_tipoProducto.id}}" class="enlaceColor">{{ajaxData.obj_tipoProducto.desc}}</a>
+                            </p>                        
+                            <!--<p class="profileDatos">Id: {{ajaxData.id}}</p>-->
+                            <p class="profileDatos">Codigo: {{ajaxData.codigo}}</p>
+                            <p class="profileDatos">Existencias: {{ajaxData.existencias}}</p>
+                            <p class="profileDatos">Novedad: {{novedad}}</p>
+                            <p class="profileDatos">Precio: {{ajaxData.precio}} €</p>
+
+                            <div class="mt-5">
+                                <button class="btn btn-outline-info botonAdmin px-4 ml-0" onClick="javascript:history.go(-1);">Volver</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2"></div>
+        </div>
     </div>
 </div>
 

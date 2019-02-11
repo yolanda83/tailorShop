@@ -1,69 +1,80 @@
 <!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
 
-<div class="container-fluid p-0">
-    <div class="row no-gutters">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 180px;">
-            <div class="row no-gutters">
-                <div class="col-md-12">
-                    <div class="d-flex justify-content-between flex-wrap align-items-center py-3 px-4 border-bottom tituloView">
-                        <h4 class="mb-0">Editar Factura</h4>
-                        <i class="fas fa-file-invoice fa-2x"></i>
-                    </div>
+<div class="row no-gutters">
 
-                    <div class="col-6 mx-auto">
-                        <form name="userForm" class="p-5 pb-3 mt-0 mb-0 mx-auto" ng-show="!edit"
-                              style="margin-top: 60px; background-color: WHITESMOKE; border-radius: 7px"> 
+    <div role="main" class="col-md-12">
 
-                            <div class="form-group"> 
-                                <label for="id" class="col-form-label">Id</label>
-                                <input ng-model="id" class="form-control" name="id" type="text" ng-disabled="true" />
-                            </div>
+        <div class="row no-gutters">
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+            <div class="col-md-8">
+                <div class="fondoCabecera mb-0">
+                    <div class="mb-0">Editar factura</div>
+                </div>
+            </div>
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 180px;">
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="py-1 tituloView">
+                        </div>
 
-                            <div class="form-group"> 
-                                <label for="fecha" class="col-form-label">Fecha</label>
-                                <input ng-model="fecha" class="form-control" name="fecha" type="text" ng-disabled="true" />
-                            </div>
+                        <div class="col-6 mx-auto">
+                            <form name="userForm" class="p-5 pb-3 mt-0 mb-0 mx-auto" ng-show="!edit"
+                                  style="margin-top: 60px; background-color: WHITESMOKE; border-radius: 7px"> 
 
-                            <div class="form-group"> 
-                                <label for="iva" class="col-form-label">IVA</label>
-                                <input ng-model="iva" class="form-control" name="iva" type="text" ng-required="true" />
-                                <div ng-show="!userForm.iva.$valid" class="alert alert-danger" role="alert">
-                                    IVA obligatorio
+                                <div class="form-group"> 
+                                    <label for="id" class="col-form-label">Id</label>
+                                    <input ng-model="id" class="form-control" name="id" type="text" ng-disabled="true" />
                                 </div>
-                            </div>
 
-                            <div class="form-group"> 
-                                <label for="user" class="col-form-label">Usuario</label>
-                                <input ng-model="user" class="form-control" name="user" type="text" ng-disabled="true" />
-                            </div>
+                                <div class="form-group"> 
+                                    <label for="fecha" class="col-form-label">Fecha</label>
+                                    <input ng-model="fecha" class="form-control" name="fecha" type="text" ng-disabled="true" />
+                                </div>
 
-                            <div class="d-flex justify-content-between flex-wrap">
-                                <button ng-click="guardar()" class="btn btn-info mt-2 ml-0">Guardar</button>
-                                <button class="btn botonAdmin mt-2" onClick="javascript:history.go(-1);">Volver</button>
-                            </div>
-                        </form>
-                    </div>
+                                <div class="form-group"> 
+                                    <label for="iva" class="col-form-label">IVA</label>
+                                    <input ng-model="iva" class="form-control" name="iva" type="text" ng-required="true" />
+                                    <div ng-show="!userForm.iva.$valid" class="alert alert-danger" role="alert">
+                                        IVA obligatorio
+                                    </div>
+                                </div>
+
+                                <div class="form-group"> 
+                                    <label for="user" class="col-form-label">Usuario</label>
+                                    <input ng-model="user" class="form-control" name="user" type="text" ng-disabled="true" />
+                                </div>
+
+                                <div class="d-flex justify-content-between flex-wrap">
+                                    <button ng-click="guardar()" class="btn btn-info mt-2 ml-0">Guardar</button>
+                                    <button class="btn botonAdmin mt-2" onClick="javascript:history.go(-1);">Volver</button>
+                                </div>
+                            </form>
+                        </div>
 
 
-                    <div class="row" ng-show="edit">
-                        <div class="col-12">
-                            <div class="card mx-auto" style="margin-top: 100px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
-                                <div class="card-body">
-                                    <h4 class="card-title" style="text-align: center;">La factura ha sido editada correctamente.</h4>
-                                    <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
-                                        <button type="button" class="btn btn-secondary" onclick="window.history.back()">Volver</button>
+                        <div class="row" ng-show="edit">
+                            <div class="col-12">
+                                <div class="card mx-auto" style="margin-top: 100px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
+                                    <div class="card-body">
+                                        <h4 class="card-title" style="text-align: center;">La factura ha sido editada correctamente.</h4>
+                                        <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
+                                            <button type="button" class="btn btn-secondary" onclick="window.history.back()">Volver</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
+            <div class="col-md-2"></div>
         </div>
-        <div class="col-md-2"></div>
     </div>
 </div>
 

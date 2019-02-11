@@ -1,150 +1,161 @@
 <!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
 
-<div class="container-fluid p-0">
-    <div class="row no-gutters">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 edit pt-0" style="margin-top: 50px;">
+<div class="row no-gutters">
 
-            <div class="row no-gutters">
-                <div class="col-md-12">
-                    <div class="d-flex justify-content-between flex-wrap align-items-center py-3 px-4 border-bottom tituloView">
-                        <h4 class="mb-0">New Usuario (Administrador)</h4>
-                        <i class="fas fa-user fa-2x"></i>
-                    </div>
+    <div role="main" class="col-md-12">
 
-                    <form name="userForm" class="mx-auto" ng-show="!new">
-                        <div class="row no-gutters">
+        <div class="row no-gutters">
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+            <div class="col-md-8">
+                <div class="fondoCabecera mb-0">
+                    <div class="mb-0">Nuevo Usuario <small>(Administrador)</small></div>
+                </div>
+            </div>
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 edit pt-0" style="margin-top: 50px;">
 
-                            <div class="col-md-4 pl-3">
-                                <div class="row">
-                                    <div class="col-md-12 mx-auto pt-5">
-                                        <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload">                   
-                                            <img ng-model="foto" id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="py-1 tituloView">
+                        </div>
+
+                        <form name="userForm" class="mx-auto" ng-show="!new">
+                            <div class="row no-gutters">
+
+                                <div class="col-md-4 pl-3">
+                                    <div class="row">
+                                        <div class="col-md-12 mx-auto pt-5">
+                                            <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload">                   
+                                                <img ng-model="foto" id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
+                                            </div>
+                                        </div>
+                                        <!--                            <div class="row">
+                                                                        <div class="mx-auto">
+                                                                            ARREGLO EN UNA LINEA DE PREVIEW DE NUEVA FOTO
+                                                                            <input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto">                 
+                                                                        </div>
+                                                                    </div>-->
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 pr-4 pb-4 pt-4">
+                                    <div class="form-group"> 
+                                        <div class="form-group">
+                                            <label for="dni" class="col-form-label">DNI:</label>
+                                            <input id="dni" ng-model="dni" class="form-control" ng-class="{'is-invalid': userForm.dni.$invalid && !userForm.dni.$pristine}"
+                                                   name="dni" type="text" ng-required="true" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/" 
+                                                   placeholder="Introduce un DNI..."/>
+                                            <div ng-show="userForm.dni.$error.pattern" class="alert alert-danger" role="alert">
+                                                Formato DNI no valido
+                                            </div>
+                                            <div ng-show="!userForm.dni.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
+                                                DNI obligatorio
+                                            </div>
                                         </div>
                                     </div>
-                                    <!--                            <div class="row">
-                                                                    <div class="mx-auto">
-                                                                        ARREGLO EN UNA LINEA DE PREVIEW DE NUEVA FOTO
-                                                                        <input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto">                 
-                                                                    </div>
-                                                                </div>-->
-                                </div>
-                            </div>
 
-                            <div class="col-md-6 pr-4 pb-4 pt-4">
-                                <div class="form-group"> 
+                                    <div class="form-group"> 
+                                        <label for="nombre" class="col-form-label">Nombre:</label>
+                                        <input id="nombre" ng-model="nombre" class="form-control" ng-class="{'is-invalid': userForm.nombre.$invalid && !userForm.nombre.$pristine}"
+                                               name="nombre" type="text" ng-required="true" placeholder="Introduce un nombre..." />
+                                        <div ng-show="!userForm.nombre.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
+                                            Nombre obligatorio
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group"> 
+                                        <label for="ape1" class="col-form-label">1r apellido:</label>
+                                        <input id="ape1" ng-model="ape1" class="form-control" ng-class="{'is-invalid': userForm.ape1.$invalid && !userForm.ape1.$pristine}"
+                                               name="ape1" type="text" ng-required="true" placeholder="Introduce un apellido..." />
+                                        <div ng-show="!userForm.ape1.$valid && userForm.ape1.$dirty && !userForm.ape1.$pristine" class="alert alert-danger" role="alert">
+                                            Apellido obligatorio
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group"> 
+                                        <label for="ape2" class="col-form-label">2o apellido:</label>
+                                        <input ng-model="ape2" class="form-control" ng-class="{'is-invalid': userForm.ape2.$invalid && !userForm.ape2.$pristine}"
+                                               name="ape2" type="text" ng-required="true" placeholder="Introduce un apellido..." />
+                                        <div ng-show="!userForm.ape2.$valid && userForm.ape2.$dirty && !userForm.ape2.$pristine" class="alert alert-danger" role="alert">
+                                            Apellido obligatorio
+                                        </div>
+                                    </div>
+
+
                                     <div class="form-group">
-                                        <label for="dni" class="col-form-label">DNI:</label>
-                                        <input id="dni" ng-model="dni" class="form-control" ng-class="{'is-invalid': userForm.dni.$invalid && !userForm.dni.$pristine}"
-                                               name="dni" type="text" ng-required="true" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/" 
-                                               placeholder="Introduce un DNI..."/>
-                                        <div ng-show="userForm.dni.$error.pattern" class="alert alert-danger" role="alert">
-                                            Formato DNI no valido
-                                        </div>
-                                        <div ng-show="!userForm.dni.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
-                                            DNI obligatorio
-                                        </div>
-                                    </div>
-                                </div>
+                                        <label for="passAdmin">Password:</label>
+                                        <input id="passAdmin" type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"
+                                               name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce una contraseña..."/>
 
-                                <div class="form-group"> 
-                                    <label for="nombre" class="col-form-label">Nombre:</label>
-                                    <input id="nombre" ng-model="nombre" class="form-control" ng-class="{'is-invalid': userForm.nombre.$invalid && !userForm.nombre.$pristine}"
-                                           name="nombre" type="text" ng-required="true" placeholder="Introduce un nombre..." />
-                                    <div ng-show="!userForm.nombre.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
-                                        Nombre obligatorio
-                                    </div>
-                                </div>
-
-                                <div class="form-group"> 
-                                    <label for="ape1" class="col-form-label">1r apellido:</label>
-                                    <input id="ape1" ng-model="ape1" class="form-control" ng-class="{'is-invalid': userForm.ape1.$invalid && !userForm.ape1.$pristine}"
-                                           name="ape1" type="text" ng-required="true" placeholder="Introduce un apellido..." />
-                                    <div ng-show="!userForm.ape1.$valid && userForm.ape1.$dirty && !userForm.ape1.$pristine" class="alert alert-danger" role="alert">
-                                        Apellido obligatorio
-                                    </div>
-                                </div>
-
-                                <div class="form-group"> 
-                                    <label for="ape2" class="col-form-label">2o apellido:</label>
-                                    <input ng-model="ape2" class="form-control" ng-class="{'is-invalid': userForm.ape2.$invalid && !userForm.ape2.$pristine}"
-                                           name="ape2" type="text" ng-required="true" placeholder="Introduce un apellido..." />
-                                    <div ng-show="!userForm.ape2.$valid && userForm.ape2.$dirty && !userForm.ape2.$pristine" class="alert alert-danger" role="alert">
-                                        Apellido obligatorio
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="passAdmin">Password:</label>
-                                    <input id="passAdmin" type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"
-                                           name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce una contraseña..."/>
-
-                                    <!--            <div ng-show="userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
-                                                    La longitud de la constraseña es demasiado corta, introduce 6 carácteres mínimo
-                                                </div>-->
-                                    <div ng-show="!userForm.pass.$valid && userForm.pass.$dirty && !userForm.pass.$pristine" class="alert alert-danger" role="alert">
-                                        Contraseña obligatoria
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group"> 
-                                    <label for="loginAdmin" class="col-form-label">Username:</label>
-                                    <input id="loginAdmmin" type="text" class="form-control"  ng-class="{'is-invalid': userForm.loginAdmmin.$invalid && !userForm.loginAdmmin.$pristine}"
-                                           name="loginAdmin" ng-model="loginAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce nombre usuario..."/>
-
-                                    <div ng-show="userForm.loginAdmmin.$error.minlength" class="alert alert-danger" role="alert">
-                                        La longitud del login es demasiado corto
-                                    </div>           
-                                    <div ng-show="!userForm.loginAdmmin.$valid && userForm.loginAdmmin.$dirty && !userForm.loginAdmmin.$pristine" class="alert alert-danger" role="alert">
-                                        Nombre usuario obligatorio
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Tipo Usuario</label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="obj_tipoUsuario.desc" name="obj_tipoUsuario.desc" ng-model="obj_tipoUsuario.desc"
-                                               ng-click="modal()" disabled/>
-                                        <div class="input-group-append">
-                                            <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cadd-location-modal">
-                                                <i class="fas fa-search"></i>
-                                            </button>
+                                        <!--            <div ng-show="userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
+                                                        La longitud de la constraseña es demasiado corta, introduce 6 carácteres mínimo
+                                                    </div>-->
+                                        <div ng-show="!userForm.pass.$valid && userForm.pass.$dirty && !userForm.pass.$pristine" class="alert alert-danger" role="alert">
+                                            Contraseña obligatoria
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="d-flex justify-content-between flex-wrap">
-                                    <button ng-click="guardar()" class="btn btn-info mt-2 ml-0">Guardar</button>
-                                    <button class="btn botonAdmin mt-2" onClick="javascript:history.go( - 1);">Volver</button>
+
+                                    <div class="form-group"> 
+                                        <label for="loginAdmin" class="col-form-label">Username:</label>
+                                        <input id="loginAdmmin" type="text" class="form-control"  ng-class="{'is-invalid': userForm.loginAdmmin.$invalid && !userForm.loginAdmmin.$pristine}"
+                                               name="loginAdmin" ng-model="loginAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce nombre usuario..."/>
+
+                                        <div ng-show="userForm.loginAdmmin.$error.minlength" class="alert alert-danger" role="alert">
+                                            La longitud del login es demasiado corto
+                                        </div>           
+                                        <div ng-show="!userForm.loginAdmmin.$valid && userForm.loginAdmmin.$dirty && !userForm.loginAdmmin.$pristine" class="alert alert-danger" role="alert">
+                                            Nombre usuario obligatorio
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Tipo Usuario</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" id="obj_tipoUsuario.desc" name="obj_tipoUsuario.desc" ng-model="obj_tipoUsuario.desc"
+                                                   ng-click="modal()" disabled/>
+                                            <div class="input-group-append">
+                                                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cadd-location-modal">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between flex-wrap">
+                                        <button ng-click="guardar()" class="btn btn-info mt-2 ml-0">Guardar</button>
+                                        <button class="btn botonAdmin mt-2" onClick="javascript:history.go( - 1);">Volver</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
 
 
-                    <div class="row" ng-show="new">
-                        <div class="col-12">
-                            <div class="card mx-auto" style="margin-top: 100px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
-                                <div class="card-body">
-                                    <h4 class="card-title" style="text-align: center;">{{resultado}}</h4>
-                                    <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
-                                        <button type="button" class="btn btn-info" onclick="window.history.back()">Volver</button>
+                        <div class="row" ng-show="new">
+                            <div class="col-12">
+                                <div class="card mx-auto" style="margin-top: 100px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
+                                    <div class="card-body">
+                                        <h4 class="card-title" style="text-align: center;">{{resultado}}</h4>
+                                        <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
+                                            <button type="button" class="btn btn-info" onclick="window.history.back()">Volver</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
+
+
 
                 </div>
-
-
-
             </div>
+            <div class="col-md-2"></div>
         </div>
-        <div class="col-md-2"></div>
     </div>
 </div>
 

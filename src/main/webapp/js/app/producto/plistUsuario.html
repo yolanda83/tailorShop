@@ -1,97 +1,109 @@
 <!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
 
-<div class="container-fluid">
-    <div class="row no-gutters">
-        <div class="col-md-2"></div>
+<div class="row no-gutters">
 
-        <div class="col-md-8" style="margin-top: 50px;">
-            <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2"><i class="fas fa-archive"></i> {{titulo}}</h1>
+    <div role="main" class="col-md-12">
 
-            </div>
-
-            <div class="btn-toolbar mb-2 d-flex justify-content-end">
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">               
-
-                    <!--Registros por pagina-->
-                    <div>
-                        <nav aria-label="RegistrosPorPagina">
-                            <ul class="pagination" style="float: right;">
-                                <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page + '/' + tipo}}">10</a></li>
-                                <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page + '/' + tipo}}">50</a></li>
-                                <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page + '/' + tipo}}">100</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-
-
+        <div class="row no-gutters">
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+            <div class="col-md-8">
+                <div class="fondoCabecera mb-0">
+                    <div class="mb-0">{{titulo}}</div>
                 </div>
             </div>
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8" style="margin-top: 50px;">
+<!--                <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2"><i class="fas fa-archive"></i> {{titulo}}</h1>
+                </div>-->
+
+                <div class="btn-toolbar mb-2 d-flex justify-content-end">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">               
+
+                        <!--Registros por pagina-->
+                        <div>
+                            <nav aria-label="RegistrosPorPagina">
+                                <ul class="pagination" style="float: right;">
+                                    <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page + '/' + tipo}}">10</a></li>
+                                    <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page + '/' + tipo}}">50</a></li>
+                                    <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page + '/' + tipo}}">100</a></li>
+                                </ul>
+                            </nav>
+                        </div>
 
 
-            <!--Tabla de contenidos-->   
-            <div class="row d-flex justify-content-between">
+                    </div>
+                </div>
 
-                <!--<div class="hvr-border-fade hvr-float-shadow product" style="width: 15rem; height: 22rem; margin: 5px; border-width: 0px; border-radius: 12px;" ng-repeat="producto in productos">-->
-                <div class="m-2 p-2" ng-repeat="producto in productos">
 
-                    <div class="card">
-                        <!--<img src="https://github.com/neel6762/Free-Code-Camp-Prdocuct-Landing-Page-/blob/master/src/img/choclatecard.jpg?raw=true" alt="choclate" class="card-img-top">-->
-                        <img ng-src="http://localhost:8081/imagenes/{{producto.producto.foto}}" alt="foto" class="card-img-top" style="width: 250px;" >
-                        <div class="card-body mx-auto">
-                            <h3 class="h5 card-title">{{producto.producto.desc}}</h3>
-                            <p class="card-text">Precio: {{producto.producto.precio}} €</p>
+                <!--Tabla de contenidos-->   
+                <div class="row d-flex justify-content-between">
 
-                            <div ng-show="producto.producto.existencias > 0">
-                                <button type="button" class="botonAdmin ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="save(producto, this)">
-                                    <i class="fas fa-shopping-cart"></i> Add cart</button>
-                                <button type="button" class="buttonFav ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="checkFav(producto, this)">
-                                    <i class="fas fa-heart"></i></button>
+                    <!--<div class="hvr-border-fade hvr-float-shadow product" style="width: 15rem; height: 22rem; margin: 5px; border-width: 0px; border-radius: 12px;" ng-repeat="producto in productos">-->
+                    <div class="m-2 p-2" ng-repeat="producto in productos">
 
-                            </div>
+                        <div class="card">
+                            <!--<img src="https://github.com/neel6762/Free-Code-Camp-Prdocuct-Landing-Page-/blob/master/src/img/choclatecard.jpg?raw=true" alt="choclate" class="card-img-top">-->
+                            <img ng-src="http://localhost:8081/imagenes/{{producto.producto.foto}}" alt="foto" class="card-img-top" style="width: 250px;" >
+                            <div class="card-body mx-auto">
+                                <h3 class="h5 card-title">{{producto.producto.desc}}</h3>
+                                <p class="card-text">Precio: {{producto.producto.precio}} €</p>
 
-                            <div class="row" ng-show="producto.producto.existencias <= 0">
-                                <div class="col-12">
-                                    <div class="alert alert-danger mb-0" style="border-radius: 5px" role="alert">
-                                        Sin existencias!
+                                <div ng-show="producto.producto.existencias > 0">
+                                    <button type="button" class="botonAdmin ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="save(producto, this)">
+                                        <i class="fas fa-shopping-cart"></i> Add cart</button>
+                                    <button type="button" class="buttonFav ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="checkFav(producto, this)">
+                                        <i class="fas fa-heart"></i></button>
+
+                                </div>
+
+                                <div class="row" ng-show="producto.producto.existencias <= 0">
+                                    <div class="col-12">
+                                        <div class="alert alert-danger mb-0" style="border-radius: 5px" role="alert">
+                                            Sin existencias!
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
-
                         </div>
-                    </div>
 
+                    </div>
                 </div>
+
+
+
+                <!--Paginacion vecindario-->     
+                <nav aria-label="paginacion">
+                    <ul class="pagination justify-content-center p-5">
+                        <li class="page-item" ng-class="{'disabled': (page <= 1)}">
+                            <a class="page-link" href="producto/plistUsuario/{{rpp}}/1/{{order}}{{tipo}}"><span>&laquo;</span></a>
+                        </li>
+                        <li class="page-item" ng-class="{'disabled': (page <= 1)}">
+                            <a class="page-link" href="producto/plistUsuario/{{rpp}}/{{page - 1}}/{{order}}{{tipo}}"><span>&lsaquo;</span></a>
+                        </li>
+
+                        <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
+                            <a class="page-link" href="producto/plistUsuario/{{rpp}}/{{p}}/{{order}}{{tipo}}">{{p}}</a>
+                        </li>
+                        <li class="page-item"  ng-class="{'disabled':(page == totalPages)}">
+                            <a class="page-link" href="producto/plistUsuario/{{rpp}}/{{page--1}}/{{order}}{{tipo}}"><span>&rsaquo;</span></a>
+                        </li>
+                        <li class="page-item" ng-class="{'disabled':(page == totalPages)}">
+                            <a class="page-link" href="producto/plistUsuario/{{rpp}}/{{totalPages}}/{{order}}{{tipo}}"><span>&raquo;</span></a>
+                        </li>                 
+                    </ul>
+                </nav>
+
             </div>
 
-
-
-            <!--Paginacion vecindario-->     
-            <nav aria-label="paginacion">
-                <ul class="pagination justify-content-center p-5">
-                    <li class="page-item" ng-class="{'disabled': (page <= 1)}">
-                        <a class="page-link" href="producto/plistUsuario/{{rpp}}/1/{{order}}{{tipo}}"><span>&laquo;</span></a>
-                    </li>
-                    <li class="page-item" ng-class="{'disabled': (page <= 1)}">
-                        <a class="page-link" href="producto/plistUsuario/{{rpp}}/{{page - 1}}/{{order}}{{tipo}}"><span>&lsaquo;</span></a>
-                    </li>
-
-                    <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
-                        <a class="page-link" href="producto/plistUsuario/{{rpp}}/{{p}}/{{order}}{{tipo}}">{{p}}</a>
-                    </li>
-                    <li class="page-item"  ng-class="{'disabled':(page == totalPages)}">
-                        <a class="page-link" href="producto/plistUsuario/{{rpp}}/{{page--1}}/{{order}}{{tipo}}"><span>&rsaquo;</span></a>
-                    </li>
-                    <li class="page-item" ng-class="{'disabled':(page == totalPages)}">
-                        <a class="page-link" href="producto/plistUsuario/{{rpp}}/{{totalPages}}/{{order}}{{tipo}}"><span>&raquo;</span></a>
-                    </li>                 
-                </ul>
-            </nav>
-
+            <div class="col-md-2"></div>
         </div>
-
-        <div class="col-md-2"></div>
     </div>
 </div>
 <!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->

@@ -2,40 +2,51 @@
 <header-component></header-component>
 
 
-<div class="container-fluid p-0">
-    <div class="row no-gutters">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 180px;">
-            <div class="row no-gutters">
-                <div class="col-md-12">
-                    <div class="d-flex justify-content-between flex-wrap align-items-center py-3 px-4 border-bottom tituloView">
-                        <h4 class="mb-0">View Tipo de Producto </h4>
-                        <i class="fas fa-boxes fa-2x"></i>                       
-                    </div>
+<div class="row no-gutters">
+
+    <div role="main" class="col-md-12">
+
+        <div class="row no-gutters">
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+            <div class="col-md-8">
+                <div class="fondoCabecera mb-0">
+                    <div class="mb-0">View tipo de producto</div>
+                </div>
+            </div>
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 120px;">
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="py-1 tituloView">                      
+                        </div>
 
 
-                    <div class="row mx-auto" style="padding: 50px; margin-top:10px;">
-                        <div class="col-md-10 mx-auto">
-                            <table class="table table-hover">
-                                <tr>
-                                    <th class="text-center">Id</th>
-                                    <th class="text-center">descripcion</th>             
-                                </tr>
-                                <tr>
-                                    <td class="text-center">{{ajaxData.id}}</td>
-                                    <td class="text-center">{{ajaxData.desc}}</td>
-                                </tr>
-                            </table>
+                        <div class="row mx-auto" style="padding: 50px; margin-top:10px;">
+                            <div class="col-md-10 mx-auto">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th class="text-center">Id</th>
+                                        <th class="text-center">descripcion</th>             
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">{{ajaxData.id}}</td>
+                                        <td class="text-center">{{ajaxData.desc}}</td>
+                                    </tr>
+                                </table>
 
-                            <div class="d-flex justify-content-center">
-                                <button class="btn botonAdmin ml-0 mt-4" onClick="javascript:history.go(-1);">Volver</button>
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn botonAdmin ml-0 mt-4" onClick="javascript:history.go(-1);">Volver</button>
+                                </div>
                             </div>
                         </div>
+
                     </div>
 
+                    <div class="col-md-2"></div>
                 </div>
-
-                <div class="col-md-2"></div>
             </div>
         </div>
     </div>

@@ -5,92 +5,103 @@
 
 
 
-<div class="container-fluid p-0">
-    <div class="row no-gutters">
-        <div class="col-md-2"></div>
+<div class="row no-gutters">
 
+    <div role="main" class="col-md-12">
 
-        <div class="col-md-8 view" style="margin-top: 50px;">
-
-            <div ng-show="!deleted">
-                <div class="row no-gutters">
-                    <div class="col-md-12">
-                        <div class="d-flex justify-content-between flex-wrap align-items-center py-3 px-4 border-bottom tituloView">
-                            <h4 class="mb-0">Borrar Usuario </h4>
-                            <i class="fas fa-user-times fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row no-gutters mt-0 pb-4">
-                    <div class="col-md-4">
-                        <!--<div class="form-group">-->
-                        <div class="row">
-                            <div class="mx-auto fotoPerfil pt-4">
-                                <img ng-src="http://localhost:8081/imagenes/{{ajaxData.foto}}">
-                            </div>
-                        </div>
-                        <!--</div>-->
-                    </div>
-
-                    <div class="col-md-8">
-                        <div class="mx-auto pt-4">
-                            <p class="profileName text-capitalize">
-                                {{ajaxData.nombre}}                     
-                                {{ajaxData.ape1}} {{ajaxData.ape2}}
-                            </p>
-                            <p class="profileLogin">
-                                Username: {{ajaxData.login}}                                
-                            </p>
-                            <p class="profileDatos" ng-show="admin">
-                                Tipo de usuario:
-                                <a href="{{'/tailorShop/tipousuario/view/' + ajaxData.obj_tipoUsuario.id}}" class="enlaceColor">{{ajaxData.obj_tipoUsuario.desc}}</a>
-                            </p>
-                            <p class="profileDatos">
-                                {{ajaxData.dni}}                            
-                            </p>
-
-                            <!--                            <div class="mt-5">
-                                                            <a href="{{'/tailorShop/usuario/edit/' + ajaxData.id}}" class="btn px-4 mr-3 btn-info" role="button">Editar</a>
-                                                            <button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>
-                                                            <button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>
-                                                        </div>-->
-                        </div>
-                    </div>
+        <div class="row no-gutters">
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+            <div class="col-md-8">
+                <div class="fondoCabecera mb-0">
+                    <div class="mb-0">Borrar usuario</div>
                 </div>
             </div>
-
-            <div class="row no-gutters" ng-show="!deleted">
-                <div class="col-12">
-                    <div class="card mx-auto">
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-align: center;">Desea eliminar el usuario?</h5>
-                            <div class="d-flex justify-content-center align-items-center pt-3 pb-2" role="alert">
-                                <button type="button" class="btn btn-info ml-0 mr-5" ng-click="eliminar()">Aceptar</button>
-                                <button type="button" class="btn botonAdmin ml-0" onclick="window.history.back()">Cancelar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row" ng-show="deleted">
-                <div class="col-12">
-                    <div class="vertical-centered-text mx-auto p-3 pb-2 mb-3" role="alert">
-                        <h4 style="text-align: center;">Usuario eliminado con éxito.</h4>
-                        <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-info mt-3 pt-2 ml-0" onclick="window.history.back()">Volver</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
+            <div class="col-md-2 fondoCabecera mb-0"></div>
         </div>
-        <div class="col-md-2"></div>
-    </div>
+        <div class="row no-gutters">
+            <div class="col-md-2"></div>
 
+
+            <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 100px;">
+
+                <div ng-show="!deleted">
+                    <div class="row no-gutters">
+                        <div class="col-md-12">
+                            <div class="py-1 tituloView">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row no-gutters mt-0 pb-4">
+                        <div class="col-md-4">
+                            <!--<div class="form-group">-->
+                            <div class="row">
+                                <div class="mx-auto fotoPerfil pt-4">
+                                    <img ng-src="http://localhost:8081/imagenes/{{ajaxData.foto}}">
+                                </div>
+                            </div>
+                            <!--</div>-->
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="mx-auto pt-4">
+                                <p class="profileName text-capitalize">
+                                    {{ajaxData.nombre}}                     
+                                    {{ajaxData.ape1}} {{ajaxData.ape2}}
+                                </p>
+                                <p class="profileLogin">
+                                    Username: {{ajaxData.login}}                                
+                                </p>
+                                <p class="profileDatos" ng-show="admin">
+                                    Tipo de usuario:
+                                    <a href="{{'/tailorShop/tipousuario/view/' + ajaxData.obj_tipoUsuario.id}}" class="enlaceColor">{{ajaxData.obj_tipoUsuario.desc}}</a>
+                                </p>
+                                <p class="profileDatos">
+                                    {{ajaxData.dni}}                            
+                                </p>
+
+                                <!--                            <div class="mt-5">
+                                                                <a href="{{'/tailorShop/usuario/edit/' + ajaxData.id}}" class="btn px-4 mr-3 btn-info" role="button">Editar</a>
+                                                                <button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>
+                                                                <button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>
+                                                            </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row no-gutters" ng-show="!deleted">
+                    <div class="col-12">
+                        <div class="card mx-auto" style="border-radius:0px!important;">
+                            <div class="card-body">
+                                <h5 class="card-title" style="text-align: center;">Desea eliminar el usuario?</h5>
+                                <div class="d-flex justify-content-center align-items-center pt-3 pb-2" role="alert">
+                                    <button type="button" class="btn btn-info ml-0 mr-5" ng-click="eliminar()">Aceptar</button>
+                                    <button type="button" class="btn botonAdmin ml-0" onclick="window.history.back()">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" ng-show="deleted">
+                    <div class="col-12">
+                        <div class="vertical-centered-text mx-auto p-3 pb-2 mb-3" role="alert">
+                            <h4 style="text-align: center;">Usuario eliminado con éxito.</h4>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-info mt-3 pt-2 ml-0" onclick="window.history.back()">Volver</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+    </div>
 </div>
 
 
