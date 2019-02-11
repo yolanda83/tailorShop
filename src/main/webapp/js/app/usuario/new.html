@@ -4,36 +4,37 @@
 <div class="row no-gutters">
     <div class="col-md-12 px-4" style="margin-top: 10px;">
         <div class="row no-gutters">
-            <div class="col-md-6">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
                 <img class="imgForm" src="images/pru.jpg" alt="foto_fondo">
             </div>
-            <div class="col-md-6">
-                
+            <div class="col-md-4">
+
                 <!--<img class="imgForm" src="images/pru.jpg" alt="foto_fondo">-->
 
                 <div class="login-wrap">
                     <!--<form name="userForm">-->
                     <div class="login-html">
-                        <input ng-model="radiob" value="tab-1" id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab">INICIAR SESION</label>
-                        <input ng-model="radiob" value="tab-2" id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">REGISTRATE</label>
+                        <input ng-model="radiob" value="tab-1" id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab">INICIAR SESIÓN</label>
+                        <input ng-model="radiob" value="tab-2" id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">REGÍSTRATE</label>
 
                         <!-----------------------FORM LOGIN------------------------->
                         <div class="login-form">
                             <form name="userForm">
                                 <div class="sign-in-htm">
-                                    
+
                                     <md-input-container class="md-block">
                                         <label>Username</label>
-                                        <input required name="login1" ng-model="login1">
+                                        <input md-no-asterisk required name="login1" ng-model="login1">
 
                                         <div ng-messages="userForm.login1.$error">
                                             <div ng-message="required">Username obligatorio.</div>
                                         </div>
                                     </md-input-container>
-                                    
+
                                     <md-input-container class="md-block">
-                                        <label>Repite Password</label>
-                                        <input required type="password" name="passAdmin" ng-model="passAdmin"
+                                        <label>Password</label>
+                                        <input md-no-asterisk required type="password" name="passAdmin" ng-model="passAdmin"
                                                minlength="5" />                                    
 
                                         <div ng-messages="userForm.passAdmin.$error" role="alert">
@@ -43,27 +44,27 @@
                                         </div>
                                     </md-input-container>
 
-<!--                                    <div class="group">
-                                        <label for="login1" class="label">Username</label>
-                                        <input id="login1" ng-model="login1"  ng-class="{'is-invalid': userForm.login1.$invalid && !userForm.login1.$pristine}"
-                                               name="login1" type="text" class="input" ng-required="true" placeholder="Username" />
-                                        <div ng-show="!userForm.login1.$valid && userForm.login1.$dirty && !userForm.login1.$pristine" class="alert alert-danger" role="alert">
-                                            Username obligatorio
-                                        </div>
-                                    </div>-->
+                                    <!--                                    <div class="group">
+                                                                            <label for="login1" class="label">Username</label>
+                                                                            <input id="login1" ng-model="login1"  ng-class="{'is-invalid': userForm.login1.$invalid && !userForm.login1.$pristine}"
+                                                                                   name="login1" type="text" class="input" ng-required="true" placeholder="Username" />
+                                                                            <div ng-show="!userForm.login1.$valid && userForm.login1.$dirty && !userForm.login1.$pristine" class="alert alert-danger" role="alert">
+                                                                                Username obligatorio
+                                                                            </div>
+                                                                        </div>-->
 
-<!--                                    <div class="group">
-                                        <label for="passAdmin" class="label">Password</label>
-                                        <input id="passAdmin" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.passAdmin.$invalid && !userForm.passAdmin.$pristine}"
-                                               name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Password"/>
-
-                                        <div ng-show="userForm.passAdmin.$error.minlength" class="alert alert-danger" role="alert">
-                                            La longitud del password es demasiado corta, introduce 6 caracteres minimo
-                                        </div>
-                                        <div ng-show="!userForm.passAdmin.$valid && userForm.passAdmin.$dirty && !userForm.passAdmin.$pristine" class="alert alert-danger" role="alert">
-                                            Password obligatorio
-                                        </div>
-                                    </div>-->
+                                    <!--                                    <div class="group">
+                                                                            <label for="passAdmin" class="label">Password</label>
+                                                                            <input id="passAdmin" type="password" class="input" data-type="password" ng-class="{' is-invalid': userForm.passAdmin.$invalid && !userForm.passAdmin.$pristine}"
+                                                                                   name="passAdmin" ng-model="passAdmin" ng-required="true" ng-minlength="5" placeholder="Password"/>
+                                    
+                                                                            <div ng-show="userForm.passAdmin.$error.minlength" class="alert alert-danger" role="alert">
+                                                                                La longitud del password es demasiado corta, introduce 6 caracteres minimo
+                                                                            </div>
+                                                                            <div ng-show="!userForm.passAdmin.$valid && userForm.passAdmin.$dirty && !userForm.passAdmin.$pristine" class="alert alert-danger" role="alert">
+                                                                                Password obligatorio
+                                                                            </div>
+                                                                        </div>-->
 
                                     <!--                            <div class="group">
                                                                     <input id="check" type="checkbox" class="check" checked>
@@ -75,7 +76,8 @@
                                         <input type="submit" class="btn-info" value="Login" ng-click="log()">
                                     </div>
 
-                                    <div class="usucreado" ng-show="!usuCreado != null">{{usuCreado}}</div>
+                                    <!--<div class="usucreado" ng-show="!usuCreado != null">{{usuCreado}}</div>-->
+                                    <div class="usucreado text-center" ng-show="usuCreado">Usuario creado correctamente. <br> Inicia sesión.</div>
 
                                 </div>
                             </form>
@@ -86,7 +88,7 @@
 
                                     <md-input-container class="md-block">
                                         <label>DNI</label>
-                                        <input required type="text" name="dni" ng-model="dni"
+                                        <input md-no-asterisk required type="text" name="dni" ng-model="dni"
                                                maxlength="9" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/i" />                                    
 
                                         <div ng-messages="userForm.dni.$error" role="alert">
@@ -98,7 +100,7 @@
 
                                     <md-input-container class="md-block">
                                         <label>Username</label>
-                                        <input required name="loginUser" ng-model="loginUser">
+                                        <input md-no-asterisk required name="loginUser" ng-model="loginUser">
 
                                         <div ng-messages="userForm.loginUser.$error">
                                             <div ng-message="required">Username obligatorio.</div>
@@ -107,7 +109,7 @@
 
                                     <md-input-container class="md-block">
                                         <label>Nombre</label>
-                                        <input required name="nombre" ng-model="nombre">
+                                        <input md-no-asterisk required name="nombre" ng-model="nombre">
 
                                         <div ng-messages="userForm.nombre.$error">
                                             <div ng-message="required">Nombre obligatorio.</div>
@@ -116,7 +118,7 @@
 
                                     <md-input-container class="md-block">
                                         <label>1r Apellido</label>
-                                        <input required name="ape1" ng-model="ape1">
+                                        <input md-no-asterisk required name="ape1" ng-model="ape1">
 
                                         <div ng-messages="userForm.ape1.$error">
                                             <div ng-message="required">Apellido obligatorio.</div>
@@ -125,7 +127,7 @@
 
                                     <md-input-container class="md-block">
                                         <label>2o Apellido</label>
-                                        <input required name="ape2" ng-model="ape2">
+                                        <input md-no-asterisk required name="ape2" ng-model="ape2">
 
                                         <div ng-messages="userForm.ape2.$error">
                                             <div ng-message="required">Apellido obligatorio.</div>
@@ -133,21 +135,21 @@
                                     </md-input-container>
 
 
-<!--                                    <md-input-container class="md-block">
-                                        <label>Email</label>
-                                        <input required type="text" name="clientEmail" ng-model="clientEmail"
-                                               maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-
-                                        <div ng-messages="userForm.clientEmail.$error" role="alert">
-                                            <div ng-message-exp="['required', 'maxlength', 'pattern']">
-                                                Email incorrecto.
-                                            </div>
-                                        </div>
-                                    </md-input-container>-->
+                                    <!--                                    <md-input-container class="md-block">
+                                                                            <label>Email</label>
+                                                                            <input required type="text" name="clientEmail" ng-model="clientEmail"
+                                                                                   maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                                    
+                                                                            <div ng-messages="userForm.clientEmail.$error" role="alert">
+                                                                                <div ng-message-exp="['required', 'maxlength', 'pattern']">
+                                                                                    Email incorrecto.
+                                                                                </div>
+                                                                            </div>
+                                                                        </md-input-container>-->
 
                                     <md-input-container class="md-block">
                                         <label>Password</label>
-                                        <input required type="password" name="pass1" ng-model="pass1"
+                                        <input md-no-asterisk required type="password" name="pass1" ng-model="pass1"
                                                minlength="5" />                                    
 
                                         <div ng-messages="userForm.pass1.$error" role="alert">
@@ -159,7 +161,7 @@
 
                                     <md-input-container class="md-block">
                                         <label>Repite Password</label>
-                                        <input required type="password" name="pass2" ng-model="pass2"
+                                        <input md-no-asterisk required type="password" name="pass2" ng-model="pass2"
                                                minlength="5" />                                    
 
                                         <div ng-messages="userForm.pass2.$error" role="alert">
@@ -181,6 +183,7 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-2"></div>
         </div>
     </div>
 </div>

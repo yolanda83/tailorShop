@@ -9,7 +9,7 @@ moduleUsuario.controller('usuarioNewController', [
         $scope.numRegistros = 0;
         $scope.isActive = toolService.isActive;
         $scope.radiob = "tab-2";
-        $scope.usuCreado = null;
+        $scope.usuCreado = false;
         var self = this;
 
 
@@ -54,42 +54,46 @@ moduleUsuario.controller('usuarioNewController', [
 
         $scope.guardar = function () {
 
-//            var pass1 = forge_sha256($scope.pass1);
-//            var pass2 = forge_sha256($scope.pass2);
-//
-//            if (pass1 !== pass2) {
-//                $scope.showAlert('Error', 'Los passwords no coinciden.');
-//            }
-//
-            var foto = 'fotoUser.png';
+            var pass1 = forge_sha256($scope.pass1);
+            var pass2 = forge_sha256($scope.pass2);
 
-            var json = {
-                dni: $scope.dni,
-                nombre: $scope.nombre,
-                ape1: $scope.ape1,
-                ape2: $scope.ape2,
-                foto: foto,
-                login: $scope.loginUser,
-                pass: forge_sha256($scope.pass2),
-                id_tipoUsuario: 2
-            }
-            $http({
-                method: 'GET',
-                header: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=create',
-                params: {json: JSON.stringify(json)}
-            }).then(function (response) {
-                $scope.resultado = "Usuario creado correctamente.";
-                $scope.new = true;
+            if (pass1 !== pass2) {
+                $scope.showAlert('Error', 'Los passwords no coinciden.');
+                $scope.radiob = "tab-2";
+                $scope.usuCreado = false;
+            } else {
+
+                var foto = 'fotoUser.png';
+
+                var json = {
+                    dni: $scope.dni,
+                    nombre: $scope.nombre,
+                    ape1: $scope.ape1,
+                    ape2: $scope.ape2,
+                    foto: foto,
+                    login: $scope.loginUser,
+                    pass: forge_sha256($scope.pass2),
+                    id_tipoUsuario: 2
+                }
+                $http({
+                    method: 'GET',
+                    header: {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=create',
+                    params: {json: JSON.stringify(json)}
+                }).then(function (response) {
+                    $scope.resultado = "Usuario creado correctamente.";
+                    $scope.new = true;
 //                $scope.showAlert('Registro', 'Usuario creado correctamente. Inicia sesion.');
-                $scope.radiob = "tab-1";
-                $scope.usuCreado = "Usuario creado correctamente. Inicia sesion.";
-            }), function (response) {
-                $scope.ajaxDataUsuario = response.data.message || 'Request failed';
-                $scope.status = response.status;
-                $scope.resultado = "No se ha podido crear el usuario.";
+                    $scope.radiob = "tab-1";
+//                    $scope.usuCreado = "Usuario creado correctamente. Inicia sesion.";
+                    $scope.usuCreado = true;
+                }), function (response) {
+                    $scope.ajaxDataUsuario = response.data.message || 'Request failed';
+                    $scope.status = response.status;
+                    $scope.resultado = "No se ha podido crear el usuario.";
+                }
             }
         }
 
