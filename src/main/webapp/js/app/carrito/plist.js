@@ -157,6 +157,22 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
                 countcarritoService.updateCarrito();
                 if (response.data.status == 200 && response.data.message !== null) {
                     $scope.ajaxDataCarrito = response.data.message;
+                    var auxCant = 0;
+                    var auxPrecio = 0;
+                    var totalInicial = 0;
+
+                    if ($scope.ajaxDataCarrito.length != null && $scope.ajaxDataCarrito != "Unauthorized") {
+                        for (var i = 0; i < $scope.ajaxDataCarrito.length; i++) {
+                            auxCant = $scope.ajaxDataCarrito[i].cantidad;
+                            auxPrecio = $scope.ajaxDataCarrito[i].obj_producto.precio;
+
+                            totalInicial += auxCant * auxPrecio;
+                        }
+                    }
+                    $scope.total = Math.round(totalInicial * 100) / 100;
+                    $scope.total = $scope.total.toFixed(2);
+
+
                 } else if (response.data.status == 400) {
                     $scope.warning = response.data.message;
                 }
@@ -179,12 +195,26 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
                 console.log(response);
                 $scope.ajaxDataCarrito = response.data.message;
                 countcarritoService.updateCarrito();
-                if (response.data.status === 200) { //borrar el último producto que queda en el carrito
+
+                if ($scope.ajaxDataCarrito == null) { //borrar el último producto que queda en el carrito
 //                    $scope.warning = response.data.message;
                     $scope.compra = true;
                 } else {
 //                    $scope.warning = response.data.message;
-//añadir código para recalcular total
+                    var auxCant = 0;
+                    var auxPrecio = 0;
+                    var totalInicial = 0;
+
+                    if ($scope.ajaxDataCarrito.length != null && $scope.ajaxDataCarrito != "Unauthorized") {
+                        for (var i = 0; i < $scope.ajaxDataCarrito.length; i++) {
+                            auxCant = $scope.ajaxDataCarrito[i].cantidad;
+                            auxPrecio = $scope.ajaxDataCarrito[i].obj_producto.precio;
+
+                            totalInicial += auxCant * auxPrecio;
+                        }
+                    }
+                    $scope.total = Math.round(totalInicial * 100) / 100;
+                    $scope.total = $scope.total.toFixed(2);
                 }
 
             }), function (response) {
@@ -211,6 +241,26 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
                     $scope.warning = response.data.message;
                 } else if (response.data.status == 400) {
                     $scope.warning = response.data.message;
+                }
+
+                if ($scope.ajaxDataCarrito == null) {
+                    $scope.compra = true;
+                } else {
+                    //calculamos el total actualizado
+                    var auxCant = 0;
+                    var auxPrecio = 0;
+                    var totalInicial = 0;
+
+                    if ($scope.ajaxDataCarrito.length != null && $scope.ajaxDataCarrito != "Unauthorized") {
+                        for (var i = 0; i < $scope.ajaxDataCarrito.length; i++) {
+                            auxCant = $scope.ajaxDataCarrito[i].cantidad;
+                            auxPrecio = $scope.ajaxDataCarrito[i].obj_producto.precio;
+
+                            totalInicial += auxCant * auxPrecio;
+                        }
+                    }
+                    $scope.total = Math.round(totalInicial * 100) / 100;
+                    $scope.total = $scope.total.toFixed(2);
                 }
 
             }), function (response) {
