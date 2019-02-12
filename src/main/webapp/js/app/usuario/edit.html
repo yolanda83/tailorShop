@@ -32,20 +32,17 @@
                             </div>-->
 
                 <form name="userForm" ng-show="!edit"> 
-                    <div class="row no-gutters">
+                    <div class="row no-gutters mt-3 formEdit">
 
                         <div class="col-md-4 pl-3">
                             <div class="row">
-                                <div class="col-md-12 mx-auto pt-5">
-                                    <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload">
-                                        <!--                                    <label for="file-input">-->
+                                <div class="col-md-12 mx-auto pt-3">
+                                    <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload fotoEditar">
                                         <img ng-model="foto" class="mx-auto my-auto" id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
-                                        <!--                                    </label>-->
-                                        <!--<input id="file-input" type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>-->
                                     </div>
-                                    <!--      <label>                           -->
-                                    <!--<input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>-->
-                                    <!--      </label> -->
+                                    <label class="hiddenfile">                           
+                                        <input id="prueba" type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>
+                                    </label> 
                                 </div>
                             </div>
                             <!--                        <div class="row">
@@ -61,60 +58,110 @@
                                                     </div>-->
                         </div>
                         <div class="col-md-6 pr-4 pb-4 pt-4">
-                            <div class="form-group"> 
-                                <div class="form-group">
-                                    <label for="dni" class="col-form-label">DNI:</label>
-                                    <input id="dni" ng-model="dni" class="form-control" ng-class="{'is-invalid': userForm.dni.$invalid && !userForm.dni.$pristine}"
-                                           name="dni" type="text" ng-required="true" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/" 
-                                           placeholder="Introduce un DNI..."/>
-                                    <div ng-show="userForm.dni.$error.pattern" class="alert alert-danger" role="alert">
-                                        Formato DNI no valido
-                                    </div>
-                                    <div ng-show="!userForm.dni.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
-                                        DNI obligatorio
+
+                            <md-input-container class="md-block">
+                                <label>DNI</label>
+                                <input md-no-asterisk required type="text" name="dni" ng-model="dni"
+                                       maxlength="9" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/i" />                                    
+
+                                <div ng-messages="userForm.dni.$error" role="alert">
+                                    <div ng-message-exp="['required', 'maxlength', 'pattern']">
+                                        DNI incorrecto.
                                     </div>
                                 </div>
-                            </div>
+                            </md-input-container>
+                            <!--                            <div class="form-group"> 
+                                                            <div class="form-group">
+                                                                <label for="dni" class="col-form-label">DNI:</label>
+                                                                <input id="dni" ng-model="dni" class="form-control" ng-class="{'is-invalid': userForm.dni.$invalid && !userForm.dni.$pristine}"
+                                                                       name="dni" type="text" ng-required="true" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/" 
+                                                                       placeholder="Introduce un DNI..."/>
+                                                                <div ng-show="userForm.dni.$error.pattern" class="alert alert-danger" role="alert">
+                                                                    Formato DNI no valido
+                                                                </div>
+                                                                <div ng-show="!userForm.dni.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
+                                                                    DNI obligatorio
+                                                                </div>
+                                                            </div>
+                                                        </div>-->
 
-                            <div class="form-group"> 
-                                <label for="nombre" class="col-form-label">Nombre:</label>
-                                <input id="nombre" ng-model="nombre" class="form-control" ng-class="{'is-invalid': userForm.nombre.$invalid && !userForm.nombre.$pristine}"
-                                       name="nombre" type="text" ng-required="true" placeholder="Introduce un nombre..." />
-                                <div ng-show="!userForm.nombre.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
-                                    Nombre obligatorio
+                            <md-input-container class="md-block">
+                                <label>Username</label>
+                                <input md-no-asterisk required name="loginUser" ng-model="loginUser">
+
+                                <div ng-messages="userForm.loginUser.$error">
+                                    <div ng-message="required">Username obligatorio.</div>
                                 </div>
-                            </div>
+                            </md-input-container>
 
-                            <div class="form-group"> 
-                                <label for="ape1" class="col-form-label">1r apellido:</label>
-                                <input id="ape1" ng-model="ape1" class="form-control" ng-class="{'is-invalid': userForm.ape1.$invalid && !userForm.ape1.$pristine}"
-                                       name="ape1" type="text" ng-required="true" placeholder="Introduce un apellido..." />
-                                <div ng-show="!userForm.ape1.$valid && userForm.ape1.$dirty && !userForm.ape1.$pristine" class="alert alert-danger" role="alert">
-                                    Apellido obligatorio
+                            <!--                            <div class="form-group"> 
+                                                            <label for="loginUser" class="col-form-label">Username:</label>
+                                                            <input id="loginUser" type="text" class="form-control"  ng-class="{'is-invalid': userForm.loginUser.$invalid && !userForm.loginUser.$pristine}"
+                                                                   name="loginUser" ng-model="loginUser" ng-required="true" placeholder="Introduce nombre usuario..."/>
+                            
+                                                            <div ng-show="!userForm.loginUser.$valid && userForm.loginUser.$dirty && !userForm.loginUser.$pristine" class="alert alert-danger" role="alert">
+                                                                Nombre usuario obligatorio
+                                                            </div>
+                                                        </div>-->
+
+                            <md-input-container class="md-block">
+                                <label>Nombre</label>
+                                <input md-no-asterisk required name="nombre" ng-model="nombre">
+
+                                <div ng-messages="userForm.nombre.$error">
+                                    <div ng-message="required">Nombre obligatorio.</div>
                                 </div>
-                            </div>
+                            </md-input-container>
 
-                            <div class="form-group"> 
+                            <!--                            <div class="form-group"> 
+                                                            <label for="nombre" class="col-form-label">Nombre:</label>
+                                                            <input id="nombre" ng-model="nombre" class="form-control" ng-class="{'is-invalid': userForm.nombre.$invalid && !userForm.nombre.$pristine}"
+                                                                   name="nombre" type="text" ng-required="true" placeholder="Introduce un nombre..." />
+                                                            <div ng-show="!userForm.nombre.$valid && userForm.nombre.$dirty && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
+                                                                Nombre obligatorio
+                                                            </div>
+                                                        </div>-->
+
+                            <md-input-container class="md-block">
+                                <label>1r Apellido</label>
+                                <input md-no-asterisk required name="ape1" ng-model="ape1">
+
+                                <div ng-messages="userForm.ape1.$error">
+                                    <div ng-message="required">Apellido obligatorio.</div>
+                                </div>
+                            </md-input-container>
+
+                            <!--                            <div class="form-group"> 
+                                                            <label for="ape1" class="col-form-label">1r apellido:</label>
+                                                            <input id="ape1" ng-model="ape1" class="form-control" ng-class="{'is-invalid': userForm.ape1.$invalid && !userForm.ape1.$pristine}"
+                                                                   name="ape1" type="text" ng-required="true" placeholder="Introduce un apellido..." />
+                                                            <div ng-show="!userForm.ape1.$valid && userForm.ape1.$dirty && !userForm.ape1.$pristine" class="alert alert-danger" role="alert">
+                                                                Apellido obligatorio
+                                                            </div>
+                                                        </div>-->
+
+                            <md-input-container class="md-block mb-0">
+                                <label>2o Apellido</label>
+                                <input md-no-asterisk required name="ape2" ng-model="ape2">
+
+                                <div ng-messages="userForm.ape2.$error">
+                                    <div ng-message="required">Apellido obligatorio.</div>
+                                </div>
+                            </md-input-container>
+                            
+<!--                            <div class="form-group"> 
                                 <label for="ape2" class="col-form-label">2o apellido:</label>
                                 <input ng-model="ape2" class="form-control" ng-class="{'is-invalid': userForm.ape2.$invalid && !userForm.ape2.$pristine}"
                                        name="ape2" type="text" ng-required="true" placeholder="Introduce un apellido..." />
                                 <div ng-show="!userForm.ape2.$valid && userForm.ape2.$dirty && !userForm.ape2.$pristine" class="alert alert-danger" role="alert">
                                     Apellido obligatorio
                                 </div>
-                            </div>
+                            </div>-->
 
-                            <div class="form-group"> 
-                                <label for="loginUser" class="col-form-label">Username:</label>
-                                <input id="loginUser" type="text" class="form-control"  ng-class="{'is-invalid': userForm.loginUser.$invalid && !userForm.loginUser.$pristine}"
-                                       name="loginUser" ng-model="loginUser" ng-required="true" placeholder="Introduce nombre usuario..."/>
 
-                                <div ng-show="!userForm.loginUser.$valid && userForm.loginUser.$dirty && !userForm.loginUser.$pristine" class="alert alert-danger" role="alert">
-                                    Nombre usuario obligatorio
-                                </div>
-                            </div>
 
                             <div class="form-group" ng-show="admin">
-                                <label>Tipo Usuario</label>
+                                <label class="labelEdit">Tipo Usuario</label>
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" id="obj_tipoUsuario.desc" name="obj_tipoUsuario.desc" ng-model="obj_tipoUsuario.desc"
                                            ng-click="modal()" disabled/>

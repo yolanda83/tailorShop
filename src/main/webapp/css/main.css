@@ -1,7 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
 @font-face {font-family:'ParryPro';font-style:normal;}
-/*https://programacionwebgalicia.wordpress.com/2012/09/05/encoding-utf-8-netbeans/*/
+
+
 /**************** GENERICO ****************/
+
 html {
     overflow: initial !important;
     background: white;
@@ -28,11 +30,16 @@ small {
 
 /**** BOTONES NORMALES ****/ 
 
+.btn-outline-secondary {
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
 .btn-secondary {
     background-color: gray;
-    /*border-radius: 0px;*/
-    /*padding: 10px 30px;*/
     border: none;
+    border-radius: 0px;
 }
 
 .btn-info {
@@ -82,7 +89,6 @@ small {
     color: white;
     padding: 10px;
     margin-left: 0px;
-    /*width: 100%;*/
     border-radius: 0px;
     padding: 10px 30px;
 }
@@ -92,7 +98,6 @@ small {
     border: 0;
     color: white;
     box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
-    /*box-shadow: 6px 7px 21px -2px rgba(0,0,0,0.42);*/
 }
 
 /**** BOTON ADD ARCHIVO ****/
@@ -102,7 +107,6 @@ small {
     background: gray;
     color: white;
     border-radius: 0px;
-    /*float: left;*/
     padding: 5px;
     text-align: center;
     width: 160px;
@@ -229,12 +233,7 @@ a.enlacefa {
 }
 
 .container {
-    /*    display: block;
-        max-width: 900px;
-        margin: auto;*/
     padding: 10px;
-    /*    height: 100%;
-        outline: none;*/
 }
 
 .search-container {
@@ -293,27 +292,27 @@ a.enlacefa {
     background-color: #E23164;
     background-image: -webkit-linear-gradient(0deg, rgba(0, 0, 0, .25) 50%, transparent 10%), -webkit-linear-gradient(rgba(0, 0, 0, .25) 50%, transparent 50%);
     background-size: 10px 10px;
-    /*border: 2px dashed #fff;*/
-    /*text-align: center;*/
     font-size: 2em;
-    /*padding: 10px;*/
     color: #FDF6E3;
     border-radius: 50%;
     box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.25), 0 1px 1px rgba(0, 0, 0, 0.25);
     text-shadow: 0 -2px 1px rgba(0, 0, 0, 0.3);
 }
 
-/*.button i {
-    margin-top: 0.3em;
-}*/
 .button:active {
     border: 0 !important;
     text-shadow: 0 0 0;
 }
 
-.button:hover, .buttonGreen:hover, .buttonBlue:hover {
+/*.button:hover, .buttonGreen:hover, .buttonBlue:hover {
     color: white;
     text-decoration: none;
+}*/
+
+.button:hover {
+    color: white;
+    text-decoration: none;
+    background-size: 20px 20px;
 }
 
 .buttonHeader {
@@ -325,47 +324,6 @@ a.enlacefa {
 
 
 /*BOLITAS HEADER*/
-/*.menuBall {
-    display: inline-block;
-    position: relative;
-    width: 50px;
-    height: 50px;
-    margin: 20px 10px;
-}*/
-
-/*.ball {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 2px dashed #fff;
-    margin: 10px;
-    text-decoration: none;
-
-
-    overflow: hidden;
-    float: right;
-    height: 4em;
-    width: 4em;
-    border-radius: 2em;
-    box-shadow: 0 0 5px #6A5D4F;
-}*/
-
-/*.pulse:hover {
-    animation: pulse 1s linear 1 normal;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1) rotate(0deg);
-    }
-    50% {
-        transform: scale(1.2) rotate(50deg);
-    }
-    100% {
-        transform: scale(1) rotate(0deg);
-    }
-}*/
 
 .buttonBlue {
     float: right;
@@ -381,6 +339,14 @@ a.enlacefa {
     border-radius: 50%;
     box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.25), 0 1px 1px rgba(0, 0, 0, 0.25);
     text-shadow: 0 -2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.buttonBlue:hover {
+    background-color: #638ABE;
+    background-image: -webkit-linear-gradient(90deg, transparent 50%, rgba(121, 104, 168, 1) 50%);
+    color: #FDF6E3;
+    text-decoration: none;
+    background-size: 16px 16px;
 }
 
 .buttonGreen {
@@ -400,6 +366,13 @@ a.enlacefa {
     border-radius: 50%;
     box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.25), 0 1px 1px rgba(0, 0, 0, 0.25);
     text-shadow: 0 -2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.buttonGreen:hover {
+    background-color: #e8b15e;
+    background-image: -webkit-radial-gradient(#8ABC4D 15%, transparent 16%), -webkit-radial-gradient(#8ABC4D 15%, transparent 16%);
+    color: #FDF6E3;
+    text-decoration: none;
 }
 
 .botonHeader {
@@ -441,34 +414,6 @@ a.enlacefa {
     margin: 10px;
 }
 
-
-/*#menuBall2 {
-    animation: bump 6s linear .5s infinite normal;
-}
-
-#menuBall3 {
-    animation: bump 6s linear 1s infinite normal;
-}
-
-#menuBall4 {
-    animation: bump 6s linear 1.5s infinite normal;
-}
-
-@keyframes bump {
-    0% {
-        top: 0;
-    }
-    5% {
-        top: 3px;
-    }
-    10% {
-        top: 0;
-    }
-    100% {
-        top: 0;
-    }
-}*/
-
 /**************** FIN HEADER ****************/
 
 
@@ -486,7 +431,6 @@ a.enlacefa {
 }
 
 .tela {
-    /*flex-grow: 0;*/
     width: 250px;
     margin: 10px;
     padding: 5px;
@@ -520,7 +464,7 @@ a{color:inherit;text-decoration:none}
     width:100%;
     margin:auto;
     max-width:525px;
-    min-height:775px;
+    min-height:755px;
     position:relative;
     /*background:url(https://i.pinimg.com/564x/11/84/9c/11849caeb53059e9e57036ca0be41243.jpg) no-repeat center;*/
     box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
@@ -533,7 +477,6 @@ a{color:inherit;text-decoration:none}
     height:100%;
     position:absolute;
     padding: 30px 40px;
-    /*padding:90px 70px 50px 70px;*/
     background:rgba(49,49,49,.9);
 }
 
@@ -577,40 +520,11 @@ a{color:inherit;text-decoration:none}
     perspective:1000px;
     transform-style:preserve-3d;
 }
-/*.login-form .group{
-    margin-bottom:15px;
-}*/
-/*.login-form .group .label,
-.login-form .group .input,
-.login-form .group .button{
-    width:100%;
-    color:#fff;
-    display:block;
-}*/
-/*.login-form .group .input,
-.login-form .group .button{
-    border:none;
-    padding:10px;
-    border-radius:20px;
-    outline: none;
-    background:rgba(255,255,255,.1);
-}*/
 
-/*.login-form .group .label{
-    color:#aaa;
-    font-size:12px;
-}*/
 .login-form .group .button{
     background:#8ABC4D;
 }
-/*.login-form .group label .icon{
-    width:15px;
-    height:15px;
-    border-radius:2px;
-    position:relative;
-    display:inline-block;
-    background:rgba(255,255,255,.1);
-}*/
+
 .login-form .group label .icon:before,
 .login-form .group label .icon:after{
     content:'';
@@ -631,12 +545,7 @@ a{color:inherit;text-decoration:none}
     right:0;
     transform:scale(0) rotate(0);
 }
-/*.login-form .group .check:checked + label{
-    color:#fff;
-}*/
-/*.login-form .group .check:checked + label .icon{
-    background:#a87c4f;
-}*/
+
 .login-form .group .check:checked + label .icon:before{
     transform:scale(1) rotate(45deg);
 }
@@ -650,24 +559,14 @@ a{color:inherit;text-decoration:none}
     transform:rotate(0);
 }
 
-/*.hr{
-    height:2px;
-    margin:60px 0 50px 0;
-    background:rgba(255,255,255,.2);
-}*/
-/*.foot-lnk{
-    text-align:center;
-}*/
-
 
 .imgForm {
     width: 100%;
-    height: 775px;
+    height: 755px;
     margin-bottom: 100px;
     z-index: 2;
     float: right;
     box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
-
 }
 
 .authenticate-user {
@@ -681,21 +580,9 @@ a{color:inherit;text-decoration:none}
 
 /*ANGULAR MATERIAL FORMULARIO*/
 
-/*.md-block {
-    background-color: green;
-}
-*/
 .md-block input{
     border-bottom: 1px solid #aaa;
 }
-
-/*.login-form label{
-    color: #aaa;
-}
-
-.sign-up-htm {
-    color: #aaa;
-}*/
 
 /* When the input is not focused */
 md-input-container label {
@@ -724,7 +611,6 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input {
 }
 md-input-container:not(.md-input-invalid).md-input-focused label {
     color:  #aaa;
-
 }
 
 
@@ -750,7 +636,6 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
     padding: 10px;
     margin-left: 0px;
     text-align: center;
-    /*width: 100%;*/
 }
 
 .buttonEmail:hover {
@@ -789,7 +674,6 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
     background-size: 100%;
     padding: 50px;
     margin-bottom: 100px;
-    /*opacity: 0.5;*/
     box-shadow: 2px 2px 5px -2px rgba(10,10,10,0.5);
 
 }
@@ -811,7 +695,6 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 
 
 .fotoAbout {
-    /*flex-grow: 0;*/
     width: 200px;
     margin: 10px;
     padding: 5px;
@@ -819,11 +702,6 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
     background-color: white;
     border-radius: 0px;
 }
-
-/*.fotoAbout .card-body {
-    margin: 0px !important;
-    text-align: center;
-}*/
 
 .fotoAbout img {
     padding: 10px;
@@ -918,12 +796,12 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
     background: #fafafa;
 }
 
-.footer {
+/*.footer {
     opacity: 1;
     width: 100%;
-    /*Set the fixed height of the footer here*/ 
+    Set the fixed height of the footer here 
     height: 50px;
-    /*Vertically center the text there*/
+    Vertically center the text there
     line-height: 50px;   
     background-color: #b0b0b0;
     grid-row-start: 2;
@@ -933,10 +811,9 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 .footer {
     background: TAN;
     padding: 30px;
-}
+}*/
 
 .foot a {
-    /*display: inline;*/
     color: black;
 }
 
@@ -1373,12 +1250,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
     overflow: hidden;
     background-color: rgba(75, 78, 109, 0.3);
 }
-/*.profile-picture img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-    object-fit: cover;
-}*/
+
 .profile-picture:after {
     z-index: 2;
     background-color: #363B6D;
@@ -1441,6 +1313,11 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 }
 
 /**************** EDIT ****************/
+.hiddenfile {
+ width: 0px;
+ height: 0px;
+ overflow: hidden;
+}
 
 .edit {
     margin-bottom: 100px;
@@ -1452,6 +1329,56 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 }
 input {
     font-family: "varela round", sans-serif; 
+}
+
+.labelEdit {
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+.form-control:disabled {
+    background-color: #f5f5f5;
+    border: none;
+    border-bottom: 1px solid gray;
+} 
+
+.input:disabled {
+    color: black; 
+}
+
+
+/* When the input is not focused */
+.formEdit md-input-container label {
+    color: gray;
+}
+
+/* When the input is focused */
+.formEdit md-input-container.md-input-focused label {
+    color: gray;
+}
+
+/*texto cuando se escribe*/
+.formEdit md-input-container.md-default-theme .md-input, md-input-container .md-input {
+    color: black;
+}
+
+/*input movido arriba mientras se escribe y al confirmar*/
+.formEdit md-input-container:not(.md-input-invalid).md-input-has-value label {
+    color: gray;
+}
+
+/*Para la linea de abajo en verde*/
+.formEdit md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    /*color:  #aaa;*/
+    border-color: #8ABC4D;
+}
+.formEdit md-input-container:not(.md-input-invalid).md-input-focused label {
+    color: gray;
 }
 
 

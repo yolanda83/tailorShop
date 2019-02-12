@@ -27,32 +27,60 @@
                         <div class="white_box">
                             <h5>Formulario de contacto</h5>
 
-                            <form action="" method="post">
+                            <form name="userForm" action="" method="post" class="mt-2">
 
-                                <section class="form-fields">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Nombre</label>
-                                        <input class="form-control" name="name" type="text" value="" placeholder="Escribe tu nombre">
+                                <md-input-container class="md-block mt-5">
+                                    <label>Nombre</label>
+                                    <input md-no-asterisk required name="nombre" ng-model="nombre">
+
+                                    <div ng-messages="userForm.nombre.$error">
+                                        <div ng-message="required">Username obligatorio.</div>
                                     </div>
+                                </md-input-container>
+                                <!--                                <section class="form-fields">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Nombre</label>
+                                                                        <input class="form-control" name="name" type="text" value="" placeholder="Escribe tu nombre">
+                                                                    </div>-->
 
-                                    <div class="form-group">
-                                        <label class="form-control-label">E-mail</label>
-                                        <input class="form-control" name="from" type="email" value="" placeholder="Escribe tu correo">
+
+                                <md-input-container class="md-block">
+                                    <label>Email</label>
+                                    <input md-no-asterisk required type="text" name="email" ng-model="email"
+                                           maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+                                    <div ng-messages="userForm.email.$error" role="alert">
+                                        <div ng-message-exp="['required', 'maxlength', 'pattern']">
+                                            Email incorrecto.
+                                        </div>
                                     </div>
+                                </md-input-container>
+                                <!--                                    <div class="form-group">
+                                                                        <label class="form-control-label">E-mail</label>
+                                                                        <input class="form-control" name="from" type="email" value="" placeholder="Escribe tu correo">
+                                                                    </div>-->
 
-                                    <div class="form-group">
-                                        <label class="form-control-label">Asunto</label>
-                                        <input class="form-control" name="subject" type="text" value="" placeholder="Escribe el asunto de tu consulta">
-                                    </div>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>Asunto</label>
+                                    <input ng-model="userForm.asunto">
+                                </md-input-container>
+                                <!--                                    <div class="form-group">
+                                                                        <label class="form-control-label">Asunto</label>
+                                                                        <input class="form-control" name="subject" type="text" value="" placeholder="Escribe el asunto de tu consulta">
+                                                                    </div>-->
 
 
 
-                                    <div class="form-group">
-                                        <label class="form-control-label">Mensaje</label>
-                                        <textarea class="form-control" name="message" placeholder="Escribe tu mensaje" rows="3"></textarea>
-                                    </div>
+                                <!--                                    <div class="form-group">
+                                                                        <label class="form-control-label">Mensaje</label>
+                                                                        <textarea class="form-control" name="message" placeholder="Escribe tu mensaje" rows="3"></textarea>
+                                                                    </div>-->
+                                <md-input-container class="md-block">
+                                    <label>Mensaje</label>
+                                    <textarea ng-model="userForm.asunto" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                                </md-input-container>
 
-                                </section>
+                                <!--</section>-->
 
                                 <input class="botonAdmin px-4" type="submit" name="submitMessage" value="Enviar">
 
@@ -70,7 +98,7 @@
                             <p class="hvr-icon-up"><i class="hvr-icon fas fa-map-marker-alt enlaceColor"></i><a href="https://goo.gl/maps/NGEHtwwP2VP2" target="_blank"> Ver en google maps</a></p>
                             <hr class="separadorContacto">   
                             <p class="text-center pt-4">
-                            <!--<div classbounceIn="option animated bounceIn animate">-->                        
+                                <!--<div classbounceIn="option animated bounceIn animate">-->                        
                                 <i class="fab fa-2x fa-facebook-square p-2"></i>               
                                 <i class="fab fa-2x fa-instagram p-2"></i> 
                                 <i class="fab fa-2x fa-twitter-square p-2"></i>

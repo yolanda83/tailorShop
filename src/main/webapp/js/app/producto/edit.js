@@ -1,4 +1,6 @@
-'use strict'
+/* global moduleProducto */
+
+'use strict';
 
 moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolService', '$routeParams', 'sessionService', '$anchorScroll',
     function ($scope, $http, toolService, $routeParams, oSessionService, $anchorScroll) {
@@ -58,7 +60,7 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
                 foto: foto,
                 id_tipoProducto: $scope.obj_tipoProducto.id,
                 novedad: $scope.novedad
-            }
+            };
 
             $http({
                 method: 'GET',
@@ -69,17 +71,17 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
                 params: {json: JSON.stringify(json)}
             }).then(function (response) {
                 $scope.status = response.status;
-                if ($scope.status == 200) {
-                    $scope.resultado = "El Producto ha sido actualizado correctamente."
+                if ($scope.status === 200) {
+                    $scope.resultado = "El Producto ha sido actualizado correctamente.";
                     $scope.edit = true;
                 } else {
-                    $scope.resultado = "El Producto no se ha podido actualizar."
+                    $scope.resultado = "El Producto no se ha podido actualizar.";
                     $scope.edit = false;
                 }
             }), function (response) {
                 console.log(response);
-            }
-        }
+            };
+        };
 
 
         function uploadPhoto(name) {
@@ -125,5 +127,5 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
                     });
                 });
             }
-        }
+        };
     }]);
