@@ -22,7 +22,6 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
             $scope.foto = response.data.message.foto;
             $scope.obj_tipoProducto_desc = response.data.message.obj_tipoProducto.desc;
             $scope.novedad = response.data.message.novedad;
-//            $scope.obj_tipoUsuario_id = response.data.message.obj_tipoUsuario.id;
             $scope.obj_tipoProducto = {
                 id: response.data.message.obj_tipoProducto.id,
                 desc: response.data.message.obj_tipoProducto.desc
@@ -34,14 +33,13 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
         $scope.isActive = toolService.isActive;
 
         $scope.guardar = function () {
-
             var foto;
             if ($scope.myFile !== undefined) {
                 //Si el nombre de la imagen es "Foto" significa que es la de por defecto, se le deja intacta
-                if ($scope.myFile.name === "Foto.jpg") {
+                if ($scope.myFile.name === "foto.png") {
                     foto = $scope.myFile.name;
-                    //Si la imagen que tenía el producto era la predefinida y me suben una nueva foto diferente.
-                } else if ($scope.foto === "Foto.jpg" && $scope.myFile.name !== "Foto.jpg") {
+                    //Si la imagen que tenia el producto era la predefinida y me suben una nueva foto diferente.
+                } else if ($scope.foto === "foto.png" && $scope.myFile.name !== "foto.png") {
                     foto = guid() + $scope.myFile.name;
                 } else {
                     foto = $scope.foto;
