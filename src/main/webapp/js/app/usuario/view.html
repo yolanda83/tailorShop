@@ -40,17 +40,16 @@
                                 {{ajaxData.nombre}}                     
                                 {{ajaxData.ape1}} {{ajaxData.ape2}}
                             </p>
-                            <p class="profileLogin">
+                            <p class="profileDatos">
+                                DNI: {{ajaxData.dni}}                            
+                            </p>
+                            <p class="profileDatos">
                                 Username: {{ajaxData.login}}                                
                             </p>
                             <p class="profileDatos" ng-show="admin">
                                 Tipo de usuario:
                                 <a href="{{'/tailorShop/tipousuario/view/' + ajaxData.obj_tipoUsuario.id}}" class="enlaceColor">{{ajaxData.obj_tipoUsuario.desc}}</a>
-                            </p>
-                            <p class="profileDatos">
-                                {{ajaxData.dni}}                            
-                            </p>
-
+                            </p>                         
                             <div class="mt-5">
                                 <a href="{{'/tailorShop/usuario/edit/' + ajaxData.id}}" class="btn px-4 mr-3 btn-info" role="button">Editar</a>
                                 <!--<button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>-->

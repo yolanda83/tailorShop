@@ -26,95 +26,113 @@
                 </div>
 
                 <form name="userForm" ng-show="!edit"> 
-                    <div class="row no-gutters">
+                    <div class="row no-gutters formEdit">
 
                         <div class="col-md-4 pl-3">
                             <div class="row">
                                 <div class="col-md-12 mx-auto pt-5">
-                                    <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload">
-                                        <!--                                    <label for="file-input">-->
+                                    <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload fotoEditar">
                                         <img ng-model="foto" class="mx-auto my-auto" id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
-                                        <!--                                    </label>-->
-                                        <!--<input id="file-input" type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>-->
                                     </div>
-                                    <!--                                 -->
-                                    <!--<input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>-->
-                                    <!--      </label> -->
+                                    <label class="hiddenfile">                           
+                                        <input id="prueba" type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>
+                                    </label> 
                                 </div>
                             </div>
-                            <!--                        <div class="row">
-                                                        <div class="col-md-6">
-                                                            ARREGLO EN UNA LINEA DE PREVIEW DE NUEVA FOTO
-                                                            <label class="fileContainer">
-                                                                <i class="fas fa-file-upload"></i>
-                                                                Cambiar foto
-                                                                <input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>
-                                                            </label>
-                                                            <input class="botonInput" type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto">                 
-                                                        </div>
-                                                    </div>-->
+
                         </div>
                         <div class="col-md-6 pr-4 pb-4 pt-4">
 
-                            <!--                        <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="mx-auto pb-4">
-                                                                <img id="output" ng-src="http://localhost:8081/imagenes/{{foto}}" style="width: 128px; height: 128px;">
+                            <div class="form-group"> 
+                                <label for="id" class="labelEdit col-form-label">Id</label>
+                                <input ng-model="id" class="pl-1 form-control" name="id" type="text" ng-disabled="true" />
+                            </div>
+
+
+                            <md-input-container class="md-block mt-5">
+                                <label>Código</label>
+                                <input md-no-asterisk required name="codigo" ng-model="codigo">
+                                <div ng-messages="userForm.codigo.$error" role="alert">
+                                    <div ng-message="required">
+                                        Código incorrecto.
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                            <!--                            <div class="form-group"> 
+                                                            <label for="codigo" class="col-form-label">Codigo</label>
+                                                            <input ng-model="codigo" class="form-control" name="codigo" type="text" ng-required="true" />
+                                                            <div ng-show="!userForm.codigo.$valid" class="alert alert-danger" role="alert">
+                                                                Codigo obligatorio
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="mx-auto">
-                                                                ARREGLO EN UNA LINEA DE PREVIEW DE NUEVA FOTO
-                                                                <input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto">                 
+                                                        </div>-->
+
+                            <md-input-container class="md-block mt-4">
+                                <label>Descripción</label>
+                                <input md-no-asterisk required name="desc" ng-model="desc">
+                                <div ng-messages="userForm.desc.$error" role="alert">
+                                    <div ng-message="required">
+                                        Descripción obligatoria.
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                            <!--                            <div class="form-group"> 
+                                                            <label for="desc" class="col-form-label">descripcion</label>
+                                                            <input ng-model="desc" class="form-control" name="desc" type="text" ng-required="true" />
+                                                            <div ng-show="!userForm.desc.$valid" class="alert alert-danger" role="alert">
+                                                                descripcion obligatoria
                                                             </div>
-                                                        </div>
-                                                    </div>-->
-                            <div class="form-group"> 
-                                <label for="id" class="col-form-label">Id</label>
-                                <input ng-model="id" class="form-control" name="id" type="text" ng-disabled="true" />
-                            </div>
+                                                        </div>-->
 
+                            <md-input-container class="md-block mt-4" flex-gt-sm>
+                                <label>Existencias</label>
+                                <input md-no-asterisk name="existencias" ng-model="existencias"
+                                       required type="number">
 
-                            <div class="form-group"> 
-                                <label for="codigo" class="col-form-label">Codigo</label>
-                                <input ng-model="codigo" class="form-control" name="codigo" type="text" ng-required="true" />
-                                <div ng-show="!userForm.codigo.$valid" class="alert alert-danger" role="alert">
-                                    Codigo obligatorio
+                                <div ng-messages="userForm.existencias.$error" role="alert" multiple>
+                                    <div ng-message="required" class="my-message">
+                                        Existencias obligatorias.
+                                    </div>
                                 </div>
-                            </div>
+                            </md-input-container>
 
-                            <div class="form-group"> 
-                                <label for="desc" class="col-form-label">descripcion</label>
-                                <input ng-model="desc" class="form-control" name="desc" type="text" ng-required="true" />
-                                <div ng-show="!userForm.desc.$valid" class="alert alert-danger" role="alert">
-                                    descripcion obligatoria
-                                </div>
-                            </div>
+                            <!--                            <div class="form-group"> 
+                                                            <label for="existencias" class="col-form-label">Existencias</label>
+                                                            <input ng-model="existencias" class="form-control" name="existencias" type="text" ng-required="true" />
+                                                            <div ng-show="!userForm.existencias.$valid" class="alert alert-danger" role="alert">
+                                                                Existencias obligatorias
+                                                            </div>
+                                                        </div>-->
 
-                            <div class="form-group"> 
-                                <label for="existencias" class="col-form-label">Existencias</label>
-                                <input ng-model="existencias" class="form-control" name="existencias" type="text" ng-required="true" />
-                                <div ng-show="!userForm.existencias.$valid" class="alert alert-danger" role="alert">
-                                    Existencias obligatorias
+                            <md-input-container class="md-icon-float md-icon-right md-block mt-4 mb-1">
+                                <label>Precio</label>
+                                <!--<md-icon md-svg-src="img/icons/ic_card_giftcard_24px.svg"></md-icon>-->
+                                <input md-no-asterisk required name="precio" ng-model="precio" type="number" step="0.01">
+                                <md-icon><i class="material-icons">euro_symbol</i></md-icon>
+                                <div ng-messages="userForm.precio.$error" role="alert">
+                                    <div ng-message="required">
+                                        Precio obligatorio.
+                                    </div>
                                 </div>
-                            </div>
+                            </md-input-container>
 
-                            <div class="form-group"> 
-                                <label for="precio" class="col-form-label">Precio</label>
-                                <input ng-model="precio" class="form-control" name="precio" type="text" ng-required="true" />
-                                <div ng-show="!userForm.precio.$valid" class="alert alert-danger" role="alert">
-                                    Precio obligatorio
-                                </div>
-                            </div>
+                            <!--                            <div class="form-group"> 
+                                                            <label for="precio" class="col-form-label">Precio</label>
+                                                            <input ng-model="precio" class="form-control" name="precio" type="text" ng-required="true" />
+                                                            <div ng-show="!userForm.precio.$valid" class="alert alert-danger" role="alert">
+                                                                Precio obligatorio
+                                                            </div>
+                                                        </div>-->
 
 
 
                             <div class="form-group">
-                                <label>Tipo Producto</label>
+                                <label class="labelEdit">Tipo Producto</label>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control mr-0" id="obj_tipoProducto.desc" name="obj_tipoProducto.desc" ng-model="obj_tipoProducto.desc"
+                                    <input type="text" class="form-control pl-1 mr-0" id="obj_tipoProducto.desc" name="obj_tipoProducto.desc" ng-model="obj_tipoProducto.desc"
                                            ng-click="modal()" disabled/>
-                                    <div class="input-group-append">
+                                    <div class="editButton input-group-append">
                                         <button type="button" class="btn btn-outline-secondary ml-0" data-toggle="modal" data-target="#cadd-location-modal">
                                             <i class="fas fa-search"></i>
                                         </button>

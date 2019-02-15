@@ -33,7 +33,7 @@ small {
 .btn-outline-secondary {
     border-radius: 0px;
     border: none;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #aaaaaa;
 }
 
 .btn-secondary {
@@ -138,6 +138,16 @@ small {
 a.enlaceColor {
     color: #8ABC4D!important;
     text-decoration: none; 
+}
+
+a.enlaceColorUnder {
+    color: #8ABC4D!important;
+    text-decoration: none; 
+}
+
+a.enlaceColorUnder:hover {
+    color: #8ABC4D!important;
+    text-decoration: underline; 
 }
 
 .enlaceLogout {
@@ -1295,9 +1305,10 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 .profileName {
     /*color: #658585;*/
     /*color: gray;*/
-    font-size: 1.53em;
-    font-family: "Coda", sans-serif;
-    font-weight: bold;
+    font-size: 2em;
+    font-family: 'Yantramanav', sans-serif;
+    /*font-family: "Coda", sans-serif;*/
+    /*font-weight: bold;*/
 }
 
 .profileLogin {
@@ -1317,6 +1328,15 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
  width: 0px;
  height: 0px;
  overflow: hidden;
+}
+
+/*.material-icons {
+    color: #6c757d;
+    padding-right: 50px;
+}*/
+
+.editButton .fa-search:before {
+    font-size: 20px;
 }
 
 .edit {
@@ -1344,7 +1364,8 @@ input {
 .form-control:disabled {
     background-color: #f5f5f5;
     border: none;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #aaaaaa;
+    color: black;
 } 
 
 .input:disabled {

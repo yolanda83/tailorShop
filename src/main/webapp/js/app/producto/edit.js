@@ -82,6 +82,10 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
         };
 
 
+        $(".fotoEditar").on("click", function () {
+            $("#prueba").trigger('click');
+        });
+
         function uploadPhoto(name) {
             //Solucion mas cercana
             //https://stackoverflow.com/questions/37039852/send-formdata-with-other-field-in-angular

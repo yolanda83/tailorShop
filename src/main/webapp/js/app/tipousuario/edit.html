@@ -26,18 +26,28 @@
                             <form name="userForm" class="mx-auto p-5 mt-0" ng-show="!edit"> 
 
                                 <div class="form-group"> 
-                                    <label for="id" class="col-form-label">Id</label>
-                                    <input ng-model="id" class="form-control" name="id" type="text" ng-disabled="true" />
+                                    <label for="id" class="labelEdit col-form-label">Id</label>
+                                    <input ng-model="id" class="pl-1 form-control" name="id" type="text" ng-disabled="true" />
                                 </div>
 
 
-                                <div class="form-group"> 
-                                    <label for="desc" class="col-form-label">descripcion</label>
-                                    <input ng-model="desc" class="form-control" name="desc" type="text" ng-required="true" />
-                                    <div ng-show="!userForm.desc.$valid" class="alert alert-danger" role="alert">
-                                        descripcion obligatoria
+
+                                <md-input-container class="md-block mt-5">
+                                    <label>Descripción</label>
+                                    <input md-no-asterisk required name="desc" ng-model="desc">
+                                    <div ng-messages="userForm.desc.$error" role="alert">
+                                        <div ng-message="required">
+                                            Descripción obligatoria.
+                                        </div>
                                     </div>
-                                </div>
+                                </md-input-container>
+                                <!--                                <div class="form-group"> 
+                                                                    <label for="desc" class="col-form-label">descripcion</label>
+                                                                    <input ng-model="desc" class="form-control" name="desc" type="text" ng-required="true" />
+                                                                    <div ng-show="!userForm.desc.$valid" class="alert alert-danger" role="alert">
+                                                                        descripcion obligatoria
+                                                                    </div>
+                                                                </div>-->
 
                                 <div class="d-flex justify-content-between flex-wrap">
                                     <button ng-click="guardar()" type="button" class="btn btn-info mt-2 ml-0">Guardar</button>
