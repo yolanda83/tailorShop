@@ -61,7 +61,7 @@ moduleUsuario.controller('usuarioEditController', ['$scope', '$http', 'toolServi
                 ape1: $scope.ape1,
                 ape2: $scope.ape2,
                 login: $scope.loginUser,
-                pass: forge_sha256($scope.pass),
+//                pass: forge_sha256($scope.pass),
                 foto: foto,
                 id_tipoUsuario: 2
             };
@@ -95,7 +95,7 @@ moduleUsuario.controller('usuarioEditController', ['$scope', '$http', 'toolServi
                 headers: {'Content-Type': undefined},
                 method: 'POST',
                 data: oFormData,
-                url: `http://localhost:8081/tailorShop/json?ob=producto&op=addimage`
+                url: `http://localhost:8081/tailorShop/json?ob=producto&op=addimage&id=` + $scope.id
             });
         }
 

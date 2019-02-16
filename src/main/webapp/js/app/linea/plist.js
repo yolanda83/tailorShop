@@ -10,6 +10,7 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
         $scope.op = "plist";
         $scope.id = $routeParams.id;
         $scope.user = $routeParams.userid;
+        $scope.admin = oSessionService.isAdmin();
 //        $scope.totalPages = 1;
 
 
@@ -58,10 +59,12 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
             $scope.status = response.status;
             $scope.ajaxDataLineaNumber = response.data.message;
             $scope.totalPages = Math.ceil($scope.ajaxDataLineaNumber / $scope.rpp);
-            if ($scope.page > $scope.totalPages) {
+
+            if ($scope.page > $scope.totalPages && $scope.totalPages > 0) {
                 $scope.page = $scope.totalPages;
                 $scope.update();
             }
+
             pagination2();
         }, function (response) {
             $scope.ajaxDataLineaNumber = response.data.message || 'Request failed';
@@ -78,8 +81,9 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
             if (response.data.status == 200) {
                 $scope.status = response.status;
                 $scope.ajaxDataLinea = response.data.message;
-                $scope.ajaxDataUsuarioId = $scope.ajaxDataLinea[0].obj_factura.obj_usuario.id;
-                $scope.admin = oSessionService.isAdmin();
+//                if ($scope.ajaxDataLinea != null) {
+//                    $scope.ajaxDataUsuarioId = $scope.ajaxDataLinea[0].obj_factura.obj_usuario.id;
+//                }
             } else {
                 $location.path("/home");
             }
@@ -89,7 +93,7 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
         });
 
 
-//A PARTIR DE AQUI? SON FUNCIONES QUE SE EJECUTAN CUANDO SE PULSA EL BOTÓN ADECUADO EN EL HTML
+//A PARTIR DE AQUI SON FUNCIONES QUE SE EJECUTAN CUANDO SE PULSA EL BOTÓN ADECUADO EN EL HTML
         $scope.resetOrder = function () {
             if ($scope.id == null) {
                 $location.url('linea/plist/' + $scope.rpp + '/' + $scope.page);
@@ -137,7 +141,11 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
 
 
         $scope.update = function () {
-            $location.url('linea/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente);
+            if ($scope.orderURLCliente != "") {
+                $location.url('linea/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.id + '/' + $scope.user + '/' + $scope.orderURLCliente);
+            } else {
+                $location.url('linea/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.id + '/' + $scope.user);
+            }
         }
 
 

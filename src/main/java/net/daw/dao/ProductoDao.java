@@ -1,9 +1,13 @@
 package net.daw.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.HashMap;
 import net.daw.bean.ProductoBean;
@@ -179,9 +183,15 @@ public class ProductoDao {
     }
 
     public ProductoBean create(ProductoBean oProductoBean) throws Exception {
-        String strSQL = "INSERT INTO " + ob + " (`id`, `codigo`, `desc`, `existencias`, `precio`, `foto`, `id_tipoProducto`, `novedad`) VALUES (NULL, ?,?,?,?,?,?,?); ";
+        String strSQL = "INSERT INTO " + ob + " (`id`, `codigo`, `desc`, `existencias`, `precio`, `foto`, `id_tipoProducto`, `novedad`, `fecha`) VALUES (NULL,?,?,?,?,?,?,?,?); ";
+
+//        String strSQL = "INSERT INTO " + ob;
+//        strSQL += " (" + oProductoBean.getColumns() + ")";
+//        strSQL += " VALUES ";
+//        strSQL += "(" + oProductoBean.getValues() + ")";
         ResultSet oResultSet = null;
         PreparedStatement oPreparedStatement = null;
+
         try {
             oPreparedStatement = oConnection.prepareStatement(strSQL);
             oPreparedStatement.setString(1, oProductoBean.getCodigo());
@@ -191,6 +201,12 @@ public class ProductoDao {
             oPreparedStatement.setString(5, oProductoBean.getFoto());
             oPreparedStatement.setInt(6, oProductoBean.getId_tipoProducto());
             oPreparedStatement.setBoolean(7, oProductoBean.isNovedad());
+
+            String fecha = oProductoBean.getFecha();
+
+            String fechaFinal = getFecha(fecha);
+
+            oPreparedStatement.setString(8, fechaFinal);
             oPreparedStatement.executeUpdate();
             oResultSet = oPreparedStatement.getGeneratedKeys();
             if (oResultSet.next()) {
@@ -214,7 +230,7 @@ public class ProductoDao {
     public int update(ProductoBean oProductoBean) throws Exception {
         int iResult = 0;
         String strSQL = "UPDATE " + ob + " SET " + ob + ".codigo = ?,  " + ob + ".desc = ?,  " + ob + ".existencias = ?, " + ob
-                + ".precio = ?, " + ob + ".foto = ?, " + ob + ".id_tipoProducto = ?, " + ob + ".novedad = ? WHERE " + ob + ".id = ?;";
+                + ".precio = ?, " + ob + ".foto = ?, " + ob + ".id_tipoProducto = ?, " + ob + ".novedad = ?, " + ob + ".fecha = ? WHERE " + ob + ".id = ?;";
 
         PreparedStatement oPreparedStatement = null;
         try {
@@ -226,7 +242,13 @@ public class ProductoDao {
             oPreparedStatement.setString(5, oProductoBean.getFoto());
             oPreparedStatement.setInt(6, oProductoBean.getId_tipoProducto());
             oPreparedStatement.setBoolean(7, oProductoBean.isNovedad());
-            oPreparedStatement.setInt(8, oProductoBean.getId());
+
+            String fecha = oProductoBean.getFecha();
+
+            String fechaFinal = getFecha(fecha);
+
+            oPreparedStatement.setString(8, fechaFinal);
+            oPreparedStatement.setInt(9, oProductoBean.getId());
             iResult = oPreparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -417,7 +439,7 @@ public class ProductoDao {
 
     public ArrayList<ProductoBean> getnovedad(Integer expand) throws Exception {
         String strSQL = "SELECT * FROM " + ob;
-        strSQL += " WHERE novedad = 1";
+        strSQL += " WHERE novedad = 1 ORDER BY fecha DESC";
 
         ArrayList<ProductoBean> alProductoBean;
         ResultSet oResultSet = null;
@@ -445,5 +467,62 @@ public class ProductoDao {
         }
 
         return alProductoBean;
+    }
+
+    public String getFecha(String fecha) {
+
+        String fechaFinal = "";
+        String mesN = "";
+
+        String mes = fecha.substring(4, 7);
+        String dia = fecha.substring(8, 10);
+        String anyo = fecha.substring(11, 15);
+        String hora = fecha.substring(16, 24);
+
+        switch (mes) {
+            case "Jan":
+                mesN = "01";
+                break;
+            case "Feb":
+                mesN = "02";
+                break;
+            case "Mar":
+                mesN = "03";
+                break;
+            case "Apr":
+                mesN = "04";
+                break;
+            case "May":
+                mesN = "05";
+                break;
+            case "Jun":
+                mesN = "06";
+                break;
+            case "Jul":
+                mesN = "07";
+                break;
+            case "Aug":
+                mesN = "08";
+                break;
+            case "Sep":
+                mesN = "09";
+                break;
+            case "Oct":
+                mesN = "10";
+                break;
+            case "Nov":
+                mesN = "11";
+                break;
+            case "Dec":
+                mesN = "12";
+                break;
+            default:
+
+        }
+
+        fechaFinal = anyo + mesN + dia + ' ' + hora;
+
+        return fechaFinal;
+
     }
 }

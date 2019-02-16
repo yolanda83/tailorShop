@@ -7,12 +7,18 @@
         <div class="col-md-2"></div>
 
         <div class="col-md-8" style="margin-top: 50px;">
-            <div class="pt-3 pb-2 mb-3 border-bottom">
+            <div ng-show="admin" class="pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2"><i class="fas fa-file-invoice"></i> Lineas:<small> Factura num. {{id}} del Usuario 
-                    <a href="{{'/tailorShop/factura/plist/50/1/' + ajaxDataUsuario.id + '/' + ajaxDataUsuario.login}}" 
-                       class="enlaceColor">{{ajaxDataUsuario.login}}</a></small></h1>
+                        <a href="{{'/tailorShop/factura/plist/50/1/' + ajaxDataUsuario.id + '/' + ajaxDataUsuario.login}}" 
+                           class="enlaceColor">{{ajaxDataUsuario.login}}</a></small></h1>
 
-            </div>   
+            </div>
+            <div ng-show="!admin" class="pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2"><i class="fas fa-file-invoice"></i> Detalle del pedido nº {{id}}<small> del Usuario 
+                        <a href="{{'/tailorShop/factura/plist/50/1/' + ajaxDataUsuario.id + '/' + ajaxDataUsuario.login}}" 
+                           class="enlaceColor">{{ajaxDataUsuario.login}}</a></small></h1>
+
+            </div> 
 
 
             <div class="row no-gutters pb-4">
@@ -39,7 +45,7 @@
             <div class="table-responsive">
                 <table class="table table-hover text-center">
                     <tr class="table-active">
-                        <th class="text-center">
+                        <th class="text-center" ng-show="admin">
                             Id
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 <button type="button" class="btn btn-light dropup" ng-click="ordena('id', 'asc')">
@@ -77,7 +83,7 @@
                         </th>
                     </tr>
                     <tr ng-repeat="fila in ajaxDataLinea">
-                        <td>{{fila.id}}</td>
+                        <td ng-show="admin">{{fila.id}}</td>
                         <td>{{fila.cantidad}}</td>
                         <td>{{fila.obj_producto.desc}}</td>
                         <td ng-show="admin">
@@ -96,20 +102,20 @@
             <nav aria-label="paginacion">
                 <ul class="pagination justify-content-center py-5">                                                 
                     <li class="page-item" ng-class="{'disabled': (page <= 1)}">
-                        <a class="page-link" href="linea/plist/{{rpp}}/1/{{order}}"><span>&laquo;</span></a>
+                        <a class="page-link" href="linea/plist/{{rpp}}/1/{{id}}/{{user}}/{{order}}"><span>&laquo;</span></a>
                     </li>
                     <li class="page-item" ng-class="{'disabled': (page <= 1)}">
-                        <a class="page-link" href="linea/plist/{{rpp}}/{{page - 1}}/{{order}}"><span>&lsaquo;</span></a>
+                        <a class="page-link" href="linea/plist/{{rpp}}/{{page - 1}}/{{id}}/{{user}}/{{order}}"><span>&lsaquo;</span></a>
                     </li>
 
                     <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
-                        <a class="page-link" href="linea/plist/{{rpp}}/{{p}}/{{order}}">{{p}}</a>
+                        <a class="page-link" href="linea/plist/{{rpp}}/{{p}}/{{id}}/{{user}}/{{order}}">{{p}}</a>
                     </li>
                     <li class="page-item"  ng-class="{'disabled':(page == totalPages)}">
-                        <a class="page-link" href="linea/plist/{{rpp}}/{{page--1}}/{{order}}"><span>&rsaquo;</span></a>
+                        <a class="page-link" href="linea/plist/{{rpp}}/{{page--1}}/{{id}}/{{user}}/{{order}}"><span>&rsaquo;</span></a>
                     </li>
                     <li class="page-item" ng-class="{'disabled':(page == totalPages)}">
-                        <a class="page-link" href="linea/plist/{{rpp}}/{{totalPages}}/{{order}}"><span>&raquo;</span></a>
+                        <a class="page-link" href="linea/plist/{{rpp}}/{{totalPages}}/{{id}}/{{user}}/{{order}}"><span>&raquo;</span></a>
                     </li>                  
                 </ul>
             </nav>

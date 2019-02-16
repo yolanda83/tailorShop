@@ -10,14 +10,22 @@ moduleUsuario.controller('usuarioNewAdminController', ['$scope', '$http', 'toolS
 
 
         $scope.guardar = function () {
-            
-             if ($scope.myFile == undefined) {
-                $scope.foto = "fotoUser.png";
-            } else {
-                $scope.foto = guid() + $scope.myFile.name;
-                $scope.fileNameChanged();
-            }
 
+//            if ($scope.myFile == undefined) {
+//                $scope.foto = "fotoUser.png";
+//            } else {
+//                $scope.foto = guid() + $scope.myFile.name;
+//                $scope.fileNameChanged();
+//            }
+
+            var foto;
+            if ($scope.myFile !== undefined) {
+                foto = guid() + $scope.myFile.name;
+                uploadPhoto(foto);
+                $scope.foto = foto;
+            } else {
+                $scope.foto = "fotoUser.png";
+            }
 
             var json = {
                 dni: $scope.dni,
@@ -46,12 +54,16 @@ moduleUsuario.controller('usuarioNewAdminController', ['$scope', '$http', 'toolS
             }
         }
 
+        $(".fotoEditar").on("click", function () {
+            $("#prueba").trigger('click');
+        });
 
-        $scope.fileNameChanged = function () {
+        function uploadPhoto(name) {
             //Solucion mas cercana
             //https://stackoverflow.com/questions/37039852/send-formdata-with-other-field-in-angular
             var file = $scope.myFile;
-            file = new File([file], $scope.foto, {type: file.type});
+            file = new File([file], name, {type: file.type});
+            $scope.userId = oSessionService.getId();
             //Api FormData 
             //https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/FormData
             var oFormData = new FormData();
@@ -60,13 +72,30 @@ moduleUsuario.controller('usuarioNewAdminController', ['$scope', '$http', 'toolS
                 headers: {'Content-Type': undefined},
                 method: 'POST',
                 data: oFormData,
-                url: `http://localhost:8081/tailorShop/json?ob=producto&op=addimage`
-            }).then(function (response) {
-                console.log(response);
-            }, function (response) {
-                console.log(response)
+                url: `http://localhost:8081/tailorShop/json?ob=producto&op=addimage&id=` + $scope.userId
             });
         }
+
+//        $scope.fileNameChanged = function () {
+//            //Solucion mas cercana
+//            //https://stackoverflow.com/questions/37039852/send-formdata-with-other-field-in-angular
+//            var file = $scope.myFile;
+//            file = new File([file], $scope.foto, {type: file.type});
+//            //Api FormData 
+//            //https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/FormData
+//            var oFormData = new FormData();
+//            oFormData.append('file', file);
+//            $http({
+//                headers: {'Content-Type': undefined},
+//                method: 'POST',
+//                data: oFormData,
+//                url: `http://localhost:8081/tailorShop/json?ob=producto&op=addimage`
+//            }).then(function (response) {
+//                console.log(response);
+//            }, function (response) {
+//                console.log(response)
+//            });
+//        }
 
 
         function guid() {

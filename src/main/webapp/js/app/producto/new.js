@@ -1,9 +1,10 @@
 'use strict'
 
-moduleProducto.controller('productoNewController', ['$scope', '$http', 'toolService', '$routeParams', 'sessionService',
-    function ($scope, $http, toolService, $routeParams, oSessionService) {
+moduleProducto.controller('productoNewController', ['$scope', '$http', 'toolService', '$routeParams', 'sessionService', '$timeout',
+    function ($scope, $http, toolService, $routeParams, oSessionService, $timeout) {
 
         $scope.numRegistros = 0;
+        $scope.novedad = true;
         $scope.obj_tipoProducto = {
             id: null,
             desc: null
@@ -11,15 +12,18 @@ moduleProducto.controller('productoNewController', ['$scope', '$http', 'toolServ
 
         $scope.isActive = toolService.isActive;
 
-
         $scope.guardar = function () {
 
-            if ($scope.myFile == undefined) {
-                $scope.foto = "Foto";
+            var foto;
+            if ($scope.myFile !== undefined) {
+                foto = guid() + $scope.myFile.name;
+                uploadPhoto(foto);
+                $scope.foto = foto;
             } else {
-                $scope.foto = guid() + $scope.myFile.name;
-                $scope.fileNameChanged();
+                $scope.foto = "foto.png";
             }
+
+            var fecha = new Date().toString();
 
             var json = {
                 id: $scope.id,
@@ -29,8 +33,10 @@ moduleProducto.controller('productoNewController', ['$scope', '$http', 'toolServ
                 precio: $scope.precio,
                 foto: $scope.foto,
                 id_tipoProducto: $scope.obj_tipoProducto.id,
-                novedad: $scope.novedad
+                novedad: $scope.novedad,
+                fecha: fecha
             }
+            
             $http({
                 method: 'GET',
                 header: {
@@ -42,6 +48,7 @@ moduleProducto.controller('productoNewController', ['$scope', '$http', 'toolServ
                 console.log(data, response);
                 $scope.resultado = "Producto creado correctamente.";
                 $scope.new = true;
+                sleep(10000);
             }), function (response) {
                 console.log(response);
                 $scope.ajaxDataUsuario = response.data.message || 'Request failed';
@@ -50,7 +57,15 @@ moduleProducto.controller('productoNewController', ['$scope', '$http', 'toolServ
             }
         }
 
-
+//Anyadida esta funcion que realiza un retardo para que no haya problemas al mostrar la foto en la web
+        function sleep(milliseconds) {
+            var start = new Date().getTime();
+            for (var i = 0; i < 1e7; i++) {
+                if ((new Date().getTime() - start) > milliseconds) {
+                    break;
+                }
+            }
+        }
 
         $scope.tipoProductoRefresh = function (f, consultar) {
             var form = f;
@@ -69,12 +84,16 @@ moduleProducto.controller('productoNewController', ['$scope', '$http', 'toolServ
             }
         }
 
+        $(".fotoEditar").on("click", function () {
+            $("#prueba").trigger('click');
+        });
 
-        $scope.fileNameChanged = function () {
+        function uploadPhoto(name) {
             //Solucion mas cercana
             //https://stackoverflow.com/questions/37039852/send-formdata-with-other-field-in-angular
             var file = $scope.myFile;
-            file = new File([file], $scope.foto, {type: file.type});
+            file = new File([file], name, {type: file.type});
+            $scope.userId = oSessionService.getId();
             //Api FormData 
             //https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/FormData
             var oFormData = new FormData();
@@ -83,14 +102,9 @@ moduleProducto.controller('productoNewController', ['$scope', '$http', 'toolServ
                 headers: {'Content-Type': undefined},
                 method: 'POST',
                 data: oFormData,
-                url: `http://localhost:8081/tailorShop/json?ob=producto&op=addimage`
-            }).then(function (response) {
-                console.log(response);
-            }, function (response) {
-                console.log(response)
+                url: `http://localhost:8081/tailorShop/json?ob=producto&op=addimage&id=` + $scope.userId
             });
         }
-
 
         function guid() {
             return "ss-s-s-s-sss".replace(/s/g, s4);

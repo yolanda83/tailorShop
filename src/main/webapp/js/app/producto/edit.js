@@ -49,6 +49,8 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
                 foto = $scope.foto;
             }
 
+            var fecha = new Date().toString();
+
             var json = {
                 id: $scope.id,
                 codigo: $scope.codigo,
@@ -57,7 +59,8 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
                 precio: $scope.precio,
                 foto: foto,
                 id_tipoProducto: $scope.obj_tipoProducto.id,
-                novedad: $scope.novedad
+                novedad: $scope.novedad,
+                fecha: fecha
             };
 
             $http({
@@ -72,6 +75,7 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
                 if ($scope.status === 200) {
                     $scope.resultado = "El Producto ha sido actualizado correctamente.";
                     $scope.edit = true;
+                    sleep(10000);
                 } else {
                     $scope.resultado = "El Producto no se ha podido actualizar.";
                     $scope.edit = false;
@@ -81,6 +85,15 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
             };
         };
 
+//Anyadida esta funcion que realiza un retardo para que no haya problemas al mostrar la foto en la web
+        function sleep(milliseconds) {
+            var start = new Date().getTime();
+            for (var i = 0; i < 1e7; i++) {
+                if ((new Date().getTime() - start) > milliseconds) {
+                    break;
+                }
+            }
+        }
 
         $(".fotoEditar").on("click", function () {
             $("#prueba").trigger('click');
@@ -95,11 +108,12 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
             //https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/FormData
             var oFormData = new FormData();
             oFormData.append('file', file);
+            $scope.userId = oSessionService.getId();
             $http({
                 headers: {'Content-Type': undefined},
                 method: 'POST',
                 data: oFormData,
-                url: `http://localhost:8081/tailorShop/json?ob=producto&op=addimage`
+                url: `http://localhost:8081/tailorShop/json?ob=producto&op=addimage&id=` + $scope.userId
             });
         }
 

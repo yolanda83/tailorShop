@@ -9,13 +9,7 @@ moduleFactura.controller('facturaPlistController', ['$scope', 'toolService', '$h
         $scope.op = "plist";
         $scope.id = $routeParams.id;
         $scope.user = $routeParams.user;
-
-//        //Chequeo sesión
-//        if (oSessionService.getUserName() !== "") {
-//            $scope.usuario = oSessionService.getUserName();
-//            $scope.logeado = true;
-//            $scope.userId = oSessionService.getId();
-//        }
+        $scope.admin = oSessionService.isAdmin();
 
 
         if (!$routeParams.order) {

@@ -28,19 +28,32 @@
 
                                 <div class="col-md-4 pl-3">
                                     <div class="row">
-                                        <div class="col-md-12 mx-auto pt-5">
-                                            <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload">                   
-                                                <img ng-model="foto" id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
+                                        <div class="col-md-12 mx-auto pt-3">
+                                            <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload fotoEditar">
+                                                <img ng-model="foto" class="mx-auto my-auto" id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
                                             </div>
+                                            <label class="hiddenfile">                           
+                                                <input id="prueba" type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto"/>
+                                            </label> 
                                         </div>
-                                        <!--                            <div class="row">
-                                                                        <div class="mx-auto">
-                                                                            ARREGLO EN UNA LINEA DE PREVIEW DE NUEVA FOTO
-                                                                            <input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto">                 
-                                                                        </div>
-                                                                    </div>-->
                                     </div>
                                 </div>
+
+                                <!--                                <div class="col-md-4 pl-3">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 mx-auto pt-5">
+                                                                            <div class="mx-auto pb-2 fotoPerfil profile-picture image-upload">                   
+                                                                                <img ng-model="foto" id="output" ng-src="http://localhost:8081/imagenes/{{foto}}">
+                                                                            </div>
+                                                                        </div>
+                                                                                                    <div class="row">
+                                                                                                        <div class="mx-auto">
+                                                                                                            ARREGLO EN UNA LINEA DE PREVIEW DE NUEVA FOTO
+                                                                                                            <input type="file" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" ng-model="foto">                 
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                    </div>
+                                                                </div>-->
 
                                 <div class="col-md-6 pr-4 pb-4 pt-4">
                                     <div class="form-group"> 
@@ -102,13 +115,13 @@
 
                                     <div class="form-group"> 
                                         <label for="loginAdmin" class="col-form-label">Username:</label>
-                                        <input id="loginAdmmin" type="text" class="form-control"  ng-class="{'is-invalid': userForm.loginAdmmin.$invalid && !userForm.loginAdmmin.$pristine}"
-                                               name="loginAdmin" ng-model="loginAdmin" ng-required="true" ng-minlength="5" placeholder="Introduce nombre usuario..."/>
+                                        <input id="loginAdmin" type="text" class="form-control"  ng-class="{'is-invalid': userForm.loginAdmin.$invalid && !userForm.loginAdmin.$pristine}"
+                                               name="loginAdmin" ng-model="loginAdmin" ng-required="true" placeholder="Introduce nombre usuario..."/>
 
-                                        <div ng-show="userForm.loginAdmmin.$error.minlength" class="alert alert-danger" role="alert">
-                                            La longitud del login es demasiado corto
-                                        </div>           
-                                        <div ng-show="!userForm.loginAdmmin.$valid && userForm.loginAdmmin.$dirty && !userForm.loginAdmmin.$pristine" class="alert alert-danger" role="alert">
+                                        <!--                                        <div ng-show="userForm.loginAdmin.$error.minlength" class="alert alert-danger" role="alert">
+                                                                                    La longitud del login es demasiado corto
+                                                                                </div>           -->
+                                        <div ng-show="!userForm.loginAdmin.$valid && userForm.loginAdmin.$dirty && !userForm.loginAdmin.$pristine" class="alert alert-danger" role="alert">
                                             Nombre usuario obligatorio
                                         </div>
                                     </div>

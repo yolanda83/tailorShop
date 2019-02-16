@@ -21,7 +21,7 @@ moduleProducto.controller('productoPlistUsuarioBusquedaController', ['$scope', '
         }
 
         if (!$routeParams.rpp) {
-            $scope.rpp = 10;
+            $scope.rpp = 12;
         } else {
             $scope.rpp = $routeParams.rpp;
         }
@@ -36,7 +36,7 @@ moduleProducto.controller('productoPlistUsuarioBusquedaController', ['$scope', '
             }
         }
 
-        //Getpage trae todos los registros de productos de la BBDD, filtrados por criterio de búsqueda
+        //Getpage trae todos los registros de productos de la BBDD, filtrados por criterio de bï¿½squeda
         $http({
             method: 'GET',
             url: `http://localhost:8081/tailorShop/json?ob=${toolService.objects.producto}&op=getbusqueda&rpp=` + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor +

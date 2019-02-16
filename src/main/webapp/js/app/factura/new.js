@@ -5,13 +5,6 @@ moduleFactura.controller('facturaNewController', ['$scope', '$http', 'toolServic
 
         $scope.numRegistros = 0;
 
-//        //Chequeo sesión
-//        if (oSessionService.getUserName() !== "") {
-//            $scope.usuario = oSessionService.getUserName();
-//            $scope.logeado = true;
-//            $scope.userId = oSessionService.getId();
-//        }
-
         $scope.isActive = toolService.isActive;
 
 

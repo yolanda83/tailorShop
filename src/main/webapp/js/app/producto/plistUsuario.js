@@ -21,7 +21,7 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
         }
 
         if (!$routeParams.rpp) {
-            $scope.rpp = 10;
+            $scope.rpp = 12;
         } else {
             $scope.rpp = $routeParams.rpp;
         }
@@ -37,18 +37,6 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
         }
 
         //Getpage trae todos los registros de productos de la BBDD
-//        $http({
-//            method: 'GET',
-//            //withCredentials: true,
-//            url: 'http://localhost:8081/tailorShop/json?ob=producto&op=getpage&rpp=' + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor
-//        }).then(function (response) {
-//            $scope.status = response.status;
-//            $scope.ajaxDataProductos = response.data.message;
-//        }, function (response) {
-//            $scope.ajaxDataProductos = response.data.message || 'Request failed';
-//            $scope.status = response.status;
-//        });
-
         $http({
             method: 'GET',
             url: `http://localhost:8081/tailorShop/json?ob=${toolService.objects.producto}&op=getpage&rpp=` + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor +
@@ -78,8 +66,6 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
                     $scope.titulo = "Productos";
             }
 
-
-
             $scope.status = response.status;
             var productos = [];
             response.data.message.forEach(element => {
@@ -102,7 +88,6 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
                 $scope.advanced = false;
             }
         }
-
 
         $scope.save = function (producto) {
             $http({

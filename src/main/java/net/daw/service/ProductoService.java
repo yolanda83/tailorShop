@@ -43,12 +43,12 @@ public class ProductoService {
             case "create":
             case "fill":
             case "load":
-            case "add":
                 if (oUsuarioBean.getId_tipoUsuario() != 1) {
                     oUsuarioBean = null;
                 }
                 break;
             case "get":
+            case "add":
                 Integer id = Integer.parseInt(oRequest.getParameter("id"));
 
                 if (id != oUsuarioBean.getId() && oUsuarioBean.getId_tipoUsuario() != 1) {

@@ -22,7 +22,7 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
         }
 
         if (!$routeParams.rpp) {
-            $scope.rpp = 10;
+            $scope.rpp = 12;
         } else {
             $scope.rpp = $routeParams.rpp;
         }

@@ -8,13 +8,17 @@ package net.daw.bean;
 import com.google.gson.annotations.Expose;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import net.daw.dao.TipoproductoDao;
+import net.daw.helper.EncodingHelper;
 
 /**
  *
  * @author Yolanda
  */
-
 public class ProductoBean {
 
     @Expose
@@ -35,9 +39,9 @@ public class ProductoBean {
     private TipoproductoBean obj_tipoProducto;
     @Expose
     private boolean novedad;
+    @Expose
+    private String fecha;
 
-    
-    
     public TipoproductoBean getObj_tipoProducto() {
         return obj_tipoProducto;
     }
@@ -45,7 +49,7 @@ public class ProductoBean {
     public void setObj_tipoProducto(TipoproductoBean obj_tipoProducto) {
         this.obj_tipoProducto = obj_tipoProducto;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -109,24 +113,67 @@ public class ProductoBean {
     public void setNovedad(boolean novedad) {
         this.novedad = novedad;
     }
-    
-        
-    	public ProductoBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {
-                this.setId(oResultSet.getInt("id"));
-                this.setCodigo(oResultSet.getString("codigo"));
-                this.setDesc(oResultSet.getString("desc"));
-                this.setExistencias(oResultSet.getInt("existencias"));
-                this.setPrecio(oResultSet.getFloat("precio"));
-                this.setFoto(oResultSet.getString("foto"));
-                this.setId_tipoProducto(oResultSet.getInt("id_tipoProducto"));
-                this.setNovedad(oResultSet.getBoolean("novedad"));
-		if (expand > 0) {
-			TipoproductoDao otipoproductoDao = new TipoproductoDao(oConnection, "tipoproducto");
-			this.setObj_tipoProducto(otipoproductoDao.get(oResultSet.getInt("id_tipoProducto"), expand - 1));
-		} else {
-			this.setId_tipoProducto(oResultSet.getInt("id_tipoProducto"));
-		}
-		return this;
-	}
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public ProductoBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {
+        this.setId(oResultSet.getInt("id"));
+        this.setCodigo(oResultSet.getString("codigo"));
+        this.setDesc(oResultSet.getString("desc"));
+        this.setExistencias(oResultSet.getInt("existencias"));
+        this.setPrecio(oResultSet.getFloat("precio"));
+        this.setFoto(oResultSet.getString("foto"));
+        this.setId_tipoProducto(oResultSet.getInt("id_tipoProducto"));
+        this.setNovedad(oResultSet.getBoolean("novedad"));
+        this.setFecha(oResultSet.getString("fecha"));
+        if (expand > 0) {
+            TipoproductoDao otipoproductoDao = new TipoproductoDao(oConnection, "tipoproducto");
+            this.setObj_tipoProducto(otipoproductoDao.get(oResultSet.getInt("id_tipoProducto"), expand - 1));
+        } else {
+            this.setId_tipoProducto(oResultSet.getInt("id_tipoProducto"));
+        }
+        return this;
+    }
+
+    public String getColumns() {
+        String strColumns = "";
+        strColumns += "id,";
+        strColumns += "codigo,";
+        strColumns += "desc,";
+        strColumns += "existencias,";
+        strColumns += "precio,";
+        strColumns += "foto,";
+        strColumns += "id_tipoProducto,";
+        strColumns += "novedad,";
+        strColumns += "fecha";
+        return strColumns;
+    }
+
+    public String getValues() {
+
+
+//
+
+
+        String strColumns = "";
+        strColumns += "NULL,";
+        strColumns += codigo + ",";
+        strColumns += desc + ",";
+        strColumns += existencias + ",";
+        strColumns += precio + ",";
+        strColumns += foto + ",";
+        strColumns += id_tipoProducto + ",";
+        strColumns += novedad + ",";
+        strColumns += fecha;
+//        strColumns += EncodingHelper.quotate(localDate.toString());
+
+        return strColumns;
+    }
 
 }
