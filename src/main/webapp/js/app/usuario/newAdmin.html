@@ -16,7 +16,7 @@
         </div>
         <div class="row no-gutters">
             <div class="col-md-2"></div>
-            <div class="col-md-8 edit pt-0" style="margin-top: 50px;">
+            <div class="col-md-8 edit pt-0" style="margin-top: 50px; margin-bottom: 220px;">
 
                 <div class="row no-gutters">
                     <div class="col-md-12">
@@ -69,9 +69,9 @@
 
                                     <md-input-container class="md-block">
                                         <label>Username</label>
-                                        <input md-no-asterisk required name="loginUser" ng-model="loginUser">
+                                        <input md-no-asterisk required name="loginAdmin" ng-model="loginAdmin">
 
-                                        <div ng-messages="userForm.loginUser.$error">
+                                        <div ng-messages="userForm.loginAdmin.$error">
                                             <div ng-message="required">Username obligatorio.</div>
                                         </div>
                                     </md-input-container>
@@ -196,9 +196,9 @@
 
 
                         <div class="row" ng-show="new">
-                            <div class="col-12">
-                                <div class="card mx-auto">
-                                    <div class="card-body">
+                            <div class="col-12 mt-4">
+                                <div class="mx-auto">
+                                    <div class="card-body my-3">
                                         <h4 class="card-title" style="text-align: center;">{{resultado}}</h4>
                                         <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
                                             <button type="button" class="btn botonAdmin" onclick="window.history.back()">Volver</button>
