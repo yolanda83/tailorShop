@@ -29,18 +29,59 @@
                 <div class="row no-gutters pt-3 pb-4" ng-show="changed">
                     <div class="col-5 mx-auto pt-3">
                         <form name="userForm">
-                            <div class="form-group">
+
+                            <md-input-container class="md-block">
+                                <label>Antiguo Password</label>
+                                <input md-no-asterisk required type="password" id="last_pass" name="last_pass" ng-model="last_pass"
+                                       minlength="5" />                                    
+
+                                <div ng-messages="userForm.last_pass.$error" role="alert">
+                                    <div ng-message-exp="['required', 'minlength']">
+                                        Password incorrecto.
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            
+<!--                            <div class="form-group">
                                 <label>Contraseña antigua</label>
                                 <input type="password" class="form-control" id="last_pass" name="last_pass" ng-model="last_pass" ng-required="true"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Nueva contraseña</label>
-                                <input type="password" class="form-control" id="new_pass" name="new_pass" ng-model="new_pass" ng-required="true"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Repite la nueva contraseña</label>
-                                <input type="password" class="form-control" id="new_pass_verify" name="new_pass_verify" ng-model="new_pass_verify" ng-required="true"/>
-                            </div>
+                            </div>-->
+
+                            <md-input-container class="md-block">
+                                <label>Nuevo Password</label>
+                                <input md-no-asterisk required type="password" id="new_pass" name="new_pass" ng-model="new_pass"
+                                       minlength="5" />                                    
+
+                                <div ng-messages="userForm.new_pass.$error" role="alert">
+                                    <div ng-message-exp="['required', 'minlength']">
+                                        Password incorrecto.
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label>Repite Password</label>
+                                <input md-no-asterisk required type="password" id="new_pass_verify" name="new_pass_verify" ng-model="new_pass_verify"
+                                       minlength="5" />                                    
+
+                                <div ng-messages="userForm.new_pass_verify.$error" role="alert">
+                                    <div ng-message-exp="['required', 'minlength']">
+                                        Password incorrecto.
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+
+
+                            <!--                            <div class="form-group">
+                                                            <label>Nueva contraseña</label>
+                                                            <input type="password" class="form-control" id="new_pass" name="new_pass" ng-model="new_pass" ng-required="true"/>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Repite la nueva contraseña</label>
+                                                            <input type="password" class="form-control" id="new_pass_verify" name="new_pass_verify" ng-model="new_pass_verify" ng-required="true"/>
+                                                        </div>-->
+
                             <div class="d-flex justify-content-between flex-wrap pb-3">
                                 <button ng-click="update()" type="button" class="btn btn-info ml-0" ng-disabled="userForm.$invalid"> Cambiar</button>
                                 <button type="button" class="btn botonAdmin" onclick="window.history.back()">Volver</button>

@@ -28,7 +28,7 @@ moduleProducto.controller('productoNewController', ['$scope', '$http', 'toolServ
             var json = {
                 id: $scope.id,
                 codigo: $scope.codigo,
-                desc: $scope.descripcion,
+                desc: $scope.desc,
                 existencias: $scope.existencias,
                 precio: $scope.precio,
                 foto: $scope.foto,

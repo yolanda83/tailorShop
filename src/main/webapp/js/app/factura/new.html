@@ -39,7 +39,7 @@
 
                                 <div class="form-group" ng-class="{ 'has-error' : userForm.fecha.$invalid && !userForm.fecha.$pristine }">
 
-                                    <label>Fecha:</label>
+                                    <label class="labelNew">Fecha</label>
                                     <md-datepicker ng-model="fecha" md-placeholder="Enter date" ng-required="true"></md-datepicker>       
 
                                     <div ng-show="userForm.myDate.$valid" class="alert alert-danger" role="alert">
@@ -47,18 +47,30 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group"> 
-                                    <label for="iva" class="col-form-label">IVA:</label>
-                                    <input id="iva" ng-model="iva" class="form-control" ng-class="{'is-invalid': userForm.iva.$invalid && !userForm.iva.$pristine}"
-                                           name="iva" type="text" ng-required="true" placeholder="Introduce un IVA..." />
-                                    <div ng-show="!userForm.iva.$valid && userForm.iva.$dirty && !userForm.iva.$pristine" class="alert alert-danger" role="alert">
-                                        IVA obligatorio
+
+                                <md-input-container class="md-block mt-5 mb-0" flex-gt-sm>
+                                    <label>IVA</label>
+                                    <input md-no-asterisk name="iva" ng-model="iva"
+                                           required type="number">
+
+                                    <div ng-messages="userForm.iva.$error" role="alert" multiple>
+                                        <div ng-message="required" class="my-message">
+                                            IVA obligatorio.
+                                        </div>
                                     </div>
-                                </div>
+                                </md-input-container>
+                                <!--                                <div class="form-group"> 
+                                                                    <label for="iva" class="col-form-label">IVA:</label>
+                                                                    <input id="iva" ng-model="iva" class="form-control" ng-class="{'is-invalid': userForm.iva.$invalid && !userForm.iva.$pristine}"
+                                                                           name="iva" type="text" ng-required="true" placeholder="Introduce un IVA..." />
+                                                                    <div ng-show="!userForm.iva.$valid && userForm.iva.$dirty && !userForm.iva.$pristine" class="alert alert-danger" role="alert">
+                                                                        IVA obligatorio
+                                                                    </div>
+                                                                </div>-->
 
 
                                 <div class="form-group">
-                                    <label>Usuario:</label>
+                                    <label class="labelNew">Usuario</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" id="obj_usuario.login" name="obj_usuario.login" ng-model="obj_usuario.login"
                                                ng-click="modal()" disabled/>

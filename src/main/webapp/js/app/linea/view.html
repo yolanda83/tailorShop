@@ -2,42 +2,89 @@
 <header-component></header-component>
 
 
-<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
-    
-    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">View Linea: <small> Factura núm. {{ajaxData.obj_factura.id}} </small></h1>
-        <i class="fas fa-file-invoice fa-3x"></i>
-    </div>
+<div class="row no-gutters">
 
-    <div class="mx-auto" style="margin-top: 80px; padding: 20px; width: 50%; background-color: WHITESMOKE; border-radius: 7px">
+    <div role="main" class="col-md-12">
 
-
-        <table class="table table-hover">
-            <tr>
-                <th style="padding-left: 30px;">Id:</th>
-                <td>{{ajaxData.id}}</td>
-            </tr>
-            <tr>
-                <th style="padding-left: 30px;">Cantidad:</th>
-                <td>{{ajaxData.cantidad}}</td>
-            </tr>
-            <tr>
-                <th style="padding-left: 30px;">Producto:</th>
-                <td>{{ajaxData.obj_producto.desc}}</td>
-            </tr>
-            <tr>
-                <th style="padding-left: 30px;">Id Factura:</th>
-                <td>{{ajaxData.obj_factura.id}}</td>
-            </tr>           
-        </table>
-
-        <div class="d-flex justify-content-center">
-            <button class="btn btn-secondary ml-0" onClick="javascript:history.go(-1);">Volver</button>
+        <div class="row no-gutters">
+            <div class="col-md-2 fondoCabecera mb-0"></div>
+            <div class="col-md-8">
+                <div class="fondoCabecera mb-0">
+                    <div class="mb-0">View línea</div>
+                </div>
+            </div>
+            <div class="col-md-2 fondoCabecera mb-0"></div>
         </div>
+
+        <div class="row no-gutters">
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 100px;">
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="py-1 tituloView">
+                        </div>
+                        <div class="mx-auto pb-3 mb-5" style="margin-top: 50px; padding: 20px; width: 50%;">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th style="padding-left: 30px;">Id:</th>
+                                    <td>{{ajaxData.id}}</td>
+                                </tr>
+                                <tr>
+                                    <th style="padding-left: 30px;">Cantidad:</th>
+                                    <td>{{ajaxData.cantidad}}</td>
+                                </tr>
+                                <tr>
+                                    <th style="padding-left: 30px;">Producto:</th>
+                                    <td>{{ajaxData.obj_producto.desc}}</td>
+                                </tr>
+                                <tr>
+                                    <th style="padding-left: 30px;">Id Factura:</th>
+                                    <td>{{ajaxData.obj_factura.id}}</td>
+                                </tr>
+                            </table>
+
+                            <div class="d-flex justify-content-center">
+                                <button class="btn botonAdmin ml-0 mt-4" onClick="javascript:history.go(-1);">Volver</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--                    <div class="row mx-auto" style="padding: 50px; margin-top:10px;">
+                                            <div class="col-md-10 mx-auto">
+                    
+                                                <table class="table table-hover">
+                                                    <tr>
+                                                        <th class="text-center">Id</th>
+                                                        <th class="text-center">Cantidad</th>                       
+                                                        <th class="text-center">Producto</th>             
+                                                        <th class="text-center">Id Factura</th>             
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">{{ajaxData.id}}</td>
+                                                        <td class="text-center">{{ajaxData.cantidad}}</td>
+                                                        <td class="text-center">{{ajaxData.obj_producto.desc}}</td>
+                                                        <td class="text-center">{{ajaxData.obj_factura.id}}</td>
+                                                    </tr>
+                                                </table>
+                    
+                                                <div class="d-flex justify-content-center">
+                                                    <button class="btn botonAdmin ml-0 mt-4" onClick="javascript:history.go(-1);">Volver</button>
+                                                </div>
+                                            </div>
+                                        </div>-->
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-2"></div>
+
     </div>
-
-
-</main>
+</div>
+</div>
 
 <!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
 <!--<footer-component></footer-component>-->
