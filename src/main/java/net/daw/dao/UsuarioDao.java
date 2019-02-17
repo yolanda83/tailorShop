@@ -14,7 +14,6 @@ import net.daw.helper.SqlBuilder;
  *
  * @author Yolanda
  */
-
 public class UsuarioDao {
 
     Connection oConnection;
@@ -227,8 +226,8 @@ public class UsuarioDao {
         }
         return oUsuarioBean;
     }
-    
-     public void updatePass(String lastPass, String newPass, UsuarioBean usuarioSession) throws Exception {
+
+    public void updatePass(String lastPass, String newPass, UsuarioBean usuarioSession) throws Exception {
         String strSQL = "SELECT * FROM " + ob + " WHERE id=" + usuarioSession.getId();
         UsuarioBean oUsuarioBean = null;
         ResultSet oResultSet = null;
@@ -257,7 +256,36 @@ public class UsuarioDao {
             throw new Exception("Pass nueva igual a pass antigua");
         } else {
             usuarioSession.setPass(newPass);
-            update(usuarioSession);
+            updateconpass(usuarioSession);
         }
+    }
+
+    public int updateconpass(UsuarioBean oUsuarioBean) throws Exception {
+        int iResult = 0;
+        String strSQL = "UPDATE " + ob
+                + " SET dni = ?, nombre = ?, ape1 = ?, ape2 = ?, login = ?, pass = ?, foto = ?, id_tipoUsuario = ? WHERE id = ? ;";
+
+        PreparedStatement oPreparedStatement = null;
+        try {
+            oPreparedStatement = oConnection.prepareStatement(strSQL);
+            oPreparedStatement.setString(1, oUsuarioBean.getDni());
+            oPreparedStatement.setString(2, oUsuarioBean.getNombre());
+            oPreparedStatement.setString(3, oUsuarioBean.getApe1());
+            oPreparedStatement.setString(4, oUsuarioBean.getApe2());
+            oPreparedStatement.setString(5, oUsuarioBean.getLogin());
+            oPreparedStatement.setString(6, oUsuarioBean.getPass());
+            oPreparedStatement.setString(7, oUsuarioBean.getFoto());
+            oPreparedStatement.setInt(8, oUsuarioBean.getId_tipoUsuario());
+            oPreparedStatement.setInt(9, oUsuarioBean.getId());
+            iResult = oPreparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new Exception("Error en Dao update de " + ob, e);
+        } finally {
+            if (oPreparedStatement != null) {
+                oPreparedStatement.close();
+            }
+        }
+        return iResult;
     }
 }
