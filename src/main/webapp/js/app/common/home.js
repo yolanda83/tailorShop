@@ -1,8 +1,8 @@
 /* global moduleCommon */
 
 'use strict';
-moduleCommon.controller('homeController', ['$scope', '$location', 'toolService', '$http', "$mdDialog",
-    function ($scope, $location, toolService, $http, $mdDialog) {
+moduleCommon.controller('homeController', ['$scope', '$location', 'toolService', '$http', "$mdDialog", "countcarritoService",
+    function ($scope, $location, toolService, $http, $mdDialog, countcarritoService) {
 
         $scope.ruta = $location.path();
 //        $scope.logeado = false;
@@ -39,7 +39,19 @@ moduleCommon.controller('homeController', ['$scope', '$location', 'toolService',
             $scope.ajaxDataNovedades = response.data.message || 'Request failed';
             $scope.status = response.status;
         });
-        
+
+        $scope.save = function (producto) {
+            $http({
+                method: 'GET',
+                url: `http://localhost:8081/tailorShop/json?ob=carrito&op=add&id=${producto.id}&cant=1`
+            }).then(function (response) {
+                $scope.showAlert('Carrito', 'Producto añadido correctamente :)');
+                countcarritoService.updateCarrito();
+            }, function (response) {
+                $scope.showAlert('Error', response.data.message);
+            });
+        }
+
         $scope.checkFav = function (producto) {
             $http({
                 method: 'GET',
