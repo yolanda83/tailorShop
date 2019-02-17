@@ -45,7 +45,7 @@ moduleCommon.controller('homeController', ['$scope', '$location', 'toolService',
                 method: 'GET',
                 url: `http://localhost:8081/tailorShop/json?ob=carrito&op=add&id=${producto.id}&cant=1`
             }).then(function (response) {
-                $scope.showAlert('Carrito', 'Producto añadido correctamente :)');
+                $scope.showAlert('Carrito', 'El producto seleccionado se encuentra en el carrito :)');
                 countcarritoService.updateCarrito();
             }, function (response) {
                 $scope.showAlert('Error', response.data.message);

@@ -18,16 +18,16 @@
             <div class="col-md-2"></div>
 
 
-            <div class="col-md-8 view" style="margin-top: 50px;margin-bottom: 100px;">
-                <div ng-show="!deleted">
-                    <div class="row no-gutters">
-                        <div class="col-md-12">
-                            <div class="py-1 tituloView">
-                            </div>
+            <div class="col-md-8 view" style="margin-top: 50px;margin-bottom: 220px;">
+
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="py-1 tituloView">
                         </div>
                     </div>
+                </div>
 
-
+                <div ng-show="!deleted">
                     <div class="row no-gutters mt-0 pb-4">
                         <div class="col-md-4">
                             <!--<div class="form-group">-->
@@ -44,7 +44,7 @@
                                 <p class="profileName text-capitalize">
                                     {{ajaxData.desc}}
                                 </p>
-                                <p class="profileLogin">
+                                <p class="profileDatos">
                                     Tipo de producto: {{ajaxData.obj_tipoProducto.desc}}                                
                                 </p>
                                 <p class="profileDatos">
@@ -57,11 +57,6 @@
                                     Precio: {{ajaxData.precio}} €                           
                                 </p>
 
-                                <!--                            <div class="mt-5">
-                                                                <a href="{{'/tailorShop/usuario/edit/' + ajaxData.id}}" class="btn px-4 mr-3 btn-info" role="button">Editar</a>
-                                                                <button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>
-                                                                <button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>
-                                                            </div>-->
                             </div>
                         </div>
                     </div>
@@ -71,7 +66,7 @@
 
                 <div class="row" ng-show="!deleted">
                     <div class="col-12">
-                        <div class="card mx-auto" style="border-radius:0px!important;">
+                        <div class="mx-auto" style="border-radius:0px!important;">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center;">¿Desea eliminar el Producto?</h5>
                                 <div class="d-flex justify-content-center align-items-center pt-3 pb-2" role="alert">
@@ -83,10 +78,12 @@
                     </div>
                 </div>
                 <div class="row" ng-show="deleted">
-                    <div class="col-12">
-                        <div class="d-flex justify-content-center flex-wrap align-items-center p-3 pb-2 mb-3" role="alert">
-                            <h4>Producto eliminado con éxito.</h4> 
-                            <button type="button" class="btn btn-secondary mt-3 pt-2" onclick="window.history.back()">Volver</button>
+                    <div class="col-12 mt-4">
+                        <div class="card-title text-center" role="alert">
+                            <h4>Producto eliminado con correctamente.</h4> 
+                            <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
+                                <button type="button" class="btn botonAdmin mt-3 pt-2" onclick="window.history.back()">Volver</button>
+                            </div>
                         </div>
                     </div>
                 </div>

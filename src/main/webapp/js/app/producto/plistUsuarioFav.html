@@ -17,28 +17,6 @@
             <div class="col-md-2"></div>
 
             <div class="col-md-8" style="margin-top: 50px;">
-                <!--            <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                                <h1 class="h2"><i class="fas fa-heart"></i> {{titulo}}</h1>
-                
-                            </div>-->
-
-<!--                <div class="btn-toolbar mb-2 d-flex justify-content-end">
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">               
-
-                        Registros por pagina
-                        <div>
-                            <nav aria-label="RegistrosPorPagina">
-                                <ul class="pagination" style="float: right;">
-                                    <li ng-class="{'active':(rpp == 10)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/10/' + page + '/' + id + '/' + usuario}}">10</a></li>
-                                    <li ng-class="{'active':(rpp == 50)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/50/' + page + '/' + id + '/' + usuario}}">50</a></li>
-                                    <li ng-class="{'active':(rpp == 100)}" class="page-item"><a class="page-link" href="{{ob + '/' + op + '/100/' + page + '/' + id + '/' + usuario}}">100</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-
-
-                    </div>
-                </div>-->
 
 
                 <!--Tabla de contenidos-->   
@@ -76,6 +54,22 @@
                     </div>
                 </div>
 
+                
+                     <div class="row no-gutters pb-5 mb-5" ng-show="fav">
+                    <div class="col-7 mx-auto text-center py-4">
+                        <div class="card mx-auto view my-5">
+                            <div class="card-body p-5">
+                                <h4 class="card-title" style="text-align: center;">Oh no. ¡Tu lista de deseos está vacía!</h4>
+                                <div class="d-flex justify-content-center align-items-center pt-3" role="alert">
+                                    <!--<button type="button" class="btn botonAdmin ml-0" onclick="window.history.back()">Seguir comprando</button>-->
+                                    <a href="producto/plistUsuario/1" class="btn botonAdmin mt-2 ml-0" role="button">Añadir favoritos</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
 
 
                 <!--Paginacion vecindario-->     

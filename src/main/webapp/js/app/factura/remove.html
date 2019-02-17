@@ -16,62 +16,65 @@
         </div>
         <div class="row no-gutters">
             <div class="col-md-2"></div>
-            <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 110px;">
+            <div class="col-md-8 view" style="margin-top: 50px; margin-bottom: 220px;">
                 <div class="row no-gutters">
                     <div class="col-md-12">
                         <div class="py-1 tituloView">
                         </div>
 
 
-                        <div class="mx-auto" style="margin-top: 60px; padding: 20px; width: 50%; background-color: WHITESMOKE; border-radius: 7px">
-                            <div ng-show="!deleted">
+                        <div class="mx-auto" style="padding: 50px;margin-top:10px;">
+                            <div class="col-md-10 mx-auto">
+                                <div ng-show="!deleted">
 
-                                <table class="table table-hover">
-                                    <tr>
-                                        <th style="padding-left: 30px;">Id:</th>
-                                        <td>{{ajaxData.id}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="padding-left: 30px;">Fecha:</th>
-                                        <td>{{ajaxData.fecha}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="padding-left: 30px;">IVA:</th>
-                                        <td>{{ajaxData.iva}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="padding-left: 30px;">Usuario:</th>
-                                        <td>{{ajaxData.obj_usuario.login}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th style="padding-left: 30px;">Nº líneas:</th>
-                                        <td>{{ajaxData.numLineas}}</td>
-                                    </tr>
-                                </table>
-                            </div>
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th style="padding-left: 30px;">Id:</th>
+                                            <td>{{ajaxData.id}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="padding-left: 30px;">Fecha:</th>
+                                            <td>{{ajaxData.fecha}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="padding-left: 30px;">IVA:</th>
+                                            <td>{{ajaxData.iva}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="padding-left: 30px;">Usuario:</th>
+                                            <td>{{ajaxData.obj_usuario.login}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="padding-left: 30px;">Nº líneas:</th>
+                                            <td>{{ajaxData.numLineas}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
 
-                            <div class="row" ng-show="!deleted">
-                                <div class="col-12">
-                                    <div class="mx-auto">
-                                        <div class="card-body">
-                                            <h5 class="card-title" style="text-align: center;">¿Desea eliminar la factura?</h5>
-                                            <div class="d-flex justify-content-center align-items-center pt-3 mb-3" role="alert">
-                                                <button type="button" class="btn btn-info ml-0 mr-5" ng-click="eliminar()">Aceptar</button>
-                                                <button type="button" class="btn botonAdmin ml-0" onclick="window.history.back()">Cancelar</button>
+                                <div class="row" ng-show="!deleted">
+                                    <div class="col-12">
+                                        <div class="mx-auto">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-center">¿Desea eliminar la factura?</h5>
+                                                <div class="d-flex justify-content-center align-items-center pt-3 mb-3" role="alert">
+                                                    <button type="button" class="btn btn-info ml-0 mr-5" ng-click="eliminar()">Aceptar</button>
+                                                    <button type="button" class="btn botonAdmin ml-0" onclick="window.history.back()">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" ng-show="deleted">
+                                    <div class="col-12 mt-4">
+                                        <div class="card-title text-center" role="alert">
+                                            <h4>Factura eliminada con éxito.</h4> 
+                                            <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
+                                                <button type="button" class="btn botonAdmin mt-3 pt-2" onclick="window.history.back()">Volver</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" ng-show="deleted">
-                                <div class="col-12">
-                                    <div class="d-flex justify-content-center flex-wrap align-items-center p-3 pb-2 mb-3" role="alert">
-                                        <h4>Factura eliminada con éxito.</h4> 
-                                        <button type="button" class="btn botonAdmin mt-3 pt-2" onclick="window.history.back()">Volver</button>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
 
                     </div>

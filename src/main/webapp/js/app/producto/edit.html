@@ -16,7 +16,7 @@
         </div>
         <div class="row no-gutters">
             <div class="col-md-2"></div>
-            <div class="col-md-8 edit pt-0" style="margin-top: 50px;">
+            <div class="col-md-8 edit pt-0" style="margin-top: 50px; margin-bottom: 200px">
 
                 <div class="row no-gutters">
                     <div class="col-md-12">
@@ -57,15 +57,7 @@
                                         Código incorrecto.
                                     </div>
                                 </div>
-                            </md-input-container>
-
-                            <!--                            <div class="form-group"> 
-                                                            <label for="codigo" class="col-form-label">Codigo</label>
-                                                            <input ng-model="codigo" class="form-control" name="codigo" type="text" ng-required="true" />
-                                                            <div ng-show="!userForm.codigo.$valid" class="alert alert-danger" role="alert">
-                                                                Codigo obligatorio
-                                                            </div>
-                                                        </div>-->
+                            </md-input-container>     
 
                             <md-input-container class="md-block mt-4">
                                 <label>Descripción</label>
@@ -76,14 +68,6 @@
                                     </div>
                                 </div>
                             </md-input-container>
-
-                            <!--                            <div class="form-group"> 
-                                                            <label for="desc" class="col-form-label">descripcion</label>
-                                                            <input ng-model="desc" class="form-control" name="desc" type="text" ng-required="true" />
-                                                            <div ng-show="!userForm.desc.$valid" class="alert alert-danger" role="alert">
-                                                                descripcion obligatoria
-                                                            </div>
-                                                        </div>-->
 
                             <md-input-container class="md-block mt-4" flex-gt-sm>
                                 <label>Existencias</label>
@@ -97,14 +81,6 @@
                                 </div>
                             </md-input-container>
 
-                            <!--                            <div class="form-group"> 
-                                                            <label for="existencias" class="col-form-label">Existencias</label>
-                                                            <input ng-model="existencias" class="form-control" name="existencias" type="text" ng-required="true" />
-                                                            <div ng-show="!userForm.existencias.$valid" class="alert alert-danger" role="alert">
-                                                                Existencias obligatorias
-                                                            </div>
-                                                        </div>-->
-
                             <md-input-container class="md-icon-float md-icon-right md-block mt-4 mb-1">
                                 <label>Precio</label>
                                 <!--<md-icon md-svg-src="img/icons/ic_card_giftcard_24px.svg"></md-icon>-->
@@ -116,16 +92,6 @@
                                     </div>
                                 </div>
                             </md-input-container>
-
-                            <!--                            <div class="form-group"> 
-                                                            <label for="precio" class="col-form-label">Precio</label>
-                                                            <input ng-model="precio" class="form-control" name="precio" type="text" ng-required="true" />
-                                                            <div ng-show="!userForm.precio.$valid" class="alert alert-danger" role="alert">
-                                                                Precio obligatorio
-                                                            </div>
-                                                        </div>-->
-
-
 
                             <div class="form-group">
                                 <label class="labelEdit">Tipo Producto</label>
@@ -154,12 +120,12 @@
                 </form>
 
                 <div class="row" ng-show="edit">
-                    <div class="col-12">
-                        <div class="card mx-auto" style="margin-top: 60px; background-color: WHITESMOKE; width: 70%; border: none; border-radius: 7px">
+                    <div class="col-12 mt-3">
+                        <div class="mx-auto">
                             <div class="card-body">
-                                <h4 class="card-title" style="text-align: center;">{{resultado}}</h4>
+                                <h4 class="card-title text-center">{{resultado}}</h4>
                                 <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
-                                    <button type="button" class="btn btn-secondary" onclick="window.history.back()">Volver</button>
+                                    <button type="button" class="btn botonAdmin" onclick="window.history.back()">Volver</button>
                                 </div>
                             </div>
                         </div>

@@ -12,6 +12,7 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
         $scope.id = $routeParams.id;
         $scope.usuario = $routeParams.usuario;
         $scope.titulo = "Favoritos de " + $scope.usuario;
+        $scope.fav = false;
 
         if (!$routeParams.order) {
             $scope.orderURLServidor = "";
@@ -66,6 +67,9 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
                     productos.push(producto);
                 });
                 $scope.productos = productos;
+                if ($scope.productos == 0) {
+                    $scope.fav = true;
+                }
             } else {
                 $location.path("/home");
             }
@@ -245,6 +249,9 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
                         productos.push(producto);
                     });
                     $scope.productos = productos;
+                    if ($scope.productos == 0) {
+                        $scope.fav = true;
+                    }
                 } else {
                     $location.path("/home");
                 }

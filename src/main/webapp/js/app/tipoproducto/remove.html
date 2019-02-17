@@ -41,7 +41,7 @@
 
                                 <div class="row" ng-show="!deleted">
                                     <div class="col-12">
-                                        <div class="card mx-auto" style="background-color: WHITESMOKE; width: 100%; border: none; border-radius: 7px">
+                                        <div class="mx-auto">
                                             <div class="card-body">
                                                 <h5 style="text-align: center;">¿Desea eliminar el tipo de producto?</h5>
                                                 <div class="d-flex justify-content-center align-items-center pt-3 pb-2" role="alert">
@@ -53,10 +53,12 @@
                                     </div>
                                 </div>
                                 <div class="row" ng-show="deleted">
-                                    <div class="col-12">
-                                        <div class="d-flex justify-content-center flex-wrap align-items-center p-3 pb-2 mb-3" role="alert">
+                                    <div class="col-12 mt-4">
+                                        <div class="card-title text-center" role="alert">
                                             <h4>Tipo de producto eliminado con éxito.</h4> 
+                                            <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
                                             <button type="button" class="btn botonAdmin mt-3 pt-2" onclick="window.history.back()">Volver</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
