@@ -7,16 +7,6 @@ moduleUsuario.controller('usuarioEditAdminController', ['$scope', '$http', 'tool
         $anchorScroll();
         $scope.id = $routeParams.id;
 
-
-//        //Chequeo sesión
-//        if (oSessionService.getUserName() !== "") {
-//            $scope.usuario = oSessionService.getUserName();
-//            $scope.logeado = true;
-//            $scope.userId = oSessionService.getId();
-//        }
-
-
-
         $http({
             method: "GET",
             url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=get&id=' + $scope.id

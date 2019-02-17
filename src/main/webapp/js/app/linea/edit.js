@@ -6,15 +6,6 @@ moduleLinea.controller('lineaEditController', ['$scope', '$http', 'toolService',
         $anchorScroll();
         $scope.id = $routeParams.id;
 
-
-//        //Chequeo sesión
-//        if (oSessionService.getUserName() !== "") {
-//            $scope.usuario = oSessionService.getUserName();
-//            $scope.logeado = true;
-//            $scope.userId = oSessionService.getId();
-//        }
-
-
         $http({
             method: "GET",
             url: 'http://localhost:8081/tailorShop/json?ob=linea&op=get&id=' + $scope.id

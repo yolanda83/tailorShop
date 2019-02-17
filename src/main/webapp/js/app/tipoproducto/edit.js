@@ -6,14 +6,6 @@ moduleTipoproducto.controller('tipoproductoEditController', ['$scope', '$http', 
 
         $scope.id = $routeParams.id;
         $scope.ruta = $location.path();
-
-
-//        //Chequeo sesión
-//        if (oSessionService.getUserName() !== "") {
-//            $scope.usuario = oSessionService.getUserName();
-//            $scope.logeado = true;
-//            $scope.userId = oSessionService.getId();
-//        }
         
         $http({
             method: "GET",
