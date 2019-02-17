@@ -10,7 +10,8 @@
             <div class="col-md-2 fondoCabecera mb-0"></div>
             <div class="col-md-8">
                 <div class="fondoCabecera mb-0">
-                    <div class="mb-0">Facturas</div>
+                    <div ng-show="!user" class="mb-0">Facturas</div>
+                    <div ng-show="user" class="mb-0">Facturas <small>del usuario {{user}}</small></div>
                 </div>
             </div>
             <div class="col-md-2 fondoCabecera mb-0"></div>
@@ -137,23 +138,47 @@
 
 
                 <!--Paginacion vecindario-->     
+                <!--                <nav aria-label="paginacion">
+                                    <ul class="pagination justify-content-center py-5">                                                 
+                                        <li class="page-item" ng-class="{'disabled': (page <= 1)}">
+                                            <a class="page-link" href="factura/plist/{{rpp}}/1/{{order}}"><span>&laquo;</span></a>
+                                        </li>
+                                        <li class="page-item" ng-class="{'disabled': (page <= 1)}">
+                                            <a class="page-link" href="factura/plist/{{rpp}}/{{page - 1}}/{{order}}"><span>&lsaquo;</span></a>
+                                        </li>
+                
+                                        <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
+                                            <a class="page-link" href="factura/plist/{{rpp}}/{{p}}/{{order}}">{{p}}</a>
+                                        </li>
+                                        <li class="page-item"  ng-class="{'disabled':(page == totalPages)}">
+                                            <a class="page-link" href="factura/plist/{{rpp}}/{{page--1}}/{{order}}"><span>&rsaquo;</span></a>
+                                        </li>
+                                        <li class="page-item" ng-class="{'disabled':(page == totalPages)}">
+                                            <a class="page-link" href="factura/plist/{{rpp}}/{{totalPages}}/{{order}}"><span>&raquo;</span></a>
+                                        </li>                  
+                                    </ul>
+                                </nav>-->
+
+
+
+                <!--Paginacion vecindario-->     
                 <nav aria-label="paginacion">
                     <ul class="pagination justify-content-center py-5">                                                 
                         <li class="page-item" ng-class="{'disabled': (page <= 1)}">
-                            <a class="page-link" href="factura/plist/{{rpp}}/1/{{order}}"><span>&laquo;</span></a>
+                            <a class="page-link" href="factura/plist/{{rpp}}/1/{{id}}/{{user}}/{{order}}"><span>&laquo;</span></a>
                         </li>
                         <li class="page-item" ng-class="{'disabled': (page <= 1)}">
-                            <a class="page-link" href="factura/plist/{{rpp}}/{{page - 1}}/{{order}}"><span>&lsaquo;</span></a>
+                            <a class="page-link" href="factura/plist/{{rpp}}/{{page - 1}}/{{id}}/{{user}}/{{order}}"><span>&lsaquo;</span></a>
                         </li>
 
                         <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
-                            <a class="page-link" href="factura/plist/{{rpp}}/{{p}}/{{order}}">{{p}}</a>
+                            <a class="page-link" href="factura/plist/{{rpp}}/{{p}}/{{id}}/{{user}}/{{order}}">{{p}}</a>
                         </li>
                         <li class="page-item"  ng-class="{'disabled':(page == totalPages)}">
-                            <a class="page-link" href="factura/plist/{{rpp}}/{{page--1}}/{{order}}"><span>&rsaquo;</span></a>
+                            <a class="page-link" href="factura/plist/{{rpp}}/{{page--1}}/{{id}}/{{user}}/{{order}}"><span>&rsaquo;</span></a>
                         </li>
                         <li class="page-item" ng-class="{'disabled':(page == totalPages)}">
-                            <a class="page-link" href="factura/plist/{{rpp}}/{{totalPages}}/{{order}}"><span>&raquo;</span></a>
+                            <a class="page-link" href="factura/plist/{{rpp}}/{{totalPages}}/{{id}}/{{user}}/{{order}}"><span>&raquo;</span></a>
                         </li>                  
                     </ul>
                 </nav>
