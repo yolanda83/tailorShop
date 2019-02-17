@@ -204,7 +204,7 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
 
 
         $scope.update = function () {
-            $location.url('producto/plistUsuarioFav/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente + $scope.id);
+            $location.url('producto/plistUsuarioFav/12/1/' + $scope.orderURLCliente + $scope.id + '/' + $scope.usuario);
         }
 
 
