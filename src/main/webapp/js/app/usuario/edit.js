@@ -53,7 +53,14 @@ moduleUsuario.controller('usuarioEditController', ['$scope', '$http', 'toolServi
             } else {
                 foto = $scope.foto;
             }
-            
+
+            var tipoUsuario = 2;
+            var admin = oSessionService.isAdmin();
+
+            if (admin == true) {
+                var tipoUsuario = 1;
+            }
+
             var json = {
                 id: $scope.id,
                 dni: $scope.dni,
@@ -63,9 +70,9 @@ moduleUsuario.controller('usuarioEditController', ['$scope', '$http', 'toolServi
                 login: $scope.loginUser,
 //                pass: forge_sha256($scope.pass),
                 foto: foto,
-                id_tipoUsuario: 2
+                id_tipoUsuario: tipoUsuario
             };
-            
+
             $http({
                 method: 'GET',
                 header: {
