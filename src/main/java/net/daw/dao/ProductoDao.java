@@ -245,9 +245,15 @@ public class ProductoDao {
 
             String fecha = oProductoBean.getFecha();
 
-            String fechaFinal = getFecha(fecha);
+            String fecha1 = fecha.substring(1, 2);
 
-            oPreparedStatement.setString(8, fechaFinal);
+            if (!fecha1.matches("[0-9]*")) {
+                String fechaFinal = getFecha(fecha);
+                oPreparedStatement.setString(8, fechaFinal);
+            } else {
+                oPreparedStatement.setString(8, fecha);
+            }
+
             oPreparedStatement.setInt(9, oProductoBean.getId());
             iResult = oPreparedStatement.executeUpdate();
 
