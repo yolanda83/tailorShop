@@ -36,12 +36,7 @@
                                     <div ng-messages="userForm.nombre.$error">
                                         <div ng-message="required">Username obligatorio.</div>
                                     </div>
-                                </md-input-container>
-                                <!--                                <section class="form-fields">
-                                                                    <div class="form-group">
-                                                                        <label class="form-control-label">Nombre</label>
-                                                                        <input class="form-control" name="name" type="text" value="" placeholder="Escribe tu nombre">
-                                                                    </div>-->
+                                </md-input-container>                 
 
 
                                 <md-input-container class="md-block">
@@ -55,32 +50,19 @@
                                         </div>
                                     </div>
                                 </md-input-container>
-                                <!--                                    <div class="form-group">
-                                                                        <label class="form-control-label">E-mail</label>
-                                                                        <input class="form-control" name="from" type="email" value="" placeholder="Escribe tu correo">
-                                                                    </div>-->
-
+                                
+ 
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label>Asunto</label>
                                     <input ng-model="userForm.asunto">
                                 </md-input-container>
-                                <!--                                    <div class="form-group">
-                                                                        <label class="form-control-label">Asunto</label>
-                                                                        <input class="form-control" name="subject" type="text" value="" placeholder="Escribe el asunto de tu consulta">
-                                                                    </div>-->
-
-
-
-                                <!--                                    <div class="form-group">
-                                                                        <label class="form-control-label">Mensaje</label>
-                                                                        <textarea class="form-control" name="message" placeholder="Escribe tu mensaje" rows="3"></textarea>
-                                                                    </div>-->
+ 
+                                
                                 <md-input-container class="md-block">
                                     <label>Mensaje</label>
                                     <textarea ng-model="userForm.mensaje" md-maxlength="350" rows="5" md-select-on-focus></textarea>
                                 </md-input-container>
 
-                                <!--</section>-->
 
                                 <input class="botonAdmin px-4" type="submit" name="submitMessage" value="Enviar">
 
@@ -90,6 +72,7 @@
                     <div class="col-md-4 text-center">
                         <div class="white_box">
                             <h5 class="pb-3">Nos puedes encontrar en:</h5>
+                            <br><br>
                             <p>Tailor Shop, S.L.</p>
                             <p>Plaza Lorem Ipsum, 1<br>01001 - Valencia</p>
                             <hr class="separadorContacto">            
@@ -103,6 +86,7 @@
                                 <i class="fab fa-2x fa-instagram p-2"></i> 
                                 <i class="fab fa-2x fa-twitter-square p-2"></i>
                             </p>
+                            <br>
                         </div>
                     </div>
                 </div>

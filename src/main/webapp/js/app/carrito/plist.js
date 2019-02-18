@@ -282,7 +282,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
                 console.log(response);
                 if (response.data.status == 200) {
                     $scope.ajaxDataCarrito = response.data.message;
-                    $scope.showAlert('Correcto', 'Se ha realizado la compra correctamente');
+                    $scope.showAlert('Muchas gracias!', 'Se ha realizado la compra correctamente');
                     $scope.compra = true;
 //                    $scope.warning = "Oh no. ¡Tu carro de la compra está vacío!";                    
                 } else if (response.data.status == 400) {
