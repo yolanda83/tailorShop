@@ -342,7 +342,7 @@ public class ProductoService {
 
     }
 
-    //IMAGENES
+    //imagenesPatchwork
     public ReplyBean loaddata() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("load")) {
@@ -388,7 +388,7 @@ public class ProductoService {
                     for (FileItem item : multiparts) {
                         if (!item.isFormField()) {
                             name = new File(item.getName()).getName();
-                            item.write(new File(".//..//webapps//ROOT//imagenes//" + name));
+                            item.write(new File(".//..//webapps//ROOT//imagenesPatchwork//" + name));
                         } else {
                             hash.put(item.getFieldName(), item.getString());
                         }

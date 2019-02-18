@@ -46,7 +46,7 @@
     <div class="col-md-10 d-flex justify-content-center flex-wrap align-items-center m-2 p-2 mx-auto">
         <div class="card tela" ng-repeat="producto in ajaxDataTotalNov">
             <!--<img src="https://github.com/neel6762/Free-Code-Camp-Prdocuct-Landing-Page-/blob/master/src/img/choclatecard.jpg?raw=true" alt="choclate" class="card-img-top">-->
-            <img ng-src="http://localhost:8081/imagenes/{{producto.foto}}" alt="novedad" class="card-img-top" style="width: 250px;" >
+            <img ng-src="http://localhost:8081/imagenesPatchwork/{{producto.foto}}" alt="novedad" class="card-img-top" style="width: 250px;" >
             <div class="card-body mx-auto">
                 <h3 class="card-title">{{producto.desc}}</h3>
                 <p class="card-text">Precio: {{producto.precio}} €</p>
