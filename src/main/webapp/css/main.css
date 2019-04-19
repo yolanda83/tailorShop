@@ -11,6 +11,9 @@ html {
 
 body {
     font-family: "varela round", sans-serif;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100%; 
 }
 
 

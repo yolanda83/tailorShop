@@ -337,11 +337,11 @@ moduleFactura.controller('facturaPlistController', ['$scope', 'toolService', '$h
                 doc.text(55, 30, 'CIF: B1234567');
                 doc.text(55, 36, 'Tel.: 912 34 56 78');
                 doc.text(55, 42, 'tailorShops@gmail.com');
-                doc.text(55, 48, 'C/ Lorem Ipsum núm. 123 Pta 12');
+                doc.text(55, 48, 'C/ Lorem Ipsum num. 123 Pta 12');
                 doc.text(55, 54, '46910 Valencia (Valencia)');
                 doc.setFontSize(25);
                 doc.setFontType('bold');
-                doc.text(120, 23, 'Factura núm. ' + id);
+                doc.text(120, 23, 'Factura num. ' + id);
                 doc.setFontSize(13);
                 doc.setFontType('normal');
                 doc.text(120, 48, 'Cliente: ' + usuario);
@@ -349,8 +349,8 @@ moduleFactura.controller('facturaPlistController', ['$scope', 'toolService', '$h
 //                doc.rect(8, 80, 195, 210);
                 doc.setFontSize(15);
                 doc.setFontType('bold');
-                doc.text(17, 90, 'Código');
-                doc.text(55, 90, 'descripcion');
+                doc.text(17, 90, 'Codigo');
+                doc.text(55, 90, 'Descripcion');
                 doc.text(130, 90, 'Cantidad');
                 doc.text(175, 90, 'Precio');
                 doc.setLineWidth(0.5);
@@ -367,7 +367,7 @@ moduleFactura.controller('facturaPlistController', ['$scope', 'toolService', '$h
                         doc.addPage('a4', 1);
                         doc.rect(8, 10, 195, 70);
                         doc.rect(8, 10, 110, 70);
-                        doc.addImage(imgData, 'JPEG', 10, 12, 42, 45);
+                        doc.addImage(imgData, 'JPEG', 10, 12, 40, 40);
                         doc.setFontSize(15);
                         doc.setFontType('bold');
                         doc.text(55, 20, 'Tailor Shop, S.L.');
@@ -380,7 +380,7 @@ moduleFactura.controller('facturaPlistController', ['$scope', 'toolService', '$h
                         doc.text(55, 54, '46910 Valencia (Valencia)');
                         doc.setFontSize(30);
                         doc.setFontType('bold');
-                        doc.text(125, 23, 'Factura núm. ' + id);
+                        doc.text(125, 23, 'Factura num. ' + id);
                         doc.setFontSize(12);
                         doc.setFontType('normal');
                         doc.text(125, 48, 'Cliente: ' + usuario);
@@ -389,7 +389,7 @@ moduleFactura.controller('facturaPlistController', ['$scope', 'toolService', '$h
                         doc.setFontSize(15);
                         doc.setFontType('bold');
                         doc.text(17, 90, 'Codigo');
-                        doc.text(55, 90, 'descripcion');
+                        doc.text(55, 90, 'Descripcion');
                         doc.text(130, 90, 'Cantidad');
                         doc.text(175, 90, 'Precio');
                         doc.setLineWidth(0.5);
