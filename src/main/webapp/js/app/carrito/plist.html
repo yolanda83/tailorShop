@@ -33,7 +33,6 @@
                                 <section  class="mt-5" layout="row" layout-align="left">
                                     <div>
                                         <input class="inputCantidad" name="cantidad" ng-model="fila.cantidad" type="text" value="" size="3" disabled />
-                                        <!--{{fila.cantidad}}-->
                                     </div>
                                     <md-button aria-label="button" ng-click="add(fila.obj_producto.id, 1)" class="groupX middle"><i class="fas fa-plus-square"></i></md-button>
                                     <md-button aria-label="button" ng-click="reduce(fila.obj_producto.id, 1)" class="groupX middle"><i class="fas fa-minus-square"></i></md-button>
@@ -42,7 +41,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="subtotal">
@@ -56,8 +55,7 @@
                             <div class="pb-5 pt-5" style="text-align: center;">
                                 <button ng-click="buy()" class="btn btn-info mt-2 ml-0">Realizar pedido</button>
                                 <button ng-click="empty()" class="btn buttonFav btn-outline-dark mt-2 ml-0">Vaciar Carrito</button>
-<!--                                <button type="button" class="btn botonAdmin mt-2 ml-0" onclick="window.history.back()">Volver</button>-->
-                                  <a href="producto/plistUsuario/1" class="btn botonAdmin mt-2 ml-0" role="button">Seguir comprando</a>
+                                <a href="producto/plistUsuario/1" class="btn botonAdmin mt-2 ml-0" role="button">Seguir comprando</a>
                             </div>
                         </div>
                     </div>
@@ -69,7 +67,6 @@
                             <div class="card-body p-5">
                                 <h4 class="card-title" style="text-align: center;">Oh no. ¡Tu carro de la compra está vacío!</h4>
                                 <div class="d-flex justify-content-center align-items-center pt-3" role="alert">
-                                    <!--<button type="button" class="btn botonAdmin ml-0" onclick="window.history.back()">Seguir comprando</button>-->
                                     <a href="producto/plistUsuario/1" class="btn botonAdmin mt-2 ml-0" role="button">Seguir comprando</a>
                                 </div>
                             </div>

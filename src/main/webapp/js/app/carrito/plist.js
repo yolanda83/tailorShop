@@ -268,8 +268,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
                 if (response.data.status == 200) {
                     $scope.ajaxDataCarrito = response.data.message;
                     $scope.showAlert('Muchas gracias!', 'Se ha realizado la compra correctamente');
-                    $scope.compra = true;
-//                    $scope.warning = "Oh no. ¡Tu carro de la compra está vacío!";                    
+                    $scope.compra = true;           
                 } else if (response.data.status == 400) {
                     $scope.warning = response.data.message;
                 }

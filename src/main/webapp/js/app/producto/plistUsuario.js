@@ -111,7 +111,7 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
                 } else if (response.data.status == 500) {
                     $scope.showAlert('Favorito', 'Este producto ya estaba en tu Lista de Deseos :)');
                 } else {
-                    $scope.showAlert('Favorito', 'Inicia sesion para añadir favoritos :)');
+                    $scope.showAlert('Favorito', 'Debes loguearte para agregar favoritos :)');
                 }
             }, function (response) {
                 $scope.showAlert('Error', response.data.message);
@@ -124,7 +124,7 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
                 method: 'GET',
                 url: `http://localhost:8081/tailorShop/json?ob=producto&op=addFav&id=${producto.producto.id}`
             }).then(function (response) {
-                $scope.showAlert('Favorito', 'Producto añadido correctamente a la Lista de Deseos :)');
+                $scope.showAlert('Favorito', 'Producto agregado correctamente a la Lista de Deseos :)');
 //                countcarritoService.updateCarrito();
             }, function (response) {
                 $scope.showAlert('Error', response.data.message);
@@ -134,7 +134,7 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
 
         $scope.add = function (producto) {
             if (producto.cantidad >= producto.producto.existencias) {
-                $scope.showAlert('Error añadiendo productos', `Lo sentimos. Solo disponemos de ${producto.producto.existencias} unidades de ${producto.producto.desc}`);
+                $scope.showAlert('Error agregando productos', `Lo sentimos. Solo disponemos de ${producto.producto.existencias} unidades de ${producto.producto.desc}`);
             } else {
                 producto.cantidad++;
             }
@@ -142,7 +142,7 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
 
         $scope.reduce = function (producto) {
             if (producto.cantidad <= 0) {
-                $scope.showAlert('Error eliminando productos', 'No se puede eliminar mas productos');
+                $scope.showAlert('Error eliminando productos', 'Ya no quedan productor por eliminar');
             } else {
                 producto.cantidad--;
             }

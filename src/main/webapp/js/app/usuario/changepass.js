@@ -13,7 +13,7 @@ moduleUsuario.controller("usuarioChangepassController", [
             var new_pass_verify = forge_sha256($scope.new_pass_verify);
 
             if (new_pass !== new_pass_verify) {
-                $scope.showAlert('Error', 'La nueva contraseña no coincide.');
+                $scope.showAlert('Error', 'El nuevo password no coincide.');
             } else {
                 $http({
                     method: 'GET',
@@ -23,7 +23,7 @@ moduleUsuario.controller("usuarioChangepassController", [
                     url: `http://localhost:8081/tailorShop/json?ob=usuario&op=updatepass&newpass=${new_pass}&lastpass=${last_pass}`
                 }).then(function (response) {
                     if (response.data.status == 500) {
-                        $scope.showAlert('Error', 'Tu contraseña actual no coincide.');
+                        $scope.showAlert('Error', 'Tu password actual no coincide.');
                     } else {
                         $scope.changed = false;
                     }

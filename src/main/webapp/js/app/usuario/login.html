@@ -22,10 +22,10 @@
         <div class="form-group">
             <label for="pass">Password:</label>
             <input id="pass" type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"
-                   name="pass" ng-model="pass" ng-required="true" placeholder="Introduce una contraseña..."/>
+                   name="pass" ng-model="pass" ng-required="true" placeholder="Introduce un password..."/>
 
             <div ng-show="!userForm.pass.$valid && userForm.pass.$dirty && !userForm.pass.$pristine" class="alert alert-danger" role="alert">
-                Contraseña obligatoria
+                Password obligatorio
             </div>
         </div>
 

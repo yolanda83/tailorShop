@@ -79,7 +79,7 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
                 method: 'GET',
                 url: `http://localhost:8081/tailorShop/json?ob=carrito&op=add&id=${producto.producto.id}&cant=1`
             }).then(function (response) {
-                $scope.showAlert('Carrito', 'Producto añadido correctamente :)');
+                $scope.showAlert('Carrito', 'Producto agregado correctamente :)');
                 countcarritoService.updateCarrito();
             }, function (response) {
                 $scope.showAlert('Error', response.data.message);
@@ -101,7 +101,7 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
 
         $scope.add = function (producto) {
             if (producto.cantidad >= producto.producto.existencias) {
-                $scope.showAlert('Error añadiendo productos', `Lo sentimos. Solo disponemos de ${producto.producto.existencias} unidades de ${producto.producto.desc}`);
+                $scope.showAlert('Error agregando productos', `Lo sentimos. Solo disponemos de ${producto.producto.existencias} unidades de ${producto.producto.desc}`);
             } else {
                 producto.cantidad++;
             }
@@ -109,7 +109,7 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
 
         $scope.reduce = function (producto) {
             if (producto.cantidad <= 0) {
-                $scope.showAlert('Error eliminando productos', 'No se puede eliminar mas productos');
+                $scope.showAlert('Error eliminando productos', 'No quedan productos por eliminar');
             } else {
                 producto.cantidad--;
             }
