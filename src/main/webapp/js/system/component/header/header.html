@@ -16,7 +16,7 @@
 
                 <div class="container order-1" tabindex="1">
                     <div class="search-container" tabindex="1">
-                        <input placeholder='search' type='text' class="input2 inputBusqueda" ng-model="busqueda"/>
+                        <input placeholder='search' type='text' class="input2 inputBusqueda" ng-enter="busca()" ng-model="busqueda"/>
                         <a href="producto/plistUsuarioBusqueda/{{busqueda}}" class="button d-flex justify-content-center align-items-center">
                             <i class="fas fa-search"></i>
                         </a>
@@ -51,9 +51,7 @@
     <div class="col-md-2 my-auto">
 
         <!--Seccion Administración-->
-        <!--<div class="nav-item"  ng-show="c.logeado">-->
         <div class="nav-item"  ng-show="c.isAdmin">
-            <!--<div class="dropdown" ng-show="c.isAdmin">-->
             <div class="dropdown" ng-show="c.isAdmin">
                 <button class="btn btn-secondary dropdown-toggle ml-0" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" style="text-transform: capitalize;">

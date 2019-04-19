@@ -43,6 +43,20 @@ var tailorShop = angular.module('MyApp', [
     $mdDateLocaleProvider.formatDate = function (date) {
         return moment(date).format('DD-MM-YYYY');
     };
+}).directive('ngEnter', function () { //a directive to 'enter key press' in elements with the "ng-enter" attribute
+
+    return function (scope, element, attrs) {
+
+        element.bind("keydown keypress", function (event) {
+            if (event.which === 13) {
+                scope.$apply(function () {
+                    scope.$eval(attrs.ngEnter);
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
 });
 
 var moduleCommon = angular.module('commonControllers', []);
@@ -59,4 +73,5 @@ var moduleCarrito = angular.module('carritoControllers', []);
 var moduleAbout = angular.module('aboutControllers', []);
 var moduleContacto = angular.module('contactoControllers', []);
 var modulecursos = angular.module('cursosControllers', []);
+
 

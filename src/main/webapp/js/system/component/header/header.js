@@ -13,7 +13,6 @@ moduleComponent.component('headerComponent', {
 function js(toolService, sessionService, $scope, $http, $location, $mdDialog) {
     var self = this;
 
-
     self.logeado = sessionService.isSessionActive();
     self.usuario = sessionService.getUserName();
     self.userId = sessionService.getId();
@@ -103,6 +102,11 @@ function js(toolService, sessionService, $scope, $http, $location, $mdDialog) {
                 .ok('OK!')
                 );
     };
-    
+
+    $scope.busca = function () {
+        if (!$scope.busqueda == "") {
+            $location.url('producto/plistUsuarioBusqueda/' + $scope.busqueda);
+        }
+    }
 }
 
