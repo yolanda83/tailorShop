@@ -11,8 +11,6 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
         $scope.id = $routeParams.id;
         $scope.user = $routeParams.userid;
         $scope.admin = oSessionService.isAdmin();
-//        $scope.totalPages = 1;
-
 
         if (!$routeParams.order) {
             $scope.orderURLServidor = "";
@@ -81,9 +79,6 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
             if (response.data.status == 200) {
                 $scope.status = response.status;
                 $scope.ajaxDataLinea = response.data.message;
-//                if ($scope.ajaxDataLinea != null) {
-//                    $scope.ajaxDataUsuarioId = $scope.ajaxDataLinea[0].obj_factura.obj_usuario.id;
-//                }
             } else {
                 $location.path("/home");
             }
@@ -91,7 +86,6 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
             $scope.ajaxDataLinea = response.data.message || 'Request failed';
             $scope.status = response.status;
         });
-
 
 //A PARTIR DE AQUI SON FUNCIONES QUE SE EJECUTAN CUANDO SE PULSA EL BOTÓN ADECUADO EN EL HTML
         $scope.resetOrder = function () {
@@ -101,7 +95,6 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
                 $location.url('linea/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.id + '/' + $scope.user);
             }
         }
-
 
         $scope.ordena = function (order, align) {
             if ($scope.orderURLServidor == "") {
@@ -139,7 +132,6 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
             }
         }
 
-
         $scope.update = function () {
             if ($scope.orderURLCliente != "") {
                 $location.url('linea/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.id + '/' + $scope.user + '/' + $scope.orderURLCliente);
@@ -148,10 +140,7 @@ moduleLinea.controller('lineaPlistController', ['$scope', '$http', '$location', 
             }
         }
 
-
         $scope.isActive = toolService.isActive;
-
-
 
     }
 ]);

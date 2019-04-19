@@ -14,7 +14,6 @@ moduleUsuario.controller('usuarioViewController', ['$scope', '$http', 'toolServi
 
             $http({
                 method: 'GET',
-                //withCredentials: true,
                 url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=get&id=' + $scope.id
             }).then(function (response) {
                 if (response.data.status == 200) {
@@ -25,8 +24,6 @@ moduleUsuario.controller('usuarioViewController', ['$scope', '$http', 'toolServi
                     $location.path("/home");
                 }
             }, function (response) {
-//            $scope.ajaxData = response.data.message || 'Request failed';
-//            $scope.status = response.status;
                 $location.path("/home");
             });
 

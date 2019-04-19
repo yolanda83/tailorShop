@@ -8,7 +8,6 @@ moduleLinea.controller('lineaViewController', ['$scope', '$http', 'toolService',
 
         $http({
             method: 'GET',
-            //withCredentials: true,
             url: 'http://localhost:8081/tailorShop/json?ob=linea&op=get&id=' + $scope.id
         }).then(function (response) {
             $scope.status = response.status;
@@ -17,8 +16,6 @@ moduleLinea.controller('lineaViewController', ['$scope', '$http', 'toolService',
             $scope.ajaxData = response.data.message || 'Request failed';
             $scope.status = response.status;
         });
-
-
 
         $scope.isActive = toolService.isActive;
 

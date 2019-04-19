@@ -7,7 +7,6 @@ moduleUsuario.controller("usuarioChangepassController", [
     function ($scope, $http, $mdDialog) {
         $scope.changed = true;
 
-
         $scope.update = function () {
             var last_pass = forge_sha256($scope.last_pass);
             var new_pass = forge_sha256($scope.new_pass);

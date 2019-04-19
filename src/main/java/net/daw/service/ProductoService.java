@@ -210,12 +210,8 @@ public class ProductoService {
             ArrayList<ProductoBean> alProductoBean = new ArrayList<ProductoBean>();
 
             try {
-//                alProductoBean = obtenerDatos();
-
-                //String strJsonFromClient = oRequest.getParameter("json");
                 Gson oGson = new Gson();
                 ProductoBean oProductoBean = new ProductoBean();
-                //oProductoBean = oGson.fromJson(strJsonFromClient, ProductoBean.class);
                 oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
                 oConnection = oConnectionPool.newConnection();
                 ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
@@ -223,8 +219,6 @@ public class ProductoService {
                 for (ProductoBean productos : alProductoBean) {
                     oProductoBean = oProductoDao.create(productos);
                 }
-//            oProductoBean = oProductoDao.create(oProductoBean);
-//            oReplyBean = new ReplyBean(200, oGson.toJson(oProductoBean));
                 oReplyBean = new ReplyBean(200, oGson.toJson("Productos creados correctamente"));
             } catch (Exception ex) {
                 oReplyBean = new ReplyBean(500,
@@ -532,7 +526,6 @@ public class ProductoService {
 
     public ReplyBean removeFav() throws Exception {
         ReplyBean oReplyBean;
-//        if (checkPermission("remove")) {
         ConnectionInterface oConnectionPool = null;
         Connection oConnection;
         try {
@@ -552,9 +545,6 @@ public class ProductoService {
         } finally {
             oConnectionPool.disposeConnection();
         }
-//        } else {
-//            oReplyBean = new ReplyBean(401, "Unauthorized");
-//        }
         return oReplyBean;
 
     }

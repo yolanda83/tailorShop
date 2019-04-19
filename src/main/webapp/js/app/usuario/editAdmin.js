@@ -20,7 +20,6 @@ moduleUsuario.controller('usuarioEditAdminController', ['$scope', '$http', 'tool
             $scope.loginAdmin = response.data.message.login;
             $scope.pass = forge_sha256(response.data.message.pass);
             $scope.obj_tipoUsuario_desc = response.data.message.obj_tipoUsuario.desc;
-//            $scope.obj_tipoUsuario_id = response.data.message.obj_tipoUsuario.id;
             $scope.obj_tipoUsuario = {
                 id: response.data.message.obj_tipoUsuario.id,
                 desc: response.data.message.obj_tipoUsuario.desc
@@ -56,8 +55,6 @@ moduleUsuario.controller('usuarioEditAdminController', ['$scope', '$http', 'tool
                 console.log(response);
             }
         }
-
-
 
         $scope.isActive = toolService.isActive;
 

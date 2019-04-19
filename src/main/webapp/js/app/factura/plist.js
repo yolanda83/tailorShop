@@ -442,9 +442,5 @@ moduleFactura.controller('facturaPlistController', ['$scope', 'toolService', '$h
             });
         };
 
-
-
-
-
     }
 ])

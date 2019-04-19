@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 moduleService.service('toolService', ['$location', function ($location) {
 
         return {

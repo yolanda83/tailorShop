@@ -83,12 +83,6 @@ moduleFactura.controller('facturaEditController', ['$scope', '$http', 'toolServi
 
         $scope.guardar = function () {
 
-//            var json = {
-//                id: $scope.id,
-//                fecha: $scope.fecha,
-//                iva: $scope.iva,
-//                obj_usuario: $scope.obj_usuario
-//            }
             var json = {
                 id: $scope.id,
                 fecha: null,
@@ -115,8 +109,6 @@ moduleFactura.controller('facturaEditController', ['$scope', '$http', 'toolServi
                 console.log(response);
             }
         }
-
-
 
         $scope.isActive = toolService.isActive;
     }]);

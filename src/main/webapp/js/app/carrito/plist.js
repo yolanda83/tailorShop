@@ -8,9 +8,7 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
         $scope.ob = "linea";
         $scope.op = "plist";
         $scope.totalPages = 1;
-//        $scope.id = $routeParams.id;
         $scope.compra = true;
-//        $scope.warning = null;
         $scope.carritoVacio = false;
         $scope.carrito = parseInt(oSessionService.getCountCarrito());
 
@@ -90,19 +88,6 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
                 $scope.advanced = false;
             }
         }
-
-////TRAER DATOS USUARIO
-//        $http({
-//            method: 'GET',
-//            //withCredentials: true,
-//            url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=get&id=' + $scope.id
-//        }).then(function (response) {
-//            $scope.status = response.status;
-//            $scope.ajaxDataUsuario = response.data.message;
-//        }, function (response) {
-//            $scope.ajaxDataUsuario = response.data.message || 'Request failed';
-//            $scope.status = response.status;
-//        });
 
 //MOSTRAR CARRITO
         $http({

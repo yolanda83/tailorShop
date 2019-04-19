@@ -4,8 +4,6 @@ moduleComponent.component('headerComponent', {
     //restrict: 'A',
     templateUrl: 'js/system/component/header/header.html',
     bindings: {
-        // data: '=',
-        // tabla: '<'
         eventlistener: '&'
     },
     controllerAs: 'c',
@@ -29,7 +27,6 @@ function js(toolService, sessionService, $scope, $http, $location, $mdDialog) {
         self.logeado = sessionService.isSessionActive();
         self.usuario = sessionService.getUserName();
         self.userId = sessionService.getId();
-//        self.isActive = toolService.isActive;
         self.isAdmin = sessionService.isAdmin();
         self.carrito = sessionService.getCountCarrito();
     });
@@ -106,27 +103,6 @@ function js(toolService, sessionService, $scope, $http, $location, $mdDialog) {
                 .ok('OK!')
                 );
     };
-
-
-
-// Navbar Dropdown
-//$scope.cliqui = function () {
-//    $scope.clik.resize(function () {
-//        if ($scope.clik.width() >= 980) {
-//            // Cuando pasas por encima de un elemento, se muestra un menu dropdown
-//            $scope.clik.hover(function () {
-//                self.parent().toggleClass("show");
-//                self.parent().find(".dropdown-menu").toggleClass("show");
-//            });
-//
-//            // Esconde el menu cuando el raton ya no hace hover sobre el elemento
-//            $scope.clik.mouseleave(function () {
-//                self.removeClass("show");
-//            });
-//        }
-//    });
-//};
-
-
+    
 }
 

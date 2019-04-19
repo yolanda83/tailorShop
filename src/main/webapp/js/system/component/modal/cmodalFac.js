@@ -1,5 +1,4 @@
 moduloDirectivas.component('caddModalFac', {
-    //restrict: 'A',
     templateUrl: 'js/system/component/modal/cmodalFac.html',
     bindings: {
         data: '=',
@@ -61,8 +60,8 @@ function addModalVarController($http) {
         }
         self.modal_data();
     }
-    
-    
+
+
     //Search
     self.modal_data = function () {
         //getcount
@@ -81,7 +80,7 @@ function addModalVarController($http) {
             self.ajaxDataUsuariosNumber = response.data.message || 'Request failed';
             self.status = response.status;
         });
-         //10 RPPs botonera al iniciar
+        //10 RPPs botonera al iniciar
         $http({
             method: 'GET',
             url: `http://localhost:8081/tailorShop/json?ob=${self.tabla}&op=getpage&rpp=${self.rpp}&page=${self.page}${self.orderURLServidor}`

@@ -1,5 +1,4 @@
 moduloDirectivas.component('caddModalVar', {
-    //restrict: 'A',
     templateUrl: 'js/system/component/modal/cmodal.html',
     bindings: {
         data: '=',
@@ -61,8 +60,7 @@ function addModalVarController($http) {
         }
         self.modal_data();
     }
-    
-    
+
     //Search
     self.modal_data = function () {
         //getcount

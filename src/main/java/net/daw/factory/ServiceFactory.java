@@ -259,26 +259,6 @@ public class ServiceFactory {
                         break;
                 }
                 break;
-//            case "favorito":
-//                FavoritoService oFavoritoService = new FavoritoService(oRequest);
-//                switch (op) {
-//                    case "create":
-//                        oReplyBean = oFavoritoService.create();
-//                        break;
-//                    case "remove":
-//                        oReplyBean = oFavoritoService.remove();
-//                        break;
-//                    case "getcountfav":
-//                        oReplyBean = oFavoritoService.getcountfav();
-//                        break;
-//                    case "getfavoritos":
-//                        oReplyBean = oFavoritoService.getfavoritos();
-//                        break;
-//                    default:
-//                        oReplyBean = new ReplyBean(500, "Operation doesn't exist");
-//                        break;
-//                }
-//                break;
             default:
                 oReplyBean = new ReplyBean(500, "Object doesn't exist");
                 break;

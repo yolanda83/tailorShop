@@ -39,18 +39,6 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
         }
 
         //Getpage trae todos los registros de productos de la BBDD
-//        $http({
-//            method: 'GET',
-//            //withCredentials: true,
-//            url: 'http://localhost:8081/tailorShop/json?ob=producto&op=getpage&rpp=' + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor
-//        }).then(function (response) {
-//            $scope.status = response.status;
-//            $scope.ajaxDataProductos = response.data.message;
-//        }, function (response) {
-//            $scope.ajaxDataProductos = response.data.message || 'Request failed';
-//            $scope.status = response.status;
-//        });
-
         $http({
             method: 'GET',
             url: `http://localhost:8081/tailorShop/json?ob=${toolService.objects.producto}&op=getfavoritos&rpp=` + $scope.rpp + '&page=' + $scope.page
@@ -75,8 +63,6 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
             }
         }, function (response) {
             $location.path("/home");
-//            $scope.status = response.status;
-//            $scope.ajaxDataUsuarios = response.data.message || 'Request failed';
         });
 
         $scope.advancedSearch = function () {
@@ -129,8 +115,6 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
             }
         }
 
-
-
         //AÑADIR 1 PRODUCTO AL CARRITO
         $scope.carrito = function (producto, cantidad) {
 
@@ -148,12 +132,9 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
             }
         }
 
-
-
         $scope.resetOrder = function () {
             $location.url('producto/plist/' + $scope.rpp + '/' + $scope.page);
         }
-
 
         $scope.ordena = function (order, align) {
             if ($scope.orderURLServidor == "") {
@@ -165,7 +146,6 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
             }
             $location.url('producto/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente);
         }
-
 
         //getcount
         $http({
@@ -184,7 +164,6 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
             $scope.ajaxDataProductosNumber = response.data.message || 'Request failed';
             $scope.status = response.status;
         });
-
 
         //paginacion neighbourhood
         function pagination2() {
@@ -205,15 +184,12 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
             }
         }
 
-
-
         $scope.update = function () {
             $location.url('producto/plistUsuarioFav/12/1/' + $scope.orderURLCliente + $scope.id + '/' + $scope.usuario);
         }
 
 
         $scope.isActive = toolService.isActive;
-
 
         //Este mensaje se puede mejorar, buscar info en la api oficial de angular material
         //https://material.angularjs.org/latest/api/service/$mdDialog
@@ -228,8 +204,6 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
                     .ok('OK!')
                     );
         };
-
-
 
         function actualizarFav() {
 

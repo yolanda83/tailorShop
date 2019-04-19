@@ -1,6 +1,4 @@
-<!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
-
 
 <div class="row no-gutters">
 
@@ -25,7 +23,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <form name="userForm" ng-show="!edit"> 
                     <div class="row no-gutters mt-3 formEdit">
@@ -55,7 +52,6 @@
                                     </div>
                                 </div>
                             </md-input-container>
-       
 
                             <md-input-container class="md-block">
                                 <label>Username</label>
@@ -66,7 +62,6 @@
                                 </div>
                             </md-input-container>
 
-
                             <md-input-container class="md-block">
                                 <label>Nombre</label>
                                 <input md-no-asterisk required name="nombre" ng-model="nombre">
@@ -76,7 +71,6 @@
                                 </div>
                             </md-input-container>
 
-                            
                             <md-input-container class="md-block">
                                 <label>1r Apellido</label>
                                 <input md-no-asterisk required name="ape1" ng-model="ape1">
@@ -86,7 +80,6 @@
                                 </div>
                             </md-input-container>
 
-
                             <md-input-container class="md-block mb-0">
                                 <label>2o Apellido</label>
                                 <input md-no-asterisk required name="ape2" ng-model="ape2">
@@ -95,8 +88,6 @@
                                     <div ng-message="required">Apellido obligatorio.</div>
                                 </div>
                             </md-input-container>                          
-
-
 
                             <div class="form-group" ng-show="admin">
                                 <label class="labelEdit">Tipo Usuario</label>
@@ -119,7 +110,6 @@
                     </div>
                 </form>
 
-
                 <div class="row" ng-show="edit">
                     <div class="col-12">
                         <div class=" mx-auto">
@@ -139,11 +129,7 @@
     </div>
 </div>
 
-<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
-<!--<footer-component></footer-component>-->
-
-
-<!--Componenete modal-->
+<!--Componente modal-->
 <cadd-modal-var class="modal fade ng-isolate-scope" id="cadd-location-modal" tabla="'tipousuario'" data="obj_tipoUsuario" aria-hidden="true"
                 style="display: none;"></cadd-modal-var>
 

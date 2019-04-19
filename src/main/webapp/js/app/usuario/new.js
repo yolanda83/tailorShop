@@ -85,9 +85,7 @@ moduleUsuario.controller('usuarioNewController', [
                 }).then(function (response) {
                     $scope.resultado = "Usuario creado correctamente.";
                     $scope.new = true;
-//                $scope.showAlert('Registro', 'Usuario creado correctamente. Inicia sesion.');
                     $scope.radiob = "tab-1";
-//                    $scope.usuCreado = "Usuario creado correctamente. Inicia sesion.";
                     $scope.usuCreado = true;
                 }), function (response) {
                     $scope.ajaxDataUsuario = response.data.message || 'Request failed';

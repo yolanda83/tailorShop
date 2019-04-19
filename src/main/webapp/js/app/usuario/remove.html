@@ -1,9 +1,4 @@
-<!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
-
-
-
-
 
 <div class="row no-gutters">
 
@@ -34,13 +29,11 @@
                 <div ng-show="!deleted">
                     <div class="row no-gutters mt-0 pb-4">
                         <div class="col-md-4">
-                            <!--<div class="form-group">-->
                             <div class="row">
                                 <div class="mx-auto fotoPerfil pt-4">
                                     <img ng-src="http://localhost:8081/imagenesPatchwork/{{ajaxData.foto}}">
                                 </div>
                             </div>
-                            <!--</div>-->
                         </div>
 
                         <div class="col-md-8">
@@ -61,12 +54,6 @@
                                     <a href="{{'/tailorShop/tipousuario/view/' + ajaxData.obj_tipoUsuario.id}}" class="enlaceColor">{{ajaxData.obj_tipoUsuario.desc}}</a>
                                 </p>
 
-
-                                <!--                            <div class="mt-5">
-                                                                <a href="{{'/tailorShop/usuario/edit/' + ajaxData.id}}" class="btn px-4 mr-3 btn-info" role="button">Editar</a>
-                                                                <button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>
-                                                                <button class="btn ml-0 botonAdmin px-4" onClick="javascript:history.go(-1);">Volver</button>
-                                                            </div>-->
                             </div>
                         </div>
                     </div>
@@ -90,21 +77,17 @@
                     <div class="col-12">
                         <div class=" mx-auto">
                             <div class="card-body my-3">
-                            <h4 class="card-title text-center">El Usuario ha sido eliminado correctamente.</h4>
-                            <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
-                                <button type="button" class="btn botonAdmin" onclick="window.history.back()">Volver</button>
+                                <h4 class="card-title text-center">El Usuario ha sido eliminado correctamente.</h4>
+                                <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3" role="alert">
+                                    <button type="button" class="btn botonAdmin" onclick="window.history.back()">Volver</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>            
+                    </div>            
 
+                </div>
+                <div class="col-md-2"></div>
             </div>
-            <div class="col-md-2"></div>
+
         </div>
-
     </div>
-</div>
-
-
-<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
-<!--<footer-component></footer-component>-->

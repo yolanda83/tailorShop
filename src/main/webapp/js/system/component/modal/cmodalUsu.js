@@ -1,5 +1,4 @@
 moduloDirectivas.component('caddModalUsu', {
-    //restrict: 'A',
     templateUrl: 'js/system/component/modal/cmodalUsu.html',
     bindings: {
         data: '=',
@@ -8,7 +7,6 @@ moduloDirectivas.component('caddModalUsu', {
     controllerAs: 'c',
     controller: addModalVarController
 });
-
 
 function addModalVarController($http) {
     var self = this;
@@ -61,8 +59,7 @@ function addModalVarController($http) {
         }
         self.modal_data();
     }
-    
-    
+
     //Search
     self.modal_data = function () {
         //getcount
@@ -81,7 +78,7 @@ function addModalVarController($http) {
             self.ajaxDataUsuariosNumber = response.data.message || 'Request failed';
             self.status = response.status;
         });
-         //10 RPPs botonera al iniciar
+        //10 RPPs botonera al iniciar
         $http({
             method: 'GET',
             url: `http://localhost:8081/tailorShop/json?ob=${self.tabla}&op=getpage&rpp=${self.rpp}&page=${self.page}${self.orderURLServidor}`
@@ -99,7 +96,7 @@ function addModalVarController($http) {
         self.modal_data();
     }
 
-   //actualización de RPPs de la botonera
+    //actualización de RPPs de la botonera
     self.update_registro = function (rpp) {
         self.rpp = rpp;
         self.page = 1;

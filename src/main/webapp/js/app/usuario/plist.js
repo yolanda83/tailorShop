@@ -34,7 +34,6 @@ moduleUsuario.controller('usuarioPlistController', ['$scope', '$http', '$locatio
             }
         }
 
-
         //Getpage trae todos los registros de usuario de la BBDD
         $http({
             method: 'GET',
@@ -46,8 +45,6 @@ moduleUsuario.controller('usuarioPlistController', ['$scope', '$http', '$locatio
             $scope.status = response.status;
             $scope.ajaxDataUsuarios = response.data.message || 'Request failed';
         });
-
-
 
         $scope.resetOrder = function () {
             $location.url('usuario/plist/' + $scope.rpp + '/' + $scope.page);
@@ -64,7 +61,6 @@ moduleUsuario.controller('usuarioPlistController', ['$scope', '$http', '$locatio
             }
             $location.url('usuario/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente);
         }
-
 
         //getcount
         $http({
@@ -84,7 +80,6 @@ moduleUsuario.controller('usuarioPlistController', ['$scope', '$http', '$locatio
             $scope.status = response.status;
         });
 
-
         //paginacion neighbourhood
         function pagination2() {
             $scope.list2 = [];
@@ -103,7 +98,6 @@ moduleUsuario.controller('usuarioPlistController', ['$scope', '$http', '$locatio
                 }
             }
         }
-
 
         $scope.update = function () {
             $location.url('usuario/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente);

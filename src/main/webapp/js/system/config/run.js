@@ -18,9 +18,6 @@ tailorShop.run(['$rootScope', 'sessionService', '$location', '$http', 'countcarr
                     oSessionService.setSessionInactive();
                     oSessionService.setUserName();
                     oSessionService.setId();
-//                    if (nextUrl !== '/home' && nextUrl !== '/usuario/new/' && nextUrl != '/usuario/new') {
-//                        $location.path("/home");
-//                    }
                 }
             }, function (response) {
                 oSessionService.setSessionInactive();

@@ -3,7 +3,6 @@
 moduleTipousuario.controller('tipousuarioPlistController', ['$scope', '$http', '$location', 'toolService',
     'sessionService', '$routeParams',
     function ($scope, $http, $location, toolService, oSessionService, $routeParams) {
-        //$scope.ruta = $location.path();
 
         $scope.ob = "tipousuario";
         $scope.op = "plist";
@@ -33,7 +32,6 @@ moduleTipousuario.controller('tipousuarioPlistController', ['$scope', '$http', '
             }
         }
 
-
         //Getpage trae todos los registros de tipo usuario de la BBDD
         $http({
             method: 'GET',
@@ -52,7 +50,6 @@ moduleTipousuario.controller('tipousuarioPlistController', ['$scope', '$http', '
         $scope.resetOrder = function () {
             $location.url('tipousuario/plist/' + $scope.rpp + '/' + $scope.page);
         }
-
 
         $scope.ordena = function (order, align) {
             if ($scope.orderURLServidor == "") {
@@ -83,7 +80,6 @@ moduleTipousuario.controller('tipousuarioPlistController', ['$scope', '$http', '
             $scope.status = response.status;
         });
 
-
         //paginacion neighbourhood
         function pagination2() {
             $scope.list2 = [];
@@ -106,7 +102,6 @@ moduleTipousuario.controller('tipousuarioPlistController', ['$scope', '$http', '
         $scope.update = function () {
             $location.url('tipousuario/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente);
         }
-
 
         $scope.isActive = toolService.isActive;
 

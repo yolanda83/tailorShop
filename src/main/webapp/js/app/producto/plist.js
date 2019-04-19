@@ -105,12 +105,9 @@ moduleProducto.controller('productoPlistController', ['$scope', '$http', '$locat
             }
         }
 
-
-
         $scope.update = function () {
             $location.url('producto/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente);
         }
-
 
         $scope.isActive = toolService.isActive;
 

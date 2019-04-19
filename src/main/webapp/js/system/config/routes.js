@@ -9,8 +9,6 @@ var autenticacionAdministrador = function ($q, $location, $http, sessionService)
     }).then(function (response) {
         if (response.data.status === 200) {
             if (response.data.message.obj_tipoUsuario.id === 1) { // 1 = ADMINISTRADOR
-//                sessionService.setUserName(response.data.message.login);
-//                sessionService.setId(response.data.message.id);
                 sessionService.setAdmin();
                 deferred.resolve(response.data.message);
 
@@ -30,7 +28,6 @@ var autenticacionAdministrador = function ($q, $location, $http, sessionService)
     return deferred.promise;
 };
 
-
 var everyone = function ($q, $location, $http, sessionService) {
     var deferred = $q.defer();
     $http({
@@ -39,21 +36,13 @@ var everyone = function ($q, $location, $http, sessionService) {
     }).then(function (response) {
         if (response.data.status === 200) {
             if (response.data.message.obj_tipoUsuario.id === 1) { //1 - ADMINISTRADOR
-//                sessionService.setSessionActive();
                 sessionService.setAdmin();
-//                sessionService.setUserName(response.data.message.login);
-//                sessionService.setId(response.data.message.id);
             }
             if (response.data.message.obj_tipoUsuario.id === 2) { // 2 - USUARIO
-//                sessionService.setSessionActive();
                 sessionService.setUser();
-//                sessionService.setUserName(response.data.message.login);
-//                sessionService.setId(response.data.message.id);
             }
             deferred.resolve();
         } else { // 3 - INVITADO
-//            sessionService.setSessionInactive();
-//            sessionService.setUser();
             deferred.resolve();
         }
     }, function () {
@@ -67,8 +56,7 @@ var everyone = function ($q, $location, $http, sessionService) {
 
 tailorShop.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/home', {templateUrl: 'js/app/common/home.html', controller: 'homeController', resolve: {auth: everyone}});
-//CARRITO
-//        $routeProvider.when('/carrito/plist/:id?', {templateUrl: 'js/app/carrito/plist.html', controller: 'carritoPlistController', resolve: {auth: everyone}});
+//CARRITO 
         $routeProvider.when('/carrito/plist', {templateUrl: 'js/app/carrito/plist.html', controller: 'carritoPlistController', resolve: {auth: everyone}});
 //FACTURA
         $routeProvider.when('/factura/plist', {templateUrl: 'js/app/factura/plist.html', controller: 'facturaPlistController'});
@@ -122,9 +110,7 @@ tailorShop.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/cursos', {templateUrl: 'js/app/cursos/cursos.html', controller: 'cursosController', resolve: {auth: everyone}});
         $routeProvider.when('/producto/plistUsuario/:rpp?/:page?/:order?/:tipo', {templateUrl: 'js/app/producto/plistUsuario.html', controller: 'productoPlistUsuarioController', resolve: {auth: everyone}});
         $routeProvider.when('/producto/plistUsuarioBusqueda/:rpp?/:page?/:order?/:busqueda', {templateUrl: 'js/app/producto/plistUsuarioBusqueda.html', controller: 'productoPlistUsuarioBusquedaController', resolve: {auth: everyone}});
-        
         $routeProvider.when('/producto/plistUsuarioFav/:rpp?/:page?/:order?/:id/:usuario', {templateUrl: 'js/app/producto/plistUsuarioFav.html', controller: 'productoPlistUsuarioFavController', resolve: {auth: everyone}});
-
 
 //DEFAULT
         $routeProvider.otherwise({redirectTo: '/home'});

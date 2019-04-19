@@ -8,12 +8,12 @@ import com.google.gson.annotations.Expose;
  *
  * @author Yolanda
  */
-
 public class TipousuarioBean {
-	@Expose
-	private int id;
-	@Expose
-	private String desc;
+
+    @Expose
+    private int id;
+    @Expose
+    private String desc;
 
     public int getId() {
         return id;
@@ -31,9 +31,9 @@ public class TipousuarioBean {
         this.desc = desc;
     }
 
-	public TipousuarioBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {
-		this.setId(oResultSet.getInt("id"));
-		this.setDesc(oResultSet.getString("desc"));
-		return this;
-	}
+    public TipousuarioBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {
+        this.setId(oResultSet.getInt("id"));
+        this.setDesc(oResultSet.getString("desc"));
+        return this;
+    }
 }

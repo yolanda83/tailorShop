@@ -32,7 +32,6 @@ moduleTipoproducto.controller('tipoproductoPlistController', ['$scope', 'toolSer
             }
         }
 
-
         //Getpage trae todos los registros de tipo producto de la BBDD
         $http({
             method: 'GET',
@@ -46,12 +45,9 @@ moduleTipoproducto.controller('tipoproductoPlistController', ['$scope', 'toolSer
             $scope.ajaxDataTipoProducto = response.data.message || 'Request failed';
         });
 
-
-
         $scope.resetOrder = function () {
             $location.url('tipoproducto/plist/' + $scope.rpp + '/' + $scope.page);
         }
-
 
         $scope.ordena = function (order, align) {
             if ($scope.orderURLServidor == "") {
@@ -63,7 +59,6 @@ moduleTipoproducto.controller('tipoproductoPlistController', ['$scope', 'toolSer
             }
             $location.url('tipoproducto/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente);
         }
-
 
         //getcount
         $http({
@@ -82,8 +77,6 @@ moduleTipoproducto.controller('tipoproductoPlistController', ['$scope', 'toolSer
             $scope.ajaxDataTipoProductoNumber = response.data.message || 'Request failed';
             $scope.status = response.status;
         });
-
-
 
         //paginacion neighbourhood
         function pagination2() {
@@ -104,13 +97,9 @@ moduleTipoproducto.controller('tipoproductoPlistController', ['$scope', 'toolSer
             }
         }
 
-
-
         $scope.update = function () {
             $location.url('tipoproducto/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente);
         }
-
-
 
         $scope.isActive = toolService.isActive;
 

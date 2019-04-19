@@ -9,7 +9,6 @@ moduleComponent.component('tipousuarioSelection', {
 });
 
 function cController($http) {
-    //console.log("ccontroler....");
     var self = this;
     self.ob = "tipousuario";
     self.page = 1;
@@ -42,13 +41,10 @@ function cController($http) {
         self.data = response.data.message || 'Request failed';
     });
 
-    self.save = function (id,desc) {
+    self.save = function (id, desc) {
         self.obj.id = id;
         self.obj.desc = desc;
-        
-        
-        
-        
+
     };
 
 

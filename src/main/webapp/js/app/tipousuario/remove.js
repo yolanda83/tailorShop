@@ -28,8 +28,6 @@ moduleTipousuario.controller('tipousuarioRemoveController', ['$scope', '$http', 
             })
         }
 
-
-
         $scope.isActive = toolService.isActive;
 
     }

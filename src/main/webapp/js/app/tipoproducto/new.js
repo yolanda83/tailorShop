@@ -64,5 +64,4 @@ moduleTipoproducto.controller('tipoproductoNewController', ['$scope', '$http', '
 
         $scope.isActive = toolService.isActive;
 
-
     }]);

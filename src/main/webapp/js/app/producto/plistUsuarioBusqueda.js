@@ -65,7 +65,6 @@ moduleProducto.controller('productoPlistUsuarioBusquedaController', ['$scope', '
             }
         }
 
-
         $scope.save = function (producto) {
             $http({
                 method: 'GET',
@@ -142,8 +141,6 @@ moduleProducto.controller('productoPlistUsuarioBusquedaController', ['$scope', '
             }
         }
 
-
-
         $scope.resetOrder = function () {
             $location.url('producto/plist/' + $scope.rpp + '/' + $scope.page);
         }
@@ -159,7 +156,6 @@ moduleProducto.controller('productoPlistUsuarioBusquedaController', ['$scope', '
             }
             $location.url('producto/plist/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente);
         }
-
 
         //getcount
         $http({
@@ -178,6 +174,7 @@ moduleProducto.controller('productoPlistUsuarioBusquedaController', ['$scope', '
             $scope.ajaxDataProductosNumber = response.data.message || 'Request failed';
             $scope.status = response.status;
         });
+
         //paginacion neighbourhood
         function pagination2() {
             $scope.list2 = [];
@@ -196,8 +193,6 @@ moduleProducto.controller('productoPlistUsuarioBusquedaController', ['$scope', '
                 }
             }
         }
-
-
 
         $scope.update = function () {
             $location.url('producto/plistUsuarioBusqueda/' + $scope.rpp + '/' + $scope.page + '/' + $scope.orderURLCliente + $scope.busqueda);

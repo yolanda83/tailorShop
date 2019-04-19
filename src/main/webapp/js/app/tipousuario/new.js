@@ -26,9 +26,6 @@ moduleTipousuario.controller('tipousuarioNewController', ['$scope', '$http', 'to
             $scope.status = response.status;
         };
 
-
-
-
         $scope.guardar = function () {
 
             var descTipoUsuario = $scope.selectedId;
@@ -65,8 +62,6 @@ moduleTipousuario.controller('tipousuarioNewController', ['$scope', '$http', 'to
             }
         }
 
-
         $scope.isActive = toolService.isActive;
-
 
     }]);

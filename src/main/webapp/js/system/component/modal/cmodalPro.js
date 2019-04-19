@@ -1,5 +1,4 @@
 moduloDirectivas.component('caddModalPro', {
-    //restrict: 'A',
     templateUrl: 'js/system/component/modal/cmodalPro.html',
     bindings: {
         data: '=',
@@ -61,8 +60,8 @@ function addModalVarController($http) {
         }
         self.modal_data();
     }
-    
-    
+
+
     //Search
     self.modal_data = function () {
         //getcount
@@ -99,7 +98,7 @@ function addModalVarController($http) {
         self.modal_data();
     }
 
-   //actualización de RPPs de la botonera
+    //actualización de RPPs de la botonera
     self.update_registro = function (rpp) {
         self.rpp = rpp;
         self.page = 1;

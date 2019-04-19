@@ -11,7 +11,6 @@ moduleLinea.controller('lineaRemoveController', ['$scope', '$http', 'toolService
         //Muestra los datos del id usuario indicado de la BBDD
         $http({
             method: 'GET',
-            //withCredentials: true,
             url: 'http://localhost:8081/tailorShop/json?ob=linea&op=get&id=' + $scope.id
         }).then(function (response) {
             $scope.status = response.status;

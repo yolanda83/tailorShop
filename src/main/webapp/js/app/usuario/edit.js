@@ -68,7 +68,6 @@ moduleUsuario.controller('usuarioEditController', ['$scope', '$http', 'toolServi
                 ape1: $scope.ape1,
                 ape2: $scope.ape2,
                 login: $scope.loginUser,
-//                pass: forge_sha256($scope.pass),
                 foto: foto,
                 id_tipoUsuario: tipoUsuario
             };
@@ -87,7 +86,6 @@ moduleUsuario.controller('usuarioEditController', ['$scope', '$http', 'toolServi
                 console.log(response);
             };
         };
-
 
         $(".fotoEditar").on("click", function () {
             $("#prueba").trigger('click');

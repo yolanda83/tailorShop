@@ -11,7 +11,6 @@ import net.daw.dao.TipousuarioDao;
  *
  * @author Yolanda
  */
-
 public class UsuarioBean {
 
     @Expose
@@ -124,7 +123,6 @@ public class UsuarioBean {
     public void setFoto(String foto) {
         this.foto = foto;
     }
-    
 
     public UsuarioBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {
         this.setId(oResultSet.getInt("id"));

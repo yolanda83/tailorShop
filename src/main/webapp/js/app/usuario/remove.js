@@ -12,7 +12,6 @@ moduleUsuario.controller('usuarioRemoveController', ['$scope', '$http', 'toolSer
         //Muestra los datos del id usuario indicado de la BBDD
         $http({
             method: 'GET',
-            //withCredentials: true,
             url: 'http://localhost:8081/tailorShop/json?ob=usuario&op=get&id=' + $scope.id
         }).then(function (response) {
             $scope.status = response.status;

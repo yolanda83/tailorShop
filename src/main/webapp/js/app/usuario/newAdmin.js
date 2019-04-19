@@ -11,13 +11,6 @@ moduleUsuario.controller('usuarioNewAdminController', ['$scope', '$http', 'toolS
 
         $scope.guardar = function () {
 
-//            if ($scope.myFile == undefined) {
-//                $scope.foto = "fotoUser.png";
-//            } else {
-//                $scope.foto = guid() + $scope.myFile.name;
-//                $scope.fileNameChanged();
-//            }
-
             var foto;
             if ($scope.myFile !== undefined) {
                 foto = guid() + $scope.myFile.name;
@@ -96,7 +89,6 @@ moduleUsuario.controller('usuarioNewAdminController', ['$scope', '$http', 'toolS
 //                console.log(response)
 //            });
 //        }
-
 
         function guid() {
             return "ss-s-s-s-sss".replace(/s/g, s4);

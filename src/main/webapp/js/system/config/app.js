@@ -2,7 +2,6 @@
 
 'use strict';
 
-
 var tailorShop = angular.module('MyApp', [
     'ngRoute',
     'services',
@@ -46,7 +45,6 @@ var tailorShop = angular.module('MyApp', [
     };
 });
 
-
 var moduleCommon = angular.module('commonControllers', []);
 var moduleService = angular.module('services', []);
 var moduleFactura = angular.module('facturaControllers', []);
@@ -56,9 +54,9 @@ var moduleTipoproducto = angular.module('tipoproductoControllers', []);
 var moduleTipousuario = angular.module('tipousuarioControllers', []);
 var moduleUsuario = angular.module('usuarioControllers', []);
 var moduloDirectivas = angular.module('Directives', []);
-var moduleComponent = angular.module ('component',[]);
-var moduleCarrito = angular.module ('carritoControllers',[]);
-var moduleAbout = angular.module ('aboutControllers',[]);
-var moduleContacto = angular.module ('contactoControllers',[]);
-var modulecursos = angular.module ('cursosControllers',[]);
+var moduleComponent = angular.module('component', []);
+var moduleCarrito = angular.module('carritoControllers', []);
+var moduleAbout = angular.module('aboutControllers', []);
+var moduleContacto = angular.module('contactoControllers', []);
+var modulecursos = angular.module('cursosControllers', []);
 

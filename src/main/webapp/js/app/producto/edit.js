@@ -117,7 +117,6 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
             });
         }
 
-
         function guid() {
             return "ss-s-s-s-sss".replace(/s/g, s4);
         }
@@ -127,8 +126,6 @@ moduleProducto.controller('productoEditController', ['$scope', '$http', 'toolSer
                     .toString(16)
                     .substring(1);
         }
-
-
 
     }]).directive('fileModel', ['$parse', function ($parse) {
         return {

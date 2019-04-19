@@ -8,7 +8,6 @@ import java.sql.ResultSet;
  *
  * @author Yolanda
  */
-
 public class TipoproductoBean {
 
     @Expose

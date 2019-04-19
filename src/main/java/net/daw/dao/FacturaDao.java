@@ -6,26 +6,19 @@
 package net.daw.dao;
 
 import java.sql.Connection;
-//import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.HashMap;
 import net.daw.bean.FacturaBean;
 import net.daw.bean.UsuarioBean;
-import net.daw.helper.EncodingHelper;
 import net.daw.helper.SqlBuilder;
-import java.util.Date;
 
 /**
  *
  * @author Yolanda
  */
-
 public class FacturaDao {
 
     Connection oConnection;
@@ -40,7 +33,7 @@ public class FacturaDao {
     public FacturaBean get(int id, Integer expansion) throws Exception {
         String strSQL = "SELECT * FROM " + ob + " WHERE id=?";
         FacturaBean oFacturaBean;
-        UsuarioBean oUsuarioBean;
+//        UsuarioBean oUsuarioBean;
         ResultSet oResultSet = null;
         PreparedStatement oPreparedStatement = null;
         try {
@@ -100,7 +93,7 @@ public class FacturaDao {
             if (id != 0) {
                 oPreparedStatement.setInt(1, id);
             }
-            
+
             oResultSet = oPreparedStatement.executeQuery();
             if (oResultSet.next()) {
                 res = oResultSet.getInt(1);
@@ -144,8 +137,6 @@ public class FacturaDao {
 
     public FacturaBean create(FacturaBean oFacturaBean) throws Exception {
 
-//        String strSQL = "INSERT INTO " + ob + " ( " + ob + ".id,  " + ob + ".fecha,  " + ob + ".iva, " + ob + ".id_usuario) VALUES (NULL," + fecha + "," + oFacturaBean.getIva() + ","
-//                + oFacturaBean.getObj_usuario().getId() + ")";
         String strSQL = "INSERT INTO " + ob;
         strSQL += "(" + oFacturaBean.getColumns() + ")";
         strSQL += " VALUES ";
@@ -176,7 +167,6 @@ public class FacturaDao {
 
     public int update(FacturaBean oFacturaBean) throws Exception {
         int iResult = 0;
-        //String strSQL = "UPDATE " + ob + " SET "+ob+".fecha = ?, "+ob+".iva = ?, "+ob+".id_usuario=?  WHERE "+ob+".id = ?;";
         String strSQL = "UPDATE " + ob + " SET ";
         strSQL += oFacturaBean.getPairs();
 

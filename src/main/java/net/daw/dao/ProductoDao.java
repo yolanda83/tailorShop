@@ -1,18 +1,13 @@
 package net.daw.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.HashMap;
 import net.daw.bean.ProductoBean;
 import net.daw.helper.SqlBuilder;
-import static sun.security.util.PropertyExpander.expand;
 
 /**
  *
@@ -185,10 +180,6 @@ public class ProductoDao {
     public ProductoBean create(ProductoBean oProductoBean) throws Exception {
         String strSQL = "INSERT INTO " + ob + " (`id`, `codigo`, `desc`, `existencias`, `precio`, `foto`, `id_tipoProducto`, `novedad`, `fecha`) VALUES (NULL,?,?,?,?,?,?,?,?); ";
 
-//        String strSQL = "INSERT INTO " + ob;
-//        strSQL += " (" + oProductoBean.getColumns() + ")";
-//        strSQL += " VALUES ";
-//        strSQL += "(" + oProductoBean.getValues() + ")";
         ResultSet oResultSet = null;
         PreparedStatement oPreparedStatement = null;
 
@@ -318,9 +309,6 @@ public class ProductoDao {
             strSQL += " WHERE id_usuario = ?";
         }
 
-//        strSQL += SqlBuilder.buildSqlOrder(hmOrder);
-//        if (iRpp > 0 && iRpp < 100000 && iPage > 0 && iPage < 100000000) {
-//            strSQL += " LIMIT " + (iPage - 1) * iRpp + ", " + iRpp;
         ResultSet oResultSet = null;
         PreparedStatement oPreparedStatement = null;
         ArrayList<ProductoBean> alProductoBean;
@@ -395,9 +383,7 @@ public class ProductoDao {
                 oPreparedStatement.close();
             }
         }
-//        } else {
-//            throw new Exception("Error en Dao getpage de " + ob);
-//        }
+
         return alProductoBean;
     }
 

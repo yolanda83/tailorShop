@@ -157,10 +157,6 @@ public class ProductoBean {
 
     public String getValues() {
 
-
-//
-
-
         String strColumns = "";
         strColumns += "NULL,";
         strColumns += codigo + ",";
@@ -171,7 +167,6 @@ public class ProductoBean {
         strColumns += id_tipoProducto + ",";
         strColumns += novedad + ",";
         strColumns += fecha;
-//        strColumns += EncodingHelper.quotate(localDate.toString());
 
         return strColumns;
     }

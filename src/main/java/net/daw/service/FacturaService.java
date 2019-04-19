@@ -40,7 +40,7 @@ public class FacturaService {
 
                 if (oRequest.getParameter("id") != null) {
                     id = Integer.parseInt(oRequest.getParameter("id"));
-                    
+
                 }
 
                 if (id != oUsuarioBean.getId() && oUsuarioBean.getId_tipoUsuario() != 1) {
@@ -108,7 +108,6 @@ public class FacturaService {
             if (oRequest.getParameter("id") != null) {
                 id = Integer.parseInt(oRequest.getParameter("id"));
             }
-
             oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
             oConnection = oConnectionPool.newConnection();
             FacturaDao oFacturaDao = new FacturaDao(oConnection, ob);

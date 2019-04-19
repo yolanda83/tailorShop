@@ -1,16 +1,15 @@
 'use strict'
 
-moduleTipoproducto.controller('tipoproductoEditController', ['$scope', '$http', 'toolService', '$routeParams', 
+moduleTipoproducto.controller('tipoproductoEditController', ['$scope', '$http', 'toolService', '$routeParams',
     'sessionService', '$location',
     function ($scope, $http, toolService, $routeParams, oSessionService, $location) {
 
         $scope.id = $routeParams.id;
         $scope.ruta = $location.path();
-        
+
         $http({
             method: "GET",
             url: 'http://localhost:8081/tailorShop/json?ob=tipoproducto&op=get&id=' + $scope.id
-//            url: `http://localhost:8081/tailorShop/json?ob=tipousuario&op=get&id=${$routeParams.id}`
         }).then(function (response) {
             console.log(response);
             $scope.id = response.data.message.id;
@@ -18,7 +17,6 @@ moduleTipoproducto.controller('tipoproductoEditController', ['$scope', '$http', 
         }), function (response) {
             console.log(response);
         };
-
 
         $scope.guardar = function () {
             var json = {
@@ -39,7 +37,6 @@ moduleTipoproducto.controller('tipoproductoEditController', ['$scope', '$http', 
                 console.log(response);
             }
         }
-
 
         $scope.isActive = toolService.isActive;
 

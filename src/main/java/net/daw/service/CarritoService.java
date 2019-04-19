@@ -27,7 +27,6 @@ import net.daw.helper.ValidateData;
  *
  * @author Yolanda
  */
-
 public class CarritoService implements Serializable {
 
     HttpServletRequest oRequest;
@@ -243,7 +242,6 @@ public class CarritoService implements Serializable {
                 UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
                 ArrayList<CarritoBean> alCarrito = (ArrayList<CarritoBean>) oRequest.getSession().getAttribute("carrito");
                 if (alCarrito != null) {
-                    //Crear obj_factura (preguntar sobre iva en factura y hora de la fecha y como ensenyarla en plist)
                     FacturaBean oFacturaBean = new FacturaBean();
                     FacturaDao oFacturaDao = new FacturaDao(oConnection, "factura");
                     LocalDateTime fechaHora = LocalDateTime.now();
@@ -253,7 +251,6 @@ public class CarritoService implements Serializable {
                     oFacturaBean.setIva(21);
                     oFacturaBean.setId_usuario(oUsuarioBean.getId());
                     oFacturaBean = oFacturaDao.create(oFacturaBean);
-                    //Crear Lineas (preguntar sobre id_tipoProducto en productoBean)
                     LineaBean oLineaBean = new LineaBean();
                     LineaDao oLineaDao = new LineaDao(oConnection, "linea");
                     ProductoBean oProductoBean;

@@ -9,7 +9,6 @@ moduleTipousuario.controller('tipousuarioEditController', ['$scope', '$http', '$
         $http({
             method: "GET",
             url: 'http://localhost:8081/tailorShop/json?ob=tipousuario&op=get&id=' + $scope.id
-//            url: `http://localhost:8081/tailorShop/json?ob=tipousuario&op=get&id=${$routeParams.id}`
         }).then(function (response) {
             console.log(response);
             $scope.id = response.data.message.id;
@@ -17,8 +16,6 @@ moduleTipousuario.controller('tipousuarioEditController', ['$scope', '$http', '$
         }), function (response) {
             console.log(response);
         };
-
-
 
         $scope.guardar = function () {
             var json = {
@@ -39,7 +36,6 @@ moduleTipousuario.controller('tipousuarioEditController', ['$scope', '$http', '$
                 console.log(response);
             }
         }
-        
         
         $scope.isActive = toolService.isActive;
 

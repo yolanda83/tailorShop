@@ -2,16 +2,15 @@
 
 moduleProducto.controller('productoRemoveController', ['$scope', '$http', 'toolService', '$routeParams', 'sessionService', '$anchorScroll',
     function ($scope, $http, toolService, $routeParams, oSessionService, $anchorScroll) {
-        
+
         $anchorScroll();
         $scope.id = $routeParams.id;
-        
+
         $scope.deleted = false;
 
         //Muestra los datos del id usuario indicado de la BBDD
         $http({
             method: 'GET',
-            //withCredentials: true,
             url: 'http://localhost:8081/tailorShop/json?ob=producto&op=get&id=' + $scope.id
         }).then(function (response) {
             $scope.status = response.status;
@@ -20,7 +19,6 @@ moduleProducto.controller('productoRemoveController', ['$scope', '$http', 'toolS
             $scope.ajaxData = response.data.message || 'Request failed';
             $scope.status = response.status;
         });
-
 
         $scope.eliminar = function () {
             $http({

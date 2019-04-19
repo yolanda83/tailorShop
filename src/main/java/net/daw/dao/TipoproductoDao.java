@@ -13,7 +13,6 @@ import net.daw.helper.SqlBuilder;
  *
  * @author Yolanda
  */
-
 public class TipoproductoDao {
 
     Connection oConnection;
@@ -37,8 +36,6 @@ public class TipoproductoDao {
             if (oResultSet.next()) {
                 oTipoproductoBean = new TipoproductoBean();
                 oTipoproductoBean.fill(oResultSet, oConnection, expand);
-//				oTipoproductoBean.setId(oResultSet.getInt("id"));
-//				oTipoproductoBean.setDesc(oResultSet.getString("desc"));
             } else {
                 oTipoproductoBean = null;
             }

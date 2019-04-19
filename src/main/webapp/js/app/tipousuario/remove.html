@@ -1,6 +1,4 @@
-<!--<header ng-include="'js/app/header.html'"></header>-->
 <header-component></header-component>
-
 
 <div class="row no-gutters">
 
@@ -52,7 +50,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row" ng-show="deleted">
                                     <div class="col-12">
                                         <div class="mx-auto">
@@ -77,64 +75,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-<!--
-
-<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 80px;">
-
-
-    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Remove Tipo Usuario:<small>  {{ajaxData.desc}} </small></h1>
-        <i class="fas fa-user-times fa-3x"></i>
-    </div>
-
-
-    <div class="mx-auto" style="margin-top: 50px; padding: 20px; width: 50%; background-color: WHITESMOKE; border-radius: 7px">
-        <div ng-show="!deleted">
-
-            <table class="table table-hover">       
-                <tr>
-                    <th class="text-center">Id</th>
-                    <th class="text-center">descripcion</th>             
-                </tr>
-                <tr>
-                    <td class="text-center">{{ajaxData.id}}</td>
-                    <td class="text-center">{{ajaxData.desc}}</td>
-                </tr>
-            </table>
-
-        </div>
-
-        <div class="row" ng-show="!deleted">
-            <div class="col-12">
-                <div class="card mx-auto" style="background-color: WHITESMOKE; width: 100%; border: none; border-radius: 7px">
-                    <div class="card-body">
-                        <h5 style="text-align: center;">¿Desea eliminar el Tipo de Usuario?</h5>
-                        <div class="d-flex justify-content-center align-items-center pt-3 pb-2" role="alert">
-                            <button type="button" class="btn btn-info ml-0 mr-5" ng-click="eliminar()">Aceptar</button>
-                            <button type="button" class="btn btn-secondary" onclick="window.history.back()">Cancelar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" ng-show="deleted">
-            <div class="col-12">
-                <div class="d-flex justify-content-center flex-wrap align-items-center p-3 pb-2 mb-3" role="alert">
-                    <h4>Tipo de Usuario eliminado con éxito.</h4> 
-                    <button type="button" class="btn btn-secondary mt-3 pt-2" onclick="window.history.back()">Volver</button>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-</main>-->
-
-<!--<footer class="footer" ng-include="'js/app/footer.html'"></footer>-->
-<!--<footer-component></footer-component>-->

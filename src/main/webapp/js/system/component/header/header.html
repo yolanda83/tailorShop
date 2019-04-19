@@ -1,5 +1,4 @@
 <!-- Fixed navbar -->
-<!--navbar-expand-xl/lg/md/sm-->
 <div class="row no-gutters">
     <div class="col-md-2 my-auto text-center">
         <a href="home/"><img class="p-0 logo" src="images/logo-01_animated.svg" alt="logo"></a>
@@ -13,7 +12,6 @@
         <div id="ballMenuContainer" class="">
 
             <!-- busqueda hover -->
-
             <div class="d-flex flex-nowrap">
 
                 <div class="container order-1" tabindex="1">
@@ -47,16 +45,6 @@
         </div>
     </div>
 </div>
-
-<!-- <div style="color: white; margin-right: 20px;" ng-show="c.logeado">
-            <a class="enlaceColor" href="carrito/plist/{{c.userId}}"><i class="enlaceColor fas fa-cart-arrow-down"></i>  
-                <sup class="redondel" ng-show="c.carrito > 0">{{c.carrito}}</sup>
-            </a>
- </div>-->
-
-
-
-
 
 <!--Quitado el fixed top ralentizaba la web-->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark pl-0">
@@ -144,20 +132,12 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
-
-
-
-
-    <!--    <a class="navbar-brand trol" href="home">Tailor shop</a>-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <!--<ul class="navbar-nav mr-auto" ng-show="c.logeado">-->
         <ul class="navbar-nav mr-auto">
 
             <!--User-->
@@ -187,7 +167,6 @@
             </li>
 
         </ul>
-
 
         <div style="color: white; margin-right: 20px;" ng-show="c.logeado">Bienvenid@: </div>
 
@@ -232,7 +211,6 @@
             </div>
         </div>
 
-
         <!--Boton logout-->
         <div class="nav-item"  ng-show="c.logeado">
             <div class="dropdown" >
@@ -251,7 +229,6 @@
                             </div>
                         </div>
                     </a>
-
 
                     <a class="dropdown-item pr-5" href="{{'factura/plist/10/1/' + c.userId + '/' + c.usuario}}">
                         <div class="row no-gutters">
@@ -300,7 +277,6 @@
                 </div>
             </div>
         </div>
-
 
     </div>
 </nav>

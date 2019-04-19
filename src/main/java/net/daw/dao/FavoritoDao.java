@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import net.daw.bean.ProductoBean;
 import net.daw.helper.SqlBuilder;
-import static sun.security.util.PropertyExpander.expand;
 
 /**
  *
@@ -138,7 +137,6 @@ public class FavoritoDao {
     public int get(int idProducto, int idUsuario) throws Exception {
         Integer iRes = 0;
         String strSQL = "SELECT * FROM favorito WHERE id_producto = ? AND id_usuario = ?";
-        ProductoBean oProductoBean;
         ResultSet oResultSet = null;
         PreparedStatement oPreparedStatement = null;
         try {

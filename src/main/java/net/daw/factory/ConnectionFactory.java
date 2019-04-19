@@ -21,9 +21,6 @@ public class ConnectionFactory {
             case BoneCP:
                 oConnectionInterface = new BoneCPConnectionSpecificImplementation();
                 break;
-//		case C3P0:
-//			oConnectionInterface = new C3P0ConnectionSpecificImplementation();
-//			break;
             case Vibur:
                 oConnectionInterface = new ViburConnectionSpecificImplementation();
                 break;

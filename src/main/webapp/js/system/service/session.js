@@ -30,7 +30,6 @@ moduleService.service('sessionService', [function () {
             },
             setSessionInactive: function () {
                 isSessionActive = false;
-//                userName = "";
                 angular.forEach(observerCallbacks, function (callback) {
                     callback();
                 });
@@ -46,9 +45,6 @@ moduleService.service('sessionService', [function () {
             },
             logOut: function () {
                 isSessionActive = false;
-//                userName = "";
-//                id = "";
-//                admin = null;
 
                 angular.forEach(observerCallbacks, function (callback) {
                     callback();
@@ -81,8 +77,8 @@ moduleService.service('sessionService', [function () {
                     callback();
                 });
             },
-            
-                        //register an observer
+
+            //register an observer
             //Entiendo que puedo guardar todos los observables en el array observerCallbacks y que cada vez que el objeto 
             // se actualice , angular detectara que observable se ha actualizado y lo actualizara en toda la aplicacion
             registerObserverCallback: function (callback) {

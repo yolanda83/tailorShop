@@ -20,7 +20,6 @@ import net.daw.helper.EncodingHelper;
  *
  * @author Yolanda
  */
-
 public class FacturaBean {
 
     private int id;
@@ -29,7 +28,6 @@ public class FacturaBean {
     private UsuarioBean obj_usuario;
     private int numLineas;
     private int id_usuario;
-    
 
     public int getId_usuario() {
         return id_usuario;
@@ -102,16 +100,7 @@ public class FacturaBean {
         return strColumns;
     }
 
-//    public String getValues() {
-//        String strColumns = "";
-//        strColumns += "null,";
-//        strColumns += fecha + ",";
-//        strColumns += iva + ",";
-//        strColumns += getObj_usuario().getId() + ",";
-//        return strColumns;
-//    }
-
-        public String getValues() {
+    public String getValues() {
         //Getting the default zone id
         ZoneId defaultZoneId = ZoneId.systemDefault();
 
@@ -120,21 +109,19 @@ public class FacturaBean {
 
         //Converting the Date to LocalDate
         LocalDate localDate = instant.atZone(defaultZoneId).toLocalDate();
-//        System.out.println("Local Date is: " + localDate);
         String strColumns = "";
         strColumns += "null,";
         strColumns += EncodingHelper.quotate(localDate.toString()) + ",";
         strColumns += iva + ",";
-        if(obj_usuario == null){
-           strColumns += id_usuario; 
+        if (obj_usuario == null) {
+            strColumns += id_usuario;
         } else {
             strColumns += getObj_usuario().getId();
         }
-        
-//        strColumns += obj_usuario.getId();
+
         return strColumns;
     }
-    
+
     public String getPairs() {
 
         //Getting the default zone id
@@ -150,14 +137,12 @@ public class FacturaBean {
         }
         //Converting the Date to LocalDate
         LocalDate localDate = instant.atZone(defaultZoneId).toLocalDate();
-//        System.out.println("Local Date is: " + localDate);
 
         String strPairs = "";
         strPairs += "id=" + id + ",";
         strPairs += "fecha=" + EncodingHelper.quotate(localDate.toString()) + ",";
         strPairs += "iva=" + iva + ",";
         strPairs += "id_usuario=" + obj_usuario.getId();
-//        strPairs += "id_usuario=" + id_usuario;
         strPairs += " WHERE id=" + id;
         return strPairs;
     }

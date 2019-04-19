@@ -13,7 +13,6 @@ import net.daw.helper.SqlBuilder;
  *
  * @author Yolanda
  */
-
 public class TipousuarioDao {
 
     Connection oConnection;

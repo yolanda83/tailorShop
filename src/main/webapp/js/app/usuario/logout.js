@@ -11,12 +11,7 @@ moduleUsuario.controller('usuarioLogoutController', ['$scope', '$http', 'toolSer
         }).then(function (response) {
 
             $scope.status = response.status;
-//            $scope.usuario = "";
-//            $scope.userId = "";
-//            oSessionService.setUserName($scope.usuario);
-//            oSessionService.setId($scope.userId);
-//            $scope.logeado = false;
-              oSessionService.setSessionInactive();
+            oSessionService.setSessionInactive();
         }), function (response) {
             $scope.ajaxData = response.data.message || 'Request failed';
             $scope.status = response.status;
@@ -30,9 +25,5 @@ moduleUsuario.controller('usuarioLogoutController', ['$scope', '$http', 'toolSer
             $location.path('/home');
 
         };
-
-
-
-
 
     }]);

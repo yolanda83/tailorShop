@@ -6,17 +6,15 @@ moduleProducto.controller('productoViewController', ['$scope', '$http', 'toolSer
         $anchorScroll();
         $scope.id = $routeParams.id;
 
-
         $http({
             method: 'GET',
-            //withCredentials: true,
             url: 'http://localhost:8081/tailorShop/json?ob=producto&op=get&id=' + $scope.id
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxData = response.data.message;
 
             if ($scope.ajaxData.novedad == true) {
-                $scope.novedad = 'Sí';
+                $scope.novedad = 'Sï¿½';
             } else {
                 $scope.novedad = 'No';
             }
