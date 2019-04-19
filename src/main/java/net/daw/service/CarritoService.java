@@ -38,7 +38,7 @@ public class CarritoService implements Serializable {
         ob = oRequest.getParameter("ob");
     }
 
-    protected Boolean checkPermission(String strMethodName) {
+    protected Boolean checkPermission(String operacion) {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
         return oUsuarioBean != null;
     }

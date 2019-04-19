@@ -6,6 +6,11 @@ moduleComponent.component('footerComponent', {
     controller: js
 });
 
-function js(){
-    
+function js($scope, $location) {
+
+//    $scope.ruta = function () {
+//        $location.path();
+//        $location.url('www.facebook.com');
+//    }
+
 }

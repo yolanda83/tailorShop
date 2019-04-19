@@ -33,11 +33,11 @@ public class ProductoService {
         ob = oRequest.getParameter("ob");
     }
 
-    protected Boolean checkPermission(String strMethodName) {
+    protected Boolean checkPermission(String operacion) {
 
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user"); //AQUI OBTENEMOS EL USUARIO QUE ESTE LOGUEADO
 
-        switch (strMethodName) {
+        switch (operacion) {
             case "remove":
             case "update":
             case "create":

@@ -25,10 +25,10 @@ public class FacturaService {
         ob = oRequest.getParameter("ob");
     }
 
-    protected Boolean checkPermission(String strMethodName) {
+    protected Boolean checkPermission(String operacion) {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
         Integer id = 0;
-        switch (strMethodName) {
+        switch (operacion) {
             case "remove":
             case "update":
             case "create":
