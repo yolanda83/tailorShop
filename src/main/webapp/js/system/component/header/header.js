@@ -77,6 +77,7 @@ function js(toolService, sessionService, $scope, $http, $location, $mdDialog) {
             $scope.status = response.status;
             sessionService.setSessionInactive();
             sessionService.setUser();
+            sessionService.setCountCarrito();
             $scope.login = "";
             $scope.pass = "";
             $scope.userForm.login.$pristine = true;

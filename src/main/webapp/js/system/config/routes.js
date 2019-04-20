@@ -135,7 +135,12 @@ tailorShop.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/producto/plistUsuario/:rpp?/:page?/:order?/:tipo', {templateUrl: 'js/app/producto/plistUsuario.html', controller: 'productoPlistUsuarioController', resolve: {auth: everyone}});
         $routeProvider.when('/producto/plistUsuarioBusqueda/:rpp?/:page?/:order?/:busqueda', {templateUrl: 'js/app/producto/plistUsuarioBusqueda.html', controller: 'productoPlistUsuarioBusquedaController', resolve: {auth: everyone}});
         $routeProvider.when('/producto/plistUsuarioFav/:rpp?/:page?/:order?/:id/:usuario', {templateUrl: 'js/app/producto/plistUsuarioFav.html', controller: 'productoPlistUsuarioFavController', resolve: {auth: registered}});
-
+//INFO        
+        $routeProvider.when('/infoCompra', {templateUrl: 'js/app/info/infoCompra.html', controller: 'infoController', resolve: {auth: everyone}});
+        $routeProvider.when('/infoCookies', {templateUrl: 'js/app/info/infoCookies.html', controller: 'infoController', resolve: {auth: everyone}});
+        $routeProvider.when('/infoEnvio', {templateUrl: 'js/app/info/infoEnvio.html', controller: 'infoController', resolve: {auth: everyone}});
+        $routeProvider.when('/infoPago', {templateUrl: 'js/app/info/infoPago.html', controller: 'infoController', resolve: {auth: everyone}});
+        $routeProvider.when('/infoAviso', {templateUrl: 'js/app/info/infoAviso.html', controller: 'infoController', resolve: {auth: everyone}});
 //DEFAULT
         $routeProvider.otherwise({redirectTo: '/home'});
     }]);

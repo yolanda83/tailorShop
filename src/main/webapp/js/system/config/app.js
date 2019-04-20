@@ -19,6 +19,7 @@ var tailorShop = angular.module('MyApp', [
     'aboutControllers',
     'contactoControllers',
     'cursosControllers',
+    'infoControllers',
     'ngMessages'
 ]).config(function ($mdDateLocaleProvider) {
     // Example of a Spanish localization.
@@ -73,5 +74,6 @@ var moduleCarrito = angular.module('carritoControllers', []);
 var moduleAbout = angular.module('aboutControllers', []);
 var moduleContacto = angular.module('contactoControllers', []);
 var modulecursos = angular.module('cursosControllers', []);
+var moduleInfo = angular.module('infoControllers', []);
 
 

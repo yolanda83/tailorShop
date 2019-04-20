@@ -94,8 +94,12 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
                 method: 'GET',
                 url: `http://localhost:8081/tailorShop/json?ob=carrito&op=add&id=${producto.producto.id}&cant=1`
             }).then(function (response) {
-                $scope.showAlert('Carrito', 'El producto seleccionado se encuentra en el carrito :)');
+                if (response.data.status == 200) {
+                $scope.showAlert('Carrito', 'Producto agregado correctamente :)');
                 countcarritoService.updateCarrito();
+            } else if(response.data.status == 401) {
+                $scope.showAlert('Carrito', 'Debes loguearte para agregar productos al carrito.')
+            }
             }, function (response) {
                 $scope.showAlert('Error', response.data.message);
             });
@@ -109,7 +113,7 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
                 if (response.data.status == 200) {
                     saveFav(producto);
                 } else if (response.data.status == 500) {
-                    $scope.showAlert('Favorito', 'Este producto ya estaba en tu Lista de Deseos :)');
+                    $scope.showAlert('Favorito', 'Este producto ya estaba en tu Lista de Favoritos :)');
                 } else {
                     $scope.showAlert('Favorito', 'Debes loguearte para agregar favoritos :)');
                 }
@@ -124,7 +128,7 @@ moduleProducto.controller('productoPlistUsuarioController', ['$scope', '$http', 
                 method: 'GET',
                 url: `http://localhost:8081/tailorShop/json?ob=producto&op=addFav&id=${producto.producto.id}`
             }).then(function (response) {
-                $scope.showAlert('Favorito', 'Producto agregado correctamente a la Lista de Deseos :)');
+                $scope.showAlert('Favorito', 'Producto agregado correctamente a la Lista de Favoritos :)');
 //                countcarritoService.updateCarrito();
             }, function (response) {
                 $scope.showAlert('Error', response.data.message);

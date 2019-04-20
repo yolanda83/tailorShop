@@ -172,7 +172,7 @@
         <!--Boton login-->
         <div class="btn-group ml-auto" ng-show="!c.logeado">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Login
+                Login / Registro
             </button>
             <div class="dropdown-menu dropdown-menu-right">
                 <form name="userForm" class="px-4 py-3">
@@ -191,7 +191,7 @@
                                 ' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}" 
                                 name="pass" ng-model="pass" ng-required="true" placeholder="Password"/>
                         <div ng-show="!userForm.pass.$valid && userForm.pass.$dirty && !userForm.pass.$pristine" class="alert alert-danger" role="alert">
-                            Contrasenya obligatoria
+                            Password obligatorio
                         </div>
                     </div>
                     <button ng-click="log()" class="btn btn-info ml-0">Login</button>

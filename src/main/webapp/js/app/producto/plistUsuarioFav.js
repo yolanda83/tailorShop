@@ -92,7 +92,7 @@ moduleProducto.controller('productoPlistUsuarioFavController', ['$scope', '$http
                 method: 'GET',
                 url: `http://localhost:8081/tailorShop/json?ob=producto&op=removeFav&id=${producto.producto.id}`
             }).then(function (response) {
-                $scope.showAlert('Favorito', 'Producto eliminado correctamente de la Lista de Deseos :)');
+                $scope.showAlert('Favorito', 'Producto eliminado correctamente de la Lista de Favoritos :)');
                 actualizarFav();
             }, function (response) {
                 $scope.showAlert('Error', response.data.message);

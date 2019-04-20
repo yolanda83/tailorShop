@@ -250,9 +250,9 @@ public class UsuarioDao {
             }
         }
         if (!lastPass.equals(oUsuarioBean.getPass())) {
-            throw new Exception("La contrasenya antigua no coincide.");
+            throw new Exception("El password anterior no coincide.");
         } else if (newPass.equals(usuarioSession.getPass())) {
-            throw new Exception("Pass nueva igual a pass antigua");
+            throw new Exception("Password nuevo igual a password antiguo");
         } else {
             usuarioSession.setPass(newPass);
             updateconpass(usuarioSession);
