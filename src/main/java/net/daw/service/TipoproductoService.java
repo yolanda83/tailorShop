@@ -28,12 +28,20 @@ public class TipoproductoService {
     HttpServletRequest oRequest;
     String ob = null;
 
+    /**
+     *
+     * @param oRequest
+     */
     public TipoproductoService(HttpServletRequest oRequest) {
         super();
         this.oRequest = oRequest;
         ob = oRequest.getParameter("ob");
     }
 
+    /**
+     *
+     * @return
+     */
     protected Boolean checkPermission() {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
 
@@ -44,6 +52,11 @@ public class TipoproductoService {
         return oUsuarioBean != null;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean get() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission()) {
@@ -69,6 +82,11 @@ public class TipoproductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean remove() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission()) {
@@ -93,6 +111,11 @@ public class TipoproductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getcount() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission()) {
@@ -117,6 +140,11 @@ public class TipoproductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean create() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission()) {
@@ -143,6 +171,11 @@ public class TipoproductoService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean update() throws Exception {
         int iRes = 0;
         ReplyBean oReplyBean = null;
@@ -170,6 +203,11 @@ public class TipoproductoService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getpage() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission()) {

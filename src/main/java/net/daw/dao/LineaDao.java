@@ -18,12 +18,25 @@ public class LineaDao {
     Connection oConnection;
     String ob = null;
 
+    /**
+     *
+     * @param oConnection
+     * @param ob
+     */
     public LineaDao(Connection oConnection, String ob) {
         super();
         this.oConnection = oConnection;
         this.ob = ob;
     }
 
+    /**
+     *
+     * @param id
+     * @param expandProducto
+     * @param expandFactura
+     * @return
+     * @throws Exception
+     */
     public LineaBean get(int id, Integer expandProducto, Integer expandFactura) throws Exception {
         String strSQL = "SELECT * FROM " + ob + " WHERE id=?";
         LineaBean oLineaBean;
@@ -52,6 +65,12 @@ public class LineaDao {
         return oLineaBean;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public int remove(int id) throws Exception {
         int iRes = 0;
         String strSQL = "DELETE FROM " + ob + " WHERE id=?";
@@ -70,6 +89,12 @@ public class LineaDao {
         return iRes;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public int getcount(int id) throws Exception {
         String strSQL = "SELECT COUNT(id) FROM " + ob + " WHERE id_factura = ?";
         int res = 0;
@@ -97,6 +122,13 @@ public class LineaDao {
     }
 
     //cuenta las lineas especificas de una factura
+
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public int getcountspecific(int id) throws Exception {
         String strSQL = "SELECT COUNT(id) FROM " + ob + " WHERE id_factura = " + id;
         int res = 0;
@@ -121,6 +153,12 @@ public class LineaDao {
         return res;
     }
 
+    /**
+     *
+     * @param oLineaBean
+     * @return
+     * @throws Exception
+     */
     public LineaBean create(LineaBean oLineaBean) throws Exception {
         String strSQL = "INSERT INTO " + ob + " (" + ob + ".id, " + ob + ".cantidad, " + ob + ".id_producto, " + ob + ".id_factura) VALUES (NULL, ?, ?, ?); ";
         ResultSet oResultSet = null;
@@ -150,6 +188,12 @@ public class LineaDao {
         return oLineaBean;
     }
 
+    /**
+     *
+     * @param oLineaBean
+     * @return
+     * @throws Exception
+     */
     public int update(LineaBean oLineaBean) throws Exception {
         int iResult = 0;
         String strSQL = "UPDATE " + ob + " SET " + ob + ".cantidad = ?, " + ob + ".id_producto = ?, " + ob + ".id_factura=? WHERE " + ob + ".id = ?;";
@@ -173,6 +217,17 @@ public class LineaDao {
         return iResult;
     }
 
+    /**
+     *
+     * @param iRpp
+     * @param iPage
+     * @param id
+     * @param hmOrder
+     * @param expandProducto
+     * @param expandFactura
+     * @return
+     * @throws Exception
+     */
     public ArrayList<LineaBean> getpage(int iRpp, int iPage, int id, HashMap<String, String> hmOrder, Integer expandProducto, Integer expandFactura) throws Exception {
         String strSQL = "SELECT * FROM " + ob;
         strSQL += " WHERE id_factura = ?";

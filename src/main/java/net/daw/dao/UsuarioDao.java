@@ -19,12 +19,24 @@ public class UsuarioDao {
     String ob = null;
     String ob2 = "tipoUsuario";
 
+    /**
+     *
+     * @param oConnection
+     * @param ob
+     */
     public UsuarioDao(Connection oConnection, String ob) {
         super();
         this.oConnection = oConnection;
         this.ob = ob;
     }
 
+    /**
+     *
+     * @param id
+     * @param expand
+     * @return
+     * @throws Exception
+     */
     public UsuarioBean get(int id, Integer expand) throws Exception {
         String strSQL = "SELECT * FROM " + ob + " WHERE id=?";
         UsuarioBean oUsuarioBean;
@@ -54,6 +66,12 @@ public class UsuarioDao {
         return oUsuarioBean;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public int remove(int id) throws Exception {
         int iRes = 0;
         String strSQL = "DELETE FROM " + ob + " WHERE id=?";
@@ -72,6 +90,11 @@ public class UsuarioDao {
         return iRes;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public int getcount() throws Exception {
         String strSQL = "SELECT COUNT(id) FROM " + ob;
         int res = 0;
@@ -96,6 +119,12 @@ public class UsuarioDao {
         return res;
     }
 
+    /**
+     *
+     * @param oUsuarioBean
+     * @return
+     * @throws Exception
+     */
     public UsuarioBean create(UsuarioBean oUsuarioBean) throws Exception {
         String strSQL = "INSERT INTO " + ob
                 + " (id,dni,nombre,ape1,ape2,login,pass,foto,id_tipoUsuario) VALUES (NULL, ?,?,?,?,?,?,?,?); ";
@@ -133,6 +162,12 @@ public class UsuarioDao {
         return oUsuarioBean;
     }
 
+    /**
+     *
+     * @param oUsuarioBean
+     * @return
+     * @throws Exception
+     */
     public int update(UsuarioBean oUsuarioBean) throws Exception {
         int iResult = 0;
         String strSQL = "UPDATE " + ob
@@ -162,6 +197,15 @@ public class UsuarioDao {
         return iResult;
     }
 
+    /**
+     *
+     * @param iRpp
+     * @param iPage
+     * @param hmOrder
+     * @param expand
+     * @return
+     * @throws Exception
+     */
     public ArrayList<UsuarioBean> getpage(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand) throws Exception {
         String strSQL = "SELECT * FROM " + ob;
         strSQL += SqlBuilder.buildSqlOrder(hmOrder);
@@ -197,6 +241,13 @@ public class UsuarioDao {
         return alUsuarioBean;
     }
 
+    /**
+     *
+     * @param strUserName
+     * @param strPassword
+     * @return
+     * @throws Exception
+     */
     public UsuarioBean login(String strUserName, String strPassword) throws Exception {
         String strSQL = "SELECT * FROM " + ob + " WHERE login=? AND pass=?";
         UsuarioBean oUsuarioBean;
@@ -226,6 +277,13 @@ public class UsuarioDao {
         return oUsuarioBean;
     }
 
+    /**
+     *
+     * @param lastPass
+     * @param newPass
+     * @param usuarioSession
+     * @throws Exception
+     */
     public void updatePass(String lastPass, String newPass, UsuarioBean usuarioSession) throws Exception {
         String strSQL = "SELECT * FROM " + ob + " WHERE id=" + usuarioSession.getId();
         UsuarioBean oUsuarioBean = null;
@@ -259,6 +317,12 @@ public class UsuarioDao {
         }
     }
 
+    /**
+     *
+     * @param oUsuarioBean
+     * @return
+     * @throws Exception
+     */
     public int updateconpass(UsuarioBean oUsuarioBean) throws Exception {
         int iResult = 0;
         String strSQL = "UPDATE " + ob

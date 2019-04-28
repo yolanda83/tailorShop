@@ -16,6 +16,11 @@ public class ViburConnectionSpecificImplementation implements ConnectionInterfac
     private Connection oConnection;
     private ViburDBCPDataSource oConnectionPool;
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public Connection newConnection() throws Exception {
 
         oConnectionPool = new ViburDBCPDataSource();
@@ -45,6 +50,10 @@ public class ViburConnectionSpecificImplementation implements ConnectionInterfac
 
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void disposeConnection() throws Exception {
         if (oConnection != null) {
             oConnection.close();

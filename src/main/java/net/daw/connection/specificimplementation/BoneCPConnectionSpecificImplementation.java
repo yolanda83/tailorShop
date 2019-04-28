@@ -9,11 +9,20 @@ import com.jolbox.bonecp.BoneCPConfig;
 import net.daw.connection.publicinterface.ConnectionInterface;
 import net.daw.constant.ConnectionConstants;
 
+/**
+ *
+ * @author Yolanda
+ */
 public class BoneCPConnectionSpecificImplementation implements ConnectionInterface {
 	private Connection oConnection;
 	private BoneCP oConnectionPool;
 
-	public Connection newConnection() throws Exception {
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public Connection newConnection() throws Exception {
 
 		BoneCPConfig config = new BoneCPConfig();
 		
@@ -37,7 +46,11 @@ public class BoneCPConnectionSpecificImplementation implements ConnectionInterfa
 
 	}
 
-	public void disposeConnection() throws Exception {
+    /**
+     *
+     * @throws Exception
+     */
+    public void disposeConnection() throws Exception {
 		if (oConnection != null) {
 			oConnection.close();
 		}

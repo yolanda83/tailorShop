@@ -36,94 +36,190 @@ public class UsuarioBean {
     @Expose(deserialize = false)
     private int numFacturas;
 
+    /**
+     *
+     * @return
+     */
     public int getNumFacturas() {
         return numFacturas;
     }
 
+    /**
+     *
+     * @param numFacturas
+     */
     public void setNumFacturas(int numFacturas) {
         this.numFacturas = numFacturas;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * @return
+     */
     public TipousuarioBean getObj_tipoUsuario() {
         return obj_tipoUsuario;
     }
 
+    /**
+     *
+     * @param obj_tipoUsuario
+     */
     public void setObj_tipoUsuario(TipousuarioBean obj_tipoUsuario) {
         this.obj_tipoUsuario = obj_tipoUsuario;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDni() {
         return dni;
     }
 
+    /**
+     *
+     * @param dni
+     */
     public void setDni(String dni) {
         this.dni = dni;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getApe1() {
         return ape1;
     }
 
+    /**
+     *
+     * @param ape1
+     */
     public void setApe1(String ape1) {
         this.ape1 = ape1;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getApe2() {
         return ape2;
     }
 
+    /**
+     *
+     * @param ape2
+     */
     public void setApe2(String ape2) {
         this.ape2 = ape2;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLogin() {
         return login;
     }
 
+    /**
+     *
+     * @param login
+     */
     public void setLogin(String login) {
         this.login = login;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPass() {
         return pass;
     }
 
+    /**
+     *
+     * @param pass
+     */
     public void setPass(String pass) {
         this.pass = pass;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId_tipoUsuario() {
         return id_tipoUsuario;
     }
 
+    /**
+     *
+     * @param id_tipoUsuario
+     */
     public void setId_tipoUsuario(int id_tipoUsuario) {
         this.id_tipoUsuario = id_tipoUsuario;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFoto() {
         return foto;
     }
 
+    /**
+     *
+     * @param foto
+     */
     public void setFoto(String foto) {
         this.foto = foto;
     }
 
+    /**
+     *
+     * @param oResultSet
+     * @param oConnection
+     * @param expand
+     * @return
+     * @throws Exception
+     */
     public UsuarioBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {
         this.setId(oResultSet.getInt("id"));
         this.setDni(oResultSet.getString("dni"));

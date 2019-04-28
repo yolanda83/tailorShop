@@ -7,8 +7,17 @@ import net.daw.connection.specificimplementation.HikariConnectionSpecificImpleme
 import net.daw.connection.specificimplementation.ViburConnectionSpecificImplementation;
 import net.daw.constant.ConnectionConstants;
 
+/**
+ *
+ * @author Yolanda
+ */
 public class ConnectionFactory {
 
+    /**
+     *
+     * @param enumConnection
+     * @return
+     */
     public static ConnectionInterface getConnection(ConnectionConstants.EnumConstans enumConnection) {
         ConnectionInterface oConnectionInterface = null;
         switch (enumConnection) {

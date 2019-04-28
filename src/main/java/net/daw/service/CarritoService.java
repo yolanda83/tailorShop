@@ -32,17 +32,31 @@ public class CarritoService implements Serializable {
     HttpServletRequest oRequest;
     String ob = null;
 
+    /**
+     *
+     * @param oRequest
+     */
     public CarritoService(HttpServletRequest oRequest) {
         super();
         this.oRequest = oRequest;
         ob = oRequest.getParameter("ob");
     }
 
+    /**
+     *
+     * @param operacion
+     * @return
+     */
     protected Boolean checkPermission(String operacion) {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
         return oUsuarioBean != null;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean add() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("add")) {
@@ -111,6 +125,11 @@ public class CarritoService implements Serializable {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean reduce() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("reduce")) {
@@ -165,6 +184,11 @@ public class CarritoService implements Serializable {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean remove() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("remove")) {
@@ -209,6 +233,11 @@ public class CarritoService implements Serializable {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean empty() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("empty")) {
@@ -221,6 +250,11 @@ public class CarritoService implements Serializable {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean show() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("show")) {
@@ -232,6 +266,11 @@ public class CarritoService implements Serializable {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean buy() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("buy")) {

@@ -17,17 +17,29 @@ import net.daw.dao.TipousuarioDao;
 import net.daw.factory.ConnectionFactory;
 import net.daw.helper.ParameterCook;
 
+/**
+ *
+ * @author Yolanda
+ */
 public class TipousuarioService {
 
     HttpServletRequest oRequest;
     String ob = null;
 
+    /**
+     *
+     * @param oRequest
+     */
     public TipousuarioService(HttpServletRequest oRequest) {
         super();
         this.oRequest = oRequest;
         ob = oRequest.getParameter("ob");
     }
 
+    /**
+     *
+     * @return
+     */
     protected Boolean checkPermission() {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
 
@@ -37,6 +49,11 @@ public class TipousuarioService {
         return oUsuarioBean != null;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean get() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission()) {
@@ -62,6 +79,11 @@ public class TipousuarioService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean remove() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission()) {
@@ -86,6 +108,11 @@ public class TipousuarioService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getcount() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission()) {
@@ -110,6 +137,11 @@ public class TipousuarioService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean create() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission()) {
@@ -136,6 +168,11 @@ public class TipousuarioService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean update() throws Exception {
         int iRes = 0;
         ReplyBean oReplyBean;
@@ -163,6 +200,11 @@ public class TipousuarioService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getpage() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission()) {

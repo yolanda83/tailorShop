@@ -24,12 +24,24 @@ public class FacturaDao {
     Connection oConnection;
     String ob = null;
 
+    /**
+     *
+     * @param oConnection
+     * @param ob
+     */
     public FacturaDao(Connection oConnection, String ob) {
         super();
         this.oConnection = oConnection;
         this.ob = ob;
     }
 
+    /**
+     *
+     * @param id
+     * @param expansion
+     * @return
+     * @throws Exception
+     */
     public FacturaBean get(int id, Integer expansion) throws Exception {
         String strSQL = "SELECT * FROM " + ob + " WHERE id=?";
         FacturaBean oFacturaBean;
@@ -59,6 +71,12 @@ public class FacturaDao {
         return oFacturaBean;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public int remove(int id) throws Exception {
         int iRes = 0;
         String strSQL = "DELETE FROM " + ob + " WHERE id=?";
@@ -77,6 +95,12 @@ public class FacturaDao {
         return iRes;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public int getcount(int id) throws Exception {
         String strSQL = "SELECT COUNT(id) FROM " + ob;
 
@@ -111,6 +135,12 @@ public class FacturaDao {
         return res;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public int getcountspecific(int id) throws Exception {
         String strSQL = "SELECT COUNT(id) FROM " + ob + " WHERE id_usuario=" + id;
         int res = 0;
@@ -135,6 +165,12 @@ public class FacturaDao {
         return res;
     }
 
+    /**
+     *
+     * @param oFacturaBean
+     * @return
+     * @throws Exception
+     */
     public FacturaBean create(FacturaBean oFacturaBean) throws Exception {
 
         String strSQL = "INSERT INTO " + ob;
@@ -165,6 +201,12 @@ public class FacturaDao {
         return oFacturaBean;
     }
 
+    /**
+     *
+     * @param oFacturaBean
+     * @return
+     * @throws Exception
+     */
     public int update(FacturaBean oFacturaBean) throws Exception {
         int iResult = 0;
         String strSQL = "UPDATE " + ob + " SET ";
@@ -185,6 +227,16 @@ public class FacturaDao {
         return iResult;
     }
 
+    /**
+     *
+     * @param iRpp
+     * @param iPage
+     * @param id
+     * @param hmOrder
+     * @param expand
+     * @return
+     * @throws Exception
+     */
     public ArrayList<FacturaBean> getpage(int iRpp, int iPage, int id, HashMap<String, String> hmOrder, Integer expand) throws Exception {
         String strSQL = "SELECT * FROM " + ob;
         if (id != 0) {

@@ -2,8 +2,17 @@ package net.daw.helper;
 
 import java.util.HashMap;
 
+/**
+ *
+ * @author Yolanda
+ */
 public class ParameterCook {
 
+    /**
+     *
+     * @param strUrlOrder
+     * @return
+     */
     public static HashMap<String, String> getOrderParams(String strUrlOrder) {
         HashMap<String, String> oHMOrder = new HashMap<>();
         if (strUrlOrder != null && strUrlOrder.length() > 0) {

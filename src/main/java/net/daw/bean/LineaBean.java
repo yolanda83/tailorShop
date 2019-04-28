@@ -22,54 +22,112 @@ public class LineaBean {
     private ProductoBean obj_producto;
     private FacturaBean obj_factura;
 
+    /**
+     *
+     * @return
+     */
     public ProductoBean getObj_producto() {
         return obj_producto;
     }
 
+    /**
+     *
+     * @param obj_producto
+     */
     public void setObj_producto(ProductoBean obj_producto) {
         this.obj_producto = obj_producto;
     }
 
+    /**
+     *
+     * @return
+     */
     public FacturaBean getObj_factura() {
         return obj_factura;
     }
 
+    /**
+     *
+     * @param obj_factura
+     */
     public void setObj_factura(FacturaBean obj_factura) {
         this.obj_factura = obj_factura;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCantidad() {
         return cantidad;
     }
 
+    /**
+     *
+     * @param cantidad
+     */
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId_producto() {
         return id_producto;
     }
 
+    /**
+     *
+     * @param id_producto
+     */
     public void setId_producto(int id_producto) {
         this.id_producto = id_producto;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId_factura() {
         return id_factura;
     }
 
+    /**
+     *
+     * @param id_factura
+     */
     public void setId_factura(int id_factura) {
         this.id_factura = id_factura;
     }
 
+    /**
+     *
+     * @param oResultSet
+     * @param oConnection
+     * @param expandProducto
+     * @param expandFactura
+     * @return
+     * @throws SQLException
+     * @throws Exception
+     */
     public LineaBean fill(ResultSet oResultSet, Connection oConnection, Integer expandProducto, Integer expandFactura) throws SQLException, Exception {
         this.setId(oResultSet.getInt("id"));
         this.setCantidad(oResultSet.getInt("cantidad"));

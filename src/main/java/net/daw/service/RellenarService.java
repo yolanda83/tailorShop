@@ -15,6 +15,11 @@ import net.daw.bean.ProductoBean;
 
 public class RellenarService {
 
+    /**
+     *
+     * @param numero
+     * @return
+     */
     public ArrayList<ProductoBean> RellenarProducto(int numero) {
         String[] codigo = {"56TT","GTE4","K8J6","JKK1","TTP9"};
         String[] desc = {"Piano", "Flauta", "Guitarra","Tuba", "Gaita"};

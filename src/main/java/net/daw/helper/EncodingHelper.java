@@ -1,11 +1,25 @@
 package net.daw.helper;
 
+/**
+ *
+ * @author Yolanda
+ */
 public class EncodingHelper {
 
+    /**
+     *
+     * @param strCadena
+     * @return
+     */
     public static String quotate(String strCadena) {
         return "\"" + strCadena + "\"";
     }
 
+    /**
+     *
+     * @param str
+     * @return
+     */
     public static String escapeQuotes(String str) {
         char[] chars = str.toCharArray();
         String strFinal = "";
@@ -19,6 +33,11 @@ public class EncodingHelper {
         return String.valueOf(strFinal);
     }
 
+    /**
+     *
+     * @param str
+     * @return
+     */
     public static String escapeLine(String str) {
         String strFinal = "";
         if (!str.equals("")) {

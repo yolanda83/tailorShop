@@ -18,12 +18,24 @@ public class TipoproductoDao {
     Connection oConnection;
     String ob = null;
 
+    /**
+     *
+     * @param oConnection
+     * @param ob
+     */
     public TipoproductoDao(Connection oConnection, String ob) {
         super();
         this.oConnection = oConnection;
         this.ob = ob;
     }
 
+    /**
+     *
+     * @param id
+     * @param expand
+     * @return
+     * @throws Exception
+     */
     public TipoproductoBean get(int id, Integer expand) throws Exception {
         String strSQL = "SELECT * FROM " + ob + " WHERE id=?";
         TipoproductoBean oTipoproductoBean;
@@ -52,6 +64,12 @@ public class TipoproductoDao {
         return oTipoproductoBean;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public int remove(int id) throws Exception {
         int iRes = 0;
         String strSQL = "DELETE FROM " + ob + " WHERE id=?";
@@ -70,6 +88,11 @@ public class TipoproductoDao {
         return iRes;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public int getcount() throws Exception {
         String strSQL = "SELECT COUNT(id) FROM " + ob;
         int res = 0;
@@ -94,6 +117,12 @@ public class TipoproductoDao {
         return res;
     }
 
+    /**
+     *
+     * @param oTipoproductoBean
+     * @return
+     * @throws Exception
+     */
     public TipoproductoBean create(TipoproductoBean oTipoproductoBean) throws Exception {
         String strSQL = "INSERT INTO " + ob + " (`id`, `desc`) VALUES (NULL, ?); ";
         ResultSet oResultSet = null;
@@ -121,6 +150,12 @@ public class TipoproductoDao {
         return oTipoproductoBean;
     }
 
+    /**
+     *
+     * @param oTipoproductoBean
+     * @return
+     * @throws Exception
+     */
     public int update(TipoproductoBean oTipoproductoBean) throws Exception {
         int iResult = 0;
         String strSQL = "UPDATE " + ob + " SET " + ob + ".desc = ? WHERE id = ?;";
@@ -142,6 +177,15 @@ public class TipoproductoDao {
         return iResult;
     }
 
+    /**
+     *
+     * @param iRpp
+     * @param iPage
+     * @param hmOrder
+     * @param expand
+     * @return
+     * @throws Exception
+     */
     public ArrayList<TipoproductoBean> getpage(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand) throws Exception {
         String strSQL = "SELECT * FROM " + ob;
         strSQL += SqlBuilder.buildSqlOrder(hmOrder);

@@ -12,8 +12,18 @@ import net.daw.service.TipoproductoService;
 import net.daw.service.TipousuarioService;
 import net.daw.service.UsuarioService;
 
+/**
+ *
+ * @author Yolanda
+ */
 public class ServiceFactory {
 
+    /**
+     *
+     * @param oRequest
+     * @return
+     * @throws Exception
+     */
     public static ReplyBean executeService(HttpServletRequest oRequest) throws Exception {
 
         String ob = oRequest.getParameter("ob");

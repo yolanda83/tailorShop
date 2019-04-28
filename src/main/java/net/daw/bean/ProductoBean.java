@@ -42,86 +42,174 @@ public class ProductoBean {
     @Expose
     private String fecha;
 
+    /**
+     *
+     * @return
+     */
     public TipoproductoBean getObj_tipoProducto() {
         return obj_tipoProducto;
     }
 
+    /**
+     *
+     * @param obj_tipoProducto
+     */
     public void setObj_tipoProducto(TipoproductoBean obj_tipoProducto) {
         this.obj_tipoProducto = obj_tipoProducto;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCodigo() {
         return codigo;
     }
 
+    /**
+     *
+     * @param codigo
+     */
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDesc() {
         return desc;
     }
 
+    /**
+     *
+     * @param desc
+     */
     public void setDesc(String desc) {
         this.desc = desc;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getExistencias() {
         return existencias;
     }
 
+    /**
+     *
+     * @param existencias
+     */
     public void setExistencias(int existencias) {
         this.existencias = existencias;
     }
 
+    /**
+     *
+     * @return
+     */
     public float getPrecio() {
         return precio;
     }
 
+    /**
+     *
+     * @param precio
+     */
     public void setPrecio(float precio) {
         this.precio = precio;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFoto() {
         return foto;
     }
 
+    /**
+     *
+     * @param foto
+     */
     public void setFoto(String foto) {
         this.foto = foto;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId_tipoProducto() {
         return id_tipoProducto;
     }
 
+    /**
+     *
+     * @param id_tipoProducto
+     */
     public void setId_tipoProducto(int id_tipoProducto) {
         this.id_tipoProducto = id_tipoProducto;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isNovedad() {
         return novedad;
     }
 
+    /**
+     *
+     * @param novedad
+     */
     public void setNovedad(boolean novedad) {
         this.novedad = novedad;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFecha() {
         return fecha;
     }
 
+    /**
+     *
+     * @param fecha
+     */
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
+    /**
+     *
+     * @param oResultSet
+     * @param oConnection
+     * @param expand
+     * @return
+     * @throws Exception
+     */
     public ProductoBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {
         this.setId(oResultSet.getInt("id"));
         this.setCodigo(oResultSet.getString("codigo"));
@@ -141,6 +229,10 @@ public class ProductoBean {
         return this;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getColumns() {
         String strColumns = "";
         strColumns += "id,";
@@ -155,6 +247,10 @@ public class ProductoBean {
         return strColumns;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getValues() {
 
         String strColumns = "";

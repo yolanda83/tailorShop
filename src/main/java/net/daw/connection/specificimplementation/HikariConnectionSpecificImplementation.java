@@ -17,6 +17,11 @@ public class HikariConnectionSpecificImplementation implements ConnectionInterfa
     private Connection oConnection;
     private HikariDataSource oConnectionPool;
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public Connection newConnection() throws Exception {
 
         HikariConfig config = new HikariConfig();
@@ -45,6 +50,10 @@ public class HikariConnectionSpecificImplementation implements ConnectionInterfa
 
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void disposeConnection() throws Exception {
         if (oConnection != null) {
             oConnection.close();

@@ -30,12 +30,21 @@ public class UsuarioService {
     HttpServletRequest oRequest;
     String ob = null;
 
+    /**
+     *
+     * @param oRequest
+     */
     public UsuarioService(HttpServletRequest oRequest) {
         super();
         this.oRequest = oRequest;
         ob = oRequest.getParameter("ob");
     }
 
+    /**
+     *
+     * @param operacion
+     * @return
+     */
     protected Boolean checkPermission(String operacion) {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user"); //Recojo todos los datos del usuario EN SESIÓN
 
@@ -66,6 +75,11 @@ public class UsuarioService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean get() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("get")) {
@@ -91,6 +105,11 @@ public class UsuarioService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean remove() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("remove")) {
@@ -115,6 +134,11 @@ public class UsuarioService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getcount() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -136,6 +160,11 @@ public class UsuarioService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean create() throws Exception {
         ReplyBean oReplyBean;
 
@@ -160,6 +189,11 @@ public class UsuarioService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean update() throws Exception {
         int iRes = 0;
         ReplyBean oReplyBean;
@@ -183,6 +217,11 @@ public class UsuarioService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getpage() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -207,6 +246,11 @@ public class UsuarioService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean fill() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("remove")) {
@@ -239,6 +283,10 @@ public class UsuarioService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<UsuarioBean> obtenerDatos() {
         ArrayList<UsuarioBean> alUsuario = new ArrayList<UsuarioBean>();
         Random randomDni = new Random();
@@ -294,6 +342,11 @@ public class UsuarioService {
         return alUsuario;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean login() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -319,11 +372,21 @@ public class UsuarioService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean logout() throws Exception {
         oRequest.getSession().invalidate();
         return new ReplyBean(200, EncodingHelper.quotate("OK"));
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean check() throws Exception {
         ReplyBean oReplyBean;
         UsuarioBean oUsuarioBean;
@@ -337,6 +400,11 @@ public class UsuarioService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean updatePass() throws Exception {
         Gson oGson = new Gson();
         ReplyBean oReplyBean = null;

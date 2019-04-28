@@ -16,17 +16,30 @@ import net.daw.dao.ProductoDao;
 import net.daw.factory.ConnectionFactory;
 import net.daw.helper.ParameterCook;
 
+/**
+ *
+ * @author Yolanda
+ */
 public class FavoritoService {
 
     HttpServletRequest oRequest;
     String ob = null;
 
+    /**
+     *
+     * @param oRequest
+     */
     public FavoritoService(HttpServletRequest oRequest) {
         super();
         this.oRequest = oRequest;
         ob = oRequest.getParameter("ob");
     }
 
+    /**
+     *
+     * @param operacion
+     * @return
+     */
     protected Boolean checkPermission(String operacion) {
 
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user"); //AQUI OBTENEMOS EL USUARIO QUE ESTE LOGUEADO
@@ -53,6 +66,11 @@ public class FavoritoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean remove() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("remove")) {
@@ -77,6 +95,11 @@ public class FavoritoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getcountfav() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -103,6 +126,11 @@ public class FavoritoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean create() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("create")) {
@@ -129,6 +157,11 @@ public class FavoritoService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getfavoritos() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("get")) {

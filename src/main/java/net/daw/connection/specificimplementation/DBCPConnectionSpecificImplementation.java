@@ -16,6 +16,11 @@ public class DBCPConnectionSpecificImplementation implements ConnectionInterface
     private Connection oConnection;
     private BasicDataSource config;
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public Connection newConnection() throws Exception {
         config = new BasicDataSource();
         config.setUrl(ConnectionConstants.getConnectionChain());
@@ -33,6 +38,10 @@ public class DBCPConnectionSpecificImplementation implements ConnectionInterface
         }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void disposeConnection() throws Exception {
         if (oConnection != null) {
             oConnection.close();

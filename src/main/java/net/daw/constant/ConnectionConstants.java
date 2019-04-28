@@ -1,7 +1,14 @@
 package net.daw.constant;
 
+/**
+ *
+ * @author Yolanda
+ */
 public class ConnectionConstants {
 
+    /**
+     *
+     */
     public static enum EnumConstans {
         Hikari,
         DBCP,
@@ -18,6 +25,10 @@ public class ConnectionConstants {
     public static final int getDatabaseMaxPoolSize = 10;
     public static final int getDatabaseMinPoolSize = 5;
 
+    /**
+     *
+     * @return
+     */
     public static String getConnectionChain() {
         return "jdbc:mysql://" + ConnectionConstants.databaseHost + ":" + ConnectionConstants.databasePort + "/"
                 + ConnectionConstants.databaseName;

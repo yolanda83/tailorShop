@@ -18,12 +18,24 @@ public class ProductoDao {
     Connection oConnection;
     String ob = null;
 
+    /**
+     *
+     * @param oConnection
+     * @param ob
+     */
     public ProductoDao(Connection oConnection, String ob) {
         super();
         this.oConnection = oConnection;
         this.ob = ob;
     }
 
+    /**
+     *
+     * @param id
+     * @param expand
+     * @return
+     * @throws Exception
+     */
     public ProductoBean get(int id, Integer expand) throws Exception {
         String strSQL = "SELECT * FROM " + ob + " WHERE id=?";
         ProductoBean oProductoBean;
@@ -52,6 +64,12 @@ public class ProductoDao {
         return oProductoBean;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public int remove(int id) throws Exception {
         int iRes = 0;
         String strSQL = "DELETE FROM " + ob + " WHERE id=?";
@@ -70,6 +88,11 @@ public class ProductoDao {
         return iRes;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public int getcount() throws Exception {
         String strSQL = "SELECT COUNT(id) FROM " + ob;
         int res = 0;
@@ -94,6 +117,12 @@ public class ProductoDao {
         return res;
     }
 
+    /**
+     *
+     * @param tipo
+     * @return
+     * @throws Exception
+     */
     public int getcounttipo(int tipo) throws Exception {
         String strSQL = "SELECT COUNT(id) FROM " + ob;
         strSQL += " WHERE id_tipoproducto = ?";
@@ -122,6 +151,12 @@ public class ProductoDao {
         return res;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public int getcountfav(int id) throws Exception {
         String strSQL = "SELECT COUNT(id) FROM favorito";
         strSQL += " WHERE id_usuario = ?";
@@ -150,6 +185,12 @@ public class ProductoDao {
         return res;
     }
 
+    /**
+     *
+     * @param busqueda
+     * @return
+     * @throws Exception
+     */
     public int getcountbusqueda(String busqueda) throws Exception {
         String strSQL = "SELECT COUNT(id) FROM " + ob;
         strSQL += " WHERE `desc` LIKE ?";
@@ -177,6 +218,12 @@ public class ProductoDao {
         return res;
     }
 
+    /**
+     *
+     * @param oProductoBean
+     * @return
+     * @throws Exception
+     */
     public ProductoBean create(ProductoBean oProductoBean) throws Exception {
         String strSQL = "INSERT INTO " + ob + " (`id`, `codigo`, `desc`, `existencias`, `precio`, `foto`, `id_tipoProducto`, `novedad`, `fecha`) VALUES (NULL,?,?,?,?,?,?,?,?); ";
 
@@ -218,6 +265,12 @@ public class ProductoDao {
         return oProductoBean;
     }
 
+    /**
+     *
+     * @param oProductoBean
+     * @return
+     * @throws Exception
+     */
     public int update(ProductoBean oProductoBean) throws Exception {
         int iResult = 0;
         String strSQL = "UPDATE " + ob + " SET " + ob + ".codigo = ?,  " + ob + ".desc = ?,  " + ob + ".existencias = ?, " + ob
@@ -258,6 +311,16 @@ public class ProductoDao {
         return iResult;
     }
 
+    /**
+     *
+     * @param iRpp
+     * @param iPage
+     * @param hmOrder
+     * @param expand
+     * @param tipo
+     * @return
+     * @throws Exception
+     */
     public ArrayList<ProductoBean> getpage(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand, int tipo) throws Exception {
         String strSQL = "SELECT * FROM " + ob;
 
@@ -301,6 +364,16 @@ public class ProductoDao {
         return alProductoBean;
     }
 
+    /**
+     *
+     * @param iRpp
+     * @param iPage
+     * @param hmOrder
+     * @param expand
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public ArrayList<ProductoBean> getfavoritos(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand, int id) throws Exception {
 
         String strSQL = "SELECT id_producto FROM favorito";
@@ -387,6 +460,16 @@ public class ProductoDao {
         return alProductoBean;
     }
 
+    /**
+     *
+     * @param iRpp
+     * @param iPage
+     * @param hmOrder
+     * @param expand
+     * @param busqueda
+     * @return
+     * @throws Exception
+     */
     public ArrayList<ProductoBean> getbusqueda(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand, String busqueda) throws Exception {
         String strSQL = "SELECT * FROM " + ob;
         strSQL += " WHERE `desc` LIKE ?";
@@ -429,6 +512,12 @@ public class ProductoDao {
         return alProductoBean;
     }
 
+    /**
+     *
+     * @param expand
+     * @return
+     * @throws Exception
+     */
     public ArrayList<ProductoBean> getnovedad(Integer expand) throws Exception {
         String strSQL = "SELECT * FROM " + ob;
         strSQL += " WHERE novedad = 1 ORDER BY fecha DESC";
@@ -461,6 +550,11 @@ public class ProductoDao {
         return alProductoBean;
     }
 
+    /**
+     *
+     * @param fecha
+     * @return
+     */
     public String getFecha(String fecha) {
 
         String fechaFinal = "";

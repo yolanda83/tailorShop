@@ -19,17 +19,30 @@ import net.daw.dao.LineaDao;
 import net.daw.factory.ConnectionFactory;
 import net.daw.helper.ParameterCook;
 
+/**
+ *
+ * @author Yolanda
+ */
 public class LineaService {
 
     HttpServletRequest oRequest;
     String ob = null;
 
+    /**
+     *
+     * @param oRequest
+     */
     public LineaService(HttpServletRequest oRequest) {
         super();
         this.oRequest = oRequest;
         ob = oRequest.getParameter("ob");
     }
 
+    /**
+     *
+     * @param operacion
+     * @return
+     */
     protected Boolean checkPermission(String operacion) {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
         Integer id = 0;
@@ -58,6 +71,11 @@ public class LineaService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean get() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -80,6 +98,11 @@ public class LineaService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean remove() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("remove")) {
@@ -104,6 +127,11 @@ public class LineaService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getcount() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -126,6 +154,11 @@ public class LineaService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getcountspecific() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -148,6 +181,11 @@ public class LineaService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean create() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("create")) {
@@ -174,6 +212,11 @@ public class LineaService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean update() throws Exception {
         int iRes = 0;
         ReplyBean oReplyBean = null;
@@ -201,6 +244,11 @@ public class LineaService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getpage() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("getpage")) {

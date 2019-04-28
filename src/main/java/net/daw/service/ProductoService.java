@@ -22,17 +22,30 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+/**
+ *
+ * @author Yolanda
+ */
 public class ProductoService {
 
     HttpServletRequest oRequest;
     String ob = null;
 
+    /**
+     *
+     * @param oRequest
+     */
     public ProductoService(HttpServletRequest oRequest) {
         super();
         this.oRequest = oRequest;
         ob = oRequest.getParameter("ob");
     }
 
+    /**
+     *
+     * @param operacion
+     * @return
+     */
     protected Boolean checkPermission(String operacion) {
 
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user"); //AQUI OBTENEMOS EL USUARIO QUE ESTE LOGUEADO
@@ -61,6 +74,11 @@ public class ProductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean get() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -83,6 +101,11 @@ public class ProductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean remove() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("remove")) {
@@ -107,6 +130,11 @@ public class ProductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getcount() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -128,6 +156,11 @@ public class ProductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getcounttipo() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -154,6 +187,11 @@ public class ProductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getcountbusqueda() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -176,6 +214,11 @@ public class ProductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean create() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("create")) {
@@ -202,6 +245,11 @@ public class ProductoService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean fill() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("fill")) {
@@ -232,6 +280,11 @@ public class ProductoService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean update() throws Exception {
         int iRes = 0;
         ReplyBean oReplyBean;
@@ -259,6 +312,11 @@ public class ProductoService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getpage() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -289,6 +347,11 @@ public class ProductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getbusqueda() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -315,6 +378,11 @@ public class ProductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getnovedad() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -337,6 +405,12 @@ public class ProductoService {
     }
 
     //imagenesPatchwork
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean loaddata() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("load")) {
@@ -367,6 +441,11 @@ public class ProductoService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean addimage() throws Exception {
 
         String name = "";
@@ -402,6 +481,12 @@ public class ProductoService {
     }
 
     //FAVORITOS
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getfavoritos() throws Exception {
         ReplyBean oReplyBean;
         if (checkPermission("get")) {
@@ -435,6 +520,11 @@ public class ProductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean checkFav() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -469,6 +559,11 @@ public class ProductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean addFav() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -498,6 +593,11 @@ public class ProductoService {
         return oReplyBean;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean getcountfav() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -524,6 +624,11 @@ public class ProductoService {
 
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ReplyBean removeFav() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;

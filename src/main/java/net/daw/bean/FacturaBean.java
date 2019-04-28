@@ -29,54 +29,111 @@ public class FacturaBean {
     private int numLineas;
     private int id_usuario;
 
+    /**
+     *
+     * @return
+     */
     public int getId_usuario() {
         return id_usuario;
     }
 
+    /**
+     *
+     * @param id_usuario
+     */
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNumLineas() {
         return numLineas;
     }
 
+    /**
+     *
+     * @param numLineas
+     */
     public void setNumLineas(int numLineas) {
         this.numLineas = numLineas;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getFecha() {
         return fecha;
     }
 
+    /**
+     *
+     * @param fecha
+     */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getIva() {
         return iva;
     }
 
+    /**
+     *
+     * @param iva
+     */
     public void setIva(double iva) {
         this.iva = iva;
     }
 
+    /**
+     *
+     * @return
+     */
     public UsuarioBean getObj_usuario() {
         return obj_usuario;
     }
 
+    /**
+     *
+     * @param obj_usuario
+     */
     public void setObj_usuario(UsuarioBean obj_usuario) {
         this.obj_usuario = obj_usuario;
     }
 
+    /**
+     *
+     * @param oResultSet
+     * @param oConnection
+     * @param expand
+     * @return
+     * @throws SQLException
+     * @throws Exception
+     */
     public FacturaBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws SQLException, Exception {
         this.setId(oResultSet.getInt("id"));
         this.setFecha(oResultSet.getDate("fecha"));
@@ -91,6 +148,10 @@ public class FacturaBean {
         return this;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getColumns() {
         String strColumns = "";
         strColumns += "id,";
@@ -100,6 +161,10 @@ public class FacturaBean {
         return strColumns;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getValues() {
         //Getting the default zone id
         ZoneId defaultZoneId = ZoneId.systemDefault();
@@ -122,6 +187,10 @@ public class FacturaBean {
         return strColumns;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPairs() {
 
         //Getting the default zone id

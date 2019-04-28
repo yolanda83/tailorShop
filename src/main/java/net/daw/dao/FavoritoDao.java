@@ -18,12 +18,24 @@ public class FavoritoDao {
     Connection oConnection;
     String ob = null;
 
+    /**
+     *
+     * @param oConnection
+     * @param ob
+     */
     public FavoritoDao(Connection oConnection, String ob) {
         super();
         this.oConnection = oConnection;
         this.ob = ob;
     }
 
+    /**
+     *
+     * @param idProducto
+     * @param idUsuario
+     * @return
+     * @throws Exception
+     */
     public int remove(int idProducto, int idUsuario) throws Exception {
         int iRes = 0;
         String strSQL = "DELETE FROM favorito WHERE id_producto = ? AND id_usuario = ?";
@@ -43,6 +55,12 @@ public class FavoritoDao {
         return iRes;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public int getcountfav(int id) throws Exception {
         String strSQL = "SELECT COUNT(id) FROM favorito";
         strSQL += " WHERE id_usuario = ?";
@@ -71,6 +89,13 @@ public class FavoritoDao {
         return res;
     }
 
+    /**
+     *
+     * @param idProducto
+     * @param idUsuario
+     * @return
+     * @throws Exception
+     */
     public int create(int idProducto, int idUsuario) throws Exception {
         int iRes = 0;
         String strSQL = "INSERT INTO favorito (`id`, `id_producto`, `id_usuario`) VALUES (NULL, ?,?); ";
@@ -90,6 +115,16 @@ public class FavoritoDao {
         return iRes;
     }
 
+    /**
+     *
+     * @param iRpp
+     * @param iPage
+     * @param hmOrder
+     * @param expand
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public ArrayList<ProductoBean> getfavoritos(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand, int id) throws Exception {
 
         String strSQL = "SELECT pr.* FROM producto pr, favorito f";
@@ -134,6 +169,13 @@ public class FavoritoDao {
         return alProductoBean;
     }
 
+    /**
+     *
+     * @param idProducto
+     * @param idUsuario
+     * @return
+     * @throws Exception
+     */
     public int get(int idProducto, int idUsuario) throws Exception {
         Integer iRes = 0;
         String strSQL = "SELECT * FROM favorito WHERE id_producto = ? AND id_usuario = ?";
