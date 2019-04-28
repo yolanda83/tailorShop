@@ -26,6 +26,7 @@ public class FavoritoService {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oRequest
      */
@@ -36,9 +37,11 @@ public class FavoritoService {
     }
 
     /**
+     * Método CHECK PERMISSION
      *
      * @param operacion
-     * @return
+     * @return Devuelve TRUE si los permisos son correctos. FALSE si no hay
+     * autorización.
      */
     protected Boolean checkPermission(String operacion) {
 
@@ -67,8 +70,9 @@ public class FavoritoService {
     }
 
     /**
+     * Método REMOVE
      *
-     * @return
+     * @return Borra un Favorito. Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean remove() throws Exception {
@@ -96,8 +100,10 @@ public class FavoritoService {
     }
 
     /**
+     * Método GET COUNT FAV
      *
-     * @return
+     * @return Devuelve el total de favoritos de un usuario. Devuelve un
+     * ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean getcountfav() throws Exception {
@@ -127,8 +133,10 @@ public class FavoritoService {
     }
 
     /**
+     * Método CREATE
      *
-     * @return
+     * @return Añade un nuevo Favorito a un usuario. Devuelve un ReplyBean con
+     * el resultado.
      * @throws Exception
      */
     public ReplyBean create() throws Exception {
@@ -158,8 +166,10 @@ public class FavoritoService {
     }
 
     /**
+     * Método GET FAVORITOS
      *
-     * @return
+     * @return Obtiene todos los Favoritos de un usuario. Devuelve un ReplyBean
+     * con el resultado.
      * @throws Exception
      */
     public ReplyBean getfavoritos() throws Exception {

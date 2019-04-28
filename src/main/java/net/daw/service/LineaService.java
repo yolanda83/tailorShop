@@ -29,6 +29,7 @@ public class LineaService {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oRequest
      */
@@ -41,7 +42,8 @@ public class LineaService {
     /**
      *
      * @param operacion
-     * @return
+     * @return Devuelve TRUE si los permisos son correctos. FALSE si no hay
+     * autorización.
      */
     protected Boolean checkPermission(String operacion) {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
@@ -72,8 +74,10 @@ public class LineaService {
     }
 
     /**
+     * Método GET
      *
-     * @return
+     * @return Obtiene una Línea de una Factura. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean get() throws Exception {
@@ -99,8 +103,10 @@ public class LineaService {
     }
 
     /**
+     * Método REMOVE
      *
-     * @return
+     * @return Borra una línea de una factura. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean remove() throws Exception {
@@ -128,8 +134,10 @@ public class LineaService {
     }
 
     /**
+     * Método GET COUNT
      *
-     * @return
+     * @return Cuenta el total de Líneas de una factura. Devuelve un ReplyBean
+     * con el resultado.
      * @throws Exception
      */
     public ReplyBean getcount() throws Exception {
@@ -155,8 +163,10 @@ public class LineaService {
     }
 
     /**
+     * Método GET COUNT SPECIFIC
      *
-     * @return
+     * @return Cuenta el total de líneas de una factura. Devuelve un ReplyBean
+     * con el resultado.
      * @throws Exception
      */
     public ReplyBean getcountspecific() throws Exception {
@@ -182,8 +192,10 @@ public class LineaService {
     }
 
     /**
+     * Método CREATE
      *
-     * @return
+     * @return Añade una línea a una factura. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean create() throws Exception {
@@ -213,8 +225,10 @@ public class LineaService {
     }
 
     /**
+     * Método UPDATE
      *
-     * @return
+     * @return Edita una línea de una factura. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean update() throws Exception {
@@ -245,8 +259,10 @@ public class LineaService {
     }
 
     /**
+     * Método GET PAGE
      *
-     * @return
+     * @return Devuelve un listado de líneas de una factura. Devuelve un
+     * ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean getpage() throws Exception {

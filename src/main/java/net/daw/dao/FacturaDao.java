@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import net.daw.bean.FacturaBean;
-import net.daw.bean.UsuarioBean;
 import net.daw.helper.SqlBuilder;
 
 /**
@@ -24,7 +23,7 @@ public class FacturaDao {
     Connection oConnection;
     String ob = null;
 
-    /**
+    /** Constructor
      *
      * @param oConnection
      * @param ob
@@ -35,17 +34,16 @@ public class FacturaDao {
         this.ob = ob;
     }
 
-    /**
+    /** Método GET
      *
      * @param id
      * @param expansion
-     * @return
+     * @return Devuelve un único registro de Factura
      * @throws Exception
      */
     public FacturaBean get(int id, Integer expansion) throws Exception {
         String strSQL = "SELECT * FROM " + ob + " WHERE id=?";
         FacturaBean oFacturaBean;
-//        UsuarioBean oUsuarioBean;
         ResultSet oResultSet = null;
         PreparedStatement oPreparedStatement = null;
         try {
@@ -71,10 +69,10 @@ public class FacturaDao {
         return oFacturaBean;
     }
 
-    /**
+    /** Método REMOVE
      *
      * @param id
-     * @return
+     * @return Borra facturas. Devuelve un resultado binario: (1) éxito (0) fallo
      * @throws Exception
      */
     public int remove(int id) throws Exception {
@@ -95,10 +93,10 @@ public class FacturaDao {
         return iRes;
     }
 
-    /**
+    /** Método GET COUNT
      *
      * @param id
-     * @return
+     * @return Devuelve el nº de facturas para un usuario determinado
      * @throws Exception
      */
     public int getcount(int id) throws Exception {
@@ -135,10 +133,10 @@ public class FacturaDao {
         return res;
     }
 
-    /**
+    /** Método GET COUNT SPECIFIC
      *
      * @param id
-     * @return
+     * @return Devuelve el nº de facturas para un usuario determinado
      * @throws Exception
      */
     public int getcountspecific(int id) throws Exception {
@@ -165,10 +163,10 @@ public class FacturaDao {
         return res;
     }
 
-    /**
+    /** Método CREATE
      *
      * @param oFacturaBean
-     * @return
+     * @return Devuelve un POJO completo de una factura recién creada
      * @throws Exception
      */
     public FacturaBean create(FacturaBean oFacturaBean) throws Exception {
@@ -201,10 +199,10 @@ public class FacturaDao {
         return oFacturaBean;
     }
 
-    /**
+    /** Método UPDATE
      *
      * @param oFacturaBean
-     * @return
+     * @return Devuelve un resultado binario: (1) éxito (0) fallo
      * @throws Exception
      */
     public int update(FacturaBean oFacturaBean) throws Exception {
@@ -227,14 +225,14 @@ public class FacturaDao {
         return iResult;
     }
 
-    /**
+    /** Método GET PAGE
      *
      * @param iRpp
      * @param iPage
      * @param id
      * @param hmOrder
      * @param expand
-     * @return
+     * @return Devuelve un array de Facturas
      * @throws Exception
      */
     public ArrayList<FacturaBean> getpage(int iRpp, int iPage, int id, HashMap<String, String> hmOrder, Integer expand) throws Exception {

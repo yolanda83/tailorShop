@@ -19,6 +19,7 @@ public class ProductoDao {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oConnection
      * @param ob
@@ -30,10 +31,11 @@ public class ProductoDao {
     }
 
     /**
+     * Método GET
      *
      * @param id
      * @param expand
-     * @return
+     * @return Devuelve un Bean de un único producto concreto
      * @throws Exception
      */
     public ProductoBean get(int id, Integer expand) throws Exception {
@@ -65,9 +67,11 @@ public class ProductoDao {
     }
 
     /**
+     * Método REMOVE
      *
      * @param id
-     * @return
+     * @return Borra un producto. Devuelve un resultado binario: (1) éxito (0)
+     * fallo
      * @throws Exception
      */
     public int remove(int id) throws Exception {
@@ -89,8 +93,9 @@ public class ProductoDao {
     }
 
     /**
+     * Método GET COUNT
      *
-     * @return
+     * @return Devuelve el total de productos en la BBDD
      * @throws Exception
      */
     public int getcount() throws Exception {
@@ -118,9 +123,11 @@ public class ProductoDao {
     }
 
     /**
+     * Método GET COUNT TIPO
      *
      * @param tipo
-     * @return
+     * @return Devuelve el nº de productos totales en BBDD para un Tipo de
+     * Producto concreto
      * @throws Exception
      */
     public int getcounttipo(int tipo) throws Exception {
@@ -152,9 +159,11 @@ public class ProductoDao {
     }
 
     /**
+     * Método GET COUNT FAVORITOS
      *
      * @param id
-     * @return
+     * @return Devuelve el nº total de Productos Favoritos de un Usuario
+     * concreto
      * @throws Exception
      */
     public int getcountfav(int id) throws Exception {
@@ -186,9 +195,10 @@ public class ProductoDao {
     }
 
     /**
+     * Método GET COUNT BÚSQUEDA
      *
      * @param busqueda
-     * @return
+     * @return Devuelve el nº total de productos encontrados según la búsqueda
      * @throws Exception
      */
     public int getcountbusqueda(String busqueda) throws Exception {
@@ -219,9 +229,10 @@ public class ProductoDao {
     }
 
     /**
+     * Método CREATE
      *
      * @param oProductoBean
-     * @return
+     * @return Crea productos. Devuelve un Bean de Producto relleno.
      * @throws Exception
      */
     public ProductoBean create(ProductoBean oProductoBean) throws Exception {
@@ -266,9 +277,11 @@ public class ProductoDao {
     }
 
     /**
+     * Método UPDATE
      *
      * @param oProductoBean
-     * @return
+     * @return Actualiza y edita productos. Devuelve un resultado binario: (1)
+     * éxito (0) fallo
      * @throws Exception
      */
     public int update(ProductoBean oProductoBean) throws Exception {
@@ -312,13 +325,14 @@ public class ProductoDao {
     }
 
     /**
+     * Método GET PAGE
      *
      * @param iRpp
      * @param iPage
      * @param hmOrder
      * @param expand
      * @param tipo
-     * @return
+     * @return Devuelve un arrayList de Productos
      * @throws Exception
      */
     public ArrayList<ProductoBean> getpage(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand, int tipo) throws Exception {
@@ -365,13 +379,14 @@ public class ProductoDao {
     }
 
     /**
+     * Método GET FAVORITOS
      *
      * @param iRpp
      * @param iPage
      * @param hmOrder
      * @param expand
      * @param id
-     * @return
+     * @return Devuelve un arrayList de Productos Favoritos
      * @throws Exception
      */
     public ArrayList<ProductoBean> getfavoritos(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand, int id) throws Exception {
@@ -461,13 +476,14 @@ public class ProductoDao {
     }
 
     /**
+     * Método GET BÚSQUEDA
      *
      * @param iRpp
      * @param iPage
      * @param hmOrder
      * @param expand
      * @param busqueda
-     * @return
+     * @return Devuelve un arrayList de Productos filtrados según la búsqueda
      * @throws Exception
      */
     public ArrayList<ProductoBean> getbusqueda(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand, String busqueda) throws Exception {
@@ -513,9 +529,10 @@ public class ProductoDao {
     }
 
     /**
+     * Método GET NOVEDAD
      *
      * @param expand
-     * @return
+     * @return Devuelve un arrayList de aquellos Productos marcados como Novedad
      * @throws Exception
      */
     public ArrayList<ProductoBean> getnovedad(Integer expand) throws Exception {
@@ -551,9 +568,11 @@ public class ProductoDao {
     }
 
     /**
+     * Método GET FECHA
      *
-     * @param fecha
-     * @return
+     * @param fecha Fecha en formato del sistema
+     * @return Devuelve una fecha formateada en un formato distinto al recibido
+     * en el sistema
      */
     public String getFecha(String fecha) {
 

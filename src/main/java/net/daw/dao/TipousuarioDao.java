@@ -19,6 +19,7 @@ public class TipousuarioDao {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oConnection
      * @param ob
@@ -30,10 +31,11 @@ public class TipousuarioDao {
     }
 
     /**
+     * Método GET
      *
      * @param id
      * @param expand
-     * @return
+     * @return Devuelve un Bean de un Tipo Usuario concreto
      * @throws Exception
      */
     public TipousuarioBean get(int id, Integer expand) throws Exception {
@@ -67,9 +69,11 @@ public class TipousuarioDao {
     }
 
     /**
+     * Método REMOVE
      *
      * @param id
-     * @return
+     * @return Borra un Tipo Usuario concreto. Devuelve un resultado binario:
+     * (1) éxito (0) fallo
      * @throws Exception
      */
     public int remove(int id) throws Exception {
@@ -91,8 +95,9 @@ public class TipousuarioDao {
     }
 
     /**
+     * Método GET COUNT
      *
-     * @return
+     * @return Devuelve el total de Tipos Usuario existentes en la BBDD
      * @throws Exception
      */
     public int getcount() throws Exception {
@@ -120,9 +125,10 @@ public class TipousuarioDao {
     }
 
     /**
+     * Método CREATE
      *
      * @param oTipousuarioBean
-     * @return
+     * @return Crea un nuevo Tipo Usuario y lo devuelve como un Bean relleno.
      * @throws Exception
      */
     public TipousuarioBean create(TipousuarioBean oTipousuarioBean) throws Exception {
@@ -153,9 +159,11 @@ public class TipousuarioDao {
     }
 
     /**
+     * Método UPDATE
      *
      * @param oTipousuarioBean
-     * @return
+     * @return Actualiza un Tipo Usuario. Devuelve un resultado binario: (1)
+     * éxito (0) fallo
      * @throws Exception
      */
     public int update(TipousuarioBean oTipousuarioBean) throws Exception {
@@ -180,12 +188,13 @@ public class TipousuarioDao {
     }
 
     /**
+     * Método GET PAGE
      *
      * @param iRpp
      * @param iPage
      * @param hmOrder
      * @param expand
-     * @return
+     * @return Devuelve un arrayList de todos los Tipos de Usuario de la BBDD
      * @throws Exception
      */
     public ArrayList<TipousuarioBean> getpage(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand) throws Exception {

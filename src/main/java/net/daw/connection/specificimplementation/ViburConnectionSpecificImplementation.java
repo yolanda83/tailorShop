@@ -6,7 +6,7 @@ import net.daw.connection.publicinterface.ConnectionInterface;
 import net.daw.constant.ConnectionConstants;
 import org.vibur.dbcp.ViburDBCPDataSource;
 
-/**
+/** 
  *
  * @author Yolanda
  */
@@ -16,9 +16,9 @@ public class ViburConnectionSpecificImplementation implements ConnectionInterfac
     private Connection oConnection;
     private ViburDBCPDataSource oConnectionPool;
 
-    /**
+    /** Crea una conexión de BBDD
      *
-     * @return
+     * @return Devuelve una conexión de BBDD
      * @throws Exception
      */
     public Connection newConnection() throws Exception {
@@ -50,7 +50,7 @@ public class ViburConnectionSpecificImplementation implements ConnectionInterfac
 
     }
 
-    /**
+    /** Cierra la conexión de BBDD
      *
      * @throws Exception
      */

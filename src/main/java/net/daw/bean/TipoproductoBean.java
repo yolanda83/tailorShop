@@ -17,7 +17,7 @@ public class TipoproductoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de Id Tipo Producto
      */
     public int getId() {
         return id;
@@ -25,7 +25,7 @@ public class TipoproductoBean {
 
     /**
      *
-     * @param id
+     * @param id Asigna un valor a Id Tipo Producto
      */
     public void setId(int id) {
         this.id = id;
@@ -33,7 +33,7 @@ public class TipoproductoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de Descripción del Tipo Producto
      */
     public String getDesc() {
         return desc;
@@ -41,7 +41,7 @@ public class TipoproductoBean {
 
     /**
      *
-     * @param desc
+     * @param desc Asigna un valor a Descripción del Tipo Producto
      */
     public void setDesc(String desc) {
         this.desc = desc;
@@ -52,7 +52,7 @@ public class TipoproductoBean {
      * @param oResultSet
      * @param oConnection
      * @param expand
-     * @return
+     * @return A partir de ResultSet, rellena un POJO completo de Tipo Producto
      * @throws Exception
      */
     public TipoproductoBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {

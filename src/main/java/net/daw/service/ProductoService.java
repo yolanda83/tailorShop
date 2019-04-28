@@ -32,6 +32,7 @@ public class ProductoService {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oRequest
      */
@@ -42,9 +43,11 @@ public class ProductoService {
     }
 
     /**
+     * Método CHECK PERMISSION
      *
      * @param operacion
-     * @return
+     * @return Devuelve TRUE si los permisos son correctos. FALSE si no hay
+     * autorización.
      */
     protected Boolean checkPermission(String operacion) {
 
@@ -75,8 +78,10 @@ public class ProductoService {
     }
 
     /**
+     * Método GET
      *
-     * @return
+     * @return Obtiene un único Producto. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean get() throws Exception {
@@ -102,8 +107,9 @@ public class ProductoService {
     }
 
     /**
+     * Método REMOVE
      *
-     * @return
+     * @return Borra un producto. Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean remove() throws Exception {
@@ -131,8 +137,10 @@ public class ProductoService {
     }
 
     /**
+     * Método GET COUNT
      *
-     * @return
+     * @return Cuenta el total de productos. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean getcount() throws Exception {
@@ -157,8 +165,10 @@ public class ProductoService {
     }
 
     /**
+     * Método GET COUNT TIPO
      *
-     * @return
+     * @return Cuenta el total de Productos por Tipo. Devuelve un ReplyBean con
+     * el resultado.
      * @throws Exception
      */
     public ReplyBean getcounttipo() throws Exception {
@@ -188,8 +198,10 @@ public class ProductoService {
     }
 
     /**
+     * Método GET COUNT BÚSQUEDA
      *
-     * @return
+     * @return Cuenta el total de Productos según la Búsqueda. Devuelve un
+     * ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean getcountbusqueda() throws Exception {
@@ -215,8 +227,9 @@ public class ProductoService {
     }
 
     /**
+     * Método CREATE
      *
-     * @return
+     * @return Crea un Producto nuevo. Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean create() throws Exception {
@@ -245,44 +258,44 @@ public class ProductoService {
         return oReplyBean;
     }
 
+//    /** Método FILL
+//     * 
+//     * @return @throws Exception
+//     */
+//    public ReplyBean fill() throws Exception {
+//        ReplyBean oReplyBean;
+//        if (checkPermission("fill")) {
+//            ConnectionInterface oConnectionPool = null;
+//            Connection oConnection;
+//            ArrayList<ProductoBean> alProductoBean = new ArrayList<ProductoBean>();
+//
+//            try {
+//                Gson oGson = new Gson();
+//                ProductoBean oProductoBean = new ProductoBean();
+//                oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
+//                oConnection = oConnectionPool.newConnection();
+//                ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
+//
+//                for (ProductoBean productos : alProductoBean) {
+//                    oProductoBean = oProductoDao.create(productos);
+//                }
+//                oReplyBean = new ReplyBean(200, oGson.toJson("Productos creados correctamente"));
+//            } catch (Exception ex) {
+//                oReplyBean = new ReplyBean(500,
+//                        "ERROR: " + EncodingHelper.escapeQuotes(EncodingHelper.escapeLine(ex.getMessage())));
+//            } finally {
+//                oConnectionPool.disposeConnection();
+//            }
+//        } else {
+//            oReplyBean = new ReplyBean(401, "Unauthorized");
+//        }
+//        return oReplyBean;
+//    }
     /**
+     * Método UPDATE
      *
-     * @return
-     * @throws Exception
-     */
-    public ReplyBean fill() throws Exception {
-        ReplyBean oReplyBean;
-        if (checkPermission("fill")) {
-            ConnectionInterface oConnectionPool = null;
-            Connection oConnection;
-            ArrayList<ProductoBean> alProductoBean = new ArrayList<ProductoBean>();
-
-            try {
-                Gson oGson = new Gson();
-                ProductoBean oProductoBean = new ProductoBean();
-                oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
-                oConnection = oConnectionPool.newConnection();
-                ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
-
-                for (ProductoBean productos : alProductoBean) {
-                    oProductoBean = oProductoDao.create(productos);
-                }
-                oReplyBean = new ReplyBean(200, oGson.toJson("Productos creados correctamente"));
-            } catch (Exception ex) {
-                oReplyBean = new ReplyBean(500,
-                        "ERROR: " + EncodingHelper.escapeQuotes(EncodingHelper.escapeLine(ex.getMessage())));
-            } finally {
-                oConnectionPool.disposeConnection();
-            }
-        } else {
-            oReplyBean = new ReplyBean(401, "Unauthorized");
-        }
-        return oReplyBean;
-    }
-
-    /**
-     *
-     * @return
+     * @return Actualiza datos de un Producto. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean update() throws Exception {
@@ -313,8 +326,10 @@ public class ProductoService {
     }
 
     /**
+     * Método GET PAGE
      *
-     * @return
+     * @return Devuelve un listado de Productos. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean getpage() throws Exception {
@@ -348,8 +363,10 @@ public class ProductoService {
     }
 
     /**
+     * Método GET BÚSQUEDA
      *
-     * @return
+     * @return Devuelve listado de productos, según la búsqueda. Devuelve un
+     * ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean getbusqueda() throws Exception {
@@ -379,8 +396,10 @@ public class ProductoService {
     }
 
     /**
+     * Método GET NOVEDAD
      *
-     * @return
+     * @return Devuelve un listado de Productos marcados como Novedad. Devuelve
+     * un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean getnovedad() throws Exception {
@@ -404,46 +423,46 @@ public class ProductoService {
 
     }
 
-    //imagenesPatchwork
+//    /**
+//     * Método LOAD DATA
+//     *
+//     * @return @throws Exception
+//     */
+//    public ReplyBean loaddata() throws Exception {
+//        ReplyBean oReplyBean;
+//        if (checkPermission("load")) {
+//            ConnectionInterface oConnectionPool = null;
+//            Connection oConnection;
+//            ArrayList<ProductoBean> productos = new ArrayList<>();
+//            RellenarService oRellenarService = new RellenarService();
+//            try {
+//                Integer number = Integer.parseInt(oRequest.getParameter("number"));
+//                oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
+//                oConnection = oConnectionPool.newConnection();
+//                ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
+//                productos = oRellenarService.RellenarProducto(number);
+//                for (ProductoBean producto : productos) {
+//                    oProductoDao.create(producto);
+//                }
+//                Gson oGson = new Gson();
+//                oReplyBean = new ReplyBean(200, oGson.toJson("Productos creados: " + number));
+//            } catch (Exception ex) {
+//                oReplyBean = new ReplyBean(500,
+//                        "ERROR: " + EncodingHelper.escapeQuotes(EncodingHelper.escapeLine(ex.getMessage())));
+//            } finally {
+//                oConnectionPool.disposeConnection();
+//            }
+//        } else {
+//            oReplyBean = new ReplyBean(401, "Unauthorized");
+//        }
+//        return oReplyBean;
+//    }
 
     /**
+     * Método ADD IMAGE
      *
-     * @return
-     * @throws Exception
-     */
-    public ReplyBean loaddata() throws Exception {
-        ReplyBean oReplyBean;
-        if (checkPermission("load")) {
-            ConnectionInterface oConnectionPool = null;
-            Connection oConnection;
-            ArrayList<ProductoBean> productos = new ArrayList<>();
-            RellenarService oRellenarService = new RellenarService();
-            try {
-                Integer number = Integer.parseInt(oRequest.getParameter("number"));
-                oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
-                oConnection = oConnectionPool.newConnection();
-                ProductoDao oProductoDao = new ProductoDao(oConnection, ob);
-                productos = oRellenarService.RellenarProducto(number);
-                for (ProductoBean producto : productos) {
-                    oProductoDao.create(producto);
-                }
-                Gson oGson = new Gson();
-                oReplyBean = new ReplyBean(200, oGson.toJson("Productos creados: " + number));
-            } catch (Exception ex) {
-                oReplyBean = new ReplyBean(500,
-                        "ERROR: " + EncodingHelper.escapeQuotes(EncodingHelper.escapeLine(ex.getMessage())));
-            } finally {
-                oConnectionPool.disposeConnection();
-            }
-        } else {
-            oReplyBean = new ReplyBean(401, "Unauthorized");
-        }
-        return oReplyBean;
-    }
-
-    /**
-     *
-     * @return
+     * @return Añade una foto a un producto. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean addimage() throws Exception {
@@ -480,11 +499,11 @@ public class ProductoService {
         return oReplyBean;
     }
 
-    //FAVORITOS
-
     /**
+     * Método GET FAVORITOS
      *
-     * @return
+     * @return Devuelve un listado de productos Favoritos de un usuario.
+     * Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean getfavoritos() throws Exception {
@@ -521,8 +540,10 @@ public class ProductoService {
     }
 
     /**
+     * Método CHECK FAV
      *
-     * @return
+     * @return Comprueba si un Producto ya es Favorito del usuario o no.
+     * Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean checkFav() throws Exception {
@@ -560,8 +581,10 @@ public class ProductoService {
     }
 
     /**
+     * Método ADD FAV
      *
-     * @return
+     * @return Añade un nuevo Favorito a un Usuario. Devuelve un ReplyBean con
+     * el resultado.
      * @throws Exception
      */
     public ReplyBean addFav() throws Exception {
@@ -594,8 +617,10 @@ public class ProductoService {
     }
 
     /**
+     * Método GET COUNT FAV
      *
-     * @return
+     * @return Cuenta el total de Favoritos de un Usuario. Devuelve un ReplyBean
+     * con el resultado.
      * @throws Exception
      */
     public ReplyBean getcountfav() throws Exception {
@@ -625,8 +650,10 @@ public class ProductoService {
     }
 
     /**
+     * Método REMOVE FAV
      *
-     * @return
+     * @return Elimina un Favorito de un Usuario. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean removeFav() throws Exception {

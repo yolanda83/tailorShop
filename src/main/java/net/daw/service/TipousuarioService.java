@@ -27,6 +27,7 @@ public class TipousuarioService {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oRequest
      */
@@ -37,8 +38,10 @@ public class TipousuarioService {
     }
 
     /**
+     * Método CHECK PERMISSION
      *
-     * @return
+     * @return Devuelve TRUE si los permisos son correctos. FALSE si no hay
+     * autorización.
      */
     protected Boolean checkPermission() {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
@@ -50,8 +53,10 @@ public class TipousuarioService {
     }
 
     /**
+     * Método GET
      *
-     * @return
+     * @return Obtiene un Tipo de Usuario. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean get() throws Exception {
@@ -80,8 +85,9 @@ public class TipousuarioService {
     }
 
     /**
+     * Método REMOVE
      *
-     * @return
+     * @return Borra un Tipo de Usuario. Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean remove() throws Exception {
@@ -109,8 +115,10 @@ public class TipousuarioService {
     }
 
     /**
+     * Método GET COUNT
      *
-     * @return
+     * @return Cuenta el total de Tipos de Usuario. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean getcount() throws Exception {
@@ -138,8 +146,10 @@ public class TipousuarioService {
     }
 
     /**
+     * Método CREATE
      *
-     * @return
+     * @return Crea un nuevo Tipo de Usuario. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean create() throws Exception {
@@ -169,8 +179,9 @@ public class TipousuarioService {
     }
 
     /**
+     * Método UPDATE
      *
-     * @return
+     * @return Edita un Tipo de Usuario. Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean update() throws Exception {
@@ -201,8 +212,10 @@ public class TipousuarioService {
     }
 
     /**
+     * Método GET PAGE
      *
-     * @return
+     * @return Devuelve un listado de Tipos de Usuario. Devuelve un ReplyBean
+     * con el resultado.
      * @throws Exception
      */
     public ReplyBean getpage() throws Exception {

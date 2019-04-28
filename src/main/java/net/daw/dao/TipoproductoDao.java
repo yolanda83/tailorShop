@@ -19,6 +19,7 @@ public class TipoproductoDao {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oConnection
      * @param ob
@@ -30,10 +31,11 @@ public class TipoproductoDao {
     }
 
     /**
+     * Método GET
      *
      * @param id
      * @param expand
-     * @return
+     * @return Devuelve un Bean de un Tipo Producto concreto
      * @throws Exception
      */
     public TipoproductoBean get(int id, Integer expand) throws Exception {
@@ -65,9 +67,11 @@ public class TipoproductoDao {
     }
 
     /**
+     * Método REMOVE
      *
      * @param id
-     * @return
+     * @return Borra un producto concreto. Devuelve un resultado binario: (1)
+     * éxito (0) fallo
      * @throws Exception
      */
     public int remove(int id) throws Exception {
@@ -89,8 +93,9 @@ public class TipoproductoDao {
     }
 
     /**
+     * Método GET COUNT
      *
-     * @return
+     * @return Devuelve el nº de Tipos de Productos en la BBDD
      * @throws Exception
      */
     public int getcount() throws Exception {
@@ -118,9 +123,10 @@ public class TipoproductoDao {
     }
 
     /**
+     * Método CREATE
      *
      * @param oTipoproductoBean
-     * @return
+     * @return Crea un Tipo Producto y lo devuelve como Bean relleno.
      * @throws Exception
      */
     public TipoproductoBean create(TipoproductoBean oTipoproductoBean) throws Exception {
@@ -151,9 +157,11 @@ public class TipoproductoDao {
     }
 
     /**
+     * Método UPDATE
      *
      * @param oTipoproductoBean
-     * @return
+     * @return Actualiza un Tipo Producto. Devuelve un resultado binario: (1)
+     * éxito (0) fallo
      * @throws Exception
      */
     public int update(TipoproductoBean oTipoproductoBean) throws Exception {
@@ -178,12 +186,13 @@ public class TipoproductoDao {
     }
 
     /**
+     * Método GET PAGE
      *
      * @param iRpp
      * @param iPage
      * @param hmOrder
      * @param expand
-     * @return
+     * @return Devuelve un arrayList con todos los Tipo Productos en la BBDD
      * @throws Exception
      */
     public ArrayList<TipoproductoBean> getpage(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand) throws Exception {

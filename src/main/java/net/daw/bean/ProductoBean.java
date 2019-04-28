@@ -44,7 +44,7 @@ public class ProductoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de obj_tipoProducto
      */
     public TipoproductoBean getObj_tipoProducto() {
         return obj_tipoProducto;
@@ -52,7 +52,7 @@ public class ProductoBean {
 
     /**
      *
-     * @param obj_tipoProducto
+     * @param obj_tipoProducto Asigna un valor a obj_tipoProducto
      */
     public void setObj_tipoProducto(TipoproductoBean obj_tipoProducto) {
         this.obj_tipoProducto = obj_tipoProducto;
@@ -60,7 +60,7 @@ public class ProductoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del Id Producto
      */
     public int getId() {
         return id;
@@ -68,7 +68,7 @@ public class ProductoBean {
 
     /**
      *
-     * @param id
+     * @param id Asigna un valor a Id Producto
      */
     public void setId(int id) {
         this.id = id;
@@ -76,7 +76,7 @@ public class ProductoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del código del Producto
      */
     public String getCodigo() {
         return codigo;
@@ -84,7 +84,7 @@ public class ProductoBean {
 
     /**
      *
-     * @param codigo
+     * @param codigo Asigna un valor a Código del Producto
      */
     public void setCodigo(String codigo) {
         this.codigo = codigo;
@@ -92,7 +92,7 @@ public class ProductoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de la descripción del Producto
      */
     public String getDesc() {
         return desc;
@@ -100,7 +100,7 @@ public class ProductoBean {
 
     /**
      *
-     * @param desc
+     * @param desc Asigna un valor a Descripción del Producto
      */
     public void setDesc(String desc) {
         this.desc = desc;
@@ -108,7 +108,7 @@ public class ProductoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de las existencias del Producto
      */
     public int getExistencias() {
         return existencias;
@@ -116,7 +116,7 @@ public class ProductoBean {
 
     /**
      *
-     * @param existencias
+     * @param existencias Asigna un valor a Existencias del Producto
      */
     public void setExistencias(int existencias) {
         this.existencias = existencias;
@@ -124,7 +124,7 @@ public class ProductoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del Precio del Producto
      */
     public float getPrecio() {
         return precio;
@@ -132,7 +132,7 @@ public class ProductoBean {
 
     /**
      *
-     * @param precio
+     * @param precio Asigna un valor al Precio del Producto
      */
     public void setPrecio(float precio) {
         this.precio = precio;
@@ -140,7 +140,7 @@ public class ProductoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de la Foto del producto
      */
     public String getFoto() {
         return foto;
@@ -148,7 +148,7 @@ public class ProductoBean {
 
     /**
      *
-     * @param foto
+     * @param foto Asigna un valor a Foto del Producto
      */
     public void setFoto(String foto) {
         this.foto = foto;
@@ -156,7 +156,7 @@ public class ProductoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del Id Tipo Producto
      */
     public int getId_tipoProducto() {
         return id_tipoProducto;
@@ -164,7 +164,7 @@ public class ProductoBean {
 
     /**
      *
-     * @param id_tipoProducto
+     * @param id_tipoProducto Asigna un valor a Id Tipo Producto
      */
     public void setId_tipoProducto(int id_tipoProducto) {
         this.id_tipoProducto = id_tipoProducto;
@@ -172,7 +172,7 @@ public class ProductoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor TRUE o FALSE de Novedad
      */
     public boolean isNovedad() {
         return novedad;
@@ -180,7 +180,7 @@ public class ProductoBean {
 
     /**
      *
-     * @param novedad
+     * @param novedad Asigna un valor TRUE o FALSE a Novedad
      */
     public void setNovedad(boolean novedad) {
         this.novedad = novedad;
@@ -188,7 +188,7 @@ public class ProductoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de la Fecha de subida del Producto
      */
     public String getFecha() {
         return fecha;
@@ -196,7 +196,7 @@ public class ProductoBean {
 
     /**
      *
-     * @param fecha
+     * @param fecha Asigna un valor a Fecha de subida del Producto
      */
     public void setFecha(String fecha) {
         this.fecha = fecha;
@@ -207,7 +207,7 @@ public class ProductoBean {
      * @param oResultSet
      * @param oConnection
      * @param expand
-     * @return
+     * @return A partir de ResultSet, rellena un POJO completo de Producto
      * @throws Exception
      */
     public ProductoBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {
@@ -231,7 +231,7 @@ public class ProductoBean {
 
     /**
      *
-     * @return
+     * @return Obtiene las columnas de la tabla de BBDD
      */
     public String getColumns() {
         String strColumns = "";
@@ -249,7 +249,7 @@ public class ProductoBean {
 
     /**
      *
-     * @return
+     * @return Obtiene los valores recogidos en formulario y los guarda en una estructura para las sentencias SQL
      */
     public String getValues() {
 

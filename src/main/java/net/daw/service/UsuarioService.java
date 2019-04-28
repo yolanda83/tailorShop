@@ -31,6 +31,7 @@ public class UsuarioService {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oRequest
      */
@@ -41,9 +42,11 @@ public class UsuarioService {
     }
 
     /**
+     * Método CHECK PERMISSION
      *
      * @param operacion
-     * @return
+     * @return Devuelve TRUE si los permisos son correctos. FALSE si no hay
+     * autorización.
      */
     protected Boolean checkPermission(String operacion) {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user"); //Recojo todos los datos del usuario EN SESIÓN
@@ -76,8 +79,10 @@ public class UsuarioService {
     }
 
     /**
+     * Método GET
      *
-     * @return
+     * @return Obtiene datos de un único usuario. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean get() throws Exception {
@@ -106,8 +111,9 @@ public class UsuarioService {
     }
 
     /**
+     * Método REMOVE
      *
-     * @return
+     * @return Borra a un usuario. Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean remove() throws Exception {
@@ -135,8 +141,10 @@ public class UsuarioService {
     }
 
     /**
+     * Método GET COUNT
      *
-     * @return
+     * @return Cuenta el total de Usuarios. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean getcount() throws Exception {
@@ -161,8 +169,9 @@ public class UsuarioService {
     }
 
     /**
+     * Método CREATE
      *
-     * @return
+     * @return Crea un nuevo usuario. Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean create() throws Exception {
@@ -190,8 +199,10 @@ public class UsuarioService {
     }
 
     /**
+     * Método UPDATE
      *
-     * @return
+     * @return Edita los datos de un Usuario. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean update() throws Exception {
@@ -218,8 +229,10 @@ public class UsuarioService {
     }
 
     /**
+     * Método GET PAGE
      *
-     * @return
+     * @return Devuelve un listado de Usuarios. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean getpage() throws Exception {
@@ -246,105 +259,104 @@ public class UsuarioService {
 
     }
 
+//    /** 
+//     *
+//     * @return @throws Exception
+//     */
+//    public ReplyBean fill() throws Exception {
+//        ReplyBean oReplyBean;
+//        if (checkPermission("remove")) {
+//            ConnectionInterface oConnectionPool = null;
+//            Connection oConnection;
+//            ArrayList<UsuarioBean> alUsuarioBean = new ArrayList<UsuarioBean>();
+//
+//            try {
+//                alUsuarioBean = obtenerDatos();
+//
+//                Gson oGson = new Gson();
+//                UsuarioBean oUsuarioBean = new UsuarioBean();
+//                oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
+//                oConnection = oConnectionPool.newConnection();
+//                UsuarioDao oUsuarioDao = new UsuarioDao(oConnection, ob);
+//
+//                for (UsuarioBean usuarios : alUsuarioBean) {
+//                    oUsuarioBean = oUsuarioDao.create(usuarios);
+//                }
+//                oReplyBean = new ReplyBean(200, oGson.toJson("Usuarios creados correctamente"));
+//            } catch (Exception ex) {
+//                oReplyBean = new ReplyBean(500,
+//                        "ERROR: " + EncodingHelper.escapeQuotes(EncodingHelper.escapeLine(ex.getMessage())));
+//            } finally {
+//                oConnectionPool.disposeConnection();
+//            }
+//        } else {
+//            oReplyBean = new ReplyBean(401, "Unauthorized");
+//        }
+//        return oReplyBean;
+//    }
+//
+//    /**
+//     *
+//     * @return
+//     */
+//    public ArrayList<UsuarioBean> obtenerDatos() {
+//        ArrayList<UsuarioBean> alUsuario = new ArrayList<UsuarioBean>();
+//        Random randomDni = new Random();
+//        Random randomNombre = new Random();
+//        Random randomApe1 = new Random();
+//        Random randomApe2 = new Random();
+//        Random randomLogin = new Random();
+//        Random randomPass = new Random();
+//        Random randomTipoUsuario = new Random();
+//        UsuarioBean oUsuarioBean;
+//
+//        String[] dni = {"76294479Y", "35015012L", "02562016T", "85478299H", "22910746D",
+//            "84459428R", "07424310W", "03146216T", "01715312H", "56338513J",
+//            "87911495K", "03309113B", "36646306S", "15928151F", "14973941K", "42402099N", "40274838K",
+//            "87430150C", "33081180G", "54757727V"};
+//        String[] nombre = {"ANTONIO", "JOSE", "JUAN", "GERMAN", "MIKEL",
+//            "GERARDO", "PASCUAL", "INAKI", "LEO", "GINES",
+//            "JOSEFA", "LUCIA", "JULIA", "SUSANA", "EVA", "CATALINA", "DANIELA",
+//            "LUISA", "ADRIANA", "ESTEFANIA"};
+//        String[] ape1 = {"GONZALEZ", "RODRIGUEZ", "FERNANDEZ", "LOPEZ", "MARTINEZ", "SANCHEZ", "PEREZ", "GOMEZ",
+//            "MARTIN", "JIMENEZ", "RUIZ", "HERNANDEZ", "DIAZ", "MUNOZ", "ALVAREZ", "ROMERO", "ALONSO", "GUTIERREZ",
+//            "RAMOS", "CASTILLO"};
+//        String[] ape2 = {"GONZALEZ", "RODRIGUEZ", "FERNANDEZ", "LOPEZ", "MARTINEZ", "SANCHEZ", "PEREZ", "GOMEZ",
+//            "MARTIN", "JIMENEZ", "RUIZ", "HERNANDEZ", "DIAZ", "MUNOZ", "ALVAREZ", "ROMERO", "ALONSO", "GUTIERREZ",
+//            "RAMOS", "CASTILLO"};
+//        String[] login = {"Ton", "Kitty", "Dog", "Rob", "Cat",
+//            "Ger", "Pascu", "Isla", "Cinta", "Japan",
+//            "Sonar", "Miki", "Cons", "Green", "Black", "Pat", "Azar",
+//            "Batik", "Play", "Monster"};
+////        String[] pass = {"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"};
+//        Integer[] tipoUsuario = {1, 2}; //vigilar que existan estos tipo usuario si no no los crear
+//
+//        for (int i = 0; i < 5; i++) {
+//            oUsuarioBean = new UsuarioBean();
+//            int randDni = randomDni.nextInt(20);
+//            int randNombre = randomNombre.nextInt(20);
+//            int randApe1 = randomApe1.nextInt(20);
+//            int randApe2 = randomApe2.nextInt(20);
+//            int randLogin = randomLogin.nextInt(20);
+//            int randPass = randomPass.nextInt(20);
+//            int randTipoUsuario = randomTipoUsuario.nextInt(2);
+//
+//            oUsuarioBean.setDni(dni[randDni]);
+//            oUsuarioBean.setNombre(nombre[randNombre]);
+//            oUsuarioBean.setApe1(ape1[randApe1]);
+//            oUsuarioBean.setApe2((ape2[randApe2]));
+//            oUsuarioBean.setLogin(login[randLogin]);
+//            oUsuarioBean.setPass("8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92");
+//            oUsuarioBean.setId_tipoUsuario(tipoUsuario[randTipoUsuario]);
+//            alUsuario.add(oUsuarioBean);
+//        }
+//
+//        return alUsuario;
+//    }
     /**
+     * Método LOGIN
      *
-     * @return
-     * @throws Exception
-     */
-    public ReplyBean fill() throws Exception {
-        ReplyBean oReplyBean;
-        if (checkPermission("remove")) {
-            ConnectionInterface oConnectionPool = null;
-            Connection oConnection;
-            ArrayList<UsuarioBean> alUsuarioBean = new ArrayList<UsuarioBean>();
-
-            try {
-                alUsuarioBean = obtenerDatos();
-
-                Gson oGson = new Gson();
-                UsuarioBean oUsuarioBean = new UsuarioBean();
-                oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
-                oConnection = oConnectionPool.newConnection();
-                UsuarioDao oUsuarioDao = new UsuarioDao(oConnection, ob);
-
-                for (UsuarioBean usuarios : alUsuarioBean) {
-                    oUsuarioBean = oUsuarioDao.create(usuarios);
-                }
-                oReplyBean = new ReplyBean(200, oGson.toJson("Usuarios creados correctamente"));
-            } catch (Exception ex) {
-                oReplyBean = new ReplyBean(500,
-                        "ERROR: " + EncodingHelper.escapeQuotes(EncodingHelper.escapeLine(ex.getMessage())));
-            } finally {
-                oConnectionPool.disposeConnection();
-            }
-        } else {
-            oReplyBean = new ReplyBean(401, "Unauthorized");
-        }
-        return oReplyBean;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public ArrayList<UsuarioBean> obtenerDatos() {
-        ArrayList<UsuarioBean> alUsuario = new ArrayList<UsuarioBean>();
-        Random randomDni = new Random();
-        Random randomNombre = new Random();
-        Random randomApe1 = new Random();
-        Random randomApe2 = new Random();
-        Random randomLogin = new Random();
-        Random randomPass = new Random();
-        Random randomTipoUsuario = new Random();
-        UsuarioBean oUsuarioBean;
-
-        String[] dni = {"76294479Y", "35015012L", "02562016T", "85478299H", "22910746D",
-            "84459428R", "07424310W", "03146216T", "01715312H", "56338513J",
-            "87911495K", "03309113B", "36646306S", "15928151F", "14973941K", "42402099N", "40274838K",
-            "87430150C", "33081180G", "54757727V"};
-        String[] nombre = {"ANTONIO", "JOSE", "JUAN", "GERMAN", "MIKEL",
-            "GERARDO", "PASCUAL", "INAKI", "LEO", "GINES",
-            "JOSEFA", "LUCIA", "JULIA", "SUSANA", "EVA", "CATALINA", "DANIELA",
-            "LUISA", "ADRIANA", "ESTEFANIA"};
-        String[] ape1 = {"GONZALEZ", "RODRIGUEZ", "FERNANDEZ", "LOPEZ", "MARTINEZ", "SANCHEZ", "PEREZ", "GOMEZ",
-            "MARTIN", "JIMENEZ", "RUIZ", "HERNANDEZ", "DIAZ", "MUNOZ", "ALVAREZ", "ROMERO", "ALONSO", "GUTIERREZ",
-            "RAMOS", "CASTILLO"};
-        String[] ape2 = {"GONZALEZ", "RODRIGUEZ", "FERNANDEZ", "LOPEZ", "MARTINEZ", "SANCHEZ", "PEREZ", "GOMEZ",
-            "MARTIN", "JIMENEZ", "RUIZ", "HERNANDEZ", "DIAZ", "MUNOZ", "ALVAREZ", "ROMERO", "ALONSO", "GUTIERREZ",
-            "RAMOS", "CASTILLO"};
-        String[] login = {"Ton", "Kitty", "Dog", "Rob", "Cat",
-            "Ger", "Pascu", "Isla", "Cinta", "Japan",
-            "Sonar", "Miki", "Cons", "Green", "Black", "Pat", "Azar",
-            "Batik", "Play", "Monster"};
-//        String[] pass = {"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"};
-        Integer[] tipoUsuario = {1, 2}; //vigilar que existan estos tipo usuario si no no los crear
-
-        for (int i = 0; i < 5; i++) {
-            oUsuarioBean = new UsuarioBean();
-            int randDni = randomDni.nextInt(20);
-            int randNombre = randomNombre.nextInt(20);
-            int randApe1 = randomApe1.nextInt(20);
-            int randApe2 = randomApe2.nextInt(20);
-            int randLogin = randomLogin.nextInt(20);
-            int randPass = randomPass.nextInt(20);
-            int randTipoUsuario = randomTipoUsuario.nextInt(2);
-
-            oUsuarioBean.setDni(dni[randDni]);
-            oUsuarioBean.setNombre(nombre[randNombre]);
-            oUsuarioBean.setApe1(ape1[randApe1]);
-            oUsuarioBean.setApe2((ape2[randApe2]));
-            oUsuarioBean.setLogin(login[randLogin]);
-            oUsuarioBean.setPass("8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92");
-            oUsuarioBean.setId_tipoUsuario(tipoUsuario[randTipoUsuario]);
-            alUsuario.add(oUsuarioBean);
-        }
-
-        return alUsuario;
-    }
-
-    /**
-     *
-     * @return
+     * @return Loguea a un usuario. Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean login() throws Exception {
@@ -373,8 +385,10 @@ public class UsuarioService {
     }
 
     /**
+     * Método LOGOUT
      *
-     * @return
+     * @return Desloguea al usuario activo. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean logout() throws Exception {
@@ -383,8 +397,10 @@ public class UsuarioService {
     }
 
     /**
+     * Método CHECK
      *
-     * @return
+     * @return Chequea si hay usuario logueado o no. Devuelve un ReplyBean con
+     * el resultado.
      * @throws Exception
      */
     public ReplyBean check() throws Exception {
@@ -401,8 +417,10 @@ public class UsuarioService {
     }
 
     /**
+     * Método UPDATE PASS
      *
-     * @return
+     * @return Actualiza la password de un Usuario. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean updatePass() throws Exception {

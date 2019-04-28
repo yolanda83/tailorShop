@@ -19,6 +19,7 @@ public class LineaDao {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oConnection
      * @param ob
@@ -30,11 +31,12 @@ public class LineaDao {
     }
 
     /**
+     * Método GET
      *
      * @param id
      * @param expandProducto
      * @param expandFactura
-     * @return
+     * @return Devuelve una única línea para una factura concreta
      * @throws Exception
      */
     public LineaBean get(int id, Integer expandProducto, Integer expandFactura) throws Exception {
@@ -66,9 +68,11 @@ public class LineaDao {
     }
 
     /**
+     * Método REMOVE
      *
      * @param id
-     * @return
+     * @return Borra una línea concreta de una Factura. Devuelve un resultado
+     * binario: (1) éxito (0) fallo
      * @throws Exception
      */
     public int remove(int id) throws Exception {
@@ -90,9 +94,10 @@ public class LineaDao {
     }
 
     /**
+     * Método GET COUNT
      *
      * @param id
-     * @return
+     * @return Devuelve el nº de líneas para una factura concreta
      * @throws Exception
      */
     public int getcount(int id) throws Exception {
@@ -121,12 +126,11 @@ public class LineaDao {
         return res;
     }
 
-    //cuenta las lineas especificas de una factura
-
     /**
+     * Método GET COUNT ESPECIFIC
      *
      * @param id
-     * @return
+     * @return Devuelve el nº de líneas específicas de una factura
      * @throws Exception
      */
     public int getcountspecific(int id) throws Exception {
@@ -154,9 +158,11 @@ public class LineaDao {
     }
 
     /**
+     * Método CREATE
      *
      * @param oLineaBean
-     * @return
+     * @return Crea una línea para una factura. Devuelve un Bean de Linea
+     * relleno.
      * @throws Exception
      */
     public LineaBean create(LineaBean oLineaBean) throws Exception {
@@ -189,9 +195,11 @@ public class LineaDao {
     }
 
     /**
+     * Método UPDATE
      *
      * @param oLineaBean
-     * @return
+     * @return Actualiza una línea de una factura. Devuelve un resultado
+     * binario: (1) éxito (0) fallo
      * @throws Exception
      */
     public int update(LineaBean oLineaBean) throws Exception {
@@ -218,6 +226,7 @@ public class LineaDao {
     }
 
     /**
+     * Método GET PAGE
      *
      * @param iRpp
      * @param iPage
@@ -225,7 +234,7 @@ public class LineaDao {
      * @param hmOrder
      * @param expandProducto
      * @param expandFactura
-     * @return
+     * @return Devuelve un arrayList con el listado de líneas de una factura.
      * @throws Exception
      */
     public ArrayList<LineaBean> getpage(int iRpp, int iPage, int id, HashMap<String, String> hmOrder, Integer expandProducto, Integer expandFactura) throws Exception {

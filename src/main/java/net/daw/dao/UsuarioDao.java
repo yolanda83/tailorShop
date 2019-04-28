@@ -20,6 +20,7 @@ public class UsuarioDao {
     String ob2 = "tipoUsuario";
 
     /**
+     * Constructor
      *
      * @param oConnection
      * @param ob
@@ -31,10 +32,11 @@ public class UsuarioDao {
     }
 
     /**
+     * Método GET
      *
      * @param id
      * @param expand
-     * @return
+     * @return Devuelve un Bean de un único Usuario
      * @throws Exception
      */
     public UsuarioBean get(int id, Integer expand) throws Exception {
@@ -67,9 +69,11 @@ public class UsuarioDao {
     }
 
     /**
+     * Método REMOVE
      *
      * @param id
-     * @return
+     * @return Borra un usuario. Devuelve un resultado binario: (1) éxito (0)
+     * fallo
      * @throws Exception
      */
     public int remove(int id) throws Exception {
@@ -91,8 +95,9 @@ public class UsuarioDao {
     }
 
     /**
+     * Método GET COUNT
      *
-     * @return
+     * @return Devuelve el total de usuarios en la BBDD
      * @throws Exception
      */
     public int getcount() throws Exception {
@@ -120,9 +125,10 @@ public class UsuarioDao {
     }
 
     /**
+     * Método CREATE
      *
      * @param oUsuarioBean
-     * @return
+     * @return Crea un nuevo usuario. Devuelve un Bean con el usuario relleno.
      * @throws Exception
      */
     public UsuarioBean create(UsuarioBean oUsuarioBean) throws Exception {
@@ -163,9 +169,11 @@ public class UsuarioDao {
     }
 
     /**
+     * Método UPDATE
      *
      * @param oUsuarioBean
-     * @return
+     * @return Actualia y edita un usuario (sin la contraseña). Devuelve un
+     * resultado binario: (1) éxito (0) fallo
      * @throws Exception
      */
     public int update(UsuarioBean oUsuarioBean) throws Exception {
@@ -198,12 +206,13 @@ public class UsuarioDao {
     }
 
     /**
+     * Método GET PAGE
      *
      * @param iRpp
      * @param iPage
      * @param hmOrder
      * @param expand
-     * @return
+     * @return Devuelve un arrayList de Usuarios de la BBDD.
      * @throws Exception
      */
     public ArrayList<UsuarioBean> getpage(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand) throws Exception {
@@ -242,10 +251,12 @@ public class UsuarioDao {
     }
 
     /**
+     * Método LOGIN
      *
      * @param strUserName
      * @param strPassword
-     * @return
+     * @return Devuelve un Bean relleno con el usuario que se ha logueado (si el
+     * login es exitoso)
      * @throws Exception
      */
     public UsuarioBean login(String strUserName, String strPassword) throws Exception {
@@ -278,6 +289,7 @@ public class UsuarioDao {
     }
 
     /**
+     * Método UPDATE PASS Actualiza la contraseña de un usuario.
      *
      * @param lastPass
      * @param newPass
@@ -318,9 +330,11 @@ public class UsuarioDao {
     }
 
     /**
+     * Método UPDATE CON PASS
      *
      * @param oUsuarioBean
-     * @return
+     * @return Actualiza un usuario y su password. Devuelve un resultado
+     * binario: (1) éxito (0) fallo
      * @throws Exception
      */
     public int updateconpass(UsuarioBean oUsuarioBean) throws Exception {

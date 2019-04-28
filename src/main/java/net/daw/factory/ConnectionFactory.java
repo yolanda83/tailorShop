@@ -14,9 +14,11 @@ import net.daw.constant.ConnectionConstants;
 public class ConnectionFactory {
 
     /**
+     * Método GET CONNECTION
      *
      * @param enumConnection
-     * @return
+     * @return Devuelve un ConnectionInterface con uno de los 4 pools de
+     * conexiones establecidos
      */
     public static ConnectionInterface getConnection(ConnectionConstants.EnumConstans enumConnection) {
         ConnectionInterface oConnectionInterface = null;

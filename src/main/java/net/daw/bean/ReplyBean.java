@@ -9,7 +9,7 @@ public class ReplyBean {
     private int status;
     private String json;
 
-    /**
+    /** Constructor
      *
      * @param status
      * @param json
@@ -22,7 +22,7 @@ public class ReplyBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de Status
      */
     public int getStatus() {
         return status;
@@ -30,7 +30,7 @@ public class ReplyBean {
 
     /**
      *
-     * @param status
+     * @param status Asigna un valor a Status
      */
     public void setStatus(int status) {
         this.status = status;
@@ -38,7 +38,7 @@ public class ReplyBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del JSON
      */
     public String getJson() {
         return json;
@@ -46,7 +46,7 @@ public class ReplyBean {
 
     /**
      *
-     * @param json
+     * @param json Asigna un valor al JSON
      */
     public void setJson(String json) {
         this.json = json;

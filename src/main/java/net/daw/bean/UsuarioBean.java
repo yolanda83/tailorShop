@@ -38,7 +38,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de Nº de Facturas del Usuario
      */
     public int getNumFacturas() {
         return numFacturas;
@@ -46,7 +46,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @param numFacturas
+     * @param numFacturas Asigna un valor al Nº de Facturas del Usuario
      */
     public void setNumFacturas(int numFacturas) {
         this.numFacturas = numFacturas;
@@ -54,15 +54,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @return
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     *
-     * @return
+     * @return Devuelve el valor de obj_tipoUsuario
      */
     public TipousuarioBean getObj_tipoUsuario() {
         return obj_tipoUsuario;
@@ -70,7 +62,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @param obj_tipoUsuario
+     * @param obj_tipoUsuario Asigna un valor a obj_tipoUsuario
      */
     public void setObj_tipoUsuario(TipousuarioBean obj_tipoUsuario) {
         this.obj_tipoUsuario = obj_tipoUsuario;
@@ -78,7 +70,15 @@ public class UsuarioBean {
 
     /**
      *
-     * @param id
+     * @return Devuelve el valor de Id Usuario
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     *
+     * @param id Asigna un valor al Id de Usuario
      */
     public void setId(int id) {
         this.id = id;
@@ -86,7 +86,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del DNI del Usuario
      */
     public String getDni() {
         return dni;
@@ -94,7 +94,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @param dni
+     * @param dni Asigna un valor al DNI del Usuario
      */
     public void setDni(String dni) {
         this.dni = dni;
@@ -102,7 +102,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del Nombre del Usuario
      */
     public String getNombre() {
         return nombre;
@@ -110,7 +110,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @param nombre
+     * @param nombre Asigna un valor al Nombre del Usuario
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -118,7 +118,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del Primer Apellido del Usuario
      */
     public String getApe1() {
         return ape1;
@@ -126,7 +126,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @param ape1
+     * @param ape1 Asigna un valor al Primer Apellido del Usuario
      */
     public void setApe1(String ape1) {
         this.ape1 = ape1;
@@ -134,7 +134,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del Segundo Apellido del Usuario
      */
     public String getApe2() {
         return ape2;
@@ -142,7 +142,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @param ape2
+     * @param ape2 Asigna un valor al Segundo Apellido del Usuario
      */
     public void setApe2(String ape2) {
         this.ape2 = ape2;
@@ -150,7 +150,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del Login de Usuario
      */
     public String getLogin() {
         return login;
@@ -158,7 +158,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @param login
+     * @param login Asigna un valor al Login de Usuario
      */
     public void setLogin(String login) {
         this.login = login;
@@ -166,7 +166,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de la contraseña del Usuario
      */
     public String getPass() {
         return pass;
@@ -174,7 +174,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @param pass
+     * @param pass Asigna un valor a la contraseña de Usuario
      */
     public void setPass(String pass) {
         this.pass = pass;
@@ -182,7 +182,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de id_tipoUsuario
      */
     public int getId_tipoUsuario() {
         return id_tipoUsuario;
@@ -190,7 +190,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @param id_tipoUsuario
+     * @param id_tipoUsuario Asigna un valor a id_tipoUsuario
      */
     public void setId_tipoUsuario(int id_tipoUsuario) {
         this.id_tipoUsuario = id_tipoUsuario;
@@ -198,7 +198,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de la Foto del Usuario
      */
     public String getFoto() {
         return foto;
@@ -206,7 +206,7 @@ public class UsuarioBean {
 
     /**
      *
-     * @param foto
+     * @param foto Asigna un valor a la Foto del Usuario
      */
     public void setFoto(String foto) {
         this.foto = foto;
@@ -217,7 +217,7 @@ public class UsuarioBean {
      * @param oResultSet
      * @param oConnection
      * @param expand
-     * @return
+     * @return A partir de ResultSet, rellena un POJO completo de Usuario
      * @throws Exception
      */
     public UsuarioBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {

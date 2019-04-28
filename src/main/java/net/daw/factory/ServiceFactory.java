@@ -19,9 +19,10 @@ import net.daw.service.UsuarioService;
 public class ServiceFactory {
 
     /**
+     * MÉTODO EXECUTE SERVICE
      *
      * @param oRequest
-     * @return
+     * @return Devuelve un ReplyBean que se manda al servlet y al Cliente
      * @throws Exception
      */
     public static ReplyBean executeService(HttpServletRequest oRequest) throws Exception {
@@ -104,9 +105,9 @@ public class ServiceFactory {
                     case "getpage":
                         oReplyBean = oUsuarioService.getpage();
                         break;
-                    case "fill":
-                        oReplyBean = oUsuarioService.fill();
-                        break;
+//                    case "fill":
+//                        oReplyBean = oUsuarioService.fill();
+//                        break;
                     case "login":
                         oReplyBean = oUsuarioService.login();
                         break;
@@ -216,9 +217,9 @@ public class ServiceFactory {
                     case "getbusqueda":
                         oReplyBean = oProductoService.getbusqueda();
                         break;
-                    case "loaddata":
-                        oReplyBean = oProductoService.loaddata();
-                        break;
+//                    case "loaddata":
+//                        oReplyBean = oProductoService.loaddata();
+//                        break;
                     case "addimage":
                         oReplyBean = oProductoService.addimage();
                         break;

@@ -17,7 +17,7 @@ public class TipousuarioBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de Id Tipo Usuario
      */
     public int getId() {
         return id;
@@ -25,7 +25,7 @@ public class TipousuarioBean {
 
     /**
      *
-     * @param id
+     * @param id Asigna un valor a Id Tipo Usuario
      */
     public void setId(int id) {
         this.id = id;
@@ -33,7 +33,7 @@ public class TipousuarioBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de Descripción de Tipo Usuario
      */
     public String getDesc() {
         return desc;
@@ -41,7 +41,7 @@ public class TipousuarioBean {
 
     /**
      *
-     * @param desc
+     * @param desc Asigna un valor a Descripción Tipo Usuario
      */
     public void setDesc(String desc) {
         this.desc = desc;
@@ -52,7 +52,7 @@ public class TipousuarioBean {
      * @param oResultSet
      * @param oConnection
      * @param expand
-     * @return
+     * @return A partir de ResultSet, rellena un POJO completo de Tipo Usuario
      * @throws Exception
      */
     public TipousuarioBean fill(ResultSet oResultSet, Connection oConnection, Integer expand) throws Exception {

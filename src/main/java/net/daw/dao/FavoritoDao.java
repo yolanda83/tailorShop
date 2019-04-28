@@ -19,6 +19,7 @@ public class FavoritoDao {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oConnection
      * @param ob
@@ -30,10 +31,12 @@ public class FavoritoDao {
     }
 
     /**
+     * Método REMOVE
      *
      * @param idProducto
      * @param idUsuario
-     * @return
+     * @return Borra un Favorito. Devuelve un resultado binario: (1) éxito (0)
+     * fallo.
      * @throws Exception
      */
     public int remove(int idProducto, int idUsuario) throws Exception {
@@ -56,9 +59,10 @@ public class FavoritoDao {
     }
 
     /**
+     * Método GET COUNT FAVORITOS
      *
      * @param id
-     * @return
+     * @return Devuelve el nº total de favoritos que tiene un usuario concreto
      * @throws Exception
      */
     public int getcountfav(int id) throws Exception {
@@ -90,10 +94,12 @@ public class FavoritoDao {
     }
 
     /**
+     * Método CREATE
      *
      * @param idProducto
      * @param idUsuario
-     * @return
+     * @return Crea un usuario. Devuelve un resultado binario: (1) éxito (0)
+     * fallo.
      * @throws Exception
      */
     public int create(int idProducto, int idUsuario) throws Exception {
@@ -116,13 +122,15 @@ public class FavoritoDao {
     }
 
     /**
+     * Método GET FAVORITOS
      *
      * @param iRpp
      * @param iPage
      * @param hmOrder
      * @param expand
      * @param id
-     * @return
+     * @return Devuelve un arrayList de todos los favoritos de un usuario
+     * concreto
      * @throws Exception
      */
     public ArrayList<ProductoBean> getfavoritos(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand, int id) throws Exception {
@@ -170,10 +178,12 @@ public class FavoritoDao {
     }
 
     /**
+     * Método GET
      *
      * @param idProducto
      * @param idUsuario
-     * @return
+     * @return Devuelve un resultado binario: (1) éxito (0) fallo para
+     * determinar si un favorito está repetido para el usuario
      * @throws Exception
      */
     public int get(int idProducto, int idUsuario) throws Exception {

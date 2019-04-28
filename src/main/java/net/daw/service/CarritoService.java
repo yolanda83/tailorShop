@@ -33,6 +33,7 @@ public class CarritoService implements Serializable {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oRequest
      */
@@ -43,9 +44,11 @@ public class CarritoService implements Serializable {
     }
 
     /**
+     * Método CHECK PERMISSION
      *
      * @param operacion
-     * @return
+     * @return Devuelve TRUE si los permisos son correctos. FALSE si no hay
+     * autorización.
      */
     protected Boolean checkPermission(String operacion) {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
@@ -53,8 +56,10 @@ public class CarritoService implements Serializable {
     }
 
     /**
+     * Método ADD
      *
-     * @return
+     * @return Añade productos al carrito. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean add() throws Exception {
@@ -126,8 +131,10 @@ public class CarritoService implements Serializable {
     }
 
     /**
+     * Método REDUCE
      *
-     * @return
+     * @return Elimina 1 de cantidad del carrito. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean reduce() throws Exception {
@@ -185,8 +192,10 @@ public class CarritoService implements Serializable {
     }
 
     /**
+     * Método Remove
      *
-     * @return
+     * @return Elimina un producto del carrito. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean remove() throws Exception {
@@ -234,8 +243,10 @@ public class CarritoService implements Serializable {
     }
 
     /**
+     * Método EMPTY
      *
-     * @return
+     * @return Vacía el carrito por completo. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean empty() throws Exception {
@@ -251,8 +262,10 @@ public class CarritoService implements Serializable {
     }
 
     /**
+     * Método SHOW
      *
-     * @return
+     * @return Muestra los productos en el carrito. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean show() throws Exception {
@@ -267,8 +280,10 @@ public class CarritoService implements Serializable {
     }
 
     /**
+     * Método BUY
      *
-     * @return
+     * @return Realiza la compra final con los productos que hay en el carrito.
+     * Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean buy() throws Exception {

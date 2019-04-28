@@ -17,9 +17,9 @@ public class HikariConnectionSpecificImplementation implements ConnectionInterfa
     private Connection oConnection;
     private HikariDataSource oConnectionPool;
 
-    /**
+    /** Crea una conexión de BBDD
      *
-     * @return
+     * @return Devuelve una conexión de BBDD
      * @throws Exception
      */
     public Connection newConnection() throws Exception {
@@ -50,7 +50,7 @@ public class HikariConnectionSpecificImplementation implements ConnectionInterfa
 
     }
 
-    /**
+    /** Cierra la conexión de BBDD
      *
      * @throws Exception
      */

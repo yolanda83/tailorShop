@@ -8,14 +8,14 @@ import java.sql.Connection;
  */
 public interface ConnectionInterface {
 
-    /**
+    /** Crea una nueva conexión a BBDD
      *
-     * @return
+     * @return Devuelve una nueva conexión a BBDD
      * @throws Exception
      */
     public Connection newConnection() throws Exception;
 
-    /**
+    /** Cierra la conexión de BBDD
      *
      * @throws Exception
      */

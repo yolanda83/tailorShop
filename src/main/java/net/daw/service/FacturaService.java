@@ -24,6 +24,7 @@ public class FacturaService {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oRequest
      */
@@ -34,9 +35,11 @@ public class FacturaService {
     }
 
     /**
+     * Método CHECK PERMISSION
      *
      * @param operacion
-     * @return
+     * @return Devuelve TRUE si los permisos son correctos. FALSE si no hay
+     * autorización.
      */
     protected Boolean checkPermission(String operacion) {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
@@ -67,8 +70,10 @@ public class FacturaService {
     }
 
     /**
+     * Método GET
      *
-     * @return
+     * @return Obtiene una única factura. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean get() throws Exception {
@@ -94,8 +99,9 @@ public class FacturaService {
     }
 
     /**
+     * Método REMOVE
      *
-     * @return
+     * @return Borra una factura. Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean remove() throws Exception {
@@ -123,8 +129,10 @@ public class FacturaService {
     }
 
     /**
+     * Método GET COUNT
      *
-     * @return
+     * @return Cuenta el nº de Facturas existentes. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean getcount() throws Exception {
@@ -153,8 +161,10 @@ public class FacturaService {
     }
 
     /**
+     * Método GET COUNT SPECIFIC
      *
-     * @return
+     * @return Cuenta el nº de Facturas existentes. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean getcountspecific() throws Exception {
@@ -180,8 +190,9 @@ public class FacturaService {
     }
 
     /**
+     * Método CREATE
      *
-     * @return
+     * @return Crea una factura. Devuelve un ReplyBean con el resultado.
      * @throws Exception
      */
     public ReplyBean create() throws Exception {
@@ -211,8 +222,10 @@ public class FacturaService {
     }
 
     /**
+     * Método UPDATE
      *
-     * @return
+     * @return Actualiza datos de una factura. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean update() throws Exception {
@@ -243,8 +256,10 @@ public class FacturaService {
     }
 
     /**
+     * Método GETPAGE
      *
-     * @return
+     * @return Trae un listado de facturas en la BBDD. Devuelve un ReplyBean con
+     * el resultado.
      * @throws Exception
      */
     public ReplyBean getpage() throws Exception {

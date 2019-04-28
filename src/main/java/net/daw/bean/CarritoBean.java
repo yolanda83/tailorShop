@@ -16,7 +16,7 @@ public class CarritoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de obj_producto
      */
     public ProductoBean getObj_producto() {
         return obj_producto;
@@ -24,7 +24,7 @@ public class CarritoBean {
 
     /**
      *
-     * @param obj_producto
+     * @param obj_producto Asigna un valor a obj_producto
      */
     public void setObj_producto(ProductoBean obj_producto) {
         this.obj_producto = obj_producto;
@@ -32,7 +32,7 @@ public class CarritoBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de Cantidad
      */
     public int getCantidad() {
         return cantidad;
@@ -40,7 +40,7 @@ public class CarritoBean {
 
     /**
      *
-     * @param cantidad
+     * @param cantidad Asigna un valor a Cantidad
      */
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;

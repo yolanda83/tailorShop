@@ -16,9 +16,9 @@ public class DBCPConnectionSpecificImplementation implements ConnectionInterface
     private Connection oConnection;
     private BasicDataSource config;
 
-    /**
+    /** Crea una conexión de BBDD
      *
-     * @return
+     * @return Devuelve una conexión de BBDD
      * @throws Exception
      */
     public Connection newConnection() throws Exception {
@@ -38,7 +38,7 @@ public class DBCPConnectionSpecificImplementation implements ConnectionInterface
         }
     }
 
-    /**
+    /** Cierra la conexión de BBDD
      *
      * @throws Exception
      */

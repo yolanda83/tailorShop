@@ -31,7 +31,7 @@ public class FacturaBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del Id Usuario de la factura
      */
     public int getId_usuario() {
         return id_usuario;
@@ -39,7 +39,7 @@ public class FacturaBean {
 
     /**
      *
-     * @param id_usuario
+     * @param id_usuario Asigna un valor al Id Usuario de la factura
      */
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
@@ -47,7 +47,7 @@ public class FacturaBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del Nº de Líneas de la Factura
      */
     public int getNumLineas() {
         return numLineas;
@@ -55,7 +55,7 @@ public class FacturaBean {
 
     /**
      *
-     * @param numLineas
+     * @param numLineas Asigna un valor a Nº de Líneas
      */
     public void setNumLineas(int numLineas) {
         this.numLineas = numLineas;
@@ -63,7 +63,7 @@ public class FacturaBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor del Id de la Factura
      */
     public int getId() {
         return id;
@@ -71,7 +71,7 @@ public class FacturaBean {
 
     /**
      *
-     * @param id
+     * @param id Asigna un valor a Id de Factura
      */
     public void setId(int id) {
         this.id = id;
@@ -79,7 +79,7 @@ public class FacturaBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de Fecha
      */
     public Date getFecha() {
         return fecha;
@@ -87,7 +87,7 @@ public class FacturaBean {
 
     /**
      *
-     * @param fecha
+     * @param fecha Asigna un valor a Fecha
      */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
@@ -95,7 +95,7 @@ public class FacturaBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de Iva
      */
     public double getIva() {
         return iva;
@@ -103,7 +103,7 @@ public class FacturaBean {
 
     /**
      *
-     * @param iva
+     * @param iva Asigna un valor a Iva
      */
     public void setIva(double iva) {
         this.iva = iva;
@@ -111,7 +111,7 @@ public class FacturaBean {
 
     /**
      *
-     * @return
+     * @return Devuelve el valor de obj_usuario
      */
     public UsuarioBean getObj_usuario() {
         return obj_usuario;
@@ -119,7 +119,7 @@ public class FacturaBean {
 
     /**
      *
-     * @param obj_usuario
+     * @param obj_usuario Asigna un valor a obj_usuario
      */
     public void setObj_usuario(UsuarioBean obj_usuario) {
         this.obj_usuario = obj_usuario;
@@ -130,7 +130,7 @@ public class FacturaBean {
      * @param oResultSet
      * @param oConnection
      * @param expand
-     * @return
+     * @return A partir de ResultSet, rellena un POJO completo de Factura
      * @throws SQLException
      * @throws Exception
      */
@@ -150,7 +150,7 @@ public class FacturaBean {
 
     /**
      *
-     * @return
+     * @return Obtiene las columnas de la tabla de BBDD
      */
     public String getColumns() {
         String strColumns = "";
@@ -163,7 +163,7 @@ public class FacturaBean {
 
     /**
      *
-     * @return
+     * @return Obtiene los valores recogidos en formulario y los guarda en una estructura para la sentencia SQL CREATE
      */
     public String getValues() {
         //Getting the default zone id
@@ -189,7 +189,7 @@ public class FacturaBean {
 
     /**
      *
-     * @return
+     * @return Obtiene los valores recogidos en formulario y los guarda en una estructura para la sentencia SQL UPDATE
      */
     public String getPairs() {
 

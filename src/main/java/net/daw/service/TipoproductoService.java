@@ -29,6 +29,7 @@ public class TipoproductoService {
     String ob = null;
 
     /**
+     * Constructor
      *
      * @param oRequest
      */
@@ -39,8 +40,10 @@ public class TipoproductoService {
     }
 
     /**
+     * Método CHECK PERMISSION
      *
-     * @return
+     * @return Devuelve TRUE si los permisos son correctos. FALSE si no hay
+     * autorización.
      */
     protected Boolean checkPermission() {
         UsuarioBean oUsuarioBean = (UsuarioBean) oRequest.getSession().getAttribute("user");
@@ -53,8 +56,10 @@ public class TipoproductoService {
     }
 
     /**
+     * Método GET
      *
-     * @return
+     * @return Obtiene un único Tipo de Producto. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean get() throws Exception {
@@ -83,8 +88,10 @@ public class TipoproductoService {
     }
 
     /**
+     * Método REMOVE
      *
-     * @return
+     * @return Borra un Tipo de Producto. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean remove() throws Exception {
@@ -112,8 +119,10 @@ public class TipoproductoService {
     }
 
     /**
+     * Método GET COUNT
      *
-     * @return
+     * @return Cuenta el total de Tipos de Producto. Devuelve un ReplyBean con
+     * el resultado.
      * @throws Exception
      */
     public ReplyBean getcount() throws Exception {
@@ -141,8 +150,10 @@ public class TipoproductoService {
     }
 
     /**
+     * Método CREATE
      *
-     * @return
+     * @return Crea un nuevo Tipo de Producto. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean create() throws Exception {
@@ -172,8 +183,10 @@ public class TipoproductoService {
     }
 
     /**
+     * Método UPDATE
      *
-     * @return
+     * @return Edita un Tipo de Producto. Devuelve un ReplyBean con el
+     * resultado.
      * @throws Exception
      */
     public ReplyBean update() throws Exception {
@@ -204,8 +217,10 @@ public class TipoproductoService {
     }
 
     /**
+     * Método GET PAGE
      *
-     * @return
+     * @return Devuelve un listado de Tipos de Producto. Devuelve un ReplyBean
+     * con el resultado.
      * @throws Exception
      */
     public ReplyBean getpage() throws Exception {
