@@ -14,7 +14,7 @@ moduleProducto.controller('productoViewController', ['$scope', '$http', 'toolSer
             $scope.ajaxData = response.data.message;
 
             if ($scope.ajaxData.novedad == true) {
-                $scope.novedad = 'S�';
+                $scope.novedad = 'Si';
             } else {
                 $scope.novedad = 'No';
             }

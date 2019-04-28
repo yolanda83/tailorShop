@@ -53,7 +53,7 @@
         <!--Seccion Administración-->
         <div class="nav-item"  ng-show="c.isAdmin">
             <div class="dropdown" ng-show="c.isAdmin">
-                <button class="btn btn-secondary dropdown-toggle ml-0" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                <button class="btn btn-secondary dropdown-toggle ml-0 login-register" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" style="text-transform: capitalize;">
                     Administración
                 </button>
@@ -178,7 +178,7 @@
                 <form name="userForm" class="px-4 py-3">
                     <div class="form-group">
                         <label for="login">Nombre de usuario:</label>
-                        <input id="login" type="text" class="form-control" ng-class="{
+                        <input id="login" type="text" class="form-control login-register" ng-class="{
                                 ' is-invalid': userForm.login.$invalid && !userForm.login.$pristine}"
                                name="login" ng-model="login" ng-required="true" placeholder="Usuario"/>
                         <div ng-show="!userForm.login.$valid && userForm.login.$dirty && !userForm.login.$pristine" class="alert alert-danger" role="alert">
@@ -212,7 +212,7 @@
         <!--Boton logout-->
         <div class="nav-item"  ng-show="c.logeado">
             <div class="dropdown" >
-                <button class="btn btn-secondary dropdown-toggle ml-0" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                <button class="btn btn-secondary dropdown-toggle ml-0 login-register" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" style="text-transform: capitalize;">
                     {{c.usuario}}
                 </button>

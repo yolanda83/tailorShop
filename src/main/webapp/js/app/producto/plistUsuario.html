@@ -27,7 +27,8 @@
                             <img ng-src="http://localhost:8081/imagenesPatchwork/{{producto.producto.foto}}" alt="foto" class="card-img-top" style="width: 250px;" >
                             <div class="card-body mx-auto">
                                 <h3 class="h5 card-title">{{producto.producto.desc}}</h3>
-                                <p class="card-text">Precio: {{producto.producto.precio}} € el metro</p>
+                                <p ng-show="tipo != 1" class="card-text">Precio: {{producto.producto.precio}} €</p>
+                                <p ng-show="tipo == 1" class="card-text">Precio: {{producto.producto.precio}} €/metro</p>
 
                                 <div ng-show="producto.producto.existencias > 0">
                                     <button type="button" class="botonAdmin ml-0 btn btn-outline-dark add-to-cart{{$index}}" ng-click="save(producto, this)">
@@ -40,7 +41,7 @@
                                 <div class="row" ng-show="producto.producto.existencias <= 0">
                                     <div class="col-12">
                                         <div class="alert alert-danger mb-0" style="border-radius: 5px" role="alert">
-                                            Sin existencias!
+                                            ¡Sin existencias!
                                         </div>
                                     </div>
                                 </div>
