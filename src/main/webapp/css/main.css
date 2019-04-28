@@ -495,6 +495,13 @@ a.enlacefa {
 }
 
 
+/**************** PRODUCTOS ****************/
+
+.row.no-gutters.productos-flex {
+    display: flex;
+    justify-content: center;
+}
+
 
 
 /************ SIGN IN / SIGN UP (FORMULARIO) ************/

@@ -1,0 +1,89 @@
+/*****************************************
+----- CONDICIONALES DE MEDIA QUERIES -----
+******************************************/
+
+/* Medium devices (tablets, 768px and down)*/
+@media screen and (max-width: 768px) { 
+
+    /*Header*/
+    .dropdown-menu-right {
+        left: 0;
+        right: auto;
+    }
+
+    div#ballMenuContainer {
+        position: relative;
+        right: 25px;
+    }
+
+    .dropdown-menu.dropdown-menu-left.show {
+        width: 200px;
+    }
+
+    .nav-margin {
+        padding: 0;
+    }
+
+    .dropdown-nav {
+        margin-bottom: 15px;
+    }
+
+    /*Home*/
+    .logo {
+        width: 120px;
+    }
+
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.pl-0 {
+        padding-left: 30px!important;
+    }
+
+    .btn-group>.btn:first-child {
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+
+
+    /*Productos*/
+    .margen-titulo {
+        padding-left: 120px;
+    }
+
+    .productos-flex {
+        display: flex;
+        justify-content: center;
+    }
+
+    /*Footer*/
+    .terminosFooter {
+        margin-left: 0; 
+    }
+
+    .textoTailor {
+        margin-left: 45px;
+    }
+
+    .margen-footer {
+        display: none;
+    }
+
+    .all-footer {
+        text-align: center;
+    }
+
+    .textoFooter.mb-5.mx-auto.text-center {
+        margin-bottom: 10px!important;
+    }
+
+    .contenedorBotones.mx-auto {
+        margin-bottom: 15px;
+    }
+
+}
+
+@media screen and (max-width: 1250px) { 
+
+    th .dni {
+        margin: 20px;
+    }
+
+}
