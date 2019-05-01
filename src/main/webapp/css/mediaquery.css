@@ -53,6 +53,17 @@
         justify-content: center;
     }
 
+    .centrar-productos {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    /*Admin*/
+    .botonAdmin {
+        margin-bottom: 10px;
+    }
+
     /*Footer*/
     .terminosFooter {
         margin-left: 0; 

@@ -504,6 +504,7 @@ a.enlacefa {
 
 
 
+
 /************ SIGN IN / SIGN UP (FORMULARIO) ************/
 
 *,:after,:before{box-sizing:border-box}
@@ -756,6 +757,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
     background: url("https://d3u3xhd9tobx8a.cloudfront.net/static/global/back_topMOBILE_desat.png");
     font-family: 'Yantramanav', sans-serif;
     font-size: 45px;
+    padding-left: 230px;
 }
 
 
